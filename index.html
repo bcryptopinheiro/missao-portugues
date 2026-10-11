@@ -768,6 +768,16 @@ function home(){
     });
     box.append(sec);
   });
+  /* apagar tudo: respostas, estrelas, XP, vidas, rascunhos e checklist */
+  const wipe = document.createElement("div"); wipe.className="btns"; wipe.style.justifyContent="center";
+  const wb = document.createElement("button"); wb.className="btn nob"; wb.textContent="Apagar todo o progresso";
+  wb.onclick = ()=>{
+    if(!confirm("Apagar TODO o progresso? Perdes as respostas, as estrelas, o XP e os rascunhos. Não dá para desfazer.")) return;
+    try{ Object.keys(localStorage).filter(x=>x.startsWith("mp11")).forEach(x=>localStorage.removeItem(x)); }catch(e){}
+    S = {xp:0, ans:{}, stars:{}, hp:{}, best:0};
+    home(); window.scrollTo(0,0);
+  };
+  wipe.append(wb); box.append(wipe);
   document.getElementById("home").hidden=false;
   document.getElementById("mission").hidden=true;
   updXP();
@@ -956,12 +966,17 @@ function openM(L,i,m,lv){
       bar.innerHTML = `${heartsHTML(S.hp[k],5)}<span style="color:var(--muted)">Concluída</span>${stars(S.stars[k]||0)}`;
     }
   }
-  function reset(){ keys.forEach(x=>delete S.ans[x]); S.hp[k]=5; save(); openM(L,i,m,lv); }
+  function reset(){ keys.forEach(x=>{ delete S.ans[x]; try{ localStorage.removeItem("mp11b_"+x); }catch(e){} }); S.hp[k]=5; save(); openM(L,i,m,lv); }
+  /* recomeçar a qualquer momento: apaga só as respostas desta estação (o XP e as estrelas ficam) */
+  const rs = document.createElement("div"); rs.className="btns"; rs.style.margin="0 0 12px";
+  const rsb = document.createElement("button"); rsb.className="btn ghost"; rsb.textContent="↺ Recomeçar estação";
+  rsb.onclick = ()=>{ if(confirm("Recomeçar esta estação? As respostas desta estação são apagadas (o XP e as estrelas ficam).")) reset(); };
+  rs.append(rsb);
   dead.innerHTML = `<b>Ficaste sem vidas 💔</b><p>Relê a lição (o truque resolve quase tudo) e recomeça a estação.</p>`;
   const rb = document.createElement("button"); rb.className="btn"; rb.textContent="Rever a lição e recomeçar"; rb.onclick=reset; dead.append(rb);
   const ctx = { dead:()=>S.hp[k]<=0, onAnswer:(ok)=>{ if(!ok){ S.hp[k]=Math.max(0,S.hp[k]-1); save(); } refresh(); } };
   list.forEach((x,n)=> qs.append(qBlock(x.q, m.id+":"+x.j, n+1, ctx)));
-  sec.append(h3, qs, dead, sc, navBtns(L,i)); refresh();
+  sec.append(h3, rs, qs, dead, sc, navBtns(L,i)); refresh();
 }
 
 /* ===== Justifica ===== */
