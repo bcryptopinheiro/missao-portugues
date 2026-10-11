@@ -80,7 +80,10 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px soli
 .rows{display:grid;gap:8px}
 .r{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:10px;padding:8px 0;border-top:1px dashed var(--line)}
 .r b{color:var(--mc)}
-.grp{font-family:var(--display);font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--mc);padding-top:10px}
+.r span b{color:var(--ink)}
+.r.sec{border-top:2px solid var(--mc);padding-top:10px;margin-top:6px}
+.r.sec b{text-transform:uppercase;letter-spacing:.06em;font-size:14px}
+.r.sec span{color:var(--muted);font-size:15px}
 .r span{min-width:0}
 @media (max-width:520px){.r{grid-template-columns:1fr;gap:2px}}
 .tip{background:var(--bg);border-radius:10px;padding:10px 12px;font-size:16px}
@@ -137,11 +140,73 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px soli
 .check label{display:flex;gap:8px;align-items:flex-start}
 .check input{margin-top:5px;accent-color:var(--pink)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* mapa de linhas (metro) */
+.lines{display:flex;flex-direction:column;gap:14px}
+.line{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px 14px}
+.lhead{display:flex;align-items:center;gap:8px;justify-content:space-between;flex-wrap:wrap;margin-bottom:10px}
+.lhead .ln{display:flex;align-items:center;gap:8px;min-width:0}
+.lhead .ln i{flex:none;width:14px;height:14px;border-radius:50%;background:var(--mc)}
+.lhead .ln b{font-family:var(--display);font-size:18px}
+.lhead .ln small{color:var(--mc);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.lhead .ls{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.stations{position:relative;display:flex;gap:8px;flex-wrap:wrap}
+.stations::before{content:"";position:absolute;left:16px;right:16px;top:17px;height:5px;border-radius:9px;background:var(--mc);opacity:.35}
+.st{position:relative;flex:1 1 92px;min-width:88px;background:none;border:0;padding:0;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.st .node{width:36px;height:36px;border-radius:50%;background:var(--surface);border:4px solid var(--mc);display:grid;place-items:center;font-weight:800;font-size:15px;color:var(--mc);transition:transform .15s}
+.st:hover .node{transform:scale(1.08)}
+.st.full .node{background:var(--mc);color:var(--surface)}
+.st .sl{font-size:14px;font-weight:700;line-height:1.2}
+.st .ss{font-size:13px;color:var(--muted);letter-spacing:1px}
+.st .ss .on{color:#e8a800}
+@media (max-width:560px){.line{padding:10px 10px 12px}.lhead .ln b{font-size:16px}.st{flex-basis:76px;min-width:72px}.st .sl{font-size:13px}}
+
+/* estado no topo */
+.chips{display:flex;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-top:4px}
+.hearts{font-size:20px;letter-spacing:2px}
+.hearts .off{opacity:.2;filter:grayscale(1)}
+.stbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:12px}
+.lvb{white-space:nowrap;font-size:12px;font-weight:700;border-radius:99px;padding:2px 9px;letter-spacing:.03em}
+.lvb.l1{background:var(--okbg);color:var(--ok)}
+.lvb.l2{background:#fff1d6;color:#9a6200}
+.lvb.l3{background:var(--badbg);color:var(--bad)}
+:root[data-theme="dark"] .lvb.l2{background:#3d2f10;color:#f0b24a}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .lvb.l2{background:#3d2f10;color:#f0b24a}}
+.q .n{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+details.lesson{margin-bottom:18px}
+details.lesson summary{cursor:pointer;font-weight:700;color:var(--mc);padding:8px 0}
+.dead{background:var(--badbg);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+
+/* novos tipos */
+.mrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center;padding:6px 0;border-top:1px dashed var(--line)}
+@media (max-width:520px){.mrow{grid-template-columns:1fr}}
+select{font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:7px 9px;max-width:100%}
+select.right{border-color:var(--ok);background:var(--okbg)}
+select.wrong{border-color:var(--bad);background:var(--badbg)}
+.fill{line-height:2.4}
+.chunks{display:flex;flex-wrap:wrap;gap:6px}
+.chunk{background:var(--bg);border:2px solid var(--line);border-radius:8px;padding:5px 9px}
+.chunk.right{border-color:var(--ok);background:var(--okbg)}
+.chunk.wrong{border-color:var(--bad);background:var(--badbg)}
+mark{background:var(--hl);color:inherit;padding:0 3px;border-radius:3px}
+
+/* justifica */
+.crit{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.crit label{display:flex;gap:8px;align-items:flex-start}
+.crit input{margin-top:5px;accent-color:var(--pink)}
+.model{background:var(--okbg);border-radius:10px;padding:10px 12px}
+
+/* cábula */
+.cab{display:grid;gap:12px}
+.cab section{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--mc);border-radius:12px;padding:12px 14px}
+.cab h3{margin-bottom:6px}
+.cab ul{margin:0;padding-left:20px;display:grid;gap:3px}
+@media print{.stbar,.back,.btns{display:none}}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
-
-<noscript><p style="padding:16px;font-weight:700">Este jogo precisa de JavaScript. Abre o ficheiro no Chrome ou no Safari (não na pré-visualização do WhatsApp).</p></noscript>
+<noscript><p style="padding:16px;font-weight:700">Este jogo precisa de JavaScript. Abre o link no Chrome ou no Safari (não na pré-visualização do WhatsApp).</p></noscript>
 <div class="wrap">
   <header class="top">
     <div>
@@ -151,512 +216,831 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px soli
     <div class="xp" aria-live="polite">
       <div class="xp-row"><span>Pontos de estudo</span><span id="xpTxt">0 XP</span></div>
       <div class="bar"><i id="xpBar"></i></div>
-      <div class="xp-row" style="margin-top:4px"><span id="lvl">Nível 1 · Aprendiz</span><span id="prog">0 / 0</span></div>
+      <div class="xp-row" style="margin-top:4px"><span id="lvl">Nível 1 · Aprendiz</span><span id="starsTxt">★ 0</span></div>
     </div>
   </header>
 
   <main id="home">
     <div class="intro">
-      <p class="hand">Uma missão de cada vez, 20 minutos chegam.</p>
-      <p>Cada missão começa com <b>uma imagem fácil de lembrar</b> e um <b>truque</b>. Depois vêm perguntas iguais às dos testes. Cada resposta certa à primeira dá 10 XP.</p>
+      <p class="hand">Escolhe uma linha e segue as estações.</p>
+      <p>Cada linha é um tema da matriz. Estação <b>1</b> = lição + perguntas <span class="lvb l1">Fácil</span>, estação <b>2</b> = <span class="lvb l2">Médio</span>, estação <b>3</b> = <span class="lvb l3">Nível teste</span>. Tens <b>5 vidas</b> por estação e ganhas até <b>3 estrelas</b>. O progresso fica guardado neste telemóvel.</p>
     </div>
-    <div class="grid" id="grid"></div>
+    <div class="lines" id="lines"></div>
   </main>
 
   <section id="mission" hidden></section>
 </div>
 
 <script>
-const M = [
- {id:"classes", c:"--c1", tag:"Missão 1", name:"Classes de palavras", pic:"Uma equipa: cada palavra tem um papel",
+/* ===== Conteúdo ===== */
+const LVN = ["","Fácil","Médio","Nível teste"];
+
+const M = {
+ lusiadas:{c:"--c8", name:"Os Lusíadas", pic:"Uma viagem, um povo, deuses e um poeta que comenta",
   rows:[
-   ["Classes abertas · aceitam palavras novas"],
-   ["Nome","O jogador. <b>Próprio</b>: Camões, Lisboa. <b>Comum</b>: navio, coragem. <b>Comum coletivo</b> = um grupo: armada, turma, cardume. Truque: dá para pôr «o/a» antes."],
-   ["Adjetivo","A camisola: diz como é o nome. <b>Qualificativo</b>: um livro interessante (aceita «muito»). <b>Relacional</b>: a expansão marítima (liga o nome a outra coisa, o mar; não aceita «muito»). <b>Numeral</b>: o segundo lugar (diz a ordem)."],
-   ["Graus do adjetivo","<b>Normal</b>: alto. <b>Comparativo</b>: mais alto do que / tão alto como / menos alto do que. <b>Superlativo relativo</b>: o mais alto da turma (comparado com um grupo). <b>Superlativo absoluto analítico</b>: muito alto (duas palavras). <b>Superlativo absoluto sintético</b>: altíssimo (uma palavra)."],
-   ["Verbo","O motor. <b>Principal</b>: tem o significado (O Rui estuda). <b>Copulativo</b>: liga o sujeito a uma característica: ser, estar, parecer, ficar, continuar (A Ana é simpática). <b>Auxiliar</b>: ajuda o principal: ter/haver (tenho estudado), ser na passiva (foi escrito), ir (vou estudar), poder/dever (devo estudar)."],
-   ["Verbo principal: o que pede?","<b>Intransitivo</b>: nada (O bebé dorme). <b>Transitivo direto</b>: um CD (Li o livro). <b>Transitivo indireto</b>: um CI ou um oblíquo (Telefonei à Ana; Gosto de música). <b>Transitivo direto e indireto</b>: CD + CI (Dei o livro à Ana). <b>Transitivo-predicativo</b>: CD + predicativo do CD (Achei o filme ótimo)."],
-   ["Advérbio","O treinador: dá pormenores ao verbo, ao adjetivo ou à frase. Nunca muda de forma. <b>Negação</b>: não, nunca. <b>Afirmação</b>: sim, certamente. <b>Tempo</b>: ontem, já. <b>Lugar</b>: aqui, lá. <b>Modo</b>: bem, depressa, calmamente. <b>Quantidade e grau</b>: muito, pouco, tão. <b>Inclusão</b>: também, até. <b>Exclusão</b>: só, apenas. <b>Interrogativo</b>: Onde? Quando? Como? Porquê? <b>Relativo</b>: a casa onde vivo. <b>Conectivo</b>: contudo, todavia, no entanto, portanto."],
-   ["Interjeição","O grito da bancada: mostra uma emoção ou chama alguém. Ai! Olá! Bravo! Ufa!"],
-   ["Classes fechadas · lista fixa"],
-   ["Determinante","O guarda-costas: vem antes de um nome. <b>Artigo definido</b>: o livro. <b>Artigo indefinido</b>: um livro. <b>Demonstrativo</b>: este livro. <b>Possessivo</b>: o meu livro. <b>Indefinido</b>: certo dia, outro livro. <b>Interrogativo</b>: Que livro leste? <b>Relativo</b>: o autor cujo livro li."],
-   ["Pronome","O duplo de cinema: está NO LUGAR do nome. <b>Pessoal tónico</b>: eu, tu, ele, mim, ti (Isto é para mim). <b>Pessoal átono</b>, colado ao verbo: me, te, o, a, lhe, se, nos, vos (Vi-o). <b>Demonstrativo</b>: isto, isso, aquilo (Quero isto). <b>Possessivo</b>: O teu é melhor. <b>Indefinido</b>: alguém, ninguém, tudo, nada. <b>Relativo</b>: que, quem, o qual (O livro que li). <b>Interrogativo</b>: Quem veio? O que queres?"],
-   ["Quantificador","Diz quantos. <b>Numeral</b>: três alunos. <b>Universal</b> = todos, sem exceção: todos, ambos, cada, qualquer. <b>Existencial</b> = só uma parte: alguns, vários, muitos, poucos. <b>Interrogativo</b>: Quantos livros leste? <b>Relativo</b>: Leva tantos quantos quiseres."],
-   ["Preposição","A cola entre palavras. Não muda. <b>Simples</b>: a, de, em, para, por, com, sem. <b>Contraída</b> = preposição + outra palavra: do (de + o), na (em + a), à (a + a), neste (em + este)."],
-   ["Conjunção coordenativa","Ponte entre orações do mesmo nível. <b>Copulativa</b>: e, nem. <b>Adversativa</b>: mas. <b>Disjuntiva</b>: ou, ou… ou. <b>Conclusiva</b>: logo, pois (depois do verbo). <b>Explicativa</b>: pois, que (Despacha-te, que é tarde)."],
-   ["Conjunção subordinativa","Prende uma oração a outra. <b>Completiva</b>: que, se (Sei que vens). <b>Causal</b>: porque, visto que. <b>Final</b>: para que. <b>Temporal</b>: quando, enquanto. <b>Concessiva</b>: embora, ainda que. <b>Condicional</b>: se, caso. <b>Consecutiva</b>: tão/tanto… que. <b>Comparativa</b>: como, do que."]],
-  tip:"<b>Truque 1 · determinante ou pronome?</b> Vem um nome logo a seguir? «este livro» = determinante; «quero este» = pronome.<br><b>Truque 2 · «que»:</b> dá para trocar por «o qual / a qual»? Pronome relativo (o livro que li → o livro o qual li). Não dá? Conjunção (Sei que vens).<br><b>Truque 3 · «se»:</b> colado ao verbo com hífen (penteou-se) = pronome pessoal átono. A abrir uma condição (Se chover, fico) = conjunção condicional. Depois de «sei», «pergunto» (Não sei se vem → não sei isso) = conjunção completiva.<br><b>Truque 4 · adjetivo ou advérbio?</b> Muda com o nome (baixo, baixa, baixos)? Adjetivo: vozes baixas. Fica sempre igual e diz como se faz? Advérbio: elas falam baixo.<br><b>Cuidado:</b> «contudo», «todavia», «no entanto», «portanto» = advérbios conectivos. «também» = advérbio de inclusão. Não são conjunções!",
+   ["O QUE É","contexto"],
+   ["Autor e data","Luís de Camões, publicado em <b>1572</b> (Renascimento)."],
+   ["Epopeia","poema longo que celebra os <b>feitos heroicos de um povo</b>: os portugueses."],
+   ["Forma","<b>10 cantos</b>, estâncias em <b>oitava rima</b> (8 versos, rima ABABABCC), versos <b>decassílabos</b> (10 sílabas)."],
+   ["ESTRUTURA INTERNA","as 4 partes"],
+   ["Proposição","diz o que vai cantar: «As armas e os barões assinalados» (I, 1)."],
+   ["Invocação","pede inspiração às Tágides, as ninfas do Tejo."],
+   ["Dedicatória","oferece o poema ao rei D. Sebastião."],
+   ["Narração","começa <i>in medias res</i>: a viagem já vai a meio, no Índico."],
+   ["4 PLANOS","as camadas da história"],
+   ["Viagem","Vasco da Gama a caminho da Índia (1497-1498)."],
+   ["História de Portugal","Vasco da Gama conta-a ao rei de Melinde."],
+   ["Mitologia","<b>Vénus</b> ajuda os portugueses; <b>Baco</b> tenta impedi-los."],
+   ["Reflexões do poeta","Camões dá a sua opinião, normalmente no fim dos cantos."],
+   ["EPISÓDIOS E REFLEXÕES","o que mais sai"],
+   ["Inês de Castro (III)","amor e morte injusta: «Estavas, linda Inês, posta em sossego»."],
+   ["Velho do Restelo (IV)","critica a cobiça e a ambição de fama: «Ó glória de mandar! Ó vã cobiça»."],
+   ["Adamastor (V)","o gigante que representa o medo do desconhecido, vencido pela coragem."],
+   ["Fragilidade humana (I, 106)","«Contra um bicho da terra tão pequeno»: o ser humano é frágil."],
+   ["RECURSOS EXPRESSIVOS","diz sempre o recurso + o efeito"],
+   ["Apóstrofe","chamar alguém ou algo: «Ó vã cobiça» → emoção, crítica direta."],
+   ["Metáfora / Comparação","sem «como» / com «como»: «bicho da terra» = ser humano."],
+   ["Anáfora / Enumeração","repetir no início dos versos / fazer listas → insistência, intensidade."],
+   ["Hipérbole · Personificação · Antítese","exagero · qualidades humanas a coisas · ideias opostas."],
+   ["Interrogação retórica","pergunta sem resposta esperada → faz o leitor refletir."]],
+  tip:"<b>Para justificar:</b> ideia principal + citação curta entre aspas + o que a citação mostra. Três frases chegam.",
   qs:[
-   {p:"Em «Camões escreveu Os Lusíadas», a palavra «Camões» é", o:["nome comum","nome próprio","nome comum coletivo","adjetivo qualificativo"], a:1, e:"Dá nome a uma pessoa concreta e única e escreve-se com maiúscula: nome próprio."},
-   {p:"Em «Os marinheiros tinham coragem», a palavra «coragem» é", o:["nome próprio","nome comum","nome comum coletivo","adjetivo qualificativo"], a:1, e:"Dá para pôr «a» antes (a coragem), não é o nome de ninguém e não indica um grupo: nome comum."},
-   {p:"Em «A armada partiu de Belém», a palavra «armada» é", o:["nome próprio","nome comum coletivo","adjetivo qualificativo","verbo"], a:1, e:"Designa um conjunto (de navios) e não é o nome de alguém: nome comum coletivo."},
-   {p:"Em «O Pedro leu um livro interessante», a palavra «interessante» é", o:["nome comum","adjetivo qualificativo","adjetivo relacional","advérbio de modo"], a:1, e:"Dá uma qualidade ao livro e aceita «muito» (muito interessante): adjetivo qualificativo."},
-   {p:"Em «A expansão marítima mudou Portugal», a palavra «marítima» é", o:["adjetivo qualificativo","adjetivo relacional","adjetivo numeral","nome comum"], a:1, e:"Não dá para dizer «muito marítima» e liga o nome a outra coisa (o mar). Por isso é adjetivo relacional."},
-   {p:"Em «Vasco da Gama foi o primeiro navegador a chegar à Índia por mar», a palavra «primeiro» é", o:["quantificador numeral","adjetivo numeral","adjetivo qualificativo","advérbio de tempo"], a:1, e:"Diz a ordem (primeiro, segundo, terceiro) e acompanha um nome: adjetivo numeral. «três» (quantidade) seria quantificador numeral."},
-   {p:"Em «O Adamastor era mais assustador do que uma tempestade», o adjetivo «assustador» está no grau", o:["superlativo relativo de superioridade","comparativo de superioridade","superlativo absoluto analítico","normal"], a:1, e:"Compara duas coisas com «mais… do que»: comparativo de superioridade."},
-   {p:"Em «A Ana é a mais alta da turma», «a mais alta» está no grau", o:["comparativo de superioridade","superlativo relativo de superioridade","superlativo absoluto sintético","normal"], a:1, e:"Compara a Ana com um grupo (a turma) e põe-na no topo: superlativo relativo de superioridade. «mais alta do que o Rui» seria comparativo."},
-   {p:"Em «O teste foi facílimo», o adjetivo está no grau", o:["comparativo de superioridade","superlativo relativo de superioridade","superlativo absoluto analítico","superlativo absoluto sintético"], a:3, e:"É uma só palavra (fácil → facílimo) e não compara com ninguém: superlativo absoluto sintético. «muito fácil» seria analítico (duas palavras)."},
-   {p:"Em «O marinheiro adormeceu», o verbo «adormeceu» é", o:["principal intransitivo","principal transitivo direto","principal transitivo indireto","copulativo"], a:0, e:"Não pede nenhum complemento: «O marinheiro adormeceu» já está completa. Principal intransitivo."},
-   {p:"Em «Camões escreveu Os Lusíadas», o verbo «escreveu» é", o:["principal intransitivo","principal transitivo direto","principal transitivo indireto","auxiliar"], a:1, e:"Escreveu o quê? «Os Lusíadas» → escreveu-os. Pede só um CD: transitivo direto."},
-   {p:"Em «Este livro pertence ao Rui», o verbo «pertence» é", o:["principal transitivo direto","principal transitivo indireto","principal transitivo direto e indireto","copulativo"], a:1, e:"Pertence a quem? «ao Rui» → pertence-lhe. Pede só um CI, sem CD: transitivo indireto."},
-   {p:"Em «A professora deu os testes aos alunos», o verbo «deu» é principal", o:["transitivo direto","transitivo indireto","transitivo direto e indireto","transitivo-predicativo"], a:2, e:"Deu o quê? «os testes» (CD → deu-os). A quem? «aos alunos» (CI → deu-lhes). Pede os dois: transitivo direto e indireto."},
-   {p:"Em «Os alunos consideraram o livro aborrecido», o verbo «consideraram» é principal", o:["transitivo direto","transitivo-predicativo","copulativo","transitivo indireto"], a:1, e:"Pede um CD («o livro») e uma característica desse CD («aborrecido» → consideraram-no aborrecido). Transitivo-predicativo."},
-   {p:"Em «O céu ficou escuro», o verbo «ficou» é", o:["principal intransitivo","copulativo","auxiliar","principal transitivo direto"], a:1, e:"Liga o sujeito («O céu») a uma característica («escuro»). Dá para trocar por «estar»: o céu está escuro. Verbo copulativo."},
-   {p:"Em «Tenho estudado todos os dias», o verbo «Tenho» é", o:["principal transitivo direto","copulativo","auxiliar","principal intransitivo"], a:2, e:"Sozinho não tem o significado: só ajuda «estudado» a formar um tempo composto. Verbo auxiliar."},
-   {p:"Em «O Velho do Restelo não aprovou a viagem», a palavra «não» é", o:["advérbio de negação","advérbio de modo","interjeição","conjunção coordenativa"], a:0, e:"Nega a ação de aprovar: advérbio de negação."},
-   {p:"Em «Certamente vais passar no teste», a palavra «Certamente» é", o:["advérbio de modo","advérbio de afirmação","adjetivo qualificativo","advérbio de tempo"], a:1, e:"Confirma a ideia (= sim, sem dúvida): advérbio de afirmação. Acaba em -mente, mas não diz COMO se faz alguma coisa."},
-   {p:"Em «Ontem estudei Os Lusíadas», a palavra «Ontem» é", o:["advérbio de lugar","advérbio de tempo","nome comum","advérbio de modo"], a:1, e:"Responde a «quando?»: advérbio de tempo."},
-   {p:"Em «Os navegadores chegaram lá em 1498», a palavra «lá» é", o:["advérbio de tempo","advérbio de lugar","pronome pessoal","advérbio de quantidade e grau"], a:1, e:"Responde a «onde?»: advérbio de lugar."},
-   {p:"Em «Elas falam baixo», a palavra «baixo» é", o:["adjetivo qualificativo","advérbio de modo","nome comum","preposição"], a:1, e:"Não concorda com «Elas» (não se diz «falam baixas») e diz como falam: advérbio de modo. Em «vozes baixas» seria adjetivo."},
-   {p:"Em «O teste estava muito difícil», a palavra «muito» é", o:["quantificador existencial","advérbio de quantidade e grau","adjetivo qualificativo","advérbio de modo"], a:1, e:"Está antes de um adjetivo («difícil») e não muda de forma: advérbio de quantidade e grau. Em «muitos livros» seria quantificador existencial (acompanha um nome)."},
-   {p:"Em «O Pedro também foi à festa», a palavra «também» é", o:["conjunção coordenativa copulativa","advérbio de inclusão","advérbio de afirmação","advérbio de modo"], a:1, e:"Junta o Pedro aos outros que foram: inclui. Não liga orações, por isso não é conjunção. Advérbio de inclusão."},
-   {p:"Em «Só o Rui faltou ao teste», a palavra «Só» é", o:["adjetivo qualificativo","quantificador existencial","advérbio de exclusão","advérbio de quantidade e grau"], a:2, e:"Dá para trocar por «apenas»: deixa os outros de fora. Advérbio de exclusão. (Em «Ele está só» = sozinho, seria adjetivo.)"},
-   {p:"Em «Quando partiu a armada?», a palavra «Quando» é", o:["conjunção subordinativa temporal","advérbio interrogativo","pronome interrogativo","advérbio relativo"], a:1, e:"Faz uma pergunta sobre o tempo numa frase interrogativa: advérbio interrogativo. Em «Saí quando ele chegou» seria conjunção temporal."},
-   {p:"Em «Estudei muito; contudo, tive má nota», a palavra «contudo» é", o:["conjunção coordenativa adversativa","preposição","advérbio conectivo","conjunção subordinativa concessiva"], a:2, e:"Tem ideia de oposição, mas na terminologia oficial «contudo», «todavia», «no entanto» e «portanto» são advérbios conectivos, não conjunções."},
-   {p:"Em «Ai! Magoei-me no pé», a palavra «Ai» é", o:["advérbio de modo","interjeição","nome comum","conjunção"], a:1, e:"Exprime uma emoção (dor) e vale sozinha, como um grito: interjeição."},
-   {p:"Em «A armada partiu de Belém», a palavra «A» é", o:["artigo definido","artigo indefinido","pronome pessoal","preposição"], a:0, e:"Vem antes de um nome e mostra que é uma armada concreta, já conhecida: artigo definido. «Uma armada» seria artigo indefinido."},
-   {p:"Em «Uns marinheiros cantavam no convés», a palavra «Uns» é", o:["quantificador existencial","artigo indefinido","artigo definido","pronome indefinido"], a:1, e:"Vem antes do nome e apresenta marinheiros que ainda não conhecemos: artigo indefinido (um, uma, uns, umas)."},
-   {p:"Em «Aquele navio é português», a palavra «Aquele» é", o:["pronome demonstrativo","determinante demonstrativo","determinante possessivo","advérbio de lugar"], a:1, e:"Vem logo antes de um nome («navio») e aponta para ele: determinante demonstrativo. Em «Quero aquele» (sem nome) seria pronome."},
-   {p:"Em «Os meus amigos chegaram», a palavra «meus» é", o:["pronome possessivo","determinante possessivo","adjetivo qualificativo","quantificador"], a:1, e:"Vem logo antes de um nome («amigos»): é determinante. Diz a quem pertence: possessivo."},
-   {p:"Em «Certo dia, o Rui chegou atrasado», a palavra «Certo» é", o:["adjetivo qualificativo","determinante indefinido","quantificador universal","advérbio de afirmação"], a:1, e:"Vem antes do nome «dia» e não diz que dia, em concreto: determinante indefinido. (Em «A resposta está certa» seria adjetivo.)"},
-   {p:"Em «Que livro estás a ler?», a palavra «Que» é", o:["pronome interrogativo","determinante interrogativo","pronome relativo","conjunção subordinativa completiva"], a:1, e:"Faz uma pergunta e vem logo antes do nome «livro»: determinante interrogativo. Em «Que queres?» (sem nome) seria pronome."},
-   {p:"Em «Gostei daquele, mas quero esta», a palavra «esta» é", o:["determinante demonstrativo","pronome pessoal","pronome demonstrativo","quantificador"], a:2, e:"Não vem nenhum nome a seguir. Está no lugar do nome, logo é pronome demonstrativo."},
-   {p:"Em «Ofereci-lhe um livro», a palavra «lhe» é", o:["pronome pessoal tónico","pronome pessoal átono","determinante demonstrativo","pronome indefinido"], a:1, e:"Está colada ao verbo com hífen e não tem acento próprio: pronome pessoal átono. Tónico seria «a ele» ou «para mim»."},
-   {p:"Em «O meu caderno é azul; o teu é verde», a palavra «teu» é", o:["determinante possessivo","pronome possessivo","pronome pessoal","adjetivo qualificativo"], a:1, e:"Não vem nenhum nome a seguir: «o teu» está no lugar de «o teu caderno». Pronome possessivo."},
-   {p:"Em «Alguém deixou a porta aberta», a palavra «Alguém» é", o:["pronome indefinido","quantificador existencial","determinante indefinido","nome comum"], a:0, e:"Está no lugar de um nome (não se sabe quem) e não vem nenhum nome a seguir: pronome indefinido."},
-   {p:"Em «O livro que comprei é ótimo», a palavra «que» é", o:["conjunção subordinativa completiva","pronome relativo","pronome interrogativo","determinante relativo"], a:1, e:"Dá para trocar por «o qual» (o livro o qual comprei) e retoma «livro»: pronome relativo."},
-   {p:"Em «Quem escreveu Os Lusíadas?», a palavra «Quem» é", o:["pronome relativo","pronome interrogativo","determinante interrogativo","pronome indefinido"], a:1, e:"Faz uma pergunta e está no lugar de uma pessoa (não vem nome a seguir): pronome interrogativo."},
-   {p:"Em «A viagem durou dez meses», a palavra «dez» é", o:["adjetivo numeral","quantificador numeral","quantificador existencial","nome comum"], a:1, e:"Diz a quantidade exata (quantos? dez): quantificador numeral. Se dissesse a ordem (o décimo), seria adjetivo numeral."},
-   {p:"Em «Todos os dias revejo a matéria», a palavra «Todos» é", o:["quantificador universal","quantificador existencial","determinante indefinido","adjetivo"], a:0, e:"Abrange a totalidade, sem exceção (todos, ambos, cada): quantificador universal."},
-   {p:"Em «Alguns alunos faltaram», a palavra «Alguns» é", o:["quantificador universal","quantificador existencial","pronome indefinido","artigo indefinido"], a:1, e:"Fala só de uma parte dos alunos, não de todos: quantificador existencial. «Todos» seria universal."},
-   {p:"Em «A armada partiu de Belém», a palavra «de» é", o:["preposição simples","preposição contraída","artigo definido","conjunção"], a:0, e:"Liga «partiu» a «Belém» e não está junta a nenhuma outra palavra: preposição simples. «do» (de + o) seria contraída."},
-   {p:"Em «O caderno está na mochila», a palavra «na» é", o:["artigo definido","preposição simples","preposição contraída","pronome pessoal"], a:2, e:"«na» = em + a: uma preposição juntou-se a um artigo. Preposição contraída."},
-   {p:"Em «Os marinheiros rezaram e partiram», a palavra «e» é", o:["conjunção coordenativa copulativa","conjunção coordenativa adversativa","preposição","advérbio de inclusão"], a:0, e:"Junta (soma) duas ações do mesmo nível: conjunção coordenativa copulativa."},
-   {p:"Em «Fui ao cinema, mas não gostei do filme», a palavra «mas» é", o:["advérbio conectivo","conjunção coordenativa adversativa","conjunção subordinativa concessiva","preposição"], a:1, e:"Liga duas orações com ideia de oposição: conjunção coordenativa adversativa. Atenção: «contudo» tem a mesma ideia, mas é advérbio conectivo."},
-   {p:"Em «Lês o livro ou vês o filme?», a palavra «ou» é", o:["conjunção coordenativa disjuntiva","conjunção coordenativa conclusiva","conjunção subordinativa condicional","advérbio de exclusão"], a:0, e:"Dá uma escolha entre duas alternativas: conjunção coordenativa disjuntiva."},
-   {p:"Em «Choveu muito, logo o jogo foi adiado», a palavra «logo» é", o:["advérbio de tempo","conjunção coordenativa conclusiva","conjunção subordinativa temporal","conjunção coordenativa explicativa"], a:1, e:"Aqui «logo» = por isso: tira uma conclusão. Não é o «logo» de tempo (= daqui a pouco). Conjunção coordenativa conclusiva."},
-   {p:"Em «Despacha-te, que o barco vai partir», a palavra «que» é", o:["pronome relativo","conjunção coordenativa explicativa","conjunção subordinativa completiva","conjunção subordinativa consecutiva"], a:1, e:"Não troca por «o qual» (não é relativo) e explica o porquê da ordem anterior: conjunção coordenativa explicativa."},
-   {p:"Em «Espero que venhas à festa», a palavra «que» é", o:["pronome relativo","conjunção subordinativa completiva","conjunção coordenativa explicativa","determinante interrogativo"], a:1, e:"Não dá para trocar por «o qual» e não retoma nenhum nome: é conjunção. Introduz uma «coisa» que se espera (espero isso): completiva."},
-   {p:"Em «Não sei se ele vem», a palavra «se» é", o:["pronome pessoal átono","conjunção subordinativa condicional","conjunção subordinativa completiva","advérbio de afirmação"], a:2, e:"Não está colada a um verbo, por isso não é pronome. Não há condição. «Não sei isso»: introduz uma oração completiva. Conjunção subordinativa completiva."},
-   {p:"Em «Faltei à aula porque estava doente», a palavra «porque» é", o:["conjunção coordenativa explicativa","conjunção subordinativa causal","conjunção subordinativa final","advérbio interrogativo"], a:1, e:"Introduz a causa (porque faltei? por estar doente) e a oração não vale sozinha: conjunção subordinativa causal."},
-   {p:"Em «Estudo para que os meus pais fiquem orgulhosos», «para que» é uma conjunção subordinativa", o:["causal","final","consecutiva","temporal"], a:1, e:"Indica o objetivo (para quê?): final."},
-   {p:"Em «Quando a armada partiu, o povo chorou», a palavra «Quando» é", o:["advérbio interrogativo","conjunção subordinativa temporal","conjunção subordinativa causal","advérbio relativo"], a:1, e:"Não é pergunta: liga duas orações e diz em que momento. Conjunção subordinativa temporal."},
-   {p:"Em «Embora tivesse medo, o marinheiro continuou», a palavra «Embora» é", o:["conjunção subordinativa concessiva","conjunção coordenativa adversativa","advérbio conectivo","conjunção subordinativa condicional"], a:0, e:"«embora» = apesar de: há um obstáculo, mas a ação acontece. Conjunção subordinativa concessiva."},
-   {p:"Em «Caso chova, fico em casa», a palavra «Caso» é", o:["nome comum","conjunção subordinativa condicional","conjunção subordinativa causal","advérbio de modo"], a:1, e:"Põe uma condição (= se chover): conjunção subordinativa condicional. Em «o caso foi resolvido» seria nome."},
-   {p:"Em «O mar estava tão agitado que o navio quase se afundou», a palavra «que» é", o:["pronome relativo","conjunção subordinativa completiva","conjunção subordinativa consecutiva","conjunção subordinativa comparativa"], a:2, e:"Vem depois de «tão…» e introduz a consequência: conjunção subordinativa consecutiva."},
-   {p:"Em «Ele fala como o pai falava», a palavra «como» é", o:["advérbio interrogativo","conjunção subordinativa causal","conjunção subordinativa comparativa","preposição"], a:2, e:"Compara a maneira de falar dos dois: conjunção subordinativa comparativa. (Em «Como chegaste?» seria advérbio interrogativo; em «Como estava doente, faltei» seria causal.)"},
-   {s:true, p:"Classifica a palavra «cujo» em «O ator cujo filme vi é português» (classe e subclasse).", a:"Determinante relativo (vem antes do nome «filme» e liga as duas orações)."},
-   {s:true, p:"Classifica a palavra «onde» em «A cidade onde nasci é bonita» (classe e subclasse).", a:"Advérbio relativo (retoma «cidade» e indica o lugar)."},
-   {s:true, p:"Classifica a palavra «Quantos» em «Quantos livros leste este ano?» (classe e subclasse).", a:"Quantificador interrogativo (pergunta pela quantidade)."}
+   {lv:1,p:"Os Lusíadas foram publicados em", o:["1500","1572","1640","1755"], a:1, e:"Camões publicou Os Lusíadas em 1572, no Renascimento."},
+   {lv:1,p:"Os Lusíadas são uma epopeia porque", o:["contam em verso os feitos heroicos de um povo","dão a opinião do autor sobre um tema","contam a vida de Camões","são um poema de amor"], a:0, e:"Epopeia = poema longo que celebra os feitos heroicos de um povo."},
+   {lv:1,p:"Cada estância de Os Lusíadas tem", o:["4 versos","8 versos (oitava rima)","10 versos","14 versos"], a:1, e:"Oitava rima: 8 versos decassílabos com rima ABABABCC."},
+   {lv:1,t:"m",p:"Liga cada parte da estrutura interna ao que faz.", pairs:[["Proposição","apresenta o que vai cantar"],["Invocação","pede inspiração às Tágides"],["Dedicatória","oferece o poema a D. Sebastião"],["Narração","conta a viagem e a história de Portugal"]], e:"Proposição, Invocação e Dedicatória estão no Canto I; a Narração começa a seguir."},
+   {lv:2,t:"m",p:"Liga cada episódio ao canto.", pairs:[["Inês de Castro","Canto III"],["Velho do Restelo","Canto IV"],["Adamastor","Canto V"],["Ilha dos Amores","Canto IX"]], e:"Truque: Inês 3, Velho 4, Adamastor 5 – vêm por ordem."},
+   {lv:2,p:"Qual destes NÃO é um dos quatro planos de Os Lusíadas?", o:["Plano da viagem","Plano da história de Portugal","Plano da mitologia","Plano da vida amorosa de Vasco da Gama"], a:3, e:"Os 4 planos são: viagem, história de Portugal, mitologia e reflexões do poeta."},
+   {lv:2,p:"No plano da mitologia, quem protege os portugueses?", o:["Vénus","Baco","o Adamastor","o Velho do Restelo"], a:0, e:"Vénus protege os portugueses; Baco tenta impedir a viagem."},
+   {lv:2,p:"O Velho do Restelo critica sobretudo", o:["a cobiça e a ambição de glória que levam à viagem","a falta de navios","o rei de Melinde","a morte de Inês de Castro"], a:0, e:"«Ó glória de mandar! Ó vã cobiça»: critica a ambição de poder e de fama."},
+   {lv:2,p:"A narração começa «in medias res», ou seja,", o:["com a viagem já a meio","no início da história de Portugal","no fim da viagem","em Lisboa, antes da partida"], a:0, e:"In medias res = «no meio das coisas»: a armada já está no Índico."},
+   {lv:3,p:"Em «Ó glória de mandar! Ó vã cobiça», o Velho dirige-se à glória e à cobiça como se fossem pessoas. O recurso é", o:["apóstrofe","hipérbole","comparação","eufemismo"], a:0, e:"Apóstrofe: interpelar diretamente alguém ou algo (com «Ó»). Dá emoção e torna a crítica mais forte."},
+   {lv:3,p:"Em «Contra um bicho da terra tão pequeno» (I, 106), «bicho da terra» refere-se", o:["ao ser humano","a um animal real","ao Adamastor","aos deuses"], a:0, e:"É uma metáfora do ser humano, para mostrar como é frágil e pequeno."},
+   {lv:3,p:"As reflexões do poeta aparecem normalmente", o:["no fim dos cantos","só na Proposição","nos discursos dos deuses","no meio das batalhas"], a:0, e:"Camões interrompe a narração, sobretudo no fim dos cantos, para comentar."},
+   {lv:3,s:true,p:"Explica o sentido de «bicho da terra tão pequeno» (I, 106).", a:"É uma metáfora do ser humano: o poeta mostra que o homem é frágil e insignificante perante os perigos do mar e da terra."}
   ]},
- {id:"funcoes", c:"--c2", tag:"Missão 2", name:"Funções sintáticas", pic:"Fazer perguntas ao verbo, o chefe da frase",
-  rows:[
-   ["Sujeito","Quem faz? <b>Simples</b>: O Pedro corre. <b>Composto</b>: A Ana e o Pedro correm. <b>Nulo subentendido</b>: Estudo (→ eu). <b>Nulo indeterminado</b>: Dizem que vai chover (não se sabe quem). <b>Nulo expletivo</b>: Choveu; Há sol (ninguém faz a ação)."],
-   ["Predicado","Tudo o que se diz do sujeito: o verbo e o que vem com ele. O Pedro <u>leu o livro ontem</u>."],
-   ["Complemento direto","O quê? Passa a o/a/os/as: Leu o livro → Leu-o."],
-   ["Complemento indireto","A quem? Passa a lhe/lhes: Deu flores à mãe → Deu-lhe flores."],
-   ["Complemento oblíquo","O verbo exige-o, mas NÃO passa a «o» nem a «lhe». Não é só lugar! Vou a Lisboa; Moro aqui; Gosto de música; Preciso de ajuda."],
-   ["Agente da passiva","Quem faz, numa frase com ser + particípio: Os Lusíadas foram escritos <u>por Camões</u>."],
-   ["Predicativo do sujeito","Característica do sujeito, depois de ser, estar, parecer, ficar, continuar: A Ana está <u>cansada</u>."],
-   ["Predicativo do CD","Característica do CD, com achar, considerar, nomear: Acho o teste <u>fácil</u> → Acho-o fácil."],
-   ["Modificador do grupo verbal","Extra sobre a ação. Pode sair: Estudei <u>em casa</u> <u>ontem</u> → Estudei."],
-   ["Modificador de frase","Comenta a frase toda, no início e com vírgula: <u>Felizmente</u>, passei."],
-   ["Modificador do nome","<b>Restritivo</b>, sem vírgulas, é um filtro: Os alunos <u>estudiosos</u> passaram (só esses). <b>Apositivo</b>, entre vírgulas, é um parêntesis: Camões, <u>poeta português</u>, escreveu Os Lusíadas."],
-   ["Complemento do nome","O nome PEDE-o, porque vem de um verbo: a leitura <u>do livro</u> (← ler o livro); a chegada <u>do comboio</u> (← o comboio chega)."],
-   ["Complemento do adjetivo","O adjetivo PEDE-o, com preposição: orgulhoso <u>do irmão</u>; capaz <u>de vencer</u>."],
-   ["Vocativo","Chama alguém, entre vírgulas: <u>Maria</u>, anda cá!"]],
-  tip:"<b>Truque do pronome:</b> troca a expressão por <i>o</i>, <i>lhe</i> ou nada. «o» = CD; «lhe» = CI; nenhum serve mas o verbo precisa dela = oblíquo; pode sair = modificador.<br><b>Complemento ou modificador do nome?</b> O nome vem de um verbo (leitura ← ler)? O que vem a seguir é complemento do nome. Se não (a casa de madeira), é modificador restritivo.",
-  qs:[
-   {p:"Em «O Pedro leu o livro ontem», o predicado é", o:["«O Pedro»","«leu»","«leu o livro ontem»","«o livro ontem»"], a:2, e:"O predicado é o verbo com tudo o que está ligado a ele: «leu o livro ontem». «O Pedro» é o sujeito."},
-   {p:"Em «Vasco da Gama chegou à Índia», o sujeito é", o:["simples","composto","nulo subentendido","nulo expletivo"], a:0, e:"Está escrito e tem um só núcleo («Vasco da Gama»): sujeito simples."},
-   {p:"Em «A Ana e o Rui chegaram cedo», o sujeito é", o:["simples","composto","nulo subentendido","nulo indeterminado"], a:1, e:"Tem dois núcleos («Ana» e «Rui») ligados por «e»: sujeito composto."},
-   {p:"Em «Dizem que vai chover», o sujeito de «Dizem» é", o:["simples","nulo subentendido","nulo indeterminado","nulo expletivo"], a:2, e:"Não se sabe quem diz. Verbo na 3.ª pessoa do plural sem sujeito: nulo indeterminado."},
-   {p:"Em «Estudo muito para o teste», o sujeito é", o:["nulo subentendido","nulo indeterminado","simples","composto"], a:0, e:"Não está escrito, mas a terminação do verbo mostra que é «eu»: nulo subentendido."},
-   {p:"Em «Choveu toda a noite», o sujeito é", o:["nulo subentendido","nulo indeterminado","nulo expletivo","simples"], a:2, e:"Ninguém faz a ação de chover: não há sujeito possível. Verbos como chover, nevar e haver (= existir) têm sujeito nulo expletivo."},
-   {p:"Em «O Rui comprou um livro novo», «um livro novo» desempenha a função de", o:["complemento direto","complemento indireto","complemento oblíquo","predicativo do sujeito"], a:0, e:"Comprou o quê? → Comprou-o. Passa a «o»: complemento direto."},
-   {p:"Em «A Maria ofereceu flores à mãe», «à mãe» desempenha a função de", o:["complemento direto","complemento indireto","complemento oblíquo","modificador"], a:1, e:"Ofereceu-lhe flores. Passa a «lhe»: complemento indireto."},
-   {p:"Em «Amanhã vou a Lisboa», «a Lisboa» desempenha a função de", o:["complemento indireto","modificador do grupo verbal","complemento oblíquo","complemento direto"], a:2, e:"O verbo «ir» exige um destino e não dá «vou-lhe»: complemento oblíquo. Já «Amanhã» pode sair: é modificador."},
-   {p:"Em «A Inês gosta de música», «de música» desempenha a função de", o:["complemento indireto","complemento direto","complemento oblíquo","complemento do nome"], a:2, e:"«gostar» exige «de…» e não passa a «lhe» (não se diz «gosta-lhe»): complemento oblíquo. O oblíquo não é só lugar!"},
-   {p:"Em «A Ana parecia cansada», «cansada» é", o:["predicativo do sujeito","predicativo do complemento direto","modificador do nome","complemento direto"], a:0, e:"«parecer» é verbo copulativo e «cansada» caracteriza o sujeito: predicativo do sujeito."},
-   {p:"Em «Os alunos acharam o teste fácil», «fácil» é", o:["predicativo do sujeito","modificador restritivo do nome","complemento direto","predicativo do complemento direto"], a:3, e:"Acharam-no fácil. «fácil» fica fora do pronome e caracteriza o CD: predicativo do complemento direto."},
-   {p:"Em «A Joana estudou na biblioteca», «na biblioteca» desempenha a função de", o:["complemento oblíquo","modificador do grupo verbal","complemento indireto","modificador de frase"], a:1, e:"Pode sair: «A Joana estudou» continua certa, porque «estudar» não precisa de um lugar. Modificador do grupo verbal. (Em «Moro em Lisboa» já não sai: é oblíquo.)"},
-   {p:"Em «Felizmente, o teste correu bem», «Felizmente» desempenha a função de", o:["modificador do grupo verbal","modificador de frase","vocativo","sujeito"], a:1, e:"Dá a opinião de quem fala sobre tudo o que vem a seguir e está no início, com vírgula: modificador de frase."},
-   {p:"Em «Os alunos estudiosos tiveram boa nota», «estudiosos» é", o:["modificador apositivo do nome","modificador restritivo do nome","predicativo do sujeito","complemento do nome"], a:1, e:"Sem vírgulas, funciona como filtro: só os alunos estudiosos tiveram boa nota. Modificador restritivo do nome."},
-   {p:"Em «Os alunos, atentos, ouviram a professora», «atentos» é", o:["modificador restritivo do nome","modificador apositivo do nome","predicativo do sujeito","complemento do nome"], a:1, e:"Está entre vírgulas e só acrescenta informação (como um parêntesis): modificador apositivo do nome."},
-   {p:"Em «A leitura do livro demorou uma semana», «do livro» desempenha a função de", o:["modificador restritivo do nome","complemento do nome","complemento oblíquo","complemento indireto"], a:1, e:"«leitura» vem do verbo «ler» (ler o livro). O nome pede este complemento: complemento do nome."},
-   {p:"Em «O Rui está orgulhoso do irmão», «do irmão» desempenha a função de", o:["complemento oblíquo","complemento do nome","complemento do adjetivo","complemento indireto"], a:2, e:"«do irmão» depende de «orgulhoso» (orgulhoso de quem?), não do verbo: complemento do adjetivo."},
-   {p:"Em «Maria, anda cá!», «Maria» é", o:["sujeito","vocativo","complemento direto","modificador de frase"], a:1, e:"Serve para chamar alguém e está separada por vírgula: vocativo."},
-   {s:true, p:"Indica a função sintática de «por Camões» em «Os Lusíadas foram escritos por Camões».", a:"Complemento agente da passiva (frase passiva: ser + particípio; Camões é quem escreveu)."},
-   {s:true, p:"Indica a função sintática de «à turma» em «A professora explicou a matéria à turma».", a:"Complemento indireto (explicou-lhe a matéria)."}
-  ]},
- {id:"oracoes", c:"--c3", tag:"Missão 3", name:"Orações", pic:"Mochilas: há umas que andam sozinhas e outras que vão às costas",
-  rows:[
-   ["Coordenadas","Dois amigos lado a lado: cada oração vale sozinha. <b>Copulativa</b> (e, nem): Li o livro e vi o filme. <b>Adversativa</b> (mas): Estudei, mas chumbei. <b>Disjuntiva</b> (ou): Estudas ou sais? <b>Conclusiva</b> (logo): Penso, logo existo. <b>Explicativa</b> (pois, que): Vai dormir, que é tarde."],
-   ["Subordinante e subordinada","A subordinante é a mochila principal; a subordinada vai às costas dela e não vale sozinha: [Fiquei em casa] [porque chovia]."],
-   ["Substantiva = COISA","Troca por «isso». <b>Completiva</b>: Sei que vens → sei isso (função: complemento direto); É importante que estudes → isso é importante (função: sujeito). <b>Relativa sem antecedente</b>, sem nome antes: Quem espera sempre alcança (função: sujeito)."],
-   ["Adjetiva relativa = CARACTERÍSTICA","Vem depois de um nome e descreve-o. <b>Restritiva</b>, sem vírgulas = filtro: Os alunos que estudaram passaram. <b>Explicativa</b>, com vírgulas = parêntesis: O Pedro, que é meu primo, chegou."],
-   ["Adverbial = CIRCUNSTÂNCIA","<b>Causal</b> (porque, visto que): Faltei porque estava doente. <b>Final</b> (para que): Falo alto para que me ouçam. <b>Temporal</b> (quando, enquanto): Quando cheguei, jantei. <b>Concessiva</b> (embora, ainda que): Embora chovesse, saí. <b>Condicional</b> (se, caso): Se estudares, passas. <b>Consecutiva</b> (tão/tanto… que): Corri tanto que caí. <b>Comparativa</b> (como, do que): É mais fácil do que eu pensava."]],
-  tip:"<b>3 perguntas:</b> 1) Faz sentido sozinha? Sim = coordenada. 2) Troca por «isso», por um adjetivo ou por um advérbio? 3) Qual é o conector?<br><b>Atenção:</b> uma oração que começa por «contudo», «no entanto» ou «portanto» também é coordenada (adversativa ou conclusiva), mas essas palavras são advérbios conectivos, não conjunções.",
-  qs:[
-   {p:"Em «Li o livro e vi o filme», a oração «e vi o filme» é coordenada", o:["copulativa","adversativa","disjuntiva","explicativa"], a:0, e:"«e» junta (soma) duas ações: copulativa."},
-   {p:"Em «Estudei, mas não passei», a oração «mas não passei» é coordenada", o:["copulativa","conclusiva","adversativa","explicativa"], a:2, e:"«mas» indica oposição: adversativa."},
-   {p:"Em «Estudas agora ou sais com os amigos?», a oração «ou sais com os amigos» é coordenada", o:["conclusiva","disjuntiva","copulativa","adversativa"], a:1, e:"«ou» dá uma escolha entre duas alternativas: disjuntiva."},
-   {p:"Em «Penso, logo existo», a oração «logo existo» é coordenada", o:["explicativa","conclusiva","adversativa","copulativa"], a:1, e:"«logo» = por isso: tira uma conclusão do que veio antes. Conclusiva."},
-   {p:"Em «Vai dormir, que já é tarde», a oração «que já é tarde» é coordenada", o:["explicativa","conclusiva","copulativa","disjuntiva"], a:0, e:"Explica a razão do pedido anterior (vai dormir… porquê? já é tarde). «que» ou «pois» depois de uma ordem: explicativa."},
-   {p:"Em «Sei que vais passar no teste», a oração «que vais passar no teste» é", o:["subordinada adjetiva relativa restritiva","subordinada substantiva completiva","subordinada adverbial causal","coordenada explicativa"], a:1, e:"Sei isso: é uma «coisa» que o verbo saber pede. Substantiva completiva (com função de complemento direto)."},
-   {p:"Em «É importante que estudes», a oração «que estudes» é substantiva completiva com a função de", o:["complemento direto","sujeito","complemento indireto","modificador"], a:1, e:"Troca por «isso»: «Isso é importante». O «isso» é o sujeito, por isso a oração tem função de sujeito."},
-   {p:"Em «Quem espera sempre alcança», «Quem espera» é", o:["subordinada adjetiva relativa restritiva","subordinada substantiva relativa","subordinada substantiva completiva","coordenada"], a:1, e:"Começa por «quem» e não há nome antes. É substantiva relativa (com função de sujeito)."},
-   {p:"Em «Os alunos que estudaram passaram», a oração «que estudaram» é", o:["subordinada adjetiva relativa explicativa","subordinada substantiva completiva","subordinada adjetiva relativa restritiva","subordinada adverbial temporal"], a:2, e:"Sem vírgulas: funciona como filtro (só os que estudaram passaram). Restritiva."},
-   {p:"Em «O Pedro, que é meu primo, chegou», a oração «que é meu primo» é", o:["subordinada adjetiva relativa explicativa","subordinada adjetiva relativa restritiva","coordenada copulativa","subordinada substantiva relativa"], a:0, e:"Entre vírgulas: é só informação extra, como um parêntesis. Explicativa."},
-   {p:"Em «Faltei porque estava doente», a oração «porque estava doente» é subordinada adverbial", o:["final","causal","consecutiva","condicional"], a:1, e:"Dá a causa (porquê? por estar doente): causal."},
-   {p:"Em «Falei alto para que todos me ouvissem», a oração «para que todos me ouvissem» é subordinada adverbial", o:["causal","final","temporal","consecutiva"], a:1, e:"Diz o objetivo (para quê?): final."},
-   {p:"Em «Quando cheguei a casa, jantei», a oração «Quando cheguei a casa» é subordinada adverbial", o:["condicional","temporal","causal","comparativa"], a:1, e:"Diz em que momento: temporal."},
-   {p:"Em «Se o vento ajudar, a armada chega amanhã», a oração «Se o vento ajudar» é subordinada adverbial", o:["temporal","condicional","causal","concessiva"], a:1, e:"Põe uma condição: a armada só chega SE o vento ajudar. Condicional."},
-   {p:"Em «Embora estivesse a chover, fomos à praia», a oração «Embora estivesse a chover» é subordinada adverbial", o:["causal","condicional","concessiva","consecutiva"], a:2, e:"«embora» = apesar de: há um obstáculo que não impede a ação. Concessiva."},
-   {p:"Em «Estudei tanto que adormeci», «que adormeci» é subordinada adverbial", o:["consecutiva","comparativa","final","causal"], a:0, e:"«tanto… que» mostra a consequência: consecutiva."},
-   {p:"Em «O teste foi mais fácil do que eu esperava», a oração «do que eu esperava» é subordinada adverbial", o:["consecutiva","comparativa","concessiva","final"], a:1, e:"Compara duas coisas (mais… do que): comparativa."},
-   {s:true, p:"Classifica a oração «Se estudares» em «Se estudares, passas».", a:"Subordinada adverbial condicional (põe uma condição: «se»)."},
-   {s:true, p:"Classifica a oração «que leste» em «O livro que leste é meu».", a:"Subordinada adjetiva relativa restritiva (sem vírgulas, filtra «o livro»)."}
-  ]},
- {id:"coesao", c:"--c4", tag:"Missão 4", name:"Coesão", pic:"A cola do texto: setas, buracos, pontes e relógios",
-  rows:[
-   ["Coesão gramatical"],
-   ["Referencial: anáfora (seta ⬅)","Retoma algo dito ANTES: A Maria chegou. <u>Ela</u> estava cansada."],
-   ["Referencial: catáfora (seta ➡)","Antecipa algo que vem DEPOIS: Só desejo <u>isto</u>: que sejam felizes."],
-   ["Referencial: elipse (buraco)","Omite o que já se sabe: Os alunos estudaram; Ø passaram."],
-   ["Frásica","As palavras concordam entre si (género, número, pessoa): <u>As alunas</u> estavam <u>cansadas</u>."],
-   ["Interfrásica (ponte)","Conectores que ligam frases e orações: mas, porque, no entanto, por isso, além disso."],
-   ["Temporal (relógio)","Expressões de tempo e tempos verbais em sequência: <u>Primeiro</u> estudei, <u>depois</u> fui descansar."],
-   ["Coesão lexical"],
-   ["Reiteração","Repete a mesma palavra: O Pedro chegou. O Pedro estava feliz."],
-   ["Substituição","Troca por outra palavra de sentido ligado. <b>Sinonímia</b>: a cara → o rosto. <b>Antonímia</b>: O dia foi quente; a noite, fria. <b>Hiperonímia/hiponímia</b>: maçãs → a fruta. <b>Holonímia/meronímia</b>: a casa → a cozinha."]],
-  tip:"<b>Na resposta completa</b> diz o tipo E o mecanismo: «coesão referencial, por anáfora» ou «coesão lexical, por hiperonímia/hiponímia».",
-  qs:[
-   {p:"Em «A Maria chegou. Ela estava cansada», a palavra «Ela» assegura a coesão", o:["lexical","interfrásica","referencial (anáfora)","referencial (catáfora)"], a:2, e:"«Ela» retoma «A Maria», que veio antes: coesão referencial por anáfora."},
-   {p:"Em «Só desejo isto: que sejam felizes», a palavra «isto» é um caso de", o:["anáfora","catáfora","elipse","reiteração"], a:1, e:"«isto» aponta para o que vem DEPOIS: catáfora."},
-   {p:"Em «Os alunos estudaram muito; passaram no exame», a coesão da segunda oração é assegurada por", o:["elipse do sujeito","catáfora","sinonímia","coesão temporal"], a:0, e:"O sujeito «os alunos» foi omitido porque já se sabe: elipse."},
-   {p:"Em «As alunas estavam cansadas», a concordância de «cansadas» com «As alunas» é um caso de coesão", o:["lexical","frásica","interfrásica","referencial"], a:1, e:"«cansadas» está no feminino plural, como «alunas»: as palavras concordam dentro da frase. Coesão frásica."},
-   {p:"Em «Estudei para o exame; no entanto, não tive a nota esperada», «no entanto» assegura a coesão", o:["frásica","interfrásica","lexical","temporal"], a:1, e:"É um conector que liga as frases: coesão interfrásica."},
-   {p:"Em «Primeiro estudei, depois fui descansar», «Primeiro» e «depois» asseguram a coesão", o:["temporal","referencial","frásica","lexical"], a:0, e:"Organizam a ordem no tempo: coesão temporal."},
-   {p:"Em «O Pedro chegou tarde. O Pedro tinha perdido o autocarro», a repetição de «O Pedro» é um caso de coesão", o:["lexical por reiteração","referencial por anáfora","lexical por sinonímia","frásica"], a:0, e:"Repete-se a mesma palavra: coesão lexical por reiteração. Se fosse «Ele», seria referencial (anáfora)."},
-   {p:"Em «Tinha a cara suja. Lavou o rosto à pressa», a palavra «rosto» assegura a coesão", o:["lexical por sinonímia","lexical por hiperonímia/hiponímia","referencial por catáfora","frásica"], a:0, e:"«rosto» quer dizer o mesmo que «cara»: coesão lexical por sinonímia."},
-   {p:"Em «O dia foi quente; a noite, fria», a palavra «fria» assegura a coesão", o:["lexical por antonímia","lexical por sinonímia","frásica","referencial por anáfora"], a:0, e:"«fria» é o contrário de «quente» e liga as duas partes pelo sentido: coesão lexical por antonímia."},
-   {p:"Em «Comprei maçãs. A fruta estava madura», «A fruta» assegura a coesão", o:["referencial (anáfora)","frásica","lexical (hiperonímia/hiponímia)","lexical (sinonímia)"], a:2, e:"«fruta» é a palavra geral que substitui «maçãs»: coesão lexical por hiperonímia/hiponímia."},
-   {p:"Em «Entrámos na casa. A cozinha era enorme», «A cozinha» assegura a coesão", o:["lexical por holonímia/meronímia","lexical por sinonímia","referencial por anáfora","temporal"], a:0, e:"A cozinha é PARTE da casa: coesão lexical por holonímia/meronímia."},
-   {s:true, p:"«O Velho do Restelo criticou a viagem e todos o ouviram.» Indica o referente de «o» e o mecanismo de coesão.", a:"Referente: «O Velho do Restelo». Coesão referencial, por anáfora."}
-  ]},
- {id:"relacoes", c:"--c5", tag:"Missão 5", name:"Relações entre palavras", pic:"Caixas dentro de caixas e peças de puzzle",
-  rows:[
-   ["Sinonímia","Gémeos, mesmo sentido: cara / rosto; começar / iniciar."],
-   ["Antonímia","Opostos: quente / frio; abrir / fechar."],
-   ["Hiperonímia / hiponímia","Caixas dentro de caixas: fruta (hiperónimo, a caixa grande) → banana, maçã (hipónimos). Teste: «X é um TIPO de Y»."],
-   ["Holonímia / meronímia","O puzzle e as peças: casa (holónimo, o todo) → telhado, parede (merónimos, as partes). Teste: «X é PARTE de Y»."]],
-  tip:"<b>Hiper</b> = geral (caixa grande). <b>Hipo</b> = particular. <b>Holo</b> = todo. <b>Mero</b> = parte.",
-  qs:[
-   {p:"A relação entre «começar» e «iniciar» é de", o:["antonímia","sinonímia","hiperonímia/hiponímia","holonímia/meronímia"], a:1, e:"Querem dizer o mesmo: dá para trocar uma pela outra na frase. Sinonímia."},
-   {p:"«O dia estava quente, mas a noite ficou gelada.» A relação entre «quente» e «gelada» é de", o:["sinonímia","antonímia","hiperonímia","meronímia"], a:1, e:"Sentidos opostos: antonímia."},
-   {p:"«Comprei muitas frutas. As bananas estavam maduras.» A relação entre «frutas» e «bananas» é de", o:["holonímia/meronímia","sinonímia","hiperonímia/hiponímia","antonímia"], a:2, e:"A banana é um TIPO de fruta: hiperonímia/hiponímia."},
-   {p:"Na relação entre «flor» e «rosa», «flor» é", o:["hipónimo","merónimo","hiperónimo","holónimo"], a:2, e:"É a palavra geral (a caixa grande): hiperónimo."},
-   {p:"Na relação entre «cão» e «animal», «cão» é", o:["hiperónimo","hipónimo","holónimo","merónimo"], a:1, e:"O cão é um TIPO de animal: é a palavra particular, que fica dentro da caixa. Hipónimo."},
-   {p:"«A casa era antiga. O telhado precisava de obras.» A relação entre «casa» e «telhado» é de", o:["hiperonímia/hiponímia","holonímia/meronímia","sinonímia","antonímia"], a:1, e:"O telhado é PARTE da casa: holonímia/meronímia."},
-   {p:"Na relação entre «parede» e «casa», «parede» é", o:["merónimo","holónimo","hiperónimo","sinónimo"], a:0, e:"É uma parte do todo: merónimo."},
-   {p:"Na relação entre «árvore» e «ramo», «árvore» é", o:["merónimo","hipónimo","holónimo","hiperónimo"], a:2, e:"O ramo é PARTE da árvore. A árvore é o todo: holónimo."},
-   {s:true, p:"Indica a relação semântica entre «instrumento» e «guitarra».", a:"Hiperonímia/hiponímia: «instrumento» é hiperónimo de «guitarra» (a guitarra é um tipo de instrumento)."}
-  ]},
- {id:"formacao", c:"--c6", tag:"Missão 6", name:"Formação de palavras", pic:"Legos: peças à frente, atrás ou coladas",
-  rows:[
-   ["Prefixação","Peça à frente: feliz → <b>in</b>feliz; fazer → <b>des</b>fazer."],
-   ["Sufixação","Peça atrás: feliz → feliz<b>mente</b>; ler → lei<b>tura</b>."],
-   ["Prefixação e sufixação","Duas peças, UMA DE CADA VEZ: infelizmente (existe «infeliz» e existe «felizmente»)."],
-   ["Parassíntese","Duas peças AO MESMO TEMPO: triste → entristecer («entriste» e «tristecer» não existem); velho → envelhecer."],
-   ["Derivação não afixal","O verbo perde a ponta e vira nome: lutar → a luta; pescar → a pesca."],
-   ["Conversão","Muda de classe, mas fica igual: jantar (verbo) → o jantar (nome); olhar → o olhar."],
-   ["Composição morfológica","Junta radicais, peças que não se usam sozinhas como palavras: geo + grafia = geografia; luso- + brasileiro = luso-brasileiro."],
-   ["Composição morfossintática","Junta palavras inteiras, que existem sozinhas: guarda + chuva = guarda-chuva; couve-flor."]],
-  tip:"<b>Parassíntese ou prefixação e sufixação?</b> Tira uma peça de cada vez. As duas palavras existem (infeliz, felizmente)? Prefixação e sufixação. Nenhuma existe? Parassíntese.<br><b>O hífen não decide!</b> «luso-brasileiro» tem hífen, mas é composição morfológica (luso- é um radical). «guarda-chuva» junta duas palavras: morfossintática.",
-  qs:[
-   {p:"A palavra «infeliz» formou-se por", o:["sufixação","prefixação","parassíntese","composição"], a:1, e:"in + feliz: peça acrescentada à frente. Prefixação."},
-   {p:"A palavra «leitura» formou-se por", o:["prefixação","sufixação","parassíntese","conversão"], a:1, e:"ler + -tura: a peça entrou atrás. Sufixação."},
-   {p:"A palavra «infelizmente» formou-se por", o:["parassíntese","prefixação e sufixação","composição morfológica","conversão"], a:1, e:"Existem «infeliz» e «felizmente», por isso as peças entraram uma de cada vez: prefixação e sufixação."},
-   {p:"A palavra «entristecer» formou-se por", o:["prefixação e sufixação","sufixação","parassíntese","derivação não afixal"], a:2, e:"en + triste + ecer ao mesmo tempo. «entriste» e «tristecer» não existem: parassíntese."},
-   {p:"«lutar → a luta» é um caso de", o:["conversão","sufixação","derivação não afixal","composição"], a:2, e:"Um nome forma-se a partir do verbo, que perde a terminação: derivação não afixal."},
-   {p:"Em «O jantar estava ótimo», «jantar» resulta de", o:["conversão","derivação não afixal","sufixação","composição morfossintática"], a:0, e:"O verbo passou a nome sem mudar de forma: conversão."},
-   {p:"A palavra «geografia» formou-se por", o:["composição morfossintática","composição morfológica","prefixação","parassíntese"], a:1, e:"Junta dois radicais (geo + grafia), que não se usam sozinhos: composição morfológica."},
-   {p:"A palavra «luso-brasileiro» formou-se por", o:["composição morfossintática","composição morfológica","prefixação","derivação não afixal"], a:1, e:"«luso-» é um radical (quer dizer «português») que aqui não funciona como palavra sozinha. Juntou-se a «brasileiro»: composição morfológica. O hífen não decide!"},
-   {p:"A palavra «guarda-chuva» formou-se por", o:["composição morfológica","sufixação","composição morfossintática","conversão"], a:2, e:"Junta duas palavras que existem sozinhas (guarda + chuva): composição morfossintática."},
-   {s:true, p:"Indica o processo de formação de «envelhecer».", a:"Derivação por parassíntese (en + velho + ecer, ao mesmo tempo; «envelho» e «velhecer» não existem)."}
-  ]},
- {id:"leitura", c:"--c7", tag:"Missão 7", name:"Leitura (PRI 1)", pic:"Lê, sublinha, volta à linha que a pergunta indica", reading:true,
+
+ leitura:{c:"--c7", name:"Compreensão do texto", pic:"Lê, sublinha, volta à linha que a pergunta indica", text:true,
   rows:[
    ["1.º","Lê o texto todo uma vez, sem pressa."],
    ["2.º","Em cada pergunta, volta à linha indicada."],
    ["3.º","Elimina as opções erradas. Desconfia de «sempre», «nunca», «apenas» que o texto não diz."],
-   ["4.º","Na gramática sobre o texto, aplica os truques das missões 1 a 6."]],
+   ["4.º","Na gramática sobre o texto, aplica os truques das outras linhas."]],
   tip:"<b>A opção certa é a que o texto diz</b>, não a que te parece verdadeira no mundo real.",
   qs:[
-   {p:"A ideia principal do texto é que", o:["os jovens de hoje não leem nada","os jovens leem muitas palavras, mas perderam a atenção prolongada que os livros treinam","os ecrãs devem ser totalmente proibidos","a escola obriga os alunos a ler demasiado"], a:1, e:"Nas linhas 1 a 5 o autor reconhece que se leem muitas palavras, mas diz que o problema está na atenção."},
-   {p:"A expressão «um treino de paciência» (linha 6) significa que ler um livro", o:["é aborrecido","exige concentração durante muito tempo","se faz apenas na escola","é mais rápido do que ler mensagens"], a:1, e:"As linhas 6 e 7 explicam: obriga a seguir um raciocínio longo."},
-   {p:"Segundo o autor (linhas 1-3), os jovens de hoje", o:["não leem nenhum tipo de texto","abrem menos livros, mas leem muitas palavras em mensagens, legendas e comentários","leem mais livros do que antigamente","só leem na escola"], a:1, e:"Linhas 1-3: «abrem menos livros, mas nunca leram tantas palavras: mensagens, legendas, comentários»."},
-   {p:"Para o autor (linhas 6-8), ler um livro ajuda a", o:["escrever mensagens mais depressa","seguir um raciocínio longo, imaginar lugares e pôr-se no lugar dos outros","decorar a matéria para os testes","usar melhor os ecrãs"], a:1, e:"Está escrito nas linhas 6-8: «seguir um raciocínio longo, a imaginar lugares […] e a pôr-nos no lugar de outras pessoas»."},
-   {p:"Quando o autor diz que este treino «se tornou raro» (linha 8), quer dizer que", o:["já poucas pessoas leem com atenção prolongada","os livros ficaram mais caros","as escolas proibiram a leitura","ninguém usa ecrãs"], a:0, e:"«Este treino» é a leitura com paciência (linha 6). «Tornou-se raro» = acontece pouco."},
-   {p:"Este texto é sobretudo", o:["narrativo: conta uma história","de opinião: defende uma ideia com argumentos","descritivo: descreve um lugar","um poema"], a:1, e:"O autor defende uma tese (falta atenção na leitura), dá argumentos e termina com uma proposta: texto de opinião."},
-   {p:"O último parágrafo (linhas 10-11) tem a função de", o:["apresentar uma proposta de solução","dar um exemplo pessoal","contradizer a tese inicial","descrever um lugar"], a:0, e:"Começa por «Por isso» e propõe o que as escolas e as famílias deviam fazer."},
-   {p:"Em «para a compreender» (linha 5), o pronome «a» retoma", o:["a atenção","uma ideia","a quantidade","a leitura"], a:1, e:"Compreender uma ideia: o «a» retoma «uma ideia» (coesão referencial por anáfora)."},
-   {p:"A oração «Quem salta de ecrã em ecrã» (linha 4) é", o:["subordinada adjetiva relativa restritiva","subordinada substantiva relativa","subordinada adverbial condicional","coordenada copulativa"], a:1, e:"Começa por «quem» e não há nome antes: substantiva relativa (com função de sujeito)."},
-   {p:"A oração «embora seja cada vez mais necessário» (linha 9) é subordinada adverbial", o:["causal","concessiva","final","temporal"], a:1, e:"«embora» = apesar de: concessiva."},
-   {p:"A palavra «Infelizmente» (linha 8) formou-se por", o:["parassíntese","prefixação e sufixação","sufixação","composição"], a:1, e:"Existem «infeliz» e «felizmente»: prefixação e sufixação."},
-   {p:"Na linha 8, «Infelizmente» desempenha a função sintática de", o:["modificador do grupo verbal","modificador de frase","predicativo do sujeito","complemento oblíquo"], a:1, e:"Está no início, com vírgula, e mostra a opinião do autor sobre a frase toda: modificador de frase."},
-   {p:"Em «Obriga-nos» (linha 6), o pronome «nos» desempenha a função de", o:["complemento direto","complemento indireto","sujeito","complemento oblíquo"], a:0, e:"Obriga quem? Obriga-nos (como «obriga-os»): complemento direto. Repara que é um pronome pessoal átono."},
-   {p:"Na linha 2, a palavra «mas» é", o:["advérbio conectivo","conjunção coordenativa adversativa","conjunção subordinativa concessiva","preposição"], a:1, e:"Liga duas orações com ideia de oposição (abrem menos livros / nunca leram tantas palavras): conjunção coordenativa adversativa."},
-   {p:"A expressão «Por isso» (linha 10) contribui para a coesão", o:["lexical","frásica","interfrásica","temporal"], a:2, e:"É um conector com valor conclusivo que liga parágrafos: coesão interfrásica."},
-   {s:true, p:"Explica, por palavras tuas, a frase «O problema não está na quantidade, mas na atenção» (linhas 3-4).", a:"Os jovens leem muitas palavras (mensagens, legendas), mas aos bocadinhos. O que falta é concentrarem-se muito tempo numa só ideia."},
-   {s:true, p:"Indica a proposta que o autor apresenta no último parágrafo e a quem se dirige.", a:"Propõe que se protejam momentos sem ecrãs, para a leitura voltar a ser um prazer. Dirige-se às escolas e às famílias."},
-   {s:true, p:"Indica a função sintática de «um treino de paciência» em «Ler um livro é um treino de paciência» (linha 6).", a:"Predicativo do sujeito (vem depois do verbo copulativo «ser»)."}
+   {lv:1,p:"Segundo o texto (linhas 1-3), os jovens de hoje", o:["nunca leram tantas palavras","não leem palavras nenhumas","só leem livros","leem mais livros do que antes"], a:0, e:"Linhas 1-3: «abrem menos livros, mas nunca leram tantas palavras»."},
+   {lv:1,p:"A ideia principal do texto é que", o:["os jovens de hoje não leem nada","os jovens leem muitas palavras, mas perderam a atenção prolongada que os livros treinam","os ecrãs devem ser totalmente proibidos","a escola obriga os alunos a ler demasiado"], a:1, e:"O autor reconhece que se leem muitas palavras, mas diz que o problema está na atenção."},
+   {lv:1,p:"O conector «mas» (linha 3) introduz", o:["uma oposição","uma causa","um exemplo","uma conclusão"], a:0, e:"«O problema não está na quantidade, mas na atenção»: oposição."},
+   {lv:2,p:"A expressão «um treino de paciência» (linha 6) significa que ler um livro", o:["é aborrecido","exige concentração durante muito tempo","se faz apenas na escola","é mais rápido do que ler mensagens"], a:1, e:"As linhas 6 e 7 explicam: obriga a seguir um raciocínio longo."},
+   {lv:2,p:"O último parágrafo (linhas 10-11) tem a função de", o:["apresentar uma proposta de solução","dar um exemplo pessoal","contradizer a tese inicial","descrever um lugar"], a:0, e:"Começa por «Por isso» e propõe o que as escolas e as famílias deviam fazer."},
+   {lv:2,p:"Em «para a compreender» (linha 5), o pronome «a» retoma", o:["a atenção","uma ideia","a quantidade","a leitura"], a:1, e:"Compreender uma ideia: o «a» retoma «uma ideia» (coesão referencial por anáfora)."},
+   {lv:3,p:"A oração «Quem salta de ecrã em ecrã» (linha 4) é", o:["subordinada adjetiva relativa restritiva","subordinada substantiva relativa","subordinada adverbial condicional","coordenada copulativa"], a:1, e:"Começa por «quem» e não há nome antes: substantiva relativa (com função de sujeito)."},
+   {lv:3,p:"A oração «embora seja cada vez mais necessário» (linha 9) é subordinada adverbial", o:["causal","concessiva","final","temporal"], a:1, e:"«embora» = apesar de: concessiva."},
+   {lv:3,p:"A palavra «Infelizmente» (linha 8) formou-se por", o:["parassíntese","prefixação e sufixação","sufixação","composição"], a:1, e:"Existem «infeliz» e «felizmente»: prefixação e sufixação."},
+   {lv:3,p:"A expressão «Por isso» (linha 10) contribui para a coesão", o:["lexical","frásica","interfrásica","temporal"], a:2, e:"É um conector com valor conclusivo que liga parágrafos: coesão interfrásica."},
+   {lv:3,s:true,p:"Indica a função sintática de «um treino de paciência» em «Ler um livro é um treino de paciência» (linha 6).", a:"Predicativo do sujeito (vem depois do verbo copulativo «ser»)."}
   ]},
-];
+
+ classes:{c:"--c1", name:"Classes e subclasses", pic:"Uma equipa: cada palavra tem um papel",
+  rows:[
+   ["CLASSES ABERTAS","aceitam palavras novas (selfie, googlar)"],
+   ["Nome · o jogador","<b>próprio</b>: Camões · <b>comum</b>: navio, coragem · <b>coletivo</b>: armada, turma. Truque: dá para pôr «o/a» antes."],
+   ["Adjetivo · a camisola","<b>qualificativo</b>: um livro interessante (tem grau: muito interessante) · <b>relacional</b>: viagem marítima (sem grau) · <b>numeral</b>: o segundo livro (ordem)."],
+   ["Verbo · a ação","<b>principal</b>: navegar · <b>copulativo</b>: ser, estar, parecer, ficar, continuar · <b>auxiliar</b>: ter (tinha partido), ir (vai ler), ser (foi escrito)."],
+   ["Advérbio","<b>negação</b>: não · <b>afirmação</b>: sim · <b>tempo</b>: ontem · <b>lugar</b>: aqui · <b>modo</b>: bem · <b>quantidade</b>: muito · <b>inclusão</b>: também, até · <b>exclusão</b>: só, apenas · <b>interrogativo</b>: onde? · <b>relativo</b>: a casa onde moro · <b>conectivo</b>: contudo, portanto."],
+   ["Interjeição","exprime emoção: ai! oh! uau!"],
+   ["CLASSES FECHADAS","quase nunca recebem palavras novas"],
+   ["Determinante · antes do nome","<b>artigo definido</b>: o · <b>indefinido</b>: um · <b>demonstrativo</b>: este livro · <b>possessivo</b>: o meu livro · <b>indefinido</b>: certo dia · <b>interrogativo</b>: qual livro? · <b>relativo</b>: cujo filme."],
+   ["Pronome · no lugar do nome","<b>pessoal</b>: eu, o, lhe, se · <b>demonstrativo</b>: isto · <b>possessivo</b>: é o meu · <b>indefinido</b>: alguém, ninguém · <b>relativo</b>: o livro que li · <b>interrogativo</b>: quem?"],
+   ["Quantificador · quantos?","<b>numeral</b>: três · <b>universal</b>: todos, cada · <b>existencial</b>: alguns, muitos · <b>interrogativo</b>: quantos?"],
+   ["Preposição · a cola","<b>simples</b>: de, em, para · <b>contraída</b>: do (de+o), na (em+a), pelo (por+o)."],
+   ["Conjunção · a ponte","<b>coordenativa</b>: e (copulativa), mas (adversativa), ou (disjuntiva), logo (conclusiva), pois (explicativa) · <b>subordinativa</b>: que/se (completiva), porque (causal), embora (concessiva), se (condicional), quando (temporal), para que (final), tão… que (consecutiva), como (comparativa)."]],
+  tip:"<b>Armadilha nº 1:</b> «este livro» = determinante; «quero este» = pronome. <b>Armadilha nº 2:</b> «que» troca por «o qual»? Pronome relativo. Não troca? Conjunção.",
+  qs:[
+   {lv:1,p:"Em «O Pedro leu um livro interessante», a palavra «interessante» é", o:["nome comum","adjetivo qualificativo","adjetivo relacional","advérbio de modo"], a:1, e:"Dá uma qualidade ao livro e pode ter grau (muito interessante): adjetivo qualificativo."},
+   {lv:1,t:"m",p:"Liga cada palavra destacada à sua classe.", pairs:[["«este» em «este livro»","determinante demonstrativo"],["«isto»","pronome demonstrativo"],["«e»","conjunção coordenativa copulativa"],["«de»","preposição simples"],["«ontem»","advérbio de tempo"]], e:"Determinante vem antes do nome; pronome está no lugar do nome."},
+   {lv:1,p:"Em «A armada partiu de Belém», «armada» é um nome", o:["próprio","comum coletivo","comum abstrato","próprio coletivo"], a:1, e:"Designa um conjunto (de navios): nome comum coletivo."},
+   {lv:1,p:"Em «O meu caderno é azul», «meu» é", o:["pronome possessivo","determinante possessivo","pronome pessoal","determinante demonstrativo"], a:1, e:"Vem antes do nome «caderno»: determinante possessivo."},
+   {lv:1,p:"Em «Todos os dias revejo a matéria», a palavra «Todos» é", o:["quantificador universal","quantificador existencial","determinante indefinido","adjetivo"], a:0, e:"Abrange a totalidade (todos, ambos, cada): quantificador universal."},
+   {lv:2,p:"Em «Gostei daquele, mas quero esta», a palavra «esta» é", o:["determinante demonstrativo","pronome pessoal","pronome demonstrativo","quantificador"], a:2, e:"Não vem nenhum nome a seguir: está no lugar do nome, logo é pronome demonstrativo."},
+   {lv:2,p:"Em «A viagem marítima foi longa», «marítima» é um adjetivo", o:["qualificativo","relacional","numeral","possessivo"], a:1, e:"Indica relação com o mar e não tem grau (não se diz «muito marítima»): adjetivo relacional."},
+   {lv:2,p:"Em «O mar estava calmo», o verbo «estava» é", o:["principal","auxiliar","copulativo","transitivo"], a:2, e:"Liga o sujeito à característica «calmo»: verbo copulativo."},
+   {lv:2,p:"Em «Os navegadores tinham partido cedo», o verbo «tinham» é", o:["copulativo","auxiliar","principal intransitivo","principal transitivo"], a:1, e:"Junta-se a outro verbo (partido) para formar um tempo composto: verbo auxiliar."},
+   {lv:2,p:"Em «Apenas um aluno faltou», «Apenas» é um advérbio de", o:["inclusão","exclusão","quantidade","modo"], a:1, e:"Deixa os outros de fora (só, apenas, somente): advérbio de exclusão."},
+   {lv:2,p:"Em «Alguns marinheiros tinham medo», «Alguns» é", o:["quantificador universal","quantificador existencial","pronome indefinido","determinante artigo indefinido"], a:1, e:"Indica uma parte do conjunto, não todos: quantificador existencial."},
+   {lv:2,p:"Em «Venho do cinema», «do» é", o:["determinante artigo definido","preposição simples","preposição contraída (de + o)","pronome demonstrativo"], a:2, e:"Junta a preposição «de» e o artigo «o»: preposição contraída."},
+   {lv:2,t:"t",p:"Toca no pronome relativo.", w:["A","ilha","que","os","nautas","encontraram","era","bela."], a:2, e:"«que» retoma «ilha» e dá para trocar por «a qual»: pronome relativo."},
+   {lv:3,p:"Em «Estudei muito; contudo, tive má nota», a palavra «contudo» é", o:["conjunção coordenativa adversativa","preposição","advérbio conectivo","conjunção subordinativa concessiva"], a:2, e:"Na terminologia oficial, «contudo», «todavia», «no entanto» e «portanto» são advérbios conectivos."},
+   {lv:3,p:"Em «Ninguém ouviu o Velho do Restelo», «Ninguém» é", o:["pronome indefinido","quantificador universal","determinante indefinido","advérbio de negação"], a:0, e:"Está no lugar de um nome e não identifica ninguém em concreto: pronome indefinido."},
+   {lv:3,p:"Em «Choveu, logo ficámos em casa», «logo» é", o:["conjunção coordenativa conclusiva","conjunção subordinativa causal","advérbio de tempo","conjunção coordenativa explicativa"], a:0, e:"Introduz a conclusão (logo, portanto, por isso): conjunção coordenativa conclusiva."},
+   {lv:3,p:"Em «Não sei se ele vem», «se» é", o:["pronome pessoal reflexo","conjunção subordinativa condicional","conjunção subordinativa completiva","advérbio"], a:2, e:"Introduz o que «não sei» (sei isso): conjunção subordinativa completiva."},
+   {lv:3,t:"t",p:"Toca no determinante relativo.", w:["O","poeta","cujo","livro","li","é","Camões."], a:2, e:"«cujo» vem antes do nome «livro» e liga as duas orações: determinante relativo."},
+   {lv:3,t:"f",p:"Completa a frase com um quantificador existencial e uma conjunção coordenativa adversativa.", x:"«{0} alunos chegaram cedo, {1} outros atrasaram-se.»", b:[[["Alguns","Todos","Estes"],0],[["mas","porque","que"],0]], e:"«Alguns» = parte do conjunto (existencial); «mas» = oposição (adversativa)."},
+   {lv:3,s:true,p:"Classifica a palavra «cujo» em «O ator cujo filme vi é português» (classe e subclasse).", a:"Determinante relativo (vem antes do nome «filme»)."}
+  ]},
+
+ funcoes:{c:"--c2", name:"Funções sintáticas", pic:"Fazer perguntas ao verbo, o chefe da frase",
+  rows:[
+   ["Sujeito","Quem faz? Simples (O Pedro corre), composto (A Ana e o Pedro correm), nulo subentendido (Estudo → eu), nulo indeterminado (Dizem que vai chover), nulo expletivo (Choveu)."],
+   ["Complemento direto","O quê? Passa a o/a/os/as: Leu o livro → Leu-o."],
+   ["Complemento indireto","A quem? Passa a lhe/lhes: Deu flores à mãe → Deu-lhe flores."],
+   ["Complemento oblíquo","O verbo exige-o, com preposição, e NÃO passa a lhe: Vou a Lisboa; Gosto de música."],
+   ["Agente da passiva","Frase com ser + particípio: foi escrito por Camões."],
+   ["Predicativo do sujeito","Depois de ser, estar, parecer, ficar, continuar: A Ana está cansada."],
+   ["Predicativo do CD","Com achar, considerar, nomear: Acho o teste fácil → Acho-o fácil."],
+   ["Modificadores","Podem sair da frase. Do grupo verbal: estudou <b>ontem</b>. De frase: <b>Infelizmente</b>, choveu. Restritivo do nome: os alunos <b>atentos</b>. Apositivo do nome: Camões, <b>poeta</b>, …"],
+   ["Complementos do nome / adjetivo","O nome ou o adjetivo pede-os: a descoberta <b>do caminho</b>; desconfiado <b>da viagem</b>."],
+   ["Vocativo","Chama alguém, entre vírgulas: Maria, anda cá!"]],
+  tip:"<b>Truque do pronome:</b> troca por <i>o</i>, <i>lhe</i> ou nada. «o» = CD; «lhe» = CI; nenhum serve mas o verbo precisa = oblíquo; pode sair = modificador.",
+  qs:[
+   {lv:1,t:"m",p:"Liga cada truque à função sintática.", pairs:[["passa a «o/a»","complemento direto"],["passa a «lhe»","complemento indireto"],["«foi feito por alguém»","complemento agente da passiva"],["chama alguém, entre vírgulas","vocativo"]], e:"Estes quatro truques resolvem metade das perguntas de funções sintáticas."},
+   {lv:1,p:"Em «Estudo muito para o teste», o sujeito é", o:["nulo subentendido","nulo indeterminado","simples","composto"], a:0, e:"Não está escrito, mas a terminação do verbo mostra que é «eu»: nulo subentendido."},
+   {lv:1,p:"Em «A Maria ofereceu flores à mãe», «à mãe» desempenha a função de", o:["complemento direto","complemento indireto","complemento oblíquo","modificador"], a:1, e:"Ofereceu-lhe flores. Passa a «lhe»: complemento indireto."},
+   {lv:1,p:"Em «Maria, anda cá!», «Maria» é", o:["sujeito","vocativo","complemento direto","modificador de frase"], a:1, e:"Serve para chamar alguém e está separada por vírgula: vocativo."},
+   {lv:2,p:"Em «Dizem que vai chover», o sujeito de «Dizem» é", o:["simples","nulo subentendido","nulo indeterminado","nulo expletivo"], a:2, e:"Não se sabe quem diz. Verbo na 3.ª pessoa do plural sem sujeito: nulo indeterminado."},
+   {lv:2,p:"Em «Amanhã vou a Lisboa», «a Lisboa» desempenha a função de", o:["complemento indireto","modificador do grupo verbal","complemento oblíquo","complemento direto"], a:2, e:"O verbo «ir» exige um destino e não dá «vou-lhe»: complemento oblíquo. Já «Amanhã» é modificador."},
+   {lv:2,p:"Em «A Ana parecia cansada», «cansada» é", o:["predicativo do sujeito","predicativo do complemento direto","modificador do nome","complemento direto"], a:0, e:"«parecer» é verbo copulativo; «cansada» caracteriza o sujeito: predicativo do sujeito."},
+   {lv:2,p:"Em «Infelizmente, a viagem foi longa», «Infelizmente» é", o:["modificador de frase","modificador do grupo verbal","complemento oblíquo","vocativo"], a:0, e:"Dá a opinião de quem fala sobre a frase toda: modificador de frase."},
+   {lv:2,t:"t",p:"Toca no complemento indireto.", w:["Vasco da Gama","contou","a história de Portugal","ao rei de Melinde."], a:3, e:"Contou-lhe a história: «ao rei de Melinde» passa a «lhe»."},
+   {lv:2,t:"t",p:"Toca no complemento oblíquo.", w:["Os marinheiros","gostavam","de aventuras."], a:2, e:"«gostar» exige «de…» e não passa a «lhe»: complemento oblíquo."},
+   {lv:3,p:"Em «Os alunos acharam o teste fácil», «fácil» é", o:["predicativo do sujeito","modificador restritivo do nome","complemento direto","predicativo do complemento direto"], a:3, e:"Acharam-no fácil. «fácil» fica fora do pronome e caracteriza o CD: predicativo do complemento direto."},
+   {lv:3,p:"Em «Os alunos, atentos, ouviram a professora», «atentos» é", o:["modificador restritivo do nome","modificador apositivo do nome","predicativo do sujeito","complemento do nome"], a:1, e:"Entre vírgulas, acrescenta informação: modificador apositivo do nome."},
+   {lv:3,p:"Em «A descoberta do caminho marítimo mudou a história», «do caminho marítimo» é", o:["complemento do nome","modificador restritivo do nome","complemento oblíquo","complemento do adjetivo"], a:0, e:"«descoberta» vem de «descobrir (o caminho)»: o nome pede este complemento."},
+   {lv:3,p:"Em «O Velho estava desconfiado da viagem», «da viagem» é", o:["complemento oblíquo","complemento do adjetivo","complemento do nome","modificador do grupo verbal"], a:1, e:"É o adjetivo «desconfiado» que pede «de…»: complemento do adjetivo."},
+   {lv:3,t:"t",p:"Toca no predicativo do complemento direto.", w:["Os nautas","consideravam","o gigante","invencível."], a:3, e:"Consideravam-no invencível: «invencível» caracteriza o CD."},
+   {lv:3,t:"f",p:"Completa com as funções certas.", x:"Em «O Velho do Restelo criticou a viagem», «O Velho do Restelo» é {0} e «a viagem» é {1}.", b:[[["sujeito simples","sujeito composto","vocativo"],0],[["complemento direto","complemento oblíquo","predicativo do sujeito"],0]], e:"Criticou-a: «a viagem» passa a «a» → complemento direto."},
+   {lv:3,s:true,p:"Indica a função sintática de «por Camões» em «Os Lusíadas foram escritos por Camões».", a:"Complemento agente da passiva."}
+  ]},
+
+ oracoes:{c:"--c3", name:"Orações", pic:"Mochilas: umas andam sozinhas, outras vão às costas",
+  rows:[
+   ["Coordenadas","lado a lado: copulativa (e, nem), adversativa (mas, porém), disjuntiva (ou), conclusiva (logo, por isso), explicativa (pois)."],
+   ["Substantiva = COISA","troca por «isso». Completiva (Sei que vens → sei isso) ou relativa sem nome antes (Quem espera sempre alcança). Diz também a função: sujeito, CD…"],
+   ["Relativa = CARACTERÍSTICA","vem depois de um nome. Restritiva <b>sem</b> vírgulas = filtro; explicativa <b>com</b> vírgulas = parêntesis."],
+   ["Adverbial = CIRCUNSTÂNCIA","causal (porque), final (para que), temporal (quando), concessiva (embora), condicional (se), consecutiva (tão… que), comparativa (como, mais… do que)."]],
+  tip:"<b>3 perguntas:</b> 1) Faz sentido sozinha? Sim = coordenada. 2) Troca por «isso», por um adjetivo ou por um advérbio? 3) Qual é o conector?",
+  qs:[
+   {lv:1,t:"m",p:"Liga cada conector ao tipo de oração adverbial.", pairs:[["porque","causal"],["embora","concessiva"],["se","condicional"],["para que","final"],["quando","temporal"]], e:"Decora os conectores: são metade da resposta."},
+   {lv:1,p:"Em «Estudei, mas não passei», a oração «mas não passei» é coordenada", o:["copulativa","conclusiva","adversativa","explicativa"], a:2, e:"«mas» indica oposição: adversativa."},
+   {lv:1,p:"Em «Embora estivesse a chover, fomos à praia», a oração destacada é subordinada adverbial", o:["causal","condicional","concessiva","consecutiva"], a:2, e:"«embora» = apesar de: concessiva."},
+   {lv:2,p:"Em «Sei que vais passar no teste», a oração «que vais passar no teste» é", o:["subordinada adjetiva relativa restritiva","subordinada substantiva completiva","subordinada adverbial causal","coordenada explicativa"], a:1, e:"Sei isso: é uma «coisa» que o verbo saber pede. Substantiva completiva (função de complemento direto)."},
+   {lv:2,p:"Em «Os alunos que estudaram passaram», a oração «que estudaram» é", o:["subordinada adjetiva relativa explicativa","subordinada substantiva completiva","subordinada adjetiva relativa restritiva","subordinada adverbial temporal"], a:2, e:"Sem vírgulas: funciona como filtro (só os que estudaram passaram). Restritiva."},
+   {lv:2,p:"Em «O Pedro, que é meu primo, chegou», a oração destacada é", o:["subordinada adjetiva relativa explicativa","subordinada adjetiva relativa restritiva","coordenada copulativa","subordinada substantiva relativa"], a:0, e:"Entre vírgulas: é só informação extra, como um parêntesis. Explicativa."},
+   {lv:2,p:"Em «Estudei tanto que adormeci», «que adormeci» é subordinada adverbial", o:["consecutiva","comparativa","final","causal"], a:0, e:"«tanto… que» mostra a consequência: consecutiva."},
+   {lv:2,p:"Em «Quando a armada partiu, o povo chorou», a oração destacada é subordinada adverbial", o:["temporal","causal","condicional","final"], a:0, e:"«quando» indica o tempo: temporal."},
+   {lv:2,t:"t",p:"Toca na oração subordinada adjetiva relativa explicativa.", w:["O Adamastor,","que guardava o cabo,","ameaçou os nautas."], a:1, e:"Está entre vírgulas e acrescenta informação sobre «o Adamastor»: explicativa."},
+   {lv:3,p:"Em «Quem espera sempre alcança», «Quem espera» é", o:["subordinada adjetiva relativa restritiva","subordinada substantiva relativa","subordinada substantiva completiva","coordenada"], a:1, e:"Começa por «quem» e não há nome antes. É substantiva relativa (função de sujeito)."},
+   {lv:3,p:"Em «É importante que leias o texto», a oração «que leias o texto» é substantiva completiva com a função de", o:["sujeito","complemento direto","complemento oblíquo","modificador"], a:0, e:"Isso é importante: a oração é o sujeito de «é importante»."},
+   {lv:3,p:"Em «Ele leu mais do que eu esperava», «do que eu esperava» é subordinada adverbial", o:["comparativa","consecutiva","concessiva","causal"], a:0, e:"«mais… do que» compara: comparativa."},
+   {lv:3,p:"Em «Estudei para que tivesse boa nota», a oração destacada é subordinada adverbial", o:["final","causal","consecutiva","temporal"], a:0, e:"«para que» indica o objetivo: final."},
+   {lv:3,t:"f",p:"Completa: uma relativa explicativa e uma adverbial concessiva.", x:"«Os nautas, {0} estavam cansados, continuaram, {1} o mar estivesse agitado.»", b:[[["que","porque","se"],0],[["embora","porque","quando"],0]], e:"«que» retoma «os nautas» (relativa explicativa, entre vírgulas); «embora» = concessiva."},
+   {lv:3,s:true,p:"Classifica a oração destacada: «Se estudares, passas».", a:"Subordinada adverbial condicional."}
+  ]},
+
+ coesao:{c:"--c4", name:"Coesão", pic:"A cola do texto: setas, buracos, pontes e relógios",
+  rows:[
+   ["GRAMATICAL","feita com palavras gramaticais"],
+   ["Referencial: anáfora ⬅","retoma algo dito ANTES: A Maria chegou. <b>Ela</b> estava cansada."],
+   ["Referencial: catáfora ➡","anuncia algo que vem DEPOIS: Só desejo <b>isto</b>: que sejam felizes."],
+   ["Referencial: elipse (buraco)","omite o que já se sabe: Os alunos estudaram; Ø passaram."],
+   ["Interfrásica (ponte)","conectores entre frases: mas, porque, no entanto, por isso."],
+   ["Frásica","concordância: os meninos cansad<b>os</b>; a Maria compr<b>ou</b>."],
+   ["Temporal (relógio)","advérbios e tempos verbais: Primeiro estudei, depois fui descansar."],
+   ["LEXICAL","feita com palavras de significado"],
+   ["Reiteração","repete a palavra: Gosto de livros. Os <b>livros</b>…"],
+   ["Substituição","sinónimo (nau → navio), hiperónimo (rosas → as flores), holónimo/merónimo (casa → o telhado), antónimo."]],
+  tip:"<b>Na resposta completa</b> diz o tipo E o mecanismo: «coesão referencial, por anáfora» ou «coesão lexical, por hiperonímia/hiponímia». O <b>referente</b> é a palavra que o pronome substitui.",
+  qs:[
+   {lv:1,t:"m",p:"Liga cada mecanismo ao que faz.", pairs:[["anáfora","retoma o que veio antes"],["catáfora","anuncia o que vem depois"],["elipse","omite uma palavra já conhecida"],["coesão interfrásica","liga frases com conectores"]], e:"Anáfora = seta para trás; catáfora = seta para a frente."},
+   {lv:1,p:"Em «A Maria chegou. Ela estava cansada», a palavra «Ela» assegura a coesão", o:["lexical","interfrásica","referencial (anáfora)","referencial (catáfora)"], a:2, e:"«Ela» retoma «A Maria», que veio antes: coesão referencial por anáfora."},
+   {lv:1,p:"Em «Primeiro estudei, depois fui descansar», «Primeiro» e «depois» asseguram a coesão", o:["temporal","referencial","frásica","lexical"], a:0, e:"Organizam a ordem no tempo: coesão temporal."},
+   {lv:2,p:"Em «Só desejo isto: que sejam felizes», a palavra «isto» é um caso de", o:["anáfora","catáfora","elipse","reiteração"], a:1, e:"«isto» aponta para o que vem DEPOIS: catáfora."},
+   {lv:2,p:"Em «Os alunos estudaram muito; passaram no exame», a coesão da segunda oração é assegurada por", o:["elipse do sujeito","catáfora","sinonímia","coesão temporal"], a:0, e:"O sujeito «os alunos» foi omitido porque já se sabe: elipse."},
+   {lv:2,p:"Em «Estudei para o exame; no entanto, não tive a nota esperada», «no entanto» assegura a coesão", o:["frásica","interfrásica","lexical","temporal"], a:1, e:"É um conector que liga as frases: coesão interfrásica."},
+   {lv:2,p:"Em «Gosto de livros. Os livros fazem-me sonhar», a repetição de «livros» é coesão lexical por", o:["reiteração","sinonímia","antonímia","holonímia"], a:0, e:"Repetir a mesma palavra = reiteração."},
+   {lv:2,t:"t",p:"Toca na palavra que faz uma catáfora.", w:["Só","peço","isto:","que","estudes."], a:2, e:"«isto» anuncia «que estudes», que vem a seguir."},
+   {lv:3,p:"Em «Comprei maçãs. A fruta estava madura», «A fruta» assegura a coesão", o:["referencial (anáfora)","frásica","lexical (hiperonímia/hiponímia)","lexical (sinonímia)"], a:2, e:"«fruta» é a palavra geral que substitui «maçãs»: coesão lexical por hiperonímia/hiponímia."},
+   {lv:3,p:"Em «Os nautas viram o gigante e temeram-no», o referente de «-no» é", o:["o gigante","os nautas","o medo","o mar"], a:0, e:"Temeram o gigante: «-no» retoma «o gigante» (anáfora)."},
+   {lv:3,p:"Em «Vi uma nau. O navio era enorme», «O navio» assegura a coesão", o:["lexical (sinonímia)","lexical (antonímia)","referencial (catáfora)","temporal"], a:0, e:"«navio» tem o mesmo sentido de «nau»: coesão lexical por sinonímia."},
+   {lv:3,t:"t",p:"Toca no hiperónimo que retoma «rosas».", w:["Comprei","rosas.","As flores","eram","lindas."], a:2, e:"«flores» é a palavra geral (hiperónimo) de «rosas»."},
+   {lv:3,s:true,p:"«O Velho do Restelo criticou a viagem e todos o ouviram.» Indica o referente de «o» e o mecanismo de coesão.", a:"Referente: «O Velho do Restelo». Coesão referencial, por anáfora."}
+  ]},
+
+ relacoes:{c:"--c5", name:"Relações semânticas", pic:"Caixas dentro de caixas e peças de puzzle",
+  rows:[
+   ["Sinonímia","gémeos, mesmo sentido: nau / navio."],
+   ["Antonímia","opostos: quente / gelado."],
+   ["Hiperonímia / hiponímia","a caixa grande e o que está dentro: fruta → banana. «X é um TIPO de Y»."],
+   ["Holonímia / meronímia","o puzzle e as peças: casa → telhado. «X é PARTE de Y»."]],
+  tip:"<b>Hiper</b> = geral (caixa grande). <b>Hipo</b> = particular. <b>Holo</b> = todo. <b>Mero</b> = parte.",
+  qs:[
+   {lv:1,t:"m",p:"Liga cada par à relação semântica.", pairs:[["flor / rosa","hiperonímia/hiponímia"],["casa / telhado","holonímia/meronímia"],["nau / navio","sinonímia"],["alegre / triste","antonímia"]], e:"Tipo de = hiper/hipo. Parte de = holo/mero."},
+   {lv:1,p:"«O dia estava quente, mas a noite ficou gelada.» A relação entre «quente» e «gelada» é de", o:["sinonímia","antonímia","hiperonímia","meronímia"], a:1, e:"Sentidos opostos: antonímia."},
+   {lv:2,p:"«Comprei muitas frutas. As bananas estavam maduras.» A relação entre «frutas» e «bananas» é de", o:["holonímia/meronímia","sinonímia","hiperonímia/hiponímia","antonímia"], a:2, e:"A banana é um TIPO de fruta: hiperonímia/hiponímia."},
+   {lv:2,p:"«A casa era antiga. O telhado precisava de obras.» A relação entre «casa» e «telhado» é de", o:["hiperonímia/hiponímia","holonímia/meronímia","sinonímia","antonímia"], a:1, e:"O telhado é PARTE da casa: holonímia/meronímia."},
+   {lv:2,t:"f",p:"Completa.", x:"«Veículo» é {0} de «carro» e «roda» é {1} de «carro».", b:[[["hiperónimo","hipónimo","merónimo"],0],[["merónimo","holónimo","hipónimo"],0]], e:"Carro é um tipo de veículo (hiperónimo); a roda é parte do carro (merónimo)."},
+   {lv:3,p:"Na relação entre «flor» e «rosa», «flor» é", o:["hipónimo","merónimo","hiperónimo","holónimo"], a:2, e:"É a palavra geral (a caixa grande): hiperónimo."},
+   {lv:3,p:"Na relação entre «parede» e «casa», «parede» é", o:["merónimo","holónimo","hiperónimo","sinónimo"], a:0, e:"É uma parte do todo: merónimo."},
+   {lv:3,p:"Na relação entre «corpo» e «braço», «corpo» é", o:["holónimo","merónimo","hipónimo","antónimo"], a:0, e:"O corpo é o todo e o braço é uma parte: «corpo» é holónimo."},
+   {lv:3,s:true,p:"Indica a relação semântica entre «instrumento» e «guitarra».", a:"Hiperonímia/hiponímia: «instrumento» é hiperónimo de «guitarra»."}
+  ]},
+
+ formacao:{c:"--c6", name:"Formação de palavras", pic:"Legos: peças à frente, atrás ou coladas",
+  rows:[
+   ["DERIVAÇÃO","juntar peças (afixos) a uma palavra"],
+   ["Prefixação","peça à frente: feliz → <b>in</b>feliz."],
+   ["Sufixação","peça atrás: feliz → feliz<b>mente</b>."],
+   ["Prefixação e sufixação","duas peças, uma de cada vez: infelizmente (existem «infeliz» e «felizmente»)."],
+   ["Parassíntese","duas peças AO MESMO TEMPO: triste → entristecer («entriste» e «tristecer» não existem)."],
+   ["Derivação não afixal","o verbo perde a ponta e vira nome: lutar → a luta."],
+   ["Conversão","muda de classe sem mudar de forma: jantar (verbo) → o jantar (nome)."],
+   ["COMPOSIÇÃO","juntar palavras ou radicais"],
+   ["Morfológica","radicais que não andam sozinhos: geo + grafia = geografia; luso-brasileiro."],
+   ["Morfossintática","palavras que existem sozinhas: guarda + chuva = guarda-chuva."]],
+  tip:"<b>Parassíntese ou prefixação e sufixação?</b> Tira uma peça de cada vez. As duas palavras existem? Prefixação e sufixação. Nenhuma existe? Parassíntese.",
+  qs:[
+   {lv:1,t:"m",p:"Liga cada palavra ao processo de formação.", pairs:[["infeliz","prefixação"],["felizmente","sufixação"],["entristecer","parassíntese"],["guarda-chuva","composição morfossintática"]], e:"Peça à frente, peça atrás, duas ao mesmo tempo, duas palavras."},
+   {lv:1,p:"A palavra «infeliz» formou-se por", o:["sufixação","prefixação","parassíntese","composição"], a:1, e:"in + feliz: peça acrescentada à frente. Prefixação."},
+   {lv:1,p:"A palavra «ervinhas» (Os Lusíadas, III, 120) formou-se por", o:["sufixação","prefixação","parassíntese","composição"], a:0, e:"erva + -inha (diminutivo): sufixação."},
+   {lv:2,p:"A palavra «entristecer» formou-se por", o:["prefixação e sufixação","sufixação","parassíntese","derivação não afixal"], a:2, e:"en + triste + ecer ao mesmo tempo. «entriste» e «tristecer» não existem: parassíntese."},
+   {lv:2,p:"«lutar → a luta» é um caso de", o:["conversão","sufixação","derivação não afixal","composição"], a:2, e:"Um nome forma-se a partir do verbo, que perde a terminação: derivação não afixal."},
+   {lv:2,p:"Em «O jantar estava ótimo», «jantar» resulta de", o:["conversão","derivação não afixal","sufixação","composição morfossintática"], a:0, e:"O verbo passou a nome sem mudar de forma: conversão."},
+   {lv:2,t:"f",p:"Completa.", x:"«{0}» formou-se por derivação não afixal e «{1}» formou-se por conversão.", b:[[["a luta","lutador","lutar"],0],[["o jantar","jantarada","jantei"],0]], e:"luta ← lutar (perde a ponta); o jantar ← jantar (só muda de classe)."},
+   {lv:3,p:"A palavra «infelizmente» formou-se por", o:["parassíntese","prefixação e sufixação","composição morfológica","conversão"], a:1, e:"Existem «infeliz» e «felizmente», por isso as peças entraram uma de cada vez: prefixação e sufixação."},
+   {lv:3,p:"A palavra «geografia» formou-se por", o:["composição morfossintática","composição morfológica","prefixação","parassíntese"], a:1, e:"Junta dois radicais (geo + grafia), que não se usam sozinhos: composição morfológica."},
+   {lv:3,p:"A palavra «luso-brasileiro» formou-se por", o:["composição morfossintática","composição morfológica","prefixação","sufixação"], a:1, e:"«luso» é um radical que não anda sozinho: composição morfológica (mesmo com hífen)."},
+   {lv:3,t:"t",p:"Toca na palavra formada por parassíntese.", w:["A","noite","começou","a","anoitecer","devagar."], a:4, e:"a + noite + ecer ao mesmo tempo («anoite» e «noitecer» não existem)."},
+   {lv:3,s:true,p:"Indica o processo de formação de «envelhecer».", a:"Derivação por parassíntese (en + velho + ecer, ao mesmo tempo)."}
+  ]},
+
+ opiniao:{c:"--c8", name:"Texto de opinião: regras", pic:"Um hambúrguer: pão, carne, carne, pão",
+  rows:[
+   ["Limite","<b>250 a 350 palavras</b>. Fora do limite perde pontos; muito curto pode valer 0."],
+   ["Introdução","apresenta o tema e diz logo a tua <b>opinião</b> (tese)."],
+   ["Desenvolvimento","<b>2 argumentos</b>, cada um com um <b>exemplo</b> concreto, em parágrafos diferentes."],
+   ["Contra-argumento","«É certo que…; no entanto,…» (valoriza o texto)."],
+   ["Conclusão","«Em suma,…» reafirma a opinião, <b>sem ideias novas</b>."],
+   ["Linguagem","formal, 1.ª pessoa permitida (considero, defendo), sem «tipo», «bué», «tá»."],
+   ["O que tira pontos","fugir ao tema · não dar opinião · vírgula entre sujeito e verbo · acentos · repetir conectores · escrever em maiúsculas."]],
+  tip:"<b>Antes de escrever:</b> 2 minutos de plano (tese, argumento 1 + exemplo, argumento 2 + exemplo, contra-argumento). Escrever sem plano é a causa nº 1 de textos confusos.",
+  qs:[
+   {lv:1,p:"No teu teste, o texto de opinião deve ter", o:["250 a 350 palavras","100 a 200 palavras","400 a 500 palavras","o número de palavras que quiseres"], a:0, e:"Está na matriz: 250 a 350 palavras."},
+   {lv:1,p:"Onde deve aparecer a tua opinião (a tese)?", o:["logo na introdução","só na conclusão","em nenhum lado, basta dar argumentos","só no segundo argumento"], a:0, e:"A tese aparece logo na introdução e é retomada na conclusão."},
+   {lv:1,t:"m",p:"Liga cada parte do texto ao que deve ter.", pairs:[["Introdução","tema + a tua opinião"],["Desenvolvimento","argumentos + exemplos"],["Contra-argumento","«É certo que…; no entanto…»"],["Conclusão","reafirmar a opinião, sem ideias novas"]], e:"Pão, carne, carne, pão."},
+   {lv:2,p:"Qual destes conectores serve para concluir?", o:["Em suma,","Além disso,","Por exemplo,","No entanto,"], a:0, e:"«Em suma», «Em conclusão», «Concluindo» fecham o texto."},
+   {lv:2,p:"Qual destas frases tem um erro de pontuação?", o:["«Os alunos, estudaram muito.»","«Embora chovesse, saímos.»","«Estudei, mas não passei.»","«Professora, posso sair?»"], a:0, e:"Nunca se põe vírgula entre o sujeito («Os alunos») e o verbo."},
+   {lv:2,t:"f",p:"Escolhe os conectores certos.", x:"«{0}, o telemóvel distrai. {1}, quem recebe uma mensagem perde o fio à aula.»", b:[[["Em primeiro lugar","Em suma","No entanto"],0],[["Por exemplo","Em suma","Contudo"],0]], e:"Primeiro apresentas o argumento, depois o exemplo."},
+   {lv:2,p:"Qual destas frases é adequada a um texto de opinião?", o:["«Considero que a leitura é essencial.»","«Tipo, ler é bué fixe.»","«Eu acho que sim, tá?»","«Ler é top!!!»"], a:0, e:"Linguagem formal: «considero», «defendo», «na minha opinião»."},
+   {lv:3,p:"Nos critérios do exame nacional, se escreveres 360 palavras quando o limite é 350,", o:["perdes 1 ponto por cada palavra a mais, até 5 pontos","perdes a pergunta toda","não perdes nada","perdes 50 pontos"], a:0, e:"Cada palavra fora do limite desconta 1 ponto, até ao máximo de 5 (critérios do IAVE). Confirma com a professora se a escola usa a mesma regra."},
+   {lv:3,p:"Qual é o maior perigo no texto de opinião?", o:["fugir ao tema ou não dar opinião","ter 260 palavras","usar «Em suma»","fazer 5 parágrafos"], a:0, e:"Nos critérios, falhar o género ou o tema pode anular a estrutura e a correção linguística."},
+   {lv:3,p:"A conclusão deve", o:["reafirmar a opinião, sem ideias novas","apresentar o argumento mais forte pela primeira vez","contar uma história nova","ter mais de 100 palavras"], a:0, e:"Na conclusão não se trazem argumentos novos."},
+   {lv:3,s:true,p:"Escreve uma introdução (cerca de 50 palavras) para o tema «As redes sociais aproximam ou afastam as pessoas?».", a:"Exemplo: «As redes sociais fazem hoje parte do dia a dia de quase todos os jovens. Há quem diga que nos aproximam de amigos distantes; outros acreditam que nos isolam. Na minha opinião, embora facilitem o contacto, as redes sociais afastam as pessoas, porque substituem a conversa real por uma presença virtual.» Verifica: tema + opinião clara."}
+  ]},
+
+ /* ===== Exercícios tipo teste ===== */
+ testeA:{c:"--c2", name:"Teste A · Velho do Restelo", pic:"Os Lusíadas, Canto IV, estâncias 94-95", exam:true,
+  text:{h:"Os Lusíadas, Canto IV",lines:["94","Mas um velho, d' aspeito venerando,","Que ficava nas praias, entre a gente,","Postos em nós os olhos, meneando","Três vezes a cabeça, descontente,","A voz pesada um pouco alevantando,","Que nós no mar ouvimos claramente,","Cum saber só d' experiências feito,","Tais palavras tirou do experto peito:","95","«Ó glória de mandar! Ó vã cobiça","Desta vaidade a quem chamamos Fama!","Ó fraudulento gosto, que se atiça","Cũa aura popular, que honra se chama!","Que castigo tamanho e que justiça","Fazes no peito vão que muito te ama!","Que mortes, que perigos, que tormentas,","Que crueldades neles experimentas!"]},
+  rows:[["Vocabulário","aspeito = aspeto · venerando = digno de respeito · meneando = abanando · alevantando = levantando · experto = experiente · cũa = com uma"]],
+  tip:"<b>Lê as perguntas antes do texto</b> e sublinha os versos que elas indicam.",
+  qs:[
+   {lv:2,p:"Na estância 94, o Velho do Restelo é apresentado como alguém", o:["experiente e digno de respeito","jovem e ambicioso","um deus do Olimpo","um marinheiro da armada"], a:0, e:"«d' aspeito venerando» e «saber só d' experiências feito»."},
+   {lv:2,p:"O gesto «meneando / Três vezes a cabeça, descontente» mostra", o:["desaprovação da viagem","alegria pela partida","medo do mar","cansaço"], a:0, e:"Abanar a cabeça, descontente = discordar."},
+   {lv:2,p:"Na estância 95, o Velho critica sobretudo", o:["a ambição de poder e de fama","a falta de coragem dos nautas","os deuses do Olimpo","o rei de Melinde"], a:0, e:"«Ó glória de mandar! Ó vã cobiça / Desta vaidade a quem chamamos Fama!»"},
+   {lv:3,p:"No verso «Ó glória de mandar! Ó vã cobiça», está presente", o:["uma apóstrofe","uma comparação","um eufemismo","uma hipérbole"], a:0, e:"O Velho dirige-se diretamente à glória e à cobiça: apóstrofe."},
+   {lv:3,p:"Os dois últimos versos da estância 95 mostram", o:["as consequências negativas da ambição","as riquezas da Índia","a beleza do mar","a coragem de Vasco da Gama"], a:0, e:"«mortes», «perigos», «tormentas», «crueldades»: o preço da ambição (enumeração)."},
+   {lv:3,p:"A oração «Que nós no mar ouvimos claramente» (est. 94, v. 6) é", o:["subordinada adjetiva relativa explicativa","subordinada substantiva completiva","subordinada adverbial causal","coordenada copulativa"], a:0, e:"«Que» retoma «a voz» e a oração está separada por vírgula: relativa explicativa."},
+   {lv:3,p:"A palavra «claramente» formou-se por", o:["sufixação","prefixação","parassíntese","composição morfológica"], a:0, e:"claro + -mente: sufixação."},
+   {lv:3,p:"A palavra «descontente» formou-se por", o:["prefixação","sufixação","parassíntese","conversão"], a:0, e:"des + contente: prefixação."},
+   {lv:3,s:true,p:"Explica, por palavras tuas, a crítica feita pelo Velho do Restelo na estância 95.", a:"O Velho critica a ambição de poder e de fama que levou os portugueses ao mar. Considera essa glória «vã», isto é, inútil, porque só traz «mortes», «perigos» e «tormentas»."}
+  ]},
+ testeB:{c:"--c1", name:"Teste B · Inês de Castro", pic:"Os Lusíadas, Canto III, estância 120", exam:true,
+  text:{h:"Os Lusíadas, Canto III",lines:["120","Estavas, linda Inês, posta em sossego,","De teus anos colhendo doce fruito,","Naquele engano da alma, ledo e cego,","Que a Fortuna não deixa durar muito,","Nos saudosos campos do Mondego,","De teus fermosos olhos nunca enxuito,","Aos montes ensinando e às ervinhas","O nome que no peito escrito tinhas."]},
+  rows:[["Vocabulário","fruito = fruto · ledo = alegre · Fortuna = destino, sorte · fermosos = formosos · enxuito = enxuto, seco"]],
+  tip:"Aqui o poeta fala <b>diretamente com Inês</b> («Estavas, linda Inês»). Lembra-te: dirigir-se a alguém = apóstrofe; o nome chamado = vocativo.",
+  qs:[
+   {lv:2,p:"Na estância, Inês é apresentada", o:["tranquila e feliz, sem prever a desgraça","com medo da morte","zangada com o rei","a viajar para a Índia"], a:0, e:"«posta em sossego», «colhendo doce fruito»."},
+   {lv:2,p:"«Naquele engano da alma, ledo e cego» sugere que Inês", o:["vivia uma felicidade ilusória que não ia durar","estava doente","enganava o príncipe","era cega"], a:0, e:"«ledo» = alegre; «engano» e «cego» = não via o perigo; «a Fortuna não deixa durar muito»."},
+   {lv:2,p:"«A Fortuna» (v. 4) representa", o:["o destino","o dinheiro","uma deusa do amor","o rio Mondego"], a:0, e:"Fortuna = destino, sorte."},
+   {lv:3,p:"Em «Estavas, linda Inês, posta em sossego», «linda Inês» desempenha a função de", o:["vocativo","sujeito","complemento direto","predicativo do sujeito"], a:0, e:"O poeta chama Inês, entre vírgulas: vocativo."},
+   {lv:3,p:"Em «Aos montes ensinando e às ervinhas / O nome», «Aos montes e às ervinhas» é", o:["complemento indireto","complemento direto","complemento oblíquo","sujeito"], a:0, e:"Ensinava-lhes o nome: passa a «lhes» → complemento indireto."},
+   {lv:3,p:"A oração «que no peito escrito tinhas» (v. 8) é", o:["subordinada adjetiva relativa restritiva","subordinada adjetiva relativa explicativa","subordinada substantiva completiva","subordinada adverbial causal"], a:0, e:"Retoma «O nome» e não tem vírgulas: restritiva."},
+   {lv:3,p:"A palavra «ervinhas» formou-se por", o:["sufixação","prefixação","parassíntese","derivação não afixal"], a:0, e:"erva + -inha: sufixação (diminutivo)."},
+   {lv:3,s:true,p:"Que nome ensinava Inês «aos montes e às ervinhas»? Justifica.", a:"O nome de D. Pedro, o seu amado, que ela tinha «no peito escrito», ou seja, guardado no coração."}
+  ]},
+ testeC:{c:"--c3", name:"Teste C · Reflexão do poeta", pic:"Os Lusíadas, Canto I, estância 106", exam:true,
+  text:{h:"Os Lusíadas, Canto I",lines:["106","No mar tanta tormenta e tanto dano,","Tantas vezes a morte apercebida!","Na terra tanta guerra, tanto engano,","Tanta necessidade avorrecida!","Onde pode acolher-se um fraco humano,","Onde terá segura a curta vida,","Que não se arme e se indigne o Céu sereno","Contra um bicho da terra tão pequeno?"]},
+  rows:[["Vocabulário","apercebida = preparada, à espera · avorrecida = odiosa · acolher-se = abrigar-se"]],
+  tip:"Nas reflexões, Camões fala por si. Procura <b>a ideia sobre o ser humano</b> e <b>os recursos que a reforçam</b>.",
+  qs:[
+   {lv:2,p:"O tema desta estância é", o:["a fragilidade do ser humano perante os perigos","a beleza do mar","a força dos deuses","a riqueza da Índia"], a:0, e:"«fraco humano», «curta vida», «bicho da terra tão pequeno»."},
+   {lv:2,p:"A referência a «No mar» e «Na terra» mostra que", o:["o ser humano corre perigo em todo o lado","só há perigo no mar","a terra é segura","o poeta prefere a terra"], a:0, e:"Tormentas no mar, guerras e enganos na terra: não há lugar seguro."},
+   {lv:2,p:"«bicho da terra tão pequeno» refere-se", o:["ao ser humano","a um animal","ao Adamastor","aos deuses"], a:0, e:"Metáfora do ser humano: pequeno e frágil."},
+   {lv:3,p:"A repetição de «tanta/tanto» nos primeiros versos serve para", o:["intensificar os perigos que o ser humano enfrenta","mostrar alegria","descrever a Índia","elogiar o rei"], a:0, e:"Repetição e enumeração dão a ideia de muitos perigos acumulados."},
+   {lv:3,p:"A pergunta dos últimos quatro versos é uma interrogação retórica porque", o:["leva o leitor a refletir, sem esperar resposta","pede uma informação concreta","é dirigida aos deuses para responderem","tem resposta no verso seguinte"], a:0, e:"A resposta está implícita: não há lugar seguro."},
+   {lv:3,p:"Em «Onde pode acolher-se um fraco humano», «um fraco humano» é", o:["sujeito","complemento direto","complemento oblíquo","vocativo"], a:0, e:"Quem pode acolher-se? Um fraco humano: sujeito (está depois do verbo)."},
+   {lv:3,p:"Em «o Céu sereno», «sereno» é", o:["adjetivo qualificativo","adjetivo relacional","nome comum","advérbio de modo"], a:0, e:"Dá uma qualidade ao céu e tem grau (muito sereno): qualificativo."},
+   {lv:3,s:true,p:"Explica a visão do ser humano apresentada nesta estância.", a:"O poeta mostra o ser humano como um ser frágil e pequeno («fraco humano», «bicho da terra tão pequeno»), que não encontra segurança nem no mar nem na terra."}
+  ]}
+};
 const TEXT = ["Há quem diga que os jovens já não leem. Talvez seja verdade que","abrem menos livros, mas nunca leram tantas palavras: mensagens,","legendas, comentários. O problema não está na quantidade, mas na","atenção. Quem salta de ecrã em ecrã raramente fica tempo suficiente","numa ideia para a compreender a fundo.","Ler um livro é um treino de paciência. Obriga-nos a seguir um","raciocínio longo, a imaginar lugares que nunca vimos e a pôr-nos","no lugar de outras pessoas. Infelizmente, este treino tornou-se raro,","embora seja cada vez mais necessário.","Por isso, as escolas e as famílias deviam proteger momentos sem","ecrãs, em que a leitura volte a ser um prazer e não uma obrigação."];
 
-const WRITE = {id:"escrita", c:"--c8", tag:"Missão 8", name:"Texto de opinião (PRI 2)", pic:"Um hambúrguer: pão, carne, carne, pão",
-  qs:[
-   {p:"No PRI 2, o texto de opinião deve ter", o:["entre 100 e 200 palavras","entre 250 e 350 palavras","pelo menos 500 palavras","as palavras que quiseres"], a:1, e:"O limite é 250 a 350 palavras. Fora disso, perdes pontos."},
-   {p:"Onde deve aparecer a tua opinião (a tese)?", o:["só na conclusão","logo na introdução","em lado nenhum, bastam os exemplos","no meio do segundo argumento"], a:1, e:"O leitor tem de saber logo no 1.º parágrafo o que defendes. A conclusão volta a ela por outras palavras."},
-   {p:"Na contagem de palavras, «dir-se-ia» conta como", o:["3 palavras","2 palavras","1 palavra","não conta"], a:2, e:"Conta-se cada conjunto entre espaços em branco. «dir-se-ia» não tem espaços: 1 palavra."},
-   {p:"Qual destes conectores serve para apresentar uma ideia contrária?", o:["Além disso,","Por exemplo,","No entanto,","Em suma,"], a:2, e:"«No entanto» opõe ideias. «Além disso» acrescenta, «Por exemplo» exemplifica, «Em suma» conclui."},
-   {p:"A conclusão de um texto de opinião deve", o:["trazer um argumento novo","retomar a opinião por outras palavras, sem ideias novas","contar uma história pessoal longa","acabar com uma pergunta sem resposta"], a:1, e:"É o pão de baixo do hambúrguer: fecha o texto e repete a tese, sem acrescentar ideias novas."},
-   {p:"Qual destas frases tem linguagem adequada a um texto de opinião?", o:["Acho que isto é tipo bué importante.","Considero que esta medida é fundamental.","Tá mal, pronto.","Eu cá acho que sim."], a:1, e:"Linguagem formal: «Considero que…». Evita «tipo», «bué», «tá» e repetir «eu acho»."},
-   {s:true, p:"Indica as partes de um texto de opinião bem organizado.", a:"Introdução com a tese; argumento 1 com exemplo; argumento 2 com exemplo; o outro lado («É certo que…; no entanto…»); conclusão que retoma a opinião."}
-  ]};
-const SIM = {id:"simulado", c:"--c1", tag:"Missão final", name:"Simulado PRI 1", pic:"12 perguntas de todos os conteúdos, como no teste"};
+/* Justifica como no teste */
+const JUST = [
+ {id:"j1", name:"Velho do Restelo", ref:"Os Lusíadas, IV, 95", p:"Explicita a crítica feita pelo Velho do Restelo em «Ó glória de mandar! Ó vã cobiça / Desta vaidade a quem chamamos Fama!».",
+  model:"O Velho do Restelo critica a ambição de poder e de fama que levou os portugueses a partir. Através da apóstrofe «Ó glória de mandar! Ó vã cobiça», dirige-se a esses sentimentos como se fossem pessoas e chama-lhes «vã», isto é, inútil. Para ele, essa glória é passageira e só traz «mortes», «perigos» e «tormentas».",
+  crit:[["Identifico o que é criticado: a ambição de poder / a cobiça / a fama",4],["Explico porquê: é vã (inútil) e traz sofrimento",3],["Uso pelo menos uma citação curta, entre aspas",3]]},
+ {id:"j2", name:"Inês de Castro", ref:"Os Lusíadas, III, 120", p:"Explica o sentido do verso «Naquele engano da alma, ledo e cego».",
+  model:"O verso mostra que Inês vivia feliz («ledo») mas iludida («engano», «cego»), sem perceber o perigo que a ameaçava. Essa felicidade não ia durar, porque «a Fortuna não deixa durar muito», o que antecipa a sua morte trágica.",
+  crit:[["Refiro a felicidade de Inês («ledo» = alegre)",3],["Refiro que era uma felicidade ilusória (engano, cegueira)",3],["Relaciono com o destino trágico / a morte que se aproxima",4]]},
+ {id:"j3", name:"Fragilidade humana", ref:"Os Lusíadas, I, 106", p:"Explica o sentido da expressão «bicho da terra tão pequeno».",
+  model:"A expressão é uma metáfora do ser humano. O poeta compara-o a um pequeno bicho para mostrar a sua fragilidade e insignificância perante os perigos do mar e da terra e perante a força do «Céu».",
+  crit:[["Digo que a expressão se refere ao ser humano",3],["Identifico o recurso: metáfora",3],["Explico a ideia de fragilidade / pequenez perante os perigos",4]]},
+ {id:"j4", name:"Leitura: treino de paciência", ref:"Texto da linha «Compreensão do texto»", p:"Explica por que razão o autor afirma que ler um livro é «um treino de paciência».",
+  model:"O autor considera a leitura «um treino de paciência» porque um livro obriga a «seguir um raciocínio longo», ou seja, a manter a atenção durante muito tempo, ao contrário do que acontece quando se salta «de ecrã em ecrã».",
+  crit:[["Explico que ler exige atenção / concentração prolongada",4],["Uso uma citação ou referência ao texto",3],["Comparo com a leitura rápida nos ecrãs",3]],
+  text:true},
+ {id:"j5", name:"Gramática: oração", ref:"Resposta breve de gramática", p:"Classifica a oração destacada e indica a sua função sintática: «É importante <mark>que estudes todos os dias</mark>».",
+  model:"Oração subordinada substantiva completiva, com a função sintática de sujeito.",
+  crit:[["Classifiquei: subordinada substantiva completiva",6],["Indiquei a função: sujeito",4]]}
+];
 
-/* estado */
-let S = {xp:0, ans:{}};
-try{ const raw = localStorage.getItem("mp11"); if(raw) S = Object.assign(S, JSON.parse(raw)); }catch(e){}
-function save(){ try{ localStorage.setItem("mp11", JSON.stringify(S)); }catch(e){} }
-/* v3: as perguntas mudaram de posição; limpa respostas antigas (o XP fica) */
-if(S.v!==3){
-  S.ans = {}; S.v = 3;
-  try{ Object.keys(localStorage).filter(k=>/^mp11_(classes|funcoes|oracoes|coesao|relacoes|formacao|leitura)\d+$/.test(k)).forEach(k=>localStorage.removeItem(k)); }catch(e){}
-  save();
-}
-const total = [...M, WRITE].reduce((n,m)=>n+m.qs.length,0);
+/* Treino infinito */
+const BANK = {
+ fun:{q:"Qual é a função sintática da parte destacada?", tip:"Truque do pronome: o = CD, lhe = CI; o verbo precisa mas não dá «lhe» = oblíquo; pode sair = modificador.", items:[
+  ["[Os marinheiros] enfrentaram a tempestade.","sujeito"],["Os marinheiros enfrentaram [a tempestade].","complemento direto"],["Os marinheiros enfrentaram a tempestade [com coragem].","modificador do grupo verbal"],
+  ["Vasco da Gama contou a história [ao rei de Melinde].","complemento indireto"],["Vasco da Gama contou [a história de Portugal] ao rei.","complemento direto"],
+  ["A armada chegou [a Calecute] em 1498.","complemento oblíquo"],["A armada chegou a Calecute [em 1498].","modificador do grupo verbal"],["Os Lusíadas foram escritos [por Camões].","complemento agente da passiva"],
+  ["O Adamastor parecia [assustador].","predicativo do sujeito"],["Os nautas consideravam o gigante [invencível].","predicativo do complemento direto"],["[Professora], entreguei o trabalho.","vocativo"],
+  ["Camões, [poeta do Renascimento], escreveu uma epopeia.","modificador apositivo do nome"],["Os alunos [atentos] perceberam a explicação.","modificador restritivo do nome"],
+  ["A descoberta [do caminho marítimo] mudou a história.","complemento do nome"],["O Velho estava desconfiado [da viagem].","complemento do adjetivo"],["Os portugueses gostavam [de aventuras].","complemento oblíquo"],
+  ["[Infelizmente], a viagem foi longa.","modificador de frase"],["A Ana deu-[lhe] um livro.","complemento indireto"],["A Maria leu-[o] ontem.","complemento direto"],
+  ["O professor ficou [contente] com os resultados.","predicativo do sujeito"],["A turma elegeu a Ana [delegada].","predicativo do complemento direto"],["Ela mora [em Lisboa].","complemento oblíquo"],
+  ["O texto foi lido [pelos alunos].","complemento agente da passiva"],["Os alunos [que estudaram] passaram.","modificador restritivo do nome"],["O Pedro, [que é meu primo], chegou.","modificador apositivo do nome"],
+  ["Ele estava certo [da vitória].","complemento do adjetivo"],["[Rapazes], prestem atenção!","vocativo"],["[Felizmente], todos regressaram.","modificador de frase"],["Inês amava [D. Pedro].","complemento direto"],["[Vénus] protegia os portugueses.","sujeito"]]},
+ suj:{q:"Que tipo de sujeito tem esta frase?", tip:"Não está escrito mas sabes quem é = subentendido; não se sabe quem = indeterminado; verbos do tempo e «haver» = expletivo.", items:[
+  ["Chove muito em novembro.","nulo expletivo"],["Estudámos para o teste.","nulo subentendido"],["Bateram à porta.","nulo indeterminado"],["Diz-se que o teste é fácil.","nulo indeterminado"],
+  ["Camões e Vasco da Gama são figuras célebres.","composto"],["A armada partiu.","simples"],["Há muitos alunos na sala.","nulo expletivo"],["Escrevi o texto ontem.","nulo subentendido"],
+  ["O Pedro e a Ana chegaram.","composto"],["Os deuses reuniram-se no Olimpo.","simples"],["Trovejou durante a noite.","nulo expletivo"],["Roubaram-me a bicicleta.","nulo indeterminado"],["Partiste cedo.","nulo subentendido"]],
+  labels:["simples","composto","nulo subentendido","nulo indeterminado","nulo expletivo"]},
+ cls:{q:"Classe e subclasse da palavra destacada?", tip:"Antes do nome = determinante; no lugar do nome = pronome; quantas coisas = quantificador.", items:[
+  ["O [meu] caderno é azul.","determinante possessivo"],["Este caderno é o [meu].","pronome possessivo"],["[Este] livro é ótimo.","determinante demonstrativo"],["Quero [este].","pronome demonstrativo"],
+  ["[Alguém] chamou por ti.","pronome indefinido"],["[Certo] dia, partiram.","determinante indefinido"],["[Todos] os alunos vieram.","quantificador universal"],["[Alguns] alunos faltaram.","quantificador existencial"],
+  ["Comprei [três] livros.","quantificador numeral"],["Li o [terceiro] capítulo.","adjetivo numeral"],["A viagem [marítima] foi longa.","adjetivo relacional"],["Era um mar [calmo].","adjetivo qualificativo"],
+  ["O mar estava calmo; [contudo], havia perigo.","advérbio conectivo"],["Ela [também] veio.","advérbio de inclusão"],["[Só] o Pedro faltou.","advérbio de exclusão"],["[Não] gosto de chuva.","advérbio de negação"],
+  ["Saí, [mas] voltei logo.","conjunção coordenativa adversativa"],["Fiquei em casa [porque] chovia.","conjunção subordinativa causal"],["[Embora] chovesse, saímos.","conjunção subordinativa concessiva"],
+  ["Disse [que] vinha.","conjunção subordinativa completiva"],["O livro [que] li é bom.","pronome relativo"],["O autor [cujo] livro li é português.","determinante relativo"],["A casa [onde] moro é antiga.","advérbio relativo"],
+  ["[Onde] moras?","advérbio interrogativo"],["Vim [do] mercado.","preposição contraída"],["Gosto [de] ler.","preposição simples"],["O mar [estava] agitado.","verbo copulativo"],["Os nautas [tinham] partido.","verbo auxiliar"],
+  ["A [armada] partiu.","nome comum coletivo"],["[Camões] escreveu Os Lusíadas.","nome próprio"],["[Ai]! Que dor!","interjeição"],["Estudei, [logo] passei.","conjunção coordenativa conclusiva"],
+  ["[Quem] chegou?","pronome interrogativo"],["Ela vê-[o] todos os dias.","pronome pessoal"],["[Ontem] choveu.","advérbio de tempo"],["[Quantos] livros leste?","quantificador interrogativo"],["[Qual] livro preferes?","determinante interrogativo"],["[Ninguém] respondeu.","pronome indefinido"]]},
+ ora:{q:"Classifica a oração destacada.", tip:"Troca por «isso» = substantiva; depois de um nome = relativa (vírgulas = explicativa); circunstância = adverbial.", items:[
+  ["Sei [que vais passar].","subordinada substantiva completiva"],["[Quem espera] sempre alcança.","subordinada substantiva relativa"],["Os alunos [que estudaram] passaram.","subordinada adjetiva relativa restritiva"],
+  ["Camões, [que perdeu um olho], foi soldado.","subordinada adjetiva relativa explicativa"],["Saímos, [embora chovesse].","subordinada adverbial concessiva"],["Fiquei em casa [porque estava doente].","subordinada adverbial causal"],
+  ["[Se estudares], passas.","subordinada adverbial condicional"],["Estudei [para que tivesse boa nota].","subordinada adverbial final"],["[Quando a armada partiu], o povo chorou.","subordinada adverbial temporal"],
+  ["Choveu tanto [que a rua inundou].","subordinada adverbial consecutiva"],["Ele leu mais [do que eu esperava].","subordinada adverbial comparativa"],["Estudei, [mas não passei].","coordenada adversativa"],
+  ["Estudei [e passei].","coordenada copulativa"],["Estudas [ou vais passear]?","coordenada disjuntiva"],["Estudei muito, [por isso passei].","coordenada conclusiva"],["Leva o casaco, [pois está frio].","coordenada explicativa"],
+  ["Perguntei [se ele vinha].","subordinada substantiva completiva"],["A ilha [onde descansaram] era bela.","subordinada adjetiva relativa restritiva"],["O Adamastor, [que guardava o cabo], ameaçou os nautas.","subordinada adjetiva relativa explicativa"],
+  ["[Como estava cansado], deitou-se cedo.","subordinada adverbial causal"],["[Ainda que seja difícil], vou tentar.","subordinada adverbial concessiva"],["É importante [que leias o texto].","subordinada substantiva completiva"]]},
+ coe:{q:"Que mecanismo de coesão assegura a parte destacada?", tip:"Diz o tipo e o mecanismo: referencial (anáfora/catáfora/elipse), interfrásica, frásica, temporal, lexical (reiteração/sinonímia/hiperonímia…).", items:[
+  ["A Maria chegou. [Ela] estava cansada.","referencial (anáfora)"],["Só quero [isto]: que sejas feliz.","referencial (catáfora)"],["Os alunos estudaram; [Ø] passaram.","referencial (elipse)"],
+  ["Estudei; [no entanto], não passei.","interfrásica"],["[Primeiro] li o texto; depois respondi.","temporal"],["Comprei rosas. [As flores] eram lindas.","lexical (hiperonímia/hiponímia)"],
+  ["Vi uma nau. [O navio] era enorme.","lexical (sinonímia)"],["Entrei na casa. [O telhado] estava partido.","lexical (holonímia/meronímia)"],["Gosto de livros. Os [livros] fazem-me sonhar.","lexical (reiteração)"],
+  ["O Velho criticou a viagem e todos [o] ouviram.","referencial (anáfora)"],["Os nautas tinham medo. [Por isso], rezaram.","interfrásica"],["As meninas chegaram [cansadas].","frásica"],["Ouvi [isto]: a armada voltou.","referencial (catáfora)"]]},
+ rel:{q:"Qual é a relação semântica entre as duas palavras?", tip:"Tipo de = hiperonímia/hiponímia. Parte de = holonímia/meronímia.", items:[
+  ["flor — rosa","hiperonímia/hiponímia"],["casa — telhado","holonímia/meronímia"],["nau — navio","sinonímia"],["quente — frio","antonímia"],["instrumento — guitarra","hiperonímia/hiponímia"],
+  ["corpo — braço","holonímia/meronímia"],["árvore — ramo","holonímia/meronímia"],["animal — cão","hiperonímia/hiponímia"],["alegre — triste","antonímia"],["começar — iniciar","sinonímia"],
+  ["veículo — carro","hiperonímia/hiponímia"],["livro — página","holonímia/meronímia"],["vida — morte","antonímia"],["rápido — veloz","sinonímia"],["mobília — cadeira","hiperonímia/hiponímia"],["rosto — olho","holonímia/meronímia"]],
+  labels:["sinonímia","antonímia","hiperonímia/hiponímia","holonímia/meronímia"]},
+ for:{q:"Qual é o processo de formação da palavra?", tip:"Tira uma peça de cada vez: as duas palavras existem = prefixação e sufixação; nenhuma existe = parassíntese.", items:[
+  ["infeliz","prefixação"],["felizmente","sufixação"],["infelizmente","prefixação e sufixação"],["entristecer","parassíntese"],["envelhecer","parassíntese"],["anoitecer","parassíntese"],
+  ["enriquecer","parassíntese"],["desleal","prefixação"],["reler","prefixação"],["descontente","prefixação"],["navegador","sufixação"],["claramente","sufixação"],
+  ["a luta (de lutar)","derivação não afixal"],["o ataque (de atacar)","derivação não afixal"],["o choro (de chorar)","derivação não afixal"],["o jantar (de jantar)","conversão"],["o olhar (de olhar)","conversão"],
+  ["geografia","composição morfológica"],["biologia","composição morfológica"],["luso-brasileiro","composição morfológica"],["guarda-chuva","composição morfossintática"],["couve-flor","composição morfossintática"],["girassol","composição morfossintática"],["pontapé","composição morfossintática"]]}
+};
+const BANK_NAMES = {fun:"Funções sintáticas",suj:"Sujeito",cls:"Classes e subclasses",ora:"Orações",coe:"Coesão",rel:"Relações semânticas",for:"Formação de palavras"};
+
+/* Linhas do mapa */
+const LINES = [
+ {id:"L1", c:"--c8", tag:"Educação literária", name:"Os Lusíadas", st:[["m","lusiadas",1,"Lição"],["m","lusiadas",2,"Médio"],["m","lusiadas",3,"Nível teste"]]},
+ {id:"L2", c:"--c7", tag:"PRI 1 · Leitura", name:"Compreensão do texto", st:[["m","leitura",1,"Lição"],["m","leitura",2,"Médio"],["m","leitura",3,"Nível teste"]]},
+ {id:"L3", c:"--c1", tag:"Gramática", name:"Classes e subclasses", st:[["m","classes",1,"Lição"],["m","classes",2,"Médio"],["m","classes",3,"Nível teste"]]},
+ {id:"L4", c:"--c2", tag:"Gramática", name:"Funções sintáticas", st:[["m","funcoes",1,"Lição"],["m","funcoes",2,"Médio"],["m","funcoes",3,"Nível teste"]]},
+ {id:"L5", c:"--c3", tag:"Gramática", name:"Orações", st:[["m","oracoes",1,"Lição"],["m","oracoes",2,"Médio"],["m","oracoes",3,"Nível teste"]]},
+ {id:"L6", c:"--c4", tag:"Gramática", name:"Coesão", st:[["m","coesao",1,"Lição"],["m","coesao",2,"Médio"],["m","coesao",3,"Nível teste"]]},
+ {id:"L7", c:"--c5", tag:"Gramática", name:"Relações semânticas", st:[["m","relacoes",1,"Lição"],["m","relacoes",2,"Médio"],["m","relacoes",3,"Nível teste"]]},
+ {id:"L8", c:"--c6", tag:"Gramática", name:"Formação de palavras", st:[["m","formacao",1,"Lição"],["m","formacao",2,"Médio"],["m","formacao",3,"Nível teste"]]},
+ {id:"L9", c:"--c2", tag:"Como no teste", name:"Exercícios tipo teste", st:[["m","testeA",0,"Teste A"],["m","testeB",0,"Teste B"],["m","testeC",0,"Teste C"]]},
+ {id:"L10", c:"--c3", tag:"Resposta restrita", name:"Justifica como no teste", st:JUST.map((j,i)=>["j",i,0,"J"+(i+1)])},
+ {id:"L11", c:"--c8", tag:"PRI 2 · Escrita", name:"Texto de opinião", st:[["m","opiniao",1,"Regras"],["m","opiniao",2,"Médio"],["m","opiniao",3,"Nível teste"],["w",0,0,"Escrever"]]},
+ {id:"L12", c:"--c7", tag:"Revisão", name:"Treino e cábula", st:[["inf",0,0,"Treino infinito"],["sim",0,0,"Simulado"],["cab",0,0,"Cábula"]]}
+];
+
+/* ===== Estado ===== */
+let S = {xp:0, ans:{}, stars:{}, hp:{}, best:0};
+try{ const raw = localStorage.getItem("mp11b"); if(raw) S = Object.assign(S, JSON.parse(raw));
+     else { const old = localStorage.getItem("mp11"); if(old){ S.xp = JSON.parse(old).xp||0; } } }catch(e){}
+function save(){ try{ localStorage.setItem("mp11b", JSON.stringify(S)); }catch(e){} }
 const LV = ["Aprendiz","Explorador","Detetive da gramática","Mestre das orações","Lenda do PRI"];
+function starTotal(){ return Object.values(S.stars).reduce((a,b)=>a+b,0); }
 function updXP(){
-  const done = Object.keys(S.ans).filter(k=>!k.startsWith("sim")).length;
   document.getElementById("xpTxt").textContent = S.xp+" XP";
-  document.getElementById("prog").textContent = done+" / "+total+" perguntas";
-  document.getElementById("xpBar").style.width = Math.min(100, done/total*100)+"%";
-  const l = Math.min(LV.length-1, Math.floor(S.xp/80));
+  const l = Math.min(LV.length-1, Math.floor(S.xp/150));
+  document.getElementById("xpBar").style.width = (l===LV.length-1?100:(S.xp%150)/150*100)+"%";
   document.getElementById("lvl").textContent = "Nível "+(l+1)+" · "+LV[l];
+  const maxStars = LINES.reduce((n,L)=>n+L.st.filter(s=>s[0]==="m"||s[0]==="j").length*3,0);
+  document.getElementById("starsTxt").textContent = "★ "+starTotal()+" / "+maxStars;
 }
+const shuffle = a => a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+const L4 = ["A","B","C","D"];
+const stars = n => `<span class="ss">${[1,2,3].map(i=>`<span class="${i<=n?"on":""}">★</span>`).join("")}</span>`;
 
+/* ===== Mapa ===== */
 function home(){
-  const g = document.getElementById("grid"); g.innerHTML="";
-  [...M, WRITE].forEach(m=>{
-    const done = m.qs ? m.qs.filter((_,i)=>S.ans[m.id+i]).length : 0;
-    const b = document.createElement("button");
-    b.className = "mcard"+(m.qs && done===m.qs.length ? " done":"");
-    b.style.setProperty("--mc", `var(${m.c})`);
-    b.innerHTML = `<span class="tag">${m.tag}</span><span class="name">${m.name}</span><span class="pic">${m.pic}</span><span class="st">${(m===WRITE ? "Escrever e contar palavras · " : "")+(done===m.qs.length? "Concluída ✓ " : "")+done+" / "+m.qs.length+" perguntas"}</span>`;
-    b.onclick = ()=> m===WRITE ? openWrite() : openM(m);
-    g.appendChild(b);
+  const box = document.getElementById("lines"); box.innerHTML="";
+  LINES.forEach(L=>{
+    const sec = document.createElement("section"); sec.className="line"; sec.style.setProperty("--mc",`var(${L.c})`);
+    const got = L.st.reduce((n,s,i)=>n+(S.stars[L.id+":"+i]||0),0);
+    const rated = L.st.filter(s=>s[0]==="m"||s[0]==="j").length;
+    sec.innerHTML = `<div class="lhead"><span class="ln"><i></i><span><small>${L.tag}</small><br><b>${L.name}</b></span></span>${rated?`<span class="ls">★ ${got} / ${rated*3}</span>`:""}</div><div class="stations"></div>`;
+    const row = sec.querySelector(".stations");
+    L.st.forEach((s,i)=>{
+      const k = L.id+":"+i, n = S.stars[k]||0;
+      const b = document.createElement("button"); b.className="st"+(n===3?" full":"");
+      const rated1 = s[0]==="m"||s[0]==="j";
+      b.innerHTML = `<span class="node">${s[0]==="inf"?"∞":s[0]==="cab"?"✎":s[0]==="w"?"✍":i+1}</span><span class="sl">${s[3]}</span>${rated1?stars(n):""}`;
+      b.onclick = ()=>openStation(L,i);
+      row.append(b);
+    });
+    box.append(sec);
   });
-  const s = document.createElement("button");
-  s.className="mcard wide"; s.style.setProperty("--mc","var(--pink)");
-  s.innerHTML = `<span><span class="tag">${SIM.tag}</span><br><span class="name">${SIM.name}</span></span><span class="pic">${SIM.pic} →</span>`;
-  s.onclick = openSim; g.appendChild(s);
   document.getElementById("home").hidden=false;
   document.getElementById("mission").hidden=true;
   updXP();
 }
 
-function esc(t){return t}
-const L = ["A","B","C","D"];
+function openStation(L,i){
+  const s = L.st[i];
+  if(s[0]==="m") return openM(L,i,M[s[1]],s[2]);
+  if(s[0]==="j") return openJ(L,i,JUST[s[1]]);
+  if(s[0]==="w") return openWrite(L);
+  if(s[0]==="inf") return openInf(L);
+  if(s[0]==="sim") return openSim(L);
+  if(s[0]==="cab") return openCab(L);
+}
 
-function qBlock(q, key, num, mc, onDone){
+function shell(L, title, sub, color){
+  const sec = document.getElementById("mission");
+  sec.innerHTML=""; sec.style.setProperty("--mc",`var(${color||L.c})`);
+  const back = document.createElement("button"); back.className="back"; back.textContent="← Voltar ao mapa";
+  back.onclick = ()=>{ home(); window.scrollTo(0,0); };
+  const h = document.createElement("div"); h.className="mhead";
+  h.innerHTML = `<span class="tag">${L.tag} · ${L.name}</span><h2>${title}</h2>${sub?`<p style="color:var(--muted)">${sub}</p>`:""}`;
+  sec.append(back,h);
+  document.getElementById("home").hidden=true; sec.hidden=false; window.scrollTo(0,0);
+  return sec;
+}
+function navBtns(L,i){
+  const nav = document.createElement("div"); nav.className="btns"; nav.style.margin="16px 0 0";
+  const bk = document.createElement("button"); bk.className="btn ghost"; bk.textContent="← Mapa";
+  bk.onclick=()=>{ home(); window.scrollTo(0,0); };
+  nav.append(bk);
+  const li = LINES.indexOf(L);
+  let nL=L, nI=i+1; if(nI>=L.st.length){ nL=LINES[li+1]; nI=0; }
+  if(nL){ const nx=document.createElement("button"); nx.className="btn"; nx.textContent="Seguinte: "+(nL===L? L.st[nI][3] : nL.name)+" →"; nx.onclick=()=>openStation(nL,nI); nav.append(nx); }
+  return nav;
+}
+
+/* ===== Perguntas ===== */
+function lessonBlock(m){
+  const idea = document.createElement("div"); idea.className="idea";
+  idea.innerHTML = `<p class="pic">${m.pic}</p><div class="rows">${m.rows.map(r=>`<div class="r${r[0]===r[0].toUpperCase()&&/[A-Z]/.test(r[0])?" sec":""}"><b>${r[0]}</b><span>${r[1]}</span></div>`).join("")}</div><p class="tip">${m.tip}</p>`;
+  return idea;
+}
+function textBlock(m){
+  const t = document.createElement("div"); t.className="text";
+  if(m.text===true){ t.innerHTML = `<p class="h">Texto · lê com atenção</p><ol>${TEXT.map(l=>`<li>${l}</li>`).join("")}</ol>`; }
+  else { t.innerHTML = `<p class="h">${m.text.h}</p><ol style="list-style:none;padding-left:14px">${m.text.lines.map(l=>/^\d+$/.test(l)?`<li style="margin-top:8px;font-family:var(--body);font-size:13px;color:var(--muted)">Estância ${l}</li>`:`<li>${l}</li>`).join("")}</ol>`; }
+  return t;
+}
+
+/* ctx = {hpKey, onAnswer(ok)} — devolve elemento */
+function qBlock(q, key, num, ctx){
   const d = document.createElement("div"); d.className="q";
-  d.innerHTML = `<span class="n">Pergunta ${num}${q.s?" · resposta breve":""}</span><p class="p">${q.p}</p>`;
+  const kind = q.s?"resposta breve":q.t==="m"?"associação":q.t==="f"?"completar":q.t==="t"?"identificar":"escolha múltipla";
+  d.innerHTML = `<span class="n">Pergunta ${num} · ${kind}${q.lv?` <span class="lvb l${q.lv}">${LVN[q.lv]}</span>`:""}</span><p class="p">${q.p}</p>`;
+  const fb = document.createElement("div"); fb.className="fb"; fb.hidden=true;
+  const done = (ok,pick) => { S.ans[key]={ok,pick}; if(ok) S.xp+=10; save(); updXP(); ctx.onAnswer(ok); };
+  const showFb = (ok, extra) => { fb.hidden=false; fb.className="fb "+(ok?"ok":"no"); fb.innerHTML = `<strong>${ok?"Certo! +10 XP":"Ainda não."}</strong>${extra||""}${q.e||""}`; };
+  const locked = () => ctx.dead();
   const prev = S.ans[key];
-  if(!q.s){
-    const box = document.createElement("div"); box.className="opts";
-    const fb = document.createElement("div"); fb.className="fb"; fb.hidden=true;
-    const btns = q.o.map((t,i)=>{
-      const b = document.createElement("button"); b.className="opt";
-      b.innerHTML = `<span class="l">(${L[i]})</span><span>${t}</span>`;
-      b.onclick = ()=>{
-        if(S.ans[key]) return;
-        const ok = i===q.a;
-        S.ans[key] = {pick:i, ok}; if(ok) S.xp+=10; save(); updXP(); show(); onDone&&onDone();
-      };
-      box.appendChild(b); return b;
-    });
-    function show(){
-      const r = S.ans[key]; if(!r) return;
-      btns.forEach((b,i)=>{ b.disabled=true; if(i===q.a) b.classList.add("right"); else if(i===r.pick) b.classList.add("wrong"); });
-      fb.hidden=false; fb.className="fb "+(r.ok?"ok":"no");
-      fb.innerHTML = `<strong>${r.ok?"Certo! +10 XP":"Ainda não. A certa é a ("+L[q.a]+")."}</strong>${q.e}`;
-    }
-    d.append(box, fb); if(prev) show();
-  } else {
+
+  if(q.s){
     const wrap = document.createElement("div"); wrap.className="short";
-    const id = "t_"+key;
-    wrap.innerHTML = `<label for="${id}" class="n" style="display:block;margin-bottom:4px">A tua resposta</label><textarea id="${id}" placeholder="Escreve como escreverias no teste…"></textarea>`;
+    wrap.innerHTML = `<label class="n" style="display:block;margin-bottom:4px">A tua resposta</label><textarea placeholder="Escreve como escreverias no teste…"></textarea>`;
     const ta = wrap.querySelector("textarea");
-    try{ ta.value = localStorage.getItem("mp11_"+key)||""; }catch(e){}
-    ta.oninput = ()=>{ try{ localStorage.setItem("mp11_"+key, ta.value);}catch(e){} };
-    const btns = document.createElement("div"); btns.className="btns";
+    try{ ta.value = localStorage.getItem("mp11b_"+key)||""; }catch(e){}
+    ta.oninput = ()=>{ try{ localStorage.setItem("mp11b_"+key, ta.value);}catch(e){} };
     const see = document.createElement("button"); see.className="btn"; see.textContent="Ver solução";
-    const fb = document.createElement("div"); fb.className="fb ok"; fb.hidden=true;
+    const sol = document.createElement("div"); sol.className="fb ok"; sol.hidden=true;
     see.onclick = ()=>{
-      fb.hidden=false; see.hidden=true;
-      fb.innerHTML = `<strong>Solução:</strong>${q.a}<div class="btns" style="margin-top:8px"></div>`;
-      const bb = fb.querySelector(".btns");
-      if(S.ans[key]){ bb.innerHTML = `<span>${S.ans[key].ok?"Marcaste: acertei ✓":"Marcaste: errei, revê o truque"}</span>`; return; }
+      sol.hidden=false; see.hidden=true;
+      sol.innerHTML = `<strong>Solução:</strong>${q.a}<div class="btns" style="margin-top:8px"></div>`;
+      const bb = sol.querySelector(".btns");
+      if(S.ans[key]){ bb.innerHTML = `<span>${S.ans[key].ok?"Marcaste: acertei ✓":"Marcaste: errei"}</span>`; return; }
       const y = document.createElement("button"); y.className="btn okb"; y.textContent="Acertei";
       const n = document.createElement("button"); n.className="btn nob"; n.textContent="Errei";
-      y.onclick=()=>{S.ans[key]={ok:true}; S.xp+=10; save(); updXP(); bb.innerHTML="<span>Boa! +10 XP</span>"; onDone&&onDone();};
-      n.onclick=()=>{S.ans[key]={ok:false}; save(); updXP(); bb.innerHTML="<span>Sem problema: relê o truque lá em cima.</span>"; onDone&&onDone();};
+      y.onclick=()=>{ if(locked()) return; bb.innerHTML="<span>Boa! +10 XP</span>"; done(true); };
+      n.onclick=()=>{ if(locked()) return; bb.innerHTML="<span>Relê a lição e a solução.</span>"; done(false); };
       bb.append(y,n);
     };
-    btns.append(see); wrap.append(btns); d.append(wrap, fb);
-    if(prev) see.click();
+    const bt = document.createElement("div"); bt.className="btns"; bt.append(see); wrap.append(bt);
+    d.append(wrap, sol); if(prev) see.click();
+    return d;
   }
+
+  if(q.t==="m"){
+    const rights = shuffle(q.pairs.map(p=>p[1]));
+    const sels = q.pairs.map(p=>{
+      const r = document.createElement("div"); r.className="mrow";
+      r.innerHTML = `<b>${p[0]}</b>`;
+      const s = document.createElement("select");
+      s.innerHTML = `<option value="">— escolhe —</option>`+rights.map(x=>`<option>${x}</option>`).join("");
+      r.append(s); d.append(r); return s;
+    });
+    const go = document.createElement("button"); go.className="btn"; go.textContent="Verificar";
+    const paint = ()=>{ sels.forEach((s,i)=>{ s.disabled=true; const ok=s.value===q.pairs[i][1]; s.className= ok?"right":"wrong"; if(!ok){ s.value=q.pairs[i][1]; } }); go.hidden=true; };
+    go.onclick = ()=>{
+      if(locked()||S.ans[key]) return;
+      if(sels.some(s=>!s.value)){ fb.hidden=false; fb.className="fb no"; fb.innerHTML="<strong>Liga todas antes de verificar.</strong>"; return; }
+      const ok = sels.every((s,i)=>s.value===q.pairs[i][1]);
+      paint(); showFb(ok, ok?"":"As certas ficaram marcadas. "); done(ok);
+    };
+    const bt=document.createElement("div"); bt.className="btns"; bt.append(go); d.append(bt, fb);
+    if(prev){ sels.forEach((s,i)=>s.value=q.pairs[i][1]); paint(); showFb(prev.ok); }
+    return d;
+  }
+
+  if(q.t==="f"){
+    const p = document.createElement("p"); p.className="fill";
+    const parts = q.x.split(/\{(\d)\}/);
+    const sels=[];
+    parts.forEach((part,i)=>{
+      if(i%2===0){ p.append(document.createTextNode(part)); }
+      else { const b=q.b[+part]; const s=document.createElement("select"); s.innerHTML=`<option value="">…</option>`+shuffle(b[0].map((o,j)=>[o,j])).map(([o,j])=>`<option value="${j}">${o}</option>`).join(""); s._a=b[1]; sels.push(s); p.append(s); }
+    });
+    d.append(p);
+    const go = document.createElement("button"); go.className="btn"; go.textContent="Verificar";
+    const paint=()=>{ sels.forEach(s=>{ s.disabled=true; const ok=+s.value===s._a&&s.value!==""; s.className=ok?"right":"wrong"; if(!ok) s.value=String(s._a); }); go.hidden=true; };
+    go.onclick=()=>{
+      if(locked()||S.ans[key]) return;
+      if(sels.some(s=>s.value==="")){ fb.hidden=false; fb.className="fb no"; fb.innerHTML="<strong>Preenche todos os espaços.</strong>"; return; }
+      const ok = sels.every(s=>+s.value===s._a); paint(); showFb(ok); done(ok);
+    };
+    const bt=document.createElement("div"); bt.className="btns"; bt.append(go); d.append(bt, fb);
+    if(prev){ sels.forEach(s=>s.value=String(s._a)); paint(); showFb(prev.ok); }
+    return d;
+  }
+
+  if(q.t==="t"){
+    const box=document.createElement("div"); box.className="chunks";
+    const bs = q.w.map((w,i)=>{ const b=document.createElement("button"); b.className="chunk"; b.textContent=w;
+      b.onclick=()=>{ if(locked()||S.ans[key]) return; const ok=i===q.a; paint(i); showFb(ok); done(ok,i); }; box.append(b); return b; });
+    const paint=(pick)=>{ bs.forEach((b,i)=>{ b.disabled=true; if(i===q.a) b.classList.add("right"); else if(i===pick) b.classList.add("wrong"); }); };
+    d.append(box, fb);
+    if(prev){ paint(prev.pick); showFb(prev.ok); }
+    return d;
+  }
+
+  /* escolha múltipla */
+  const box = document.createElement("div"); box.className="opts";
+  /* baralha as opções (a ordem fica guardada para a pergunta não mudar ao voltar) */
+  let ord = prev && prev.ord ? prev.ord : (q.keep ? q.o.map((_,i)=>i) : shuffle(q.o.map((_,i)=>i)));
+  const posA = ord.indexOf(q.a);
+  const btns = ord.map((oi,pos)=>{
+    const b = document.createElement("button"); b.className="opt";
+    b.innerHTML = `<span class="l">(${L4[pos]})</span><span>${q.o[oi]}</span>`;
+    b.onclick = ()=>{ if(locked()||S.ans[key]) return; const ok=oi===q.a; paint(pos); showFb(ok, ok?"":`A certa é a (${L4[posA]}). `); done(ok,pos); if(S.ans[key]){ S.ans[key].ord=ord; save(); } };
+    box.appendChild(b); return b;
+  });
+  const paint=(pick)=>{ btns.forEach((b,pos)=>{ b.disabled=true; if(pos===posA) b.classList.add("right"); else if(pos===pick) b.classList.add("wrong"); }); };
+  d.append(box, fb);
+  if(prev){ paint(prev.pick); showFb(prev.ok, prev.ok?"":`A certa é a (${L4[posA]}). `); }
   return d;
 }
 
-function header(m, sec){
-  sec.innerHTML = "";
-  const back = document.createElement("button"); back.className="back"; back.textContent="← Voltar às missões";
-  back.onclick = ()=>{ home(); window.scrollTo(0,0); };
-  const h = document.createElement("div"); h.className="mhead";
-  h.innerHTML = `<span class="tag">${m.tag}</span><h2>${m.name}</h2>`;
-  sec.append(back,h);
-}
+function heartsHTML(n,max){ return `<span class="hearts" aria-label="${n} vidas">${Array.from({length:max},(_,i)=>`<span class="${i<n?"":"off"}">❤️</span>`).join("")}</span>`; }
 
-function openM(m){
-  const sec = document.getElementById("mission");
-  sec.style.setProperty("--mc", `var(${m.c})`);
-  header(m, sec);
-  const idea = document.createElement("div"); idea.className="idea";
-  idea.innerHTML = `<p class="pic">${m.pic}</p><div class="rows">${m.rows.map(r=> r.length===1 ? `<p class="grp">${r[0]}</p>` : `<div class="r"><b>${r[0]}</b><span>${r[1]}</span></div>`).join("")}</div><p class="tip">${m.tip}</p>`;
-  sec.append(idea);
-  if(m.reading){
-    const t = document.createElement("div"); t.className="text";
-    t.innerHTML = `<p class="h">Texto · lê com atenção</p><ol>${TEXT.map(l=>`<li>${l}</li>`).join("")}</ol>`;
-    sec.append(t);
-  }
-  const h3 = document.createElement("h3"); h3.textContent="Perguntas tipo teste"; h3.style.margin="0 0 10px";
-  const qs = document.createElement("div"); qs.className="qs";
-  const sc = document.createElement("div"); sc.className="score";
-  function score(){
-    const r = m.qs.map((_,i)=>S.ans[m.id+i]).filter(Boolean);
-    const ok = r.filter(x=>x.ok).length;
-    sc.hidden = r.length<m.qs.length;
-    sc.innerHTML = `<div><span class="big">${ok} / ${m.qs.length}</span><p>${ok===m.qs.length?"Missão perfeita!":ok>=m.qs.length*0.7?"Muito bem! Revê só as que falhaste.":"Relê a ideia lá em cima e tenta outra vez."}</p></div>`;
-    const again = document.createElement("button"); again.className="btn ghost"; again.textContent="Repetir missão";
-    again.onclick=()=>{ m.qs.forEach((_,i)=>delete S.ans[m.id+i]); save(); updXP(); openM(m); };
-    sc.append(again);
-  }
-  m.qs.forEach((q,i)=> qs.append(qBlock(q, m.id+i, i+1, m.c, score)));
-  const nav = document.createElement("div"); nav.className="btns"; nav.style.margin="16px 0 0";
-  const bk = document.createElement("button"); bk.className="btn ghost"; bk.textContent="← Todas as missões";
-  bk.onclick=()=>{ home(); window.scrollTo(0,0); };
-  const idx = M.indexOf(m);
-  const nx = document.createElement("button"); nx.className="btn";
-  if(idx < M.length-1){ nx.textContent="Próxima missão →"; nx.onclick=()=>openM(M[idx+1]); }
-  else { nx.textContent="Texto de opinião →"; nx.onclick=openWrite; }
-  nav.append(bk, nx);
-  sec.append(h3, qs, sc, nav); score();
-  document.getElementById("home").hidden=true; sec.hidden=false; window.scrollTo(0,0);
-}
-
-function openSim(){
-  const sec = document.getElementById("mission");
-  sec.style.setProperty("--mc","var(--pink)");
-  header(SIM, sec);
-  Object.keys(S.ans).filter(k=>k.startsWith("sim")).forEach(k=>delete S.ans[k]);
-  /* 2 perguntas de cada um dos 6 conteúdos de gramática, depois baralhadas */
-  const shuffle = a => a.map(q=>[Math.random(),q]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
-  const pick = shuffle(M.filter(m=>!m.reading).flatMap(m=>shuffle(m.qs.filter(q=>!q.s)).slice(0,2)));
-  const intro = document.createElement("div"); intro.className="idea";
-  intro.innerHTML = `<p class="pic">Sem espreitar os resumos!</p><p>12 perguntas misturadas de todas as matérias, como no PRI 1. No fim vês a pontuação e podes gerar outro simulado.</p>`;
+/* ===== Estação de missão ===== */
+function openM(L,i,m,lv){
+  const k = L.id+":"+i;
+  const label = L.st[i][3];
+  const sec = shell(L, lv? `Estação ${i+1} · ${lv===1?"Lição + Fácil":LVN[lv]}` : label, m.exam? m.pic : "", m.c);
+  const list = m.qs.map((q,j)=>({q,j})).filter(x=>!lv || x.q.lv===lv);
+  if(S.hp[k]===undefined) S.hp[k]=5;
+  const bar = document.createElement("div"); bar.className="stbar";
+  sec.append(bar);
+  if(lv===1 || m.exam){ sec.append(lessonBlock(m)); }
+  else { const det=document.createElement("details"); det.className="lesson"; det.innerHTML="<summary>Rever a lição e o truque</summary>"; det.append(lessonBlock(m)); sec.append(det); }
+  if(m.text) sec.append(textBlock(m));
+  const h3 = document.createElement("h3"); h3.textContent = m.exam ? "Questões" : "Exercícios"; h3.style.margin="0 0 10px";
   const qs = document.createElement("div"); qs.className="qs";
   const sc = document.createElement("div"); sc.className="score"; sc.hidden=true;
-  function score(){
-    const r = pick.map((_,i)=>S.ans["sim"+i]).filter(Boolean);
-    if(r.length<pick.length) return;
-    const ok = r.filter(x=>x.ok).length;
-    sc.hidden=false;
-    sc.innerHTML = `<div><span class="big">${ok} / 12</span><p>${ok>=11?"Pronto para o teste!":ok>=8?"Bom resultado. Volta às missões onde erraste.":"Faz outra vez as missões 2 e 3 e repete o simulado."}</p></div>`;
-    const again = document.createElement("button"); again.className="btn"; again.textContent="Novo simulado";
-    again.onclick=openSim; sc.append(again);
+  const dead = document.createElement("div"); dead.className="dead"; dead.hidden=true;
+  const keys = list.map(x=>m.id+":"+x.j);
+  function refresh(){
+    const answered = keys.filter(x=>S.ans[x]).length, right = keys.filter(x=>S.ans[x]&&S.ans[x].ok).length;
+    bar.innerHTML = `${heartsHTML(S.hp[k],5)}<span style="font-variant-numeric:tabular-nums;color:var(--muted)">${answered} / ${keys.length} · ${right} certas</span>${stars(S.stars[k]||0)}`;
+    dead.hidden = S.hp[k]>0 || answered===keys.length;
+    if(answered===keys.length){
+      const r = right/keys.length, n = r===1?3:r>=.75?2:r>=.5?1:0;
+      if(n>(S.stars[k]||0)){ S.stars[k]=n; save(); }
+      sc.hidden=false;
+      sc.innerHTML = `<div><span class="big">${right} / ${keys.length}</span> ${stars(n)}<p>${n===3?"Estação perfeita!":n===2?"Muito bem! Revê só as que falhaste.":n===1?"Quase: relê a lição e repete.":"Relê a lição e tenta outra vez."}</p></div>`;
+      const again = document.createElement("button"); again.className="btn ghost"; again.textContent="Repetir estação";
+      again.onclick=reset; sc.append(again);
+      bar.innerHTML = `${heartsHTML(S.hp[k],5)}<span style="color:var(--muted)">Concluída</span>${stars(S.stars[k]||0)}`;
+    }
   }
-  pick.forEach((q,i)=> qs.append(qBlock(q,"sim"+i,i+1,"--pink",score)));
-  sec.append(intro, qs, sc);
-  document.getElementById("home").hidden=true; sec.hidden=false; window.scrollTo(0,0);
+  function reset(){ keys.forEach(x=>delete S.ans[x]); S.hp[k]=5; save(); openM(L,i,m,lv); }
+  dead.innerHTML = `<b>Ficaste sem vidas 💔</b><p>Relê a lição (o truque resolve quase tudo) e recomeça a estação.</p>`;
+  const rb = document.createElement("button"); rb.className="btn"; rb.textContent="Rever a lição e recomeçar"; rb.onclick=reset; dead.append(rb);
+  const ctx = { dead:()=>S.hp[k]<=0, onAnswer:(ok)=>{ if(!ok){ S.hp[k]=Math.max(0,S.hp[k]-1); save(); } refresh(); } };
+  list.forEach((x,n)=> qs.append(qBlock(x.q, m.id+":"+x.j, n+1, ctx)));
+  sec.append(h3, qs, dead, sc, navBtns(L,i)); refresh();
 }
 
-function openWrite(){
-  const sec = document.getElementById("mission");
-  sec.style.setProperty("--mc","var(--c8)");
-  header(WRITE, sec);
-  const temas = ["Os telemóveis deviam ser proibidos nas escolas?","Ainda faz sentido ler livros na era digital?","O mérito vale mais do que a sorte?","As redes sociais aproximam ou afastam as pessoas?"];
+/* ===== Justifica ===== */
+function openJ(L,i,J){
+  const k = L.id+":"+i;
+  const sec = shell(L, "J"+(i+1)+" · "+J.name, J.ref);
+  if(J.text){ sec.append(textBlock({text:true})); }
+  const box = document.createElement("div"); box.className="q";
+  box.innerHTML = `<span class="n">Resposta restrita · 13 pontos (10 conteúdo + 3 correção linguística)</span><p class="p">${J.p}</p>
+   <p style="color:var(--muted);font-size:15px">Como no teste: 2 a 4 frases, ideia principal + citação + explicação.</p>
+   <textarea style="width:100%;min-height:130px;border:2px solid var(--line);border-radius:10px;padding:9px 11px;background:var(--bg);color:var(--ink);font:inherit"></textarea>
+   <div class="btns"><button class="btn" id="seeM">Ver resposta-modelo e corrigir</button></div>
+   <div id="corr" hidden>
+     <p class="model"><b>Resposta-modelo:</b> ${J.model}</p>
+     <h3 style="margin:12px 0 6px">Marca o que a tua resposta tem</h3>
+     <ul class="crit">${J.crit.map((c,j)=>`<li><label><input type="checkbox" data-p="${c[1]}"> <span>${c[0]} <b>(${c[1]} pts)</b></span></label></li>`).join("")}</ul>
+     <h3 style="margin:12px 0 6px">Correção linguística (erros de ortografia, acentos, pontuação, frases mal construídas)</h3>
+     <ul class="crit">${[["0 erros",3],["1 erro",2],["2 erros",1],["3 ou mais erros",0]].map((c,j)=>`<li><label><input type="radio" name="cl" data-p="${c[1]}"${j===0?" checked":""}> <span>${c[0]} <b>(${c[1]} pts)</b></span></label></li>`).join("")}</ul>
+     <div class="score" style="margin-top:12px"><div><span class="big" id="pts">0 / 13</span><p id="ptsMsg"></p></div><button class="btn okb" id="saveJ">Guardar resultado</button></div>
+   </div>`;
+  sec.append(box, navBtns(L,i));
+  const ta = box.querySelector("textarea");
+  try{ ta.value = localStorage.getItem("mp11b_"+J.id)||""; }catch(e){}
+  ta.oninput=()=>{ try{ localStorage.setItem("mp11b_"+J.id, ta.value);}catch(e){} };
+  const corr = box.querySelector("#corr");
+  box.querySelector("#seeM").onclick=(e)=>{ if(!ta.value.trim()){ alert("Escreve primeiro a tua resposta 🙂"); return; } corr.hidden=false; e.target.hidden=true; calc(); };
+  function calc(){
+    let c = [...corr.querySelectorAll('input[type=checkbox]')].reduce((n,x)=>n+(x.checked?+x.dataset.p:0),0);
+    const cl = c===0 ? 0 : +corr.querySelector('input[name=cl]:checked').dataset.p;
+    const t = c+cl;
+    corr.querySelector("#pts").textContent = t+" / 13";
+    corr.querySelector("#ptsMsg").textContent = c===0 ? "Sem conteúdo certo, a correção linguística também fica a 0 (como nos critérios)." : t>=11?"Resposta de nível máximo.":t>=7?"Boa base: acrescenta o que falta.":"Compara com o modelo e reescreve.";
+    return t;
+  }
+  corr.querySelectorAll("input").forEach(x=>x.onchange=calc);
+  box.querySelector("#saveJ").onclick=(e)=>{
+    const t=calc(), n = t>=12?3:t>=9?2:t>=6?1:0;
+    if(n>(S.stars[k]||0)){ S.stars[k]=n; }
+    if(!S.ans["j:"+J.id]){ S.ans["j:"+J.id]={ok:t>=9}; S.xp+= t; }
+    save(); updXP(); e.target.textContent="Guardado ✓ "+["","★","★★","★★★"][n];
+  };
+}
+
+/* ===== Treino infinito ===== */
+function openInf(L){
+  const sec = shell(L, "Treino infinito", "Perguntas novas de gramática a cada clique. 3 vidas: até onde chegas?");
+  const pick = document.createElement("div"); pick.className="temas";
+  let on = new Set(Object.keys(BANK));
+  Object.keys(BANK).forEach(b=>{ const c=document.createElement("button"); c.className="chip"; c.textContent=BANK_NAMES[b]; c.setAttribute("aria-pressed","true");
+    c.onclick=()=>{ if(on.has(b)&&on.size>1){on.delete(b);c.setAttribute("aria-pressed","false");} else {on.add(b);c.setAttribute("aria-pressed","true");} }; pick.append(c); });
+  const bar = document.createElement("div"); bar.className="stbar";
+  const area = document.createElement("div"); area.className="qs";
+  sec.append(pick, bar, area);
+  let hp=3, streak=0, recent=[];
+  function draw(){ bar.innerHTML = `${heartsHTML(hp,3)}<span style="font-variant-numeric:tabular-nums">Seguidas: <b>${streak}</b> · Recorde: <b>${S.best}</b></span>`; }
+  function labelsOf(b){ return BANK[b].labels || [...new Set(BANK[b].items.map(x=>x[1]))]; }
+  function next(){
+    draw();
+    const bs=[...on]; const b = bs[Math.floor(Math.random()*bs.length)];
+    let it, tries=0; do{ it = BANK[b].items[Math.floor(Math.random()*BANK[b].items.length)]; tries++; } while(recent.includes(it[0]) && tries<30);
+    recent.push(it[0]); if(recent.length>20) recent.shift();
+    const correct = it[1];
+    const pool = labelsOf(b).filter(x=>x!==correct);
+    const near = shuffle(pool.filter(x=>x.split(" ")[0]===correct.split(" ")[0])).slice(0,2);
+    const rest = shuffle(pool.filter(x=>!near.includes(x))).slice(0,3-near.length);
+    const opts = shuffle([correct,...near,...rest]);
+    const html = it[0].replace(/\[(.+?)\]/g,"<mark>$1</mark>");
+    const q = {p:`${BANK[b].q}<br><span style="font-weight:400">«${html}»</span>`, o:opts, a:opts.indexOf(correct), e:"<br><b>Truque:</b> "+BANK[b].tip};
+    area.innerHTML="";
+    const key = "inf_tmp";
+    delete S.ans[key];
+    const el = qBlock(q, key, streak+1, {dead:()=>hp<=0, onAnswer:(ok)=>{
+      delete S.ans[key];
+      if(ok){ streak++; if(streak>S.best){S.best=streak;} } else { hp--; }
+      save(); draw();
+      const bt=document.createElement("div"); bt.className="btns";
+      if(hp>0){ const n=document.createElement("button"); n.className="btn"; n.textContent="Próxima →"; n.onclick=next; bt.append(n); }
+      else { const over=document.createElement("div"); over.className="dead"; over.innerHTML=`<b>Fim de jogo!</b><p>Fizeste ${streak} seguidas. Recorde: ${S.best}.</p>`; const r=document.createElement("button"); r.className="btn"; r.textContent="Jogar outra vez"; r.onclick=()=>{hp=3;streak=0;next();}; over.append(r); bt.append(over); }
+      area.append(bt);
+    }});
+    el.querySelector(".n").innerHTML = `${BANK_NAMES[b]}`;
+    area.append(el);
+  }
+  next();
+  sec.append(navBtns(L,0));
+}
+
+/* ===== Simulado ===== */
+function openSim(L){
+  const sec = shell(L, "Simulado PRI 1", "12 perguntas misturadas de todos os temas, sem espreitar.");
+  const pool = ["lusiadas","leitura","classes","funcoes","oracoes","coesao","relacoes","formacao"].flatMap(id=>M[id].qs.filter(q=>!q.s&&!q.t&&id!=="leitura"));
+  const pickQ = shuffle(pool).slice(0,12);
+  const qs = document.createElement("div"); qs.className="qs";
+  const sc = document.createElement("div"); sc.className="score"; sc.hidden=true;
+  let done=0, right=0;
+  pickQ.forEach((q,n)=>{ delete S.ans["sim"+n]; });
+  pickQ.forEach((q,n)=> qs.append(qBlock(q, "sim"+n, n+1, {dead:()=>false, onAnswer:(ok)=>{ done++; if(ok) right++; if(done===12){ sc.hidden=false; sc.innerHTML=`<div><span class="big">${right} / 12</span><p>≈ ${Math.round(right/12*200)} pontos em 200. ${right>=11?"Pronto para o teste!":right>=8?"Bom resultado. Volta às linhas onde erraste.":"Refaz as estações 2 e 3 das linhas de gramática."}</p></div>`; const a=document.createElement("button"); a.className="btn"; a.textContent="Novo simulado"; a.onclick=()=>openSim(L); sc.append(a);} }})));
+  sec.append(qs, sc, navBtns(L,1));
+}
+
+/* ===== Cábula ===== */
+function openCab(L){
+  const sec = shell(L, "Cábula final", "Lê na véspera e 10 minutos antes do teste.");
+  const C = [
+   ["--c8","Os Lusíadas",["Camões, 1572, epopeia, 10 cantos, oitava rima (ABABABCC), decassílabos.","Proposição · Invocação (Tágides) · Dedicatória (D. Sebastião) · Narração (in medias res).","4 planos: viagem, história de Portugal, mitologia (Vénus ajuda, Baco atrapalha), reflexões do poeta.","Inês (III) · Velho do Restelo (IV) · Adamastor (V) · Ilha dos Amores (IX).","Recurso + efeito: apóstrofe, metáfora, anáfora, enumeração, hipérbole, interrogação retórica."]],
+   ["--c7","Leitura",["Volta sempre à linha indicada.","A resposta certa é a que o TEXTO diz.","Desconfia de «sempre», «nunca», «apenas»."]],
+   ["--c1","Classes e subclasses",["Antes do nome = determinante; no lugar do nome = pronome.","«que» = «o qual»? pronome relativo; senão, conjunção.","contudo, todavia, no entanto, portanto = advérbios conectivos.","também = advérbio de inclusão; só/apenas = exclusão.","todos/cada = quantificador universal; alguns/muitos = existencial.","ser/estar/parecer/ficar = verbo copulativo; ter + particípio = auxiliar."]],
+   ["--c2","Funções sintáticas",["o/a = complemento direto · lhe = complemento indireto.","Verbo precisa, com preposição, sem «lhe» = complemento oblíquo (não é só lugar!).","ser + particípio + por… = agente da passiva.","Depois de verbo copulativo = predicativo do sujeito; acho-o fácil = predicativo do CD.","Pode sair = modificador; entre vírgulas a chamar = vocativo."]],
+   ["--c3","Orações",["Coordenadas: e, mas, ou, logo, pois.","Troca por «isso» = substantiva (diz a função!).","Depois de um nome = relativa: sem vírgulas restritiva, com vírgulas explicativa.","porque causal · para que final · quando temporal · embora concessiva · se condicional · tão…que consecutiva · mais…do que comparativa."]],
+   ["--c4","Coesão",["Diz tipo + mecanismo: «coesão referencial, por anáfora».","Anáfora ⬅ · catáfora ➡ · elipse = omissão.","Interfrásica = conectores · frásica = concordância · temporal = tempos verbais e advérbios.","Lexical: reiteração, sinonímia, hiperonímia, holonímia."]],
+   ["--c5","Relações semânticas",["Tipo de = hiperonímia/hiponímia (flor → rosa).","Parte de = holonímia/meronímia (casa → telhado).","Sinonímia = mesmo sentido · antonímia = opostos."]],
+   ["--c6","Formação de palavras",["in+feliz prefixação · feliz+mente sufixação.","infelizmente = prefixação e sufixação · entristecer = parassíntese.","luta ← lutar = derivação não afixal · o jantar = conversão.","geografia, luso-brasileiro = composição morfológica · guarda-chuva = morfossintática."]],
+   ["--c8","Texto de opinião (250-350 palavras)",["Introdução: tema + opinião.","2 argumentos + 2 exemplos, parágrafos separados.","«É certo que…; no entanto,…»","Conclusão: «Em suma,…» sem ideias novas.","Nunca vírgula entre sujeito e verbo. Conta as palavras. Linguagem formal."]],
+   ["--c3","No dia do teste",["Lê as perguntas antes do texto.","Respostas breves: frase completa.","Guarda 45 minutos para o texto de opinião se estiver no mesmo dia.","Revê acentos: à/há, tem/têm, é/e."]]
+  ];
+  const cab = document.createElement("div"); cab.className="cab";
+  cab.innerHTML = C.map(c=>`<section style="--mc:var(${c[0]})"><h3>${c[1]}</h3><ul>${c[2].map(x=>`<li>${x}</li>`).join("")}</ul></section>`).join("");
+  sec.append(cab, navBtns(L,2));
+}
+
+/* ===== Escrita ===== */
+const MODEL = `Hoje em dia, quase todos os alunos chegam à escola com um telemóvel no bolso. Muitos defendem que estes aparelhos são ferramentas úteis; outros acham que só distraem. Na minha opinião, o uso do telemóvel nas aulas deve ser proibido, embora possa ser permitido nos intervalos.
+
+Em primeiro lugar, o telemóvel prejudica a concentração. Basta uma notificação para que o aluno perca o fio ao raciocínio do professor e, depois, demore vários minutos a voltar a acompanhar a matéria. Por exemplo, quando um colega recebe uma mensagem a meio de uma explicação, não é só ele que se distrai: quem está ao lado também espreita o ecrã, e a turma inteira perde o ritmo. Ora, uma aula interrompida várias vezes rende muito menos.
+
+Além disso, a proibição nas aulas protege a convivência entre colegas. Quando os jovens passam o tempo a olhar para o ecrã, conversam menos, trabalham menos em grupo e isolam-se. Basta observar um intervalo: em vez de conversas e jogos, vemos muitas vezes grupos de amigos em silêncio, cada um agarrado ao seu aparelho. Limitar o telemóvel nas aulas é um primeiro passo para mudar este hábito.
+
+É certo que o telemóvel pode ser útil para pesquisar informação ou usar aplicações educativas. No entanto, a escola dispõe de computadores e de manuais para essas tarefas, e o professor pode autorizar o aparelho em atividades concretas, sem que ele esteja sempre disponível.
+
+Em suma, considero que o telemóvel deve ficar guardado durante as aulas, para que os alunos aprendam com mais atenção e convivam mais uns com os outros. A tecnologia é uma aliada valiosa, mas só quando é usada no momento certo e com um objetivo claro.`;
+
+function openWrite(L){
+  const sec = shell(L, "Escrever o texto de opinião", "250 a 350 palavras · PRI 2 vale 200 pontos");
+  const temas = ["Os telemóveis deviam ser proibidos nas escolas?","Ainda faz sentido ler livros na era digital?","A ambição é uma qualidade ou um defeito? (pensa no Velho do Restelo)","As redes sociais aproximam ou afastam as pessoas?","Vale a pena correr riscos para alcançar um sonho?"];
   let tema = 0; try{ tema = +localStorage.getItem("mp11_tema")||0; }catch(e){}
   const w = document.createElement("div");
   w.innerHTML = `
   <div class="idea">
-    <p class="pic">250 a 350 palavras · vale 200 pontos</p>
+    <p class="pic">Pão, carne, carne, pão</p>
     <div class="burger">
-      <div class="layer bun"><b>Pão de cima · Introdução</b><span class="w">± 50 palavras</span><span style="width:100%">Apresenta o tema e diz logo a tua opinião (a tese).</span></div>
-      <div class="layer meat"><b>Carne 1 · Argumento + exemplo</b><span class="w">± 80 palavras</span><span style="width:100%">«Em primeiro lugar, …. Por exemplo, …»</span></div>
-      <div class="layer meat"><b>Carne 2 · Argumento + exemplo</b><span class="w">± 80 palavras</span><span style="width:100%">«Além disso, …. É o caso de …»</span></div>
-      <div class="layer"><b>Extra · O outro lado</b><span class="w">± 40 palavras</span><span style="width:100%">«É certo que …; no entanto, …» (valoriza o texto)</span></div>
-      <div class="layer bun"><b>Pão de baixo · Conclusão</b><span class="w">± 50 palavras</span><span style="width:100%">«Em suma, …»: repete a opinião por outras palavras, sem ideias novas.</span></div>
-    </div>
-    <p class="grp">Conectores por função</p>
-    <div class="rows">
-      <div class="r"><b>Dar a opinião</b><span>Na minha opinião, Considero que, Parece-me que</span></div>
-      <div class="r"><b>Enumerar</b><span>Em primeiro lugar, Em segundo lugar, Por fim</span></div>
-      <div class="r"><b>Acrescentar</b><span>Além disso, Por outro lado, Também</span></div>
-      <div class="r"><b>Exemplificar</b><span>Por exemplo, É o caso de, Veja-se</span></div>
-      <div class="r"><b>Opor</b><span>No entanto, Contudo, Todavia, Porém</span></div>
-      <div class="r"><b>Concluir</b><span>Em suma, Em conclusão, Portanto, Assim</span></div>
-    </div>
-    <p class="grp">Regras</p>
-    <div class="rows">
-      <div class="r"><b>Limite</b><span>Entre 250 e 350 palavras. Fora disso, perdes pontos.</span></div>
-      <div class="r"><b>Como se conta</b><span>Cada conjunto entre espaços conta como 1 palavra: «dir-se-ia» = 1; «a casa» = 2.</span></div>
-      <div class="r"><b>Parágrafos</b><span>4 ou 5: introdução, 2 argumentos (cada um com exemplo), conclusão.</span></div>
-      <div class="r"><b>Tema</b><span>Responde ao tema pedido e não mudes de opinião a meio.</span></div>
-      <div class="r"><b>Linguagem</b><span>Formal e variada: não repitas «eu acho»; usa conectores diferentes.</span></div>
+      <div class="layer bun"><b>Introdução</b><span class="w">± 50 palavras</span><span style="width:100%">Apresenta o tema e diz logo a tua opinião (a tese).</span></div>
+      <div class="layer meat"><b>Argumento 1 + exemplo</b><span class="w">± 80 palavras</span><span style="width:100%">«Em primeiro lugar, …. Por exemplo, …»</span></div>
+      <div class="layer meat"><b>Argumento 2 + exemplo</b><span class="w">± 80 palavras</span><span style="width:100%">«Além disso, …. É o caso de …»</span></div>
+      <div class="layer"><b>O outro lado</b><span class="w">± 40 palavras</span><span style="width:100%">«É certo que …; no entanto, …»</span></div>
+      <div class="layer bun"><b>Conclusão</b><span class="w">± 50 palavras</span><span style="width:100%">«Em suma, …»: reafirma a opinião, sem ideias novas.</span></div>
     </div>
   </div>
   <h3>1. Escolhe um tema</h3>
   <div class="temas" id="temas"></div>
   <h3>2. Escreve aqui</h3>
-  <p style="color:var(--muted);font-size:15px;margin:4px 0 8px">Toca num conector para o acrescentar ao texto. O rascunho fica guardado neste aparelho.</p>
+  <p style="color:var(--muted);font-size:15px;margin:4px 0 8px">Toca num conector para o acrescentar. O rascunho fica guardado neste aparelho. No teste escreves à mão: treina também em papel!</p>
   <div class="conns" id="conns"></div>
   <label for="draft" class="n" style="display:block;margin:10px 0 4px;font-weight:700">O teu texto</label>
   <textarea id="draft" placeholder="Hoje em dia, …"></textarea>
   <div class="count"><span id="wc" class="pill low">0 palavras</span><span id="wmsg" style="color:var(--muted)">Mínimo 250, máximo 350</span></div>
   <h3>3. Antes de entregar</h3>
   <ul class="check">
-    ${["A minha opinião está clara no 1.º parágrafo","Tenho 2 argumentos, cada um com um exemplo","Usei conectores diferentes (Em primeiro lugar, Além disso, Contudo, Em suma)","A conclusão repete a opinião, sem ideias novas","Linguagem formal: nada de «tipo», «bué», «tá»","Revi acentos, vírgulas e ortografia","Estou entre 250 e 350 palavras"].map((t,i)=>`<li><label><input type="checkbox" id="ck${i}"> <span>${t}</span></label></li>`).join("")}
-  </ul>`;
-  sec.append(w);
+    ${["A minha opinião está clara no 1.º parágrafo","Tenho 2 argumentos, cada um com um exemplo","Usei conectores diferentes (Em primeiro lugar, Além disso, No entanto, Em suma)","A conclusão reafirma a opinião, sem ideias novas","Linguagem formal: nada de «tipo», «bué», «tá»","Nenhuma vírgula entre sujeito e verbo","Revi acentos (à/há, tem/têm) e ortografia","Estou entre 250 e 350 palavras"].map((t,i)=>`<li><label><input type="checkbox" id="ck${i}"> <span>${t}</span></label></li>`).join("")}
+  </ul>
+  <details class="lesson" style="margin-top:16px"><summary>Ver um texto-modelo (280 palavras)</summary><div class="idea" style="white-space:pre-line">${MODEL}</div></details>`;
+  sec.append(w, navBtns(L,3));
   const tw = w.querySelector("#temas");
   temas.forEach((t,i)=>{ const b=document.createElement("button"); b.className="chip"; b.textContent=t; b.setAttribute("aria-pressed", i===tema);
     b.onclick=()=>{ tema=i; try{localStorage.setItem("mp11_tema",i);}catch(e){} tw.querySelectorAll(".chip").forEach((c,j)=>c.setAttribute("aria-pressed", j===i)); }; tw.append(b); });
   const ta = w.querySelector("#draft");
   try{ ta.value = localStorage.getItem("mp11_draft")||""; }catch(e){}
   const cn = w.querySelector("#conns");
-  ["Na minha opinião,","Em primeiro lugar,","Em segundo lugar,","Por exemplo,","Além disso,","Por outro lado,","É certo que","No entanto,","Por isso,","Em suma,"].forEach(c=>{
+  ["Na minha opinião,","Em primeiro lugar,","Por exemplo,","Além disso,","É o caso de","Ora,","É certo que","No entanto,","Por isso,","Em suma,"].forEach(c=>{
     const b=document.createElement("button"); b.textContent=c;
     b.onclick=()=>{ const p=ta.selectionStart; const sp = p>0 && !/\s$/.test(ta.value.slice(0,p)) ? " " : ""; ta.value = ta.value.slice(0,p)+sp+c+" "+ta.value.slice(ta.selectionEnd); ta.focus(); ta.selectionStart=ta.selectionEnd=p+sp.length+c.length+1; count(); };
     cn.append(b);
   });
   function count(){
     try{ localStorage.setItem("mp11_draft", ta.value);}catch(e){}
-    const n = (ta.value.trim().match(/\S+/g)||[]).length;
+    const n = (ta.value.trim().match(/\S+/g)||[]).filter(x=>/[\p{L}\p{N}]/u.test(x)).length;
     const wc = w.querySelector("#wc"), msg = w.querySelector("#wmsg");
     wc.textContent = n+" palavras";
     const good = n>=250 && n<=350;
@@ -664,12 +1048,7 @@ function openWrite(){
     msg.textContent = n<250 ? `Faltam ${250-n} palavras` : n>350 ? `Tens ${n-350} a mais: corta` : "Dentro do limite ✓";
   }
   ta.oninput = count; count();
-  for(let i=0;i<7;i++){ const c=w.querySelector("#ck"+i); try{ c.checked = localStorage.getItem("mp11_ck"+i)==="1"; }catch(e){} c.onchange=()=>{ try{localStorage.setItem("mp11_ck"+i, c.checked?"1":"0");}catch(e){} }; }
-  const h3 = document.createElement("h3"); h3.textContent="4. Mostra que sabes as regras"; h3.style.margin="22px 0 10px";
-  const qs = document.createElement("div"); qs.className="qs";
-  WRITE.qs.forEach((q,i)=> qs.append(qBlock(q, WRITE.id+i, i+1, WRITE.c)));
-  sec.append(h3, qs);
-  document.getElementById("home").hidden=true; sec.hidden=false; window.scrollTo(0,0);
+  for(let i=0;i<8;i++){ const c=w.querySelector("#ck"+i); try{ c.checked = localStorage.getItem("mp11_ck"+i)==="1"; }catch(e){} c.onchange=()=>{ try{localStorage.setItem("mp11_ck"+i, c.checked?"1":"0");}catch(e){} }; }
 }
 
 home();
