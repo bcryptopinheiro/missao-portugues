@@ -187,33 +187,64 @@ const M = [
    ["Conjunção subordinativa","Prende uma oração a outra. <b>Completiva</b>: que, se (Sei que vens). <b>Causal</b>: porque, visto que. <b>Final</b>: para que. <b>Temporal</b>: quando, enquanto. <b>Concessiva</b>: embora, ainda que. <b>Condicional</b>: se, caso. <b>Consecutiva</b>: tão/tanto… que. <b>Comparativa</b>: como, do que."]],
   tip:"<b>Truque 1 · determinante ou pronome?</b> Vem um nome logo a seguir? «este livro» = determinante; «quero este» = pronome.<br><b>Truque 2 · «que»:</b> dá para trocar por «o qual / a qual»? Pronome relativo (o livro que li → o livro o qual li). Não dá? Conjunção (Sei que vens).<br><b>Truque 3 · «se»:</b> colado ao verbo com hífen (penteou-se) = pronome pessoal átono. A abrir uma condição (Se chover, fico) = conjunção condicional. Depois de «sei», «pergunto» (Não sei se vem → não sei isso) = conjunção completiva.<br><b>Truque 4 · adjetivo ou advérbio?</b> Muda com o nome (baixo, baixa, baixos)? Adjetivo: vozes baixas. Fica sempre igual e diz como se faz? Advérbio: elas falam baixo.<br><b>Cuidado:</b> «contudo», «todavia», «no entanto», «portanto» = advérbios conectivos. «também» = advérbio de inclusão. Não são conjunções!",
   qs:[
-   {p:"Em «A armada partiu de Belém», «armada» é um nome", o:["próprio","comum coletivo","comum abstrato","próprio coletivo"], a:1, e:"Designa um conjunto (de navios) e não é o nome de alguém: nome comum coletivo."},
+   {p:"Em «Camões escreveu Os Lusíadas», a palavra «Camões» é", o:["nome comum","nome próprio","nome comum coletivo","adjetivo qualificativo"], a:1, e:"Dá nome a uma pessoa concreta e única e escreve-se com maiúscula: nome próprio."},
+   {p:"Em «Os marinheiros tinham coragem», a palavra «coragem» é", o:["nome próprio","nome comum","nome comum coletivo","adjetivo qualificativo"], a:1, e:"Dá para pôr «a» antes (a coragem), não é o nome de ninguém e não indica um grupo: nome comum."},
+   {p:"Em «A armada partiu de Belém», a palavra «armada» é", o:["nome próprio","nome comum coletivo","adjetivo qualificativo","verbo"], a:1, e:"Designa um conjunto (de navios) e não é o nome de alguém: nome comum coletivo."},
    {p:"Em «O Pedro leu um livro interessante», a palavra «interessante» é", o:["nome comum","adjetivo qualificativo","adjetivo relacional","advérbio de modo"], a:1, e:"Dá uma qualidade ao livro e aceita «muito» (muito interessante): adjetivo qualificativo."},
    {p:"Em «A expansão marítima mudou Portugal», a palavra «marítima» é", o:["adjetivo qualificativo","adjetivo relacional","adjetivo numeral","nome comum"], a:1, e:"Não dá para dizer «muito marítima» e liga o nome a outra coisa (o mar). Por isso é adjetivo relacional."},
-   {p:"Em «O teste foi facílimo», o adjetivo está no grau", o:["comparativo de superioridade","superlativo relativo de superioridade","superlativo absoluto analítico","superlativo absoluto sintético"], a:3, e:"É uma só palavra (fácil → facílimo) e não compara com ninguém: superlativo absoluto sintético. «muito fácil» seria analítico (duas palavras)."},
+   {p:"Em «Vasco da Gama foi o primeiro navegador a chegar à Índia por mar», a palavra «primeiro» é", o:["quantificador numeral","adjetivo numeral","adjetivo qualificativo","advérbio de tempo"], a:1, e:"Diz a ordem (primeiro, segundo, terceiro) e acompanha um nome: adjetivo numeral. «três» (quantidade) seria quantificador numeral."},
+   {p:"Em «O Adamastor era mais assustador do que uma tempestade», o adjetivo «assustador» está no grau", o:["superlativo relativo de superioridade","comparativo de superioridade","superlativo absoluto analítico","normal"], a:1, e:"Compara duas coisas com «mais… do que»: comparativo de superioridade."},
    {p:"Em «A Ana é a mais alta da turma», «a mais alta» está no grau", o:["comparativo de superioridade","superlativo relativo de superioridade","superlativo absoluto sintético","normal"], a:1, e:"Compara a Ana com um grupo (a turma) e põe-na no topo: superlativo relativo de superioridade. «mais alta do que o Rui» seria comparativo."},
-   {p:"Em «O céu ficou escuro», o verbo «ficou» é", o:["principal intransitivo","copulativo","auxiliar","principal transitivo direto"], a:1, e:"Liga o sujeito («O céu») a uma característica («escuro»). Dá para trocar por «estar»: o céu está escuro. Verbo copulativo."},
-   {p:"Em «Tenho estudado todos os dias», o verbo «Tenho» é", o:["principal transitivo direto","copulativo","auxiliar","principal intransitivo"], a:2, e:"Sozinho não tem o significado: só ajuda «estudado» a formar um tempo composto. Verbo auxiliar."},
+   {p:"Em «O teste foi facílimo», o adjetivo está no grau", o:["comparativo de superioridade","superlativo relativo de superioridade","superlativo absoluto analítico","superlativo absoluto sintético"], a:3, e:"É uma só palavra (fácil → facílimo) e não compara com ninguém: superlativo absoluto sintético. «muito fácil» seria analítico (duas palavras)."},
+   {p:"Em «O marinheiro adormeceu», o verbo «adormeceu» é", o:["principal intransitivo","principal transitivo direto","principal transitivo indireto","copulativo"], a:0, e:"Não pede nenhum complemento: «O marinheiro adormeceu» já está completa. Principal intransitivo."},
+   {p:"Em «Camões escreveu Os Lusíadas», o verbo «escreveu» é", o:["principal intransitivo","principal transitivo direto","principal transitivo indireto","auxiliar"], a:1, e:"Escreveu o quê? «Os Lusíadas» → escreveu-os. Pede só um CD: transitivo direto."},
+   {p:"Em «Este livro pertence ao Rui», o verbo «pertence» é", o:["principal transitivo direto","principal transitivo indireto","principal transitivo direto e indireto","copulativo"], a:1, e:"Pertence a quem? «ao Rui» → pertence-lhe. Pede só um CI, sem CD: transitivo indireto."},
    {p:"Em «A professora deu os testes aos alunos», o verbo «deu» é principal", o:["transitivo direto","transitivo indireto","transitivo direto e indireto","transitivo-predicativo"], a:2, e:"Deu o quê? «os testes» (CD → deu-os). A quem? «aos alunos» (CI → deu-lhes). Pede os dois: transitivo direto e indireto."},
    {p:"Em «Os alunos consideraram o livro aborrecido», o verbo «consideraram» é principal", o:["transitivo direto","transitivo-predicativo","copulativo","transitivo indireto"], a:1, e:"Pede um CD («o livro») e uma característica desse CD («aborrecido» → consideraram-no aborrecido). Transitivo-predicativo."},
-   {p:"Em «Estudei muito; contudo, tive má nota», a palavra «contudo» é", o:["conjunção coordenativa adversativa","preposição","advérbio conectivo","conjunção subordinativa concessiva"], a:2, e:"Tem ideia de oposição, mas na terminologia oficial «contudo», «todavia», «no entanto» e «portanto» são advérbios conectivos, não conjunções."},
+   {p:"Em «O céu ficou escuro», o verbo «ficou» é", o:["principal intransitivo","copulativo","auxiliar","principal transitivo direto"], a:1, e:"Liga o sujeito («O céu») a uma característica («escuro»). Dá para trocar por «estar»: o céu está escuro. Verbo copulativo."},
+   {p:"Em «Tenho estudado todos os dias», o verbo «Tenho» é", o:["principal transitivo direto","copulativo","auxiliar","principal intransitivo"], a:2, e:"Sozinho não tem o significado: só ajuda «estudado» a formar um tempo composto. Verbo auxiliar."},
+   {p:"Em «O Velho do Restelo não aprovou a viagem», a palavra «não» é", o:["advérbio de negação","advérbio de modo","interjeição","conjunção coordenativa"], a:0, e:"Nega a ação de aprovar: advérbio de negação."},
+   {p:"Em «Certamente vais passar no teste», a palavra «Certamente» é", o:["advérbio de modo","advérbio de afirmação","adjetivo qualificativo","advérbio de tempo"], a:1, e:"Confirma a ideia (= sim, sem dúvida): advérbio de afirmação. Acaba em -mente, mas não diz COMO se faz alguma coisa."},
+   {p:"Em «Ontem estudei Os Lusíadas», a palavra «Ontem» é", o:["advérbio de lugar","advérbio de tempo","nome comum","advérbio de modo"], a:1, e:"Responde a «quando?»: advérbio de tempo."},
+   {p:"Em «Os navegadores chegaram lá em 1498», a palavra «lá» é", o:["advérbio de tempo","advérbio de lugar","pronome pessoal","advérbio de quantidade e grau"], a:1, e:"Responde a «onde?»: advérbio de lugar."},
+   {p:"Em «Elas falam baixo», a palavra «baixo» é", o:["adjetivo qualificativo","advérbio de modo","nome comum","preposição"], a:1, e:"Não concorda com «Elas» (não se diz «falam baixas») e diz como falam: advérbio de modo. Em «vozes baixas» seria adjetivo."},
+   {p:"Em «O teste estava muito difícil», a palavra «muito» é", o:["quantificador existencial","advérbio de quantidade e grau","adjetivo qualificativo","advérbio de modo"], a:1, e:"Está antes de um adjetivo («difícil») e não muda de forma: advérbio de quantidade e grau. Em «muitos livros» seria quantificador existencial (acompanha um nome)."},
    {p:"Em «O Pedro também foi à festa», a palavra «também» é", o:["conjunção coordenativa copulativa","advérbio de inclusão","advérbio de afirmação","advérbio de modo"], a:1, e:"Junta o Pedro aos outros que foram: inclui. Não liga orações, por isso não é conjunção. Advérbio de inclusão."},
    {p:"Em «Só o Rui faltou ao teste», a palavra «Só» é", o:["adjetivo qualificativo","quantificador existencial","advérbio de exclusão","advérbio de quantidade e grau"], a:2, e:"Dá para trocar por «apenas»: deixa os outros de fora. Advérbio de exclusão. (Em «Ele está só» = sozinho, seria adjetivo.)"},
-   {p:"Em «Elas falam baixo», a palavra «baixo» é", o:["adjetivo qualificativo","advérbio de modo","nome comum","preposição"], a:1, e:"Não concorda com «Elas» (não se diz «falam baixas») e diz como falam: advérbio de modo. Em «vozes baixas» seria adjetivo."},
+   {p:"Em «Quando partiu a armada?», a palavra «Quando» é", o:["conjunção subordinativa temporal","advérbio interrogativo","pronome interrogativo","advérbio relativo"], a:1, e:"Faz uma pergunta sobre o tempo numa frase interrogativa: advérbio interrogativo. Em «Saí quando ele chegou» seria conjunção temporal."},
+   {p:"Em «Estudei muito; contudo, tive má nota», a palavra «contudo» é", o:["conjunção coordenativa adversativa","preposição","advérbio conectivo","conjunção subordinativa concessiva"], a:2, e:"Tem ideia de oposição, mas na terminologia oficial «contudo», «todavia», «no entanto» e «portanto» são advérbios conectivos, não conjunções."},
    {p:"Em «Ai! Magoei-me no pé», a palavra «Ai» é", o:["advérbio de modo","interjeição","nome comum","conjunção"], a:1, e:"Exprime uma emoção (dor) e vale sozinha, como um grito: interjeição."},
+   {p:"Em «A armada partiu de Belém», a palavra «A» é", o:["artigo definido","artigo indefinido","pronome pessoal","preposição"], a:0, e:"Vem antes de um nome e mostra que é uma armada concreta, já conhecida: artigo definido. «Uma armada» seria artigo indefinido."},
+   {p:"Em «Uns marinheiros cantavam no convés», a palavra «Uns» é", o:["quantificador existencial","artigo indefinido","artigo definido","pronome indefinido"], a:1, e:"Vem antes do nome e apresenta marinheiros que ainda não conhecemos: artigo indefinido (um, uma, uns, umas)."},
+   {p:"Em «Aquele navio é português», a palavra «Aquele» é", o:["pronome demonstrativo","determinante demonstrativo","determinante possessivo","advérbio de lugar"], a:1, e:"Vem logo antes de um nome («navio») e aponta para ele: determinante demonstrativo. Em «Quero aquele» (sem nome) seria pronome."},
    {p:"Em «Os meus amigos chegaram», a palavra «meus» é", o:["pronome possessivo","determinante possessivo","adjetivo qualificativo","quantificador"], a:1, e:"Vem logo antes de um nome («amigos»): é determinante. Diz a quem pertence: possessivo."},
+   {p:"Em «Certo dia, o Rui chegou atrasado», a palavra «Certo» é", o:["adjetivo qualificativo","determinante indefinido","quantificador universal","advérbio de afirmação"], a:1, e:"Vem antes do nome «dia» e não diz que dia, em concreto: determinante indefinido. (Em «A resposta está certa» seria adjetivo.)"},
+   {p:"Em «Que livro estás a ler?», a palavra «Que» é", o:["pronome interrogativo","determinante interrogativo","pronome relativo","conjunção subordinativa completiva"], a:1, e:"Faz uma pergunta e vem logo antes do nome «livro»: determinante interrogativo. Em «Que queres?» (sem nome) seria pronome."},
    {p:"Em «Gostei daquele, mas quero esta», a palavra «esta» é", o:["determinante demonstrativo","pronome pessoal","pronome demonstrativo","quantificador"], a:2, e:"Não vem nenhum nome a seguir. Está no lugar do nome, logo é pronome demonstrativo."},
    {p:"Em «Ofereci-lhe um livro», a palavra «lhe» é", o:["pronome pessoal tónico","pronome pessoal átono","determinante demonstrativo","pronome indefinido"], a:1, e:"Está colada ao verbo com hífen e não tem acento próprio: pronome pessoal átono. Tónico seria «a ele» ou «para mim»."},
+   {p:"Em «O meu caderno é azul; o teu é verde», a palavra «teu» é", o:["determinante possessivo","pronome possessivo","pronome pessoal","adjetivo qualificativo"], a:1, e:"Não vem nenhum nome a seguir: «o teu» está no lugar de «o teu caderno». Pronome possessivo."},
    {p:"Em «Alguém deixou a porta aberta», a palavra «Alguém» é", o:["pronome indefinido","quantificador existencial","determinante indefinido","nome comum"], a:0, e:"Está no lugar de um nome (não se sabe quem) e não vem nenhum nome a seguir: pronome indefinido."},
    {p:"Em «O livro que comprei é ótimo», a palavra «que» é", o:["conjunção subordinativa completiva","pronome relativo","pronome interrogativo","determinante relativo"], a:1, e:"Dá para trocar por «o qual» (o livro o qual comprei) e retoma «livro»: pronome relativo."},
-   {p:"Em «Espero que venhas à festa», a palavra «que» é", o:["pronome relativo","conjunção subordinativa completiva","conjunção coordenativa explicativa","determinante interrogativo"], a:1, e:"Não dá para trocar por «o qual» e não retoma nenhum nome: é conjunção. Introduz uma «coisa» que se espera (espero isso): completiva."},
-   {p:"Em «Não sei se ele vem», a palavra «se» é", o:["pronome pessoal átono","conjunção subordinativa condicional","conjunção subordinativa completiva","advérbio de afirmação"], a:2, e:"Não está colada a um verbo, por isso não é pronome. Não há condição. «Não sei isso»: introduz uma oração completiva. Conjunção subordinativa completiva."},
+   {p:"Em «Quem escreveu Os Lusíadas?», a palavra «Quem» é", o:["pronome relativo","pronome interrogativo","determinante interrogativo","pronome indefinido"], a:1, e:"Faz uma pergunta e está no lugar de uma pessoa (não vem nome a seguir): pronome interrogativo."},
+   {p:"Em «A viagem durou dez meses», a palavra «dez» é", o:["adjetivo numeral","quantificador numeral","quantificador existencial","nome comum"], a:1, e:"Diz a quantidade exata (quantos? dez): quantificador numeral. Se dissesse a ordem (o décimo), seria adjetivo numeral."},
    {p:"Em «Todos os dias revejo a matéria», a palavra «Todos» é", o:["quantificador universal","quantificador existencial","determinante indefinido","adjetivo"], a:0, e:"Abrange a totalidade, sem exceção (todos, ambos, cada): quantificador universal."},
    {p:"Em «Alguns alunos faltaram», a palavra «Alguns» é", o:["quantificador universal","quantificador existencial","pronome indefinido","artigo indefinido"], a:1, e:"Fala só de uma parte dos alunos, não de todos: quantificador existencial. «Todos» seria universal."},
+   {p:"Em «A armada partiu de Belém», a palavra «de» é", o:["preposição simples","preposição contraída","artigo definido","conjunção"], a:0, e:"Liga «partiu» a «Belém» e não está junta a nenhuma outra palavra: preposição simples. «do» (de + o) seria contraída."},
    {p:"Em «O caderno está na mochila», a palavra «na» é", o:["artigo definido","preposição simples","preposição contraída","pronome pessoal"], a:2, e:"«na» = em + a: uma preposição juntou-se a um artigo. Preposição contraída."},
+   {p:"Em «Os marinheiros rezaram e partiram», a palavra «e» é", o:["conjunção coordenativa copulativa","conjunção coordenativa adversativa","preposição","advérbio de inclusão"], a:0, e:"Junta (soma) duas ações do mesmo nível: conjunção coordenativa copulativa."},
    {p:"Em «Fui ao cinema, mas não gostei do filme», a palavra «mas» é", o:["advérbio conectivo","conjunção coordenativa adversativa","conjunção subordinativa concessiva","preposição"], a:1, e:"Liga duas orações com ideia de oposição: conjunção coordenativa adversativa. Atenção: «contudo» tem a mesma ideia, mas é advérbio conectivo."},
+   {p:"Em «Lês o livro ou vês o filme?», a palavra «ou» é", o:["conjunção coordenativa disjuntiva","conjunção coordenativa conclusiva","conjunção subordinativa condicional","advérbio de exclusão"], a:0, e:"Dá uma escolha entre duas alternativas: conjunção coordenativa disjuntiva."},
+   {p:"Em «Choveu muito, logo o jogo foi adiado», a palavra «logo» é", o:["advérbio de tempo","conjunção coordenativa conclusiva","conjunção subordinativa temporal","conjunção coordenativa explicativa"], a:1, e:"Aqui «logo» = por isso: tira uma conclusão. Não é o «logo» de tempo (= daqui a pouco). Conjunção coordenativa conclusiva."},
+   {p:"Em «Despacha-te, que o barco vai partir», a palavra «que» é", o:["pronome relativo","conjunção coordenativa explicativa","conjunção subordinativa completiva","conjunção subordinativa consecutiva"], a:1, e:"Não troca por «o qual» (não é relativo) e explica o porquê da ordem anterior: conjunção coordenativa explicativa."},
+   {p:"Em «Espero que venhas à festa», a palavra «que» é", o:["pronome relativo","conjunção subordinativa completiva","conjunção coordenativa explicativa","determinante interrogativo"], a:1, e:"Não dá para trocar por «o qual» e não retoma nenhum nome: é conjunção. Introduz uma «coisa» que se espera (espero isso): completiva."},
+   {p:"Em «Não sei se ele vem», a palavra «se» é", o:["pronome pessoal átono","conjunção subordinativa condicional","conjunção subordinativa completiva","advérbio de afirmação"], a:2, e:"Não está colada a um verbo, por isso não é pronome. Não há condição. «Não sei isso»: introduz uma oração completiva. Conjunção subordinativa completiva."},
    {p:"Em «Faltei à aula porque estava doente», a palavra «porque» é", o:["conjunção coordenativa explicativa","conjunção subordinativa causal","conjunção subordinativa final","advérbio interrogativo"], a:1, e:"Introduz a causa (porque faltei? por estar doente) e a oração não vale sozinha: conjunção subordinativa causal."},
    {p:"Em «Estudo para que os meus pais fiquem orgulhosos», «para que» é uma conjunção subordinativa", o:["causal","final","consecutiva","temporal"], a:1, e:"Indica o objetivo (para quê?): final."},
+   {p:"Em «Quando a armada partiu, o povo chorou», a palavra «Quando» é", o:["advérbio interrogativo","conjunção subordinativa temporal","conjunção subordinativa causal","advérbio relativo"], a:1, e:"Não é pergunta: liga duas orações e diz em que momento. Conjunção subordinativa temporal."},
+   {p:"Em «Embora tivesse medo, o marinheiro continuou», a palavra «Embora» é", o:["conjunção subordinativa concessiva","conjunção coordenativa adversativa","advérbio conectivo","conjunção subordinativa condicional"], a:0, e:"«embora» = apesar de: há um obstáculo, mas a ação acontece. Conjunção subordinativa concessiva."},
+   {p:"Em «Caso chova, fico em casa», a palavra «Caso» é", o:["nome comum","conjunção subordinativa condicional","conjunção subordinativa causal","advérbio de modo"], a:1, e:"Põe uma condição (= se chover): conjunção subordinativa condicional. Em «o caso foi resolvido» seria nome."},
+   {p:"Em «O mar estava tão agitado que o navio quase se afundou», a palavra «que» é", o:["pronome relativo","conjunção subordinativa completiva","conjunção subordinativa consecutiva","conjunção subordinativa comparativa"], a:2, e:"Vem depois de «tão…» e introduz a consequência: conjunção subordinativa consecutiva."},
+   {p:"Em «Ele fala como o pai falava», a palavra «como» é", o:["advérbio interrogativo","conjunção subordinativa causal","conjunção subordinativa comparativa","preposição"], a:2, e:"Compara a maneira de falar dos dois: conjunção subordinativa comparativa. (Em «Como chegaste?» seria advérbio interrogativo; em «Como estava doente, faltei» seria causal.)"},
    {s:true, p:"Classifica a palavra «cujo» em «O ator cujo filme vi é português» (classe e subclasse).", a:"Determinante relativo (vem antes do nome «filme» e liga as duas orações)."},
    {s:true, p:"Classifica a palavra «onde» em «A cidade onde nasci é bonita» (classe e subclasse).", a:"Advérbio relativo (retoma «cidade» e indica o lugar)."},
    {s:true, p:"Classifica a palavra «Quantos» em «Quantos livros leste este ano?» (classe e subclasse).", a:"Quantificador interrogativo (pergunta pela quantidade)."}
@@ -237,6 +268,7 @@ const M = [
   tip:"<b>Truque do pronome:</b> troca a expressão por <i>o</i>, <i>lhe</i> ou nada. «o» = CD; «lhe» = CI; nenhum serve mas o verbo precisa dela = oblíquo; pode sair = modificador.<br><b>Complemento ou modificador do nome?</b> O nome vem de um verbo (leitura ← ler)? O que vem a seguir é complemento do nome. Se não (a casa de madeira), é modificador restritivo.",
   qs:[
    {p:"Em «O Pedro leu o livro ontem», o predicado é", o:["«O Pedro»","«leu»","«leu o livro ontem»","«o livro ontem»"], a:2, e:"O predicado é o verbo com tudo o que está ligado a ele: «leu o livro ontem». «O Pedro» é o sujeito."},
+   {p:"Em «Vasco da Gama chegou à Índia», o sujeito é", o:["simples","composto","nulo subentendido","nulo expletivo"], a:0, e:"Está escrito e tem um só núcleo («Vasco da Gama»): sujeito simples."},
    {p:"Em «A Ana e o Rui chegaram cedo», o sujeito é", o:["simples","composto","nulo subentendido","nulo indeterminado"], a:1, e:"Tem dois núcleos («Ana» e «Rui») ligados por «e»: sujeito composto."},
    {p:"Em «Dizem que vai chover», o sujeito de «Dizem» é", o:["simples","nulo subentendido","nulo indeterminado","nulo expletivo"], a:2, e:"Não se sabe quem diz. Verbo na 3.ª pessoa do plural sem sujeito: nulo indeterminado."},
    {p:"Em «Estudo muito para o teste», o sujeito é", o:["nulo subentendido","nulo indeterminado","simples","composto"], a:0, e:"Não está escrito, mas a terminação do verbo mostra que é «eu»: nulo subentendido."},
@@ -279,6 +311,7 @@ const M = [
    {p:"Em «Faltei porque estava doente», a oração «porque estava doente» é subordinada adverbial", o:["final","causal","consecutiva","condicional"], a:1, e:"Dá a causa (porquê? por estar doente): causal."},
    {p:"Em «Falei alto para que todos me ouvissem», a oração «para que todos me ouvissem» é subordinada adverbial", o:["causal","final","temporal","consecutiva"], a:1, e:"Diz o objetivo (para quê?): final."},
    {p:"Em «Quando cheguei a casa, jantei», a oração «Quando cheguei a casa» é subordinada adverbial", o:["condicional","temporal","causal","comparativa"], a:1, e:"Diz em que momento: temporal."},
+   {p:"Em «Se o vento ajudar, a armada chega amanhã», a oração «Se o vento ajudar» é subordinada adverbial", o:["temporal","condicional","causal","concessiva"], a:1, e:"Põe uma condição: a armada só chega SE o vento ajudar. Condicional."},
    {p:"Em «Embora estivesse a chover, fomos à praia», a oração «Embora estivesse a chover» é subordinada adverbial", o:["causal","condicional","concessiva","consecutiva"], a:2, e:"«embora» = apesar de: há um obstáculo que não impede a ação. Concessiva."},
    {p:"Em «Estudei tanto que adormeci», «que adormeci» é subordinada adverbial", o:["consecutiva","comparativa","final","causal"], a:0, e:"«tanto… que» mostra a consequência: consecutiva."},
    {p:"Em «O teste foi mais fácil do que eu esperava», a oração «do que eu esperava» é subordinada adverbial", o:["consecutiva","comparativa","concessiva","final"], a:1, e:"Compara duas coisas (mais… do que): comparativa."},
@@ -307,6 +340,7 @@ const M = [
    {p:"Em «Primeiro estudei, depois fui descansar», «Primeiro» e «depois» asseguram a coesão", o:["temporal","referencial","frásica","lexical"], a:0, e:"Organizam a ordem no tempo: coesão temporal."},
    {p:"Em «O Pedro chegou tarde. O Pedro tinha perdido o autocarro», a repetição de «O Pedro» é um caso de coesão", o:["lexical por reiteração","referencial por anáfora","lexical por sinonímia","frásica"], a:0, e:"Repete-se a mesma palavra: coesão lexical por reiteração. Se fosse «Ele», seria referencial (anáfora)."},
    {p:"Em «Tinha a cara suja. Lavou o rosto à pressa», a palavra «rosto» assegura a coesão", o:["lexical por sinonímia","lexical por hiperonímia/hiponímia","referencial por catáfora","frásica"], a:0, e:"«rosto» quer dizer o mesmo que «cara»: coesão lexical por sinonímia."},
+   {p:"Em «O dia foi quente; a noite, fria», a palavra «fria» assegura a coesão", o:["lexical por antonímia","lexical por sinonímia","frásica","referencial por anáfora"], a:0, e:"«fria» é o contrário de «quente» e liga as duas partes pelo sentido: coesão lexical por antonímia."},
    {p:"Em «Comprei maçãs. A fruta estava madura», «A fruta» assegura a coesão", o:["referencial (anáfora)","frásica","lexical (hiperonímia/hiponímia)","lexical (sinonímia)"], a:2, e:"«fruta» é a palavra geral que substitui «maçãs»: coesão lexical por hiperonímia/hiponímia."},
    {p:"Em «Entrámos na casa. A cozinha era enorme», «A cozinha» assegura a coesão", o:["lexical por holonímia/meronímia","lexical por sinonímia","referencial por anáfora","temporal"], a:0, e:"A cozinha é PARTE da casa: coesão lexical por holonímia/meronímia."},
    {s:true, p:"«O Velho do Restelo criticou a viagem e todos o ouviram.» Indica o referente de «o» e o mecanismo de coesão.", a:"Referente: «O Velho do Restelo». Coesão referencial, por anáfora."}
@@ -362,6 +396,10 @@ const M = [
   qs:[
    {p:"A ideia principal do texto é que", o:["os jovens de hoje não leem nada","os jovens leem muitas palavras, mas perderam a atenção prolongada que os livros treinam","os ecrãs devem ser totalmente proibidos","a escola obriga os alunos a ler demasiado"], a:1, e:"Nas linhas 1 a 5 o autor reconhece que se leem muitas palavras, mas diz que o problema está na atenção."},
    {p:"A expressão «um treino de paciência» (linha 6) significa que ler um livro", o:["é aborrecido","exige concentração durante muito tempo","se faz apenas na escola","é mais rápido do que ler mensagens"], a:1, e:"As linhas 6 e 7 explicam: obriga a seguir um raciocínio longo."},
+   {p:"Segundo o autor (linhas 1-3), os jovens de hoje", o:["não leem nenhum tipo de texto","abrem menos livros, mas leem muitas palavras em mensagens, legendas e comentários","leem mais livros do que antigamente","só leem na escola"], a:1, e:"Linhas 1-3: «abrem menos livros, mas nunca leram tantas palavras: mensagens, legendas, comentários»."},
+   {p:"Para o autor (linhas 6-8), ler um livro ajuda a", o:["escrever mensagens mais depressa","seguir um raciocínio longo, imaginar lugares e pôr-se no lugar dos outros","decorar a matéria para os testes","usar melhor os ecrãs"], a:1, e:"Está escrito nas linhas 6-8: «seguir um raciocínio longo, a imaginar lugares […] e a pôr-nos no lugar de outras pessoas»."},
+   {p:"Quando o autor diz que este treino «se tornou raro» (linha 8), quer dizer que", o:["já poucas pessoas leem com atenção prolongada","os livros ficaram mais caros","as escolas proibiram a leitura","ninguém usa ecrãs"], a:0, e:"«Este treino» é a leitura com paciência (linha 6). «Tornou-se raro» = acontece pouco."},
+   {p:"Este texto é sobretudo", o:["narrativo: conta uma história","de opinião: defende uma ideia com argumentos","descritivo: descreve um lugar","um poema"], a:1, e:"O autor defende uma tese (falta atenção na leitura), dá argumentos e termina com uma proposta: texto de opinião."},
    {p:"O último parágrafo (linhas 10-11) tem a função de", o:["apresentar uma proposta de solução","dar um exemplo pessoal","contradizer a tese inicial","descrever um lugar"], a:0, e:"Começa por «Por isso» e propõe o que as escolas e as famílias deviam fazer."},
    {p:"Em «para a compreender» (linha 5), o pronome «a» retoma", o:["a atenção","uma ideia","a quantidade","a leitura"], a:1, e:"Compreender uma ideia: o «a» retoma «uma ideia» (coesão referencial por anáfora)."},
    {p:"A oração «Quem salta de ecrã em ecrã» (linha 4) é", o:["subordinada adjetiva relativa restritiva","subordinada substantiva relativa","subordinada adverbial condicional","coordenada copulativa"], a:1, e:"Começa por «quem» e não há nome antes: substantiva relativa (com função de sujeito)."},
@@ -371,25 +409,36 @@ const M = [
    {p:"Em «Obriga-nos» (linha 6), o pronome «nos» desempenha a função de", o:["complemento direto","complemento indireto","sujeito","complemento oblíquo"], a:0, e:"Obriga quem? Obriga-nos (como «obriga-os»): complemento direto. Repara que é um pronome pessoal átono."},
    {p:"Na linha 2, a palavra «mas» é", o:["advérbio conectivo","conjunção coordenativa adversativa","conjunção subordinativa concessiva","preposição"], a:1, e:"Liga duas orações com ideia de oposição (abrem menos livros / nunca leram tantas palavras): conjunção coordenativa adversativa."},
    {p:"A expressão «Por isso» (linha 10) contribui para a coesão", o:["lexical","frásica","interfrásica","temporal"], a:2, e:"É um conector com valor conclusivo que liga parágrafos: coesão interfrásica."},
+   {s:true, p:"Explica, por palavras tuas, a frase «O problema não está na quantidade, mas na atenção» (linhas 3-4).", a:"Os jovens leem muitas palavras (mensagens, legendas), mas aos bocadinhos. O que falta é concentrarem-se muito tempo numa só ideia."},
+   {s:true, p:"Indica a proposta que o autor apresenta no último parágrafo e a quem se dirige.", a:"Propõe que se protejam momentos sem ecrãs, para a leitura voltar a ser um prazer. Dirige-se às escolas e às famílias."},
    {s:true, p:"Indica a função sintática de «um treino de paciência» em «Ler um livro é um treino de paciência» (linha 6).", a:"Predicativo do sujeito (vem depois do verbo copulativo «ser»)."}
   ]},
 ];
 const TEXT = ["Há quem diga que os jovens já não leem. Talvez seja verdade que","abrem menos livros, mas nunca leram tantas palavras: mensagens,","legendas, comentários. O problema não está na quantidade, mas na","atenção. Quem salta de ecrã em ecrã raramente fica tempo suficiente","numa ideia para a compreender a fundo.","Ler um livro é um treino de paciência. Obriga-nos a seguir um","raciocínio longo, a imaginar lugares que nunca vimos e a pôr-nos","no lugar de outras pessoas. Infelizmente, este treino tornou-se raro,","embora seja cada vez mais necessário.","Por isso, as escolas e as famílias deviam proteger momentos sem","ecrãs, em que a leitura volte a ser um prazer e não uma obrigação."];
 
-const WRITE = {id:"escrita", c:"--c8", tag:"Missão 8", name:"Texto de opinião (PRI 2)", pic:"Um hambúrguer: pão, carne, carne, pão"};
-const SIM = {id:"simulado", c:"--c1", tag:"Missão final", name:"Simulado PRI 1", pic:"12 perguntas ao calhas, como no teste"};
+const WRITE = {id:"escrita", c:"--c8", tag:"Missão 8", name:"Texto de opinião (PRI 2)", pic:"Um hambúrguer: pão, carne, carne, pão",
+  qs:[
+   {p:"No PRI 2, o texto de opinião deve ter", o:["entre 100 e 200 palavras","entre 250 e 350 palavras","pelo menos 500 palavras","as palavras que quiseres"], a:1, e:"O limite é 250 a 350 palavras. Fora disso, perdes pontos."},
+   {p:"Onde deve aparecer a tua opinião (a tese)?", o:["só na conclusão","logo na introdução","em lado nenhum, bastam os exemplos","no meio do segundo argumento"], a:1, e:"O leitor tem de saber logo no 1.º parágrafo o que defendes. A conclusão volta a ela por outras palavras."},
+   {p:"Na contagem de palavras, «dir-se-ia» conta como", o:["3 palavras","2 palavras","1 palavra","não conta"], a:2, e:"Conta-se cada conjunto entre espaços em branco. «dir-se-ia» não tem espaços: 1 palavra."},
+   {p:"Qual destes conectores serve para apresentar uma ideia contrária?", o:["Além disso,","Por exemplo,","No entanto,","Em suma,"], a:2, e:"«No entanto» opõe ideias. «Além disso» acrescenta, «Por exemplo» exemplifica, «Em suma» conclui."},
+   {p:"A conclusão de um texto de opinião deve", o:["trazer um argumento novo","retomar a opinião por outras palavras, sem ideias novas","contar uma história pessoal longa","acabar com uma pergunta sem resposta"], a:1, e:"É o pão de baixo do hambúrguer: fecha o texto e repete a tese, sem acrescentar ideias novas."},
+   {p:"Qual destas frases tem linguagem adequada a um texto de opinião?", o:["Acho que isto é tipo bué importante.","Considero que esta medida é fundamental.","Tá mal, pronto.","Eu cá acho que sim."], a:1, e:"Linguagem formal: «Considero que…». Evita «tipo», «bué», «tá» e repetir «eu acho»."},
+   {s:true, p:"Indica as partes de um texto de opinião bem organizado.", a:"Introdução com a tese; argumento 1 com exemplo; argumento 2 com exemplo; o outro lado («É certo que…; no entanto…»); conclusão que retoma a opinião."}
+  ]};
+const SIM = {id:"simulado", c:"--c1", tag:"Missão final", name:"Simulado PRI 1", pic:"12 perguntas de todos os conteúdos, como no teste"};
 
 /* estado */
 let S = {xp:0, ans:{}};
 try{ const raw = localStorage.getItem("mp11"); if(raw) S = Object.assign(S, JSON.parse(raw)); }catch(e){}
 function save(){ try{ localStorage.setItem("mp11", JSON.stringify(S)); }catch(e){} }
-/* v2: as perguntas mudaram de posição; limpa respostas antigas (o XP fica) */
-if(S.v!==2){
-  S.ans = {}; S.v = 2;
+/* v3: as perguntas mudaram de posição; limpa respostas antigas (o XP fica) */
+if(S.v!==3){
+  S.ans = {}; S.v = 3;
   try{ Object.keys(localStorage).filter(k=>/^mp11_(classes|funcoes|oracoes|coesao|relacoes|formacao|leitura)\d+$/.test(k)).forEach(k=>localStorage.removeItem(k)); }catch(e){}
   save();
 }
-const total = M.reduce((n,m)=>n+m.qs.length,0);
+const total = [...M, WRITE].reduce((n,m)=>n+m.qs.length,0);
 const LV = ["Aprendiz","Explorador","Detetive da gramática","Mestre das orações","Lenda do PRI"];
 function updXP(){
   const done = Object.keys(S.ans).filter(k=>!k.startsWith("sim")).length;
@@ -407,8 +456,8 @@ function home(){
     const b = document.createElement("button");
     b.className = "mcard"+(m.qs && done===m.qs.length ? " done":"");
     b.style.setProperty("--mc", `var(${m.c})`);
-    b.innerHTML = `<span class="tag">${m.tag}</span><span class="name">${m.name}</span><span class="pic">${m.pic}</span><span class="st">${m.qs ? (done===m.qs.length? "Concluída ✓ " : "")+done+" / "+m.qs.length+" perguntas" : "Escrever e contar palavras"}</span>`;
-    b.onclick = ()=> m.qs ? openM(m) : openWrite();
+    b.innerHTML = `<span class="tag">${m.tag}</span><span class="name">${m.name}</span><span class="pic">${m.pic}</span><span class="st">${(m===WRITE ? "Escrever e contar palavras · " : "")+(done===m.qs.length? "Concluída ✓ " : "")+done+" / "+m.qs.length+" perguntas"}</span>`;
+    b.onclick = ()=> m===WRITE ? openWrite() : openM(m);
     g.appendChild(b);
   });
   const s = document.createElement("button");
@@ -525,8 +574,9 @@ function openSim(){
   sec.style.setProperty("--mc","var(--pink)");
   header(SIM, sec);
   Object.keys(S.ans).filter(k=>k.startsWith("sim")).forEach(k=>delete S.ans[k]);
-  const pool = M.filter(m=>!m.reading).flatMap(m=>m.qs.filter(q=>!q.s));
-  const pick = pool.map(q=>[Math.random(),q]).sort((a,b)=>a[0]-b[0]).slice(0,12).map(x=>x[1]);
+  /* 2 perguntas de cada um dos 6 conteúdos de gramática, depois baralhadas */
+  const shuffle = a => a.map(q=>[Math.random(),q]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+  const pick = shuffle(M.filter(m=>!m.reading).flatMap(m=>shuffle(m.qs.filter(q=>!q.s)).slice(0,2)));
   const intro = document.createElement("div"); intro.className="idea";
   intro.innerHTML = `<p class="pic">Sem espreitar os resumos!</p><p>12 perguntas misturadas de todas as matérias, como no PRI 1. No fim vês a pontuação e podes gerar outro simulado.</p>`;
   const qs = document.createElement("div"); qs.className="qs";
@@ -615,6 +665,10 @@ function openWrite(){
   }
   ta.oninput = count; count();
   for(let i=0;i<7;i++){ const c=w.querySelector("#ck"+i); try{ c.checked = localStorage.getItem("mp11_ck"+i)==="1"; }catch(e){} c.onchange=()=>{ try{localStorage.setItem("mp11_ck"+i, c.checked?"1":"0");}catch(e){} }; }
+  const h3 = document.createElement("h3"); h3.textContent="4. Mostra que sabes as regras"; h3.style.margin="22px 0 10px";
+  const qs = document.createElement("div"); qs.className="qs";
+  WRITE.qs.forEach((q,i)=> qs.append(qBlock(q, WRITE.id+i, i+1, WRITE.c)));
+  sec.append(h3, qs);
   document.getElementById("home").hidden=true; sec.hidden=false; window.scrollTo(0,0);
 }
 
