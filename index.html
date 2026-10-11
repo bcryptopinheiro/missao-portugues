@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Missão Português 11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Caveat:wght@600&display=swap">
+<style>
+/* Layout: caderno de estudo — mapa de missões no início, cada missão = ideia (analogia + truque) e depois perguntas tipo teste */
+:root{
+  --bg:#f7f6fb; --surface:#ffffff; --ink:#1e1a2e; --muted:#625c78; --line:#e4e0ef;
+  --pink:#d93d74; --hl:#ffe36e; --ok:#1f9d6b; --okbg:#e3f6ee; --bad:#c9384a; --badbg:#fde8ea;
+  --c1:#e0457b; --c2:#ff8a3d; --c3:#7b6cf6; --c4:#18a3b8; --c5:#2f9e5f; --c6:#c9871a; --c7:#5a6acf; --c8:#b8459f;
+  --display:"Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --hand:"Caveat", "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15131d; --surface:#201d2b; --ink:#f1eef8; --muted:#a9a2c0; --line:#34304a;
+  --pink:#ff6e9c; --hl:#7a6417; --ok:#4fd39c; --okbg:#173a2c; --bad:#ff7a8a; --badbg:#3d1a22;
+  --c1:#ff6e9c; --c2:#ffa066; --c3:#a197ff; --c4:#4fcde0; --c5:#5fcf8d; --c6:#f0b24a; --c7:#8e9bff; --c8:#e57ccc;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15131d; --surface:#201d2b; --ink:#f1eef8; --muted:#a9a2c0; --line:#34304a;
+  --pink:#ff6e9c; --hl:#7a6417; --ok:#4fd39c; --okbg:#173a2c; --bad:#ff7a8a; --badbg:#3d1a22;
+  --c1:#ff6e9c; --c2:#ffa066; --c3:#a197ff; --c4:#4fcde0; --c5:#5fcf8d; --c6:#f0b24a; --c7:#8e9bff; --c8:#e57ccc;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding-inline:18px;padding-block:20px 60px}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,6vw,42px);font-weight:800}
+h2{font-size:clamp(23px,4.5vw,30px);font-weight:800}
+h3{font-size:19px;font-weight:600}
+p{margin:0}
+.mark{background:linear-gradient(transparent 55%,var(--hl) 55%);padding:0 2px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+
+/* topo */
+.top{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between;margin-bottom:18px}
+.top .sub{color:var(--muted);margin-top:6px}
+.xp{min-width:200px;flex:1;max-width:300px}
+.xp-row{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{height:12px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:5px}
+.bar i{display:block;height:100%;width:0;background:var(--pink);border-radius:99px;transition:width .4s}
+
+/* mapa */
+.intro{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.hand{font-family:var(--hand);font-size:24px;line-height:1.2;color:var(--pink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+@media (max-width:560px){
+  .grid{grid-template-columns:1fr 1fr;gap:10px}
+  .mcard{padding:11px;gap:4px}
+  .mcard .name{font-size:16px}
+  .mcard .pic{display:none}
+  .mcard .st{font-size:13px}
+  .intro{padding:12px 14px}
+  .hand{font-size:21px}
+}
+.mcard{text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px;transition:transform .15s,border-color .15s;min-width:0}
+.mcard:hover{transform:translateY(-2px);border-color:var(--mc)}
+.mcard .tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mc)}
+.mcard .name{font-family:var(--display);font-weight:800;font-size:20px}
+.mcard .pic{font-family:var(--hand);font-size:20px;color:var(--muted)}
+.mcard .st{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.mcard.done{border-color:var(--mc)}
+.mcard.done .st{color:var(--mc);font-weight:700}
+.wide{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.wide .tag,.wide .pic{color:var(--hl)}
+:root[data-theme="dark"] .wide .tag{color:var(--pink)}
+
+/* missão */
+.back{background:none;border:0;color:var(--muted);padding:6px 0;margin-bottom:8px;font-weight:700}
+.mhead{border-left:6px solid var(--mc);padding-left:14px;margin-bottom:16px;display:flex;flex-direction:column;gap:4px}
+.mhead .tag{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mc)}
+.idea{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
+.idea .pic{font-family:var(--hand);font-size:26px;line-height:1.2;color:var(--mc)}
+.rows{display:grid;gap:8px}
+.r{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:10px;padding:8px 0;border-top:1px dashed var(--line)}
+.r b{color:var(--mc)}
+.r span{min-width:0}
+@media (max-width:520px){.r{grid-template-columns:1fr;gap:2px}}
+.tip{background:var(--bg);border-radius:10px;padding:10px 12px;font-size:16px}
+.tip b{color:var(--pink)}
+
+/* perguntas */
+.qs{display:flex;flex-direction:column;gap:14px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.q .n{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.q .p{font-weight:700}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:9px 12px;display:flex;gap:10px;align-items:flex-start}
+.opt .l{font-weight:700;color:var(--muted);min-width:22px}
+.opt:hover:not(:disabled){border-color:var(--mc)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.fb{border-radius:10px;padding:10px 12px;font-size:16px}
+.fb.ok{background:var(--okbg)}
+.fb.no{background:var(--badbg)}
+.fb strong{display:block}
+.short textarea{width:100%;min-height:58px;border:2px solid var(--line);border-radius:10px;padding:9px 11px;background:var(--bg);color:var(--ink);font:inherit;resize:vertical}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{border:2px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:99px;padding:7px 16px;font-weight:700}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.okb{border-color:var(--ok);background:var(--ok);color:var(--surface)}
+.btn.nob{border-color:var(--bad);background:transparent;color:var(--bad)}
+.score{background:var(--surface);border:2px solid var(--mc);border-radius:14px;padding:16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:6px}
+.score .big{font-family:var(--display);font-size:30px;font-weight:800;font-variant-numeric:tabular-nums}
+
+/* leitura */
+.text{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px 16px 8px;margin-bottom:18px;overflow-x:auto}
+.text ol{margin:0;padding-left:40px;font-family:Georgia,"Times New Roman",serif;font-size:17px;line-height:1.75}
+.text li::marker{color:var(--muted);font-family:var(--body);font-size:13px}
+.text .h{font-family:var(--display);font-weight:600;padding-left:10px;margin-bottom:6px}
+
+/* escrita */
+.burger{display:grid;gap:8px;margin-bottom:16px}
+.layer{border-radius:12px;padding:10px 14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;border:2px solid var(--line);background:var(--surface)}
+.layer.bun{border-color:var(--c6)}
+.layer.meat{border-color:var(--c1)}
+.layer .w{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.temas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.chip{border:2px solid var(--line);background:var(--surface);border-radius:99px;padding:6px 12px;font-size:15px}
+.chip[aria-pressed="true"]{border-color:var(--c8);background:var(--c8);color:var(--surface)}
+#draft{width:100%;min-height:300px;border:2px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--surface);color:var(--ink);font:inherit;line-height:1.6}
+.count{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:8px 0 14px;font-variant-numeric:tabular-nums}
+.pill{border-radius:99px;padding:4px 12px;font-weight:700;font-size:15px}
+.pill.low{background:var(--badbg);color:var(--bad)}
+.pill.good{background:var(--okbg);color:var(--ok)}
+.conns{display:flex;flex-wrap:wrap;gap:6px}
+.conns button{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:4px 9px;font-size:14px}
+.check{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px}
+.check label{display:flex;gap:8px;align-items:flex-start}
+.check input{margin-top:5px;accent-color:var(--pink)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<noscript><p style="padding:16px;font-weight:700">Este jogo precisa de JavaScript. Abre o ficheiro no Chrome ou no Safari (não na pré-visualização do WhatsApp).</p></noscript>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Missão <span class="mark">Português 11</span></h1>
+      <p class="sub">Matriz PRI 1 (leitura e gramática) + PRI 2 (texto de opinião)</p>
+    </div>
+    <div class="xp" aria-live="polite">
+      <div class="xp-row"><span>Pontos de estudo</span><span id="xpTxt">0 XP</span></div>
+      <div class="bar"><i id="xpBar"></i></div>
+      <div class="xp-row" style="margin-top:4px"><span id="lvl">Nível 1 · Aprendiz</span><span id="prog">0 / 0</span></div>
+    </div>
+  </header>
+
+  <main id="home">
+    <div class="intro">
+      <p class="hand">Uma missão de cada vez, 20 minutos chegam.</p>
+      <p>Cada missão começa com <b>uma imagem fácil de lembrar</b> e um <b>truque</b>. Depois vêm perguntas iguais às dos testes. Cada resposta certa à primeira dá 10 XP.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <section id="mission" hidden></section>
+</div>
+
+<script>
+const M = [
+ {id:"classes", c:"--c1", tag:"Missão 1", name:"Classes de palavras", pic:"Uma equipa: cada palavra tem um papel",
+  rows:[
+   ["Nome","o jogador: Camões, navio, coragem, armada (coletivo). Truque: dá para pôr «o/a» antes."],
+   ["Adjetivo","a camisola, diz como é: interessante (qualificativo), marítima (relacional), segundo (numeral)."],
+   ["Verbo","a ação ou o estado: correr, ser, estar."],
+   ["Advérbio","como, quando, onde: bem, ontem, aqui, não. «contudo» = advérbio conectivo."],
+   ["Determinante","o guarda-costas: vem SEMPRE antes do nome (o, este, meu, certo, cujo)."],
+   ["Pronome","o duplo de cinema: está NO LUGAR do nome (ele, lhe, isto, alguém, que)."],
+   ["Quantificador","quantos? três, todos, muitos, alguns."],
+   ["Preposição / Conjunção","a cola entre palavras (de, em, para) / a ponte entre orações (e, mas, porque)."]],
+  tip:"<b>Armadilha nº 1:</b> «este livro» = determinante; «quero este» = pronome. <b>Armadilha nº 2:</b> «que» troca por «o qual»? Pronome relativo. Não troca? Conjunção.",
+  qs:[
+   {p:"Em «O Pedro leu um livro interessante», a palavra «interessante» é", o:["nome comum","adjetivo qualificativo","adjetivo relacional","advérbio de modo"], a:1, e:"Dá uma qualidade ao livro e pode ter grau (muito interessante): adjetivo qualificativo."},
+   {p:"Em «Gostei daquele, mas quero esta», a palavra «esta» é", o:["determinante demonstrativo","pronome pessoal","pronome demonstrativo","quantificador"], a:2, e:"Não vem nenhum nome a seguir. Está no lugar do nome, logo é pronome demonstrativo."},
+   {p:"Em «O livro que comprei é ótimo», a palavra «que» é", o:["conjunção subordinativa completiva","pronome relativo","pronome interrogativo","determinante relativo"], a:1, e:"Dá para trocar por «o qual» (o livro o qual comprei) e retoma «livro»: pronome relativo."},
+   {p:"Em «Todos os dias revejo a matéria», a palavra «Todos» é", o:["quantificador universal","quantificador existencial","determinante indefinido","adjetivo"], a:0, e:"Abrange a totalidade (todos, ambos, cada): quantificador universal."},
+   {p:"Em «Estudei muito; contudo, tive má nota», a palavra «contudo» é", o:["conjunção coordenativa adversativa","preposição","advérbio conectivo","conjunção subordinativa concessiva"], a:2, e:"Na terminologia oficial, «contudo», «todavia», «no entanto» e «portanto» são advérbios conectivos."},
+   {p:"Em «A armada partiu de Belém», «armada» é um nome", o:["próprio","comum coletivo","comum abstrato","próprio coletivo"], a:1, e:"Designa um conjunto (de navios) e não é nome de alguém: nome comum coletivo."},
+   {s:true, p:"Classifica a palavra «cujo» em «O ator cujo filme vi é português» (classe e subclasse).", a:"Determinante relativo (vem antes do nome «filme»)."}
+  ]},
+ {id:"funcoes", c:"--c2", tag:"Missão 2", name:"Funções sintáticas", pic:"Fazer perguntas ao verbo, o chefe da frase",
+  rows:[
+   ["Sujeito","Quem faz? Simples (O Pedro corre), composto (A Ana e o Pedro correm), nulo subentendido (Estudo → eu), indeterminado (Dizem que vai chover), expletivo (Choveu)."],
+   ["Complemento direto","O quê? Passa a o/a/os/as: Leu o livro → Leu-o."],
+   ["Complemento indireto","A quem? Passa a lhe/lhes: Deu flores à mãe → Deu-lhe flores."],
+   ["Complemento oblíquo","O verbo exige-o, com preposição, e NÃO passa a lhe: Vou a Lisboa; Gosto de música."],
+   ["Agente da passiva","Frase com ser + particípio: foi escrito por Camões."],
+   ["Predicativo do sujeito","ser, estar, parecer, ficar, continuar…: A Ana está cansada."],
+   ["Predicativo do CD","achar, considerar, nomear: Acho o teste fácil → Acho-o fácil."],
+   ["Modificador / Vocativo","Pode sair da frase (ontem, em casa) / chama alguém, entre vírgulas (Maria, anda cá!)."]],
+  tip:"<b>Truque do pronome:</b> troca a expressão por <i>o</i>, <i>lhe</i> ou nada. «o» = CD; «lhe» = CI; nenhum serve mas o verbo precisa = oblíquo; pode sair = modificador.",
+  qs:[
+   {p:"Em «Dizem que vai chover», o sujeito de «Dizem» é", o:["simples","nulo subentendido","nulo indeterminado","nulo expletivo"], a:2, e:"Não se sabe quem diz. Verbo na 3.ª pessoa do plural sem sujeito: nulo indeterminado."},
+   {p:"Em «Estudo muito para o teste», o sujeito é", o:["nulo subentendido","nulo indeterminado","simples","composto"], a:0, e:"Não está escrito, mas a terminação do verbo mostra que é «eu»: nulo subentendido."},
+   {p:"Em «A Maria ofereceu flores à mãe», «à mãe» desempenha a função de", o:["complemento direto","complemento indireto","complemento oblíquo","modificador"], a:1, e:"Ofereceu-lhe flores. Passa a «lhe»: complemento indireto."},
+   {p:"Em «Amanhã vou a Lisboa», «a Lisboa» desempenha a função de", o:["complemento indireto","modificador","complemento oblíquo","complemento direto"], a:2, e:"O verbo «ir» exige um destino e não dá «vou-lhe»: complemento oblíquo. Já «Amanhã» é modificador."},
+   {p:"Em «A Ana parecia cansada», «cansada» é", o:["predicativo do sujeito","predicativo do complemento direto","modificador do nome","complemento direto"], a:0, e:"«parecer» é verbo copulativo; «cansada» caracteriza o sujeito: predicativo do sujeito."},
+   {p:"Em «Os alunos acharam o teste fácil», «fácil» é", o:["predicativo do sujeito","modificador restritivo do nome","complemento direto","predicativo do complemento direto"], a:3, e:"Acharam-no fácil. «fácil» fica fora do pronome e caracteriza o CD: predicativo do complemento direto."},
+   {p:"Em «Maria, anda cá!», «Maria» é", o:["sujeito","vocativo","complemento direto","modificador de frase"], a:1, e:"Serve para chamar alguém e está separada por vírgula: vocativo."},
+   {p:"Em «Os alunos, atentos, ouviram a professora», «atentos» é", o:["modificador restritivo do nome","modificador apositivo do nome","predicativo do sujeito","complemento do nome"], a:1, e:"Entre vírgulas, acrescenta informação: modificador apositivo do nome."},
+   {s:true, p:"Indica a função sintática de «por Camões» em «Os Lusíadas foram escritos por Camões».", a:"Complemento agente da passiva."}
+  ]},
+ {id:"oracoes", c:"--c3", tag:"Missão 3", name:"Orações", pic:"Mochilas: há umas que andam sozinhas e outras que vão às costas",
+  rows:[
+   ["Coordenadas","dois amigos lado a lado: copulativa (e, nem), adversativa (mas, porém), disjuntiva (ou), conclusiva (logo, por isso), explicativa (pois)."],
+   ["Substantiva = COISA","troca por «isso». Completiva (Sei que vens → sei isso) ou relativa sem nome antes (Quem espera sempre alcança)."],
+   ["Relativa = CARACTERÍSTICA","vem depois de um nome. Restritiva sem vírgulas = filtro; explicativa com vírgulas = parêntesis."],
+   ["Adverbial = CIRCUNSTÂNCIA","causal (porque), condicional (se), concessiva (embora), consecutiva (tão… que), temporal (quando), final (para que)."]],
+  tip:"<b>3 perguntas:</b> 1) Faz sentido sozinha? Sim = coordenada. 2) Troca por «isso», por um adjetivo ou por um advérbio? 3) Qual é o conector?",
+  qs:[
+   {p:"Em «Sei que vais passar no teste», a oração «que vais passar no teste» é", o:["subordinada adjetiva relativa restritiva","subordinada substantiva completiva","subordinada adverbial causal","coordenada explicativa"], a:1, e:"Sei isso: é uma «coisa» que o verbo saber pede. Substantiva completiva (com função de complemento direto)."},
+   {p:"Em «Os alunos que estudaram passaram», a oração «que estudaram» é", o:["subordinada adjetiva relativa explicativa","subordinada substantiva completiva","subordinada adjetiva relativa restritiva","subordinada adverbial temporal"], a:2, e:"Sem vírgulas: funciona como filtro (só os que estudaram passaram). Restritiva."},
+   {p:"Em «O Pedro, que é meu primo, chegou», a oração destacada é", o:["subordinada adjetiva relativa explicativa","subordinada adjetiva relativa restritiva","coordenada copulativa","subordinada substantiva relativa"], a:0, e:"Entre vírgulas: é só informação extra, como um parêntesis. Explicativa."},
+   {p:"Em «Embora estivesse a chover, fomos à praia», a oração destacada é subordinada adverbial", o:["causal","condicional","concessiva","consecutiva"], a:2, e:"«embora» = apesar de: concessiva."},
+   {p:"Em «Estudei tanto que adormeci», «que adormeci» é subordinada adverbial", o:["consecutiva","comparativa","final","causal"], a:0, e:"«tanto… que» mostra a consequência: consecutiva."},
+   {p:"Em «Quem espera sempre alcança», «Quem espera» é", o:["subordinada adjetiva relativa restritiva","subordinada substantiva relativa","subordinada substantiva completiva","coordenada"], a:1, e:"Começa por «quem» e não há nome antes. É substantiva relativa (com função de sujeito)."},
+   {p:"Em «Estudei, mas não passei», a oração «mas não passei» é coordenada", o:["copulativa","conclusiva","adversativa","explicativa"], a:2, e:"«mas» indica oposição: adversativa."},
+   {s:true, p:"Classifica a oração destacada: «Se estudares, passas».", a:"Subordinada adverbial condicional."}
+  ]},
+ {id:"coesao", c:"--c4", tag:"Missão 4", name:"Coesão", pic:"A cola do texto: setas, buracos, pontes e relógios",
+  rows:[
+   ["Anáfora (seta ⬅)","retoma algo dito ANTES: A Maria chegou. Ela estava cansada."],
+   ["Catáfora (seta ➡)","antecipa algo que vem DEPOIS: Só desejo isto: que sejam felizes."],
+   ["Elipse (buraco)","omite o que já se sabe: Os alunos estudaram; Ø passaram."],
+   ["Interfrásica (ponte)","conectores entre frases: mas, porque, no entanto, por isso."],
+   ["Frásica","concordância: A Maria comprou um livro; os meninos cansados."],
+   ["Temporal (relógio)","advérbios e tempos verbais: Primeiro estudei, depois fui descansar."],
+   ["Lexical","troca de palavras: sinónimo, hiperónimo (maçãs → a fruta), holónimo, repetição."]],
+  tip:"<b>Na resposta completa</b> diz o tipo E o mecanismo: «coesão referencial, por anáfora» ou «coesão lexical, por hiperonímia/hiponímia».",
+  qs:[
+   {p:"Em «A Maria chegou. Ela estava cansada», a palavra «Ela» assegura a coesão", o:["lexical","interfrásica","referencial (anáfora)","referencial (catáfora)"], a:2, e:"«Ela» retoma «A Maria», que veio antes: coesão referencial por anáfora."},
+   {p:"Em «Só desejo isto: que sejam felizes», a palavra «isto» é um caso de", o:["anáfora","catáfora","elipse","reiteração"], a:1, e:"«isto» aponta para o que vem DEPOIS: catáfora."},
+   {p:"Em «Os alunos estudaram muito; passaram no exame», a coesão da segunda oração é assegurada por", o:["elipse do sujeito","catáfora","sinonímia","coesão temporal"], a:0, e:"O sujeito «os alunos» foi omitido porque já se sabe: elipse."},
+   {p:"Em «Estudei para o exame; no entanto, não tive a nota esperada», «no entanto» assegura a coesão", o:["frásica","interfrásica","lexical","temporal"], a:1, e:"É um conector que liga as frases: coesão interfrásica."},
+   {p:"Em «Primeiro estudei, depois fui descansar», «Primeiro» e «depois» asseguram a coesão", o:["temporal","referencial","frásica","lexical"], a:0, e:"Organizam a ordem no tempo: coesão temporal."},
+   {p:"Em «Comprei maçãs. A fruta estava madura», «A fruta» assegura a coesão", o:["referencial (anáfora)","frásica","lexical (hiperonímia/hiponímia)","lexical (sinonímia)"], a:2, e:"«fruta» é a palavra geral que substitui «maçãs»: coesão lexical por hiperonímia/hiponímia."},
+   {s:true, p:"«O Velho do Restelo criticou a viagem e todos o ouviram.» Indica o referente de «o» e o mecanismo de coesão.", a:"Referente: «O Velho do Restelo». Coesão referencial, por anáfora."}
+  ]},
+ {id:"relacoes", c:"--c5", tag:"Missão 5", name:"Relações entre palavras", pic:"Caixas dentro de caixas e peças de puzzle",
+  rows:[
+   ["Sinonímia","gémeos, mesmo sentido: nau / navio."],
+   ["Antonímia","opostos: quente / gelada."],
+   ["Hiperonímia / hiponímia","a caixa grande e o que está dentro: frutas → bananas, maçãs. «X é um TIPO de Y»."],
+   ["Holonímia / meronímia","o puzzle e as peças: casa → telhado, paredes. «X é PARTE de Y»."]],
+  tip:"<b>Hiper</b> = geral (caixa grande). <b>Hipo</b> = particular. <b>Holo</b> = todo. <b>Mero</b> = parte.",
+  qs:[
+   {p:"«O dia estava quente, mas a noite ficou gelada.» A relação entre «quente» e «gelada» é de", o:["sinonímia","antonímia","hiperonímia","meronímia"], a:1, e:"Sentidos opostos: antonímia."},
+   {p:"«Comprei muitas frutas. As bananas estavam maduras.» A relação entre «frutas» e «bananas» é de", o:["holonímia/meronímia","sinonímia","hiperonímia/hiponímia","antonímia"], a:2, e:"A banana é um TIPO de fruta: hiperonímia/hiponímia."},
+   {p:"«A casa era antiga. O telhado precisava de obras.» A relação entre «casa» e «telhado» é de", o:["hiperonímia/hiponímia","holonímia/meronímia","sinonímia","antonímia"], a:1, e:"O telhado é PARTE da casa: holonímia/meronímia."},
+   {p:"Na relação entre «flor» e «rosa», «flor» é", o:["hipónimo","merónimo","hiperónimo","holónimo"], a:2, e:"É a palavra geral (a caixa grande): hiperónimo."},
+   {p:"Na relação entre «parede» e «casa», «parede» é", o:["merónimo","holónimo","hiperónimo","sinónimo"], a:0, e:"É uma parte do todo: merónimo."},
+   {s:true, p:"Indica a relação semântica entre «instrumento» e «guitarra».", a:"Hiperonímia/hiponímia: «instrumento» é hiperónimo de «guitarra»."}
+  ]},
+ {id:"formacao", c:"--c6", tag:"Missão 6", name:"Formação de palavras", pic:"Legos: peças à frente, atrás ou coladas",
+  rows:[
+   ["Prefixação","peça à frente: feliz → infeliz."],
+   ["Sufixação","peça atrás: feliz → felizmente."],
+   ["Parassíntese","duas peças AO MESMO TEMPO: triste → entristecer («entriste» e «tristecer» não existem)."],
+   ["Derivação não afixal","verbo perde a ponta e vira nome: lutar → a luta."],
+   ["Conversão","muda de classe, fica igual: jantar (verbo) → o jantar (nome)."],
+   ["Composição","morfológica (radicais): geo + grafia = geografia. Morfossintática (palavras): guarda + chuva = guarda-chuva."]],
+  tip:"<b>Parassíntese ou prefixação e sufixação?</b> Tira uma peça de cada vez. As duas palavras existem (infeliz, felizmente)? Prefixação e sufixação. Nenhuma existe? Parassíntese.",
+  qs:[
+   {p:"A palavra «infeliz» formou-se por", o:["sufixação","prefixação","parassíntese","composição"], a:1, e:"in + feliz: peça acrescentada à frente. Prefixação."},
+   {p:"A palavra «entristecer» formou-se por", o:["prefixação e sufixação","sufixação","parassíntese","derivação não afixal"], a:2, e:"en + triste + ecer ao mesmo tempo. «entriste» e «tristecer» não existem: parassíntese."},
+   {p:"A palavra «infelizmente» formou-se por", o:["parassíntese","prefixação e sufixação","composição morfológica","conversão"], a:1, e:"Existem «infeliz» e «felizmente», por isso as peças entraram uma de cada vez: prefixação e sufixação."},
+   {p:"«lutar → a luta» é um caso de", o:["conversão","sufixação","derivação não afixal","composição"], a:2, e:"Um nome forma-se a partir do verbo, que perde a terminação: derivação não afixal."},
+   {p:"Em «O jantar estava ótimo», «jantar» resulta de", o:["conversão","derivação não afixal","sufixação","composição morfossintática"], a:0, e:"O verbo passou a nome sem mudar de forma: conversão."},
+   {p:"A palavra «geografia» formou-se por", o:["composição morfossintática","composição morfológica","prefixação","parassíntese"], a:1, e:"Junta dois radicais (geo + grafia), que não se usam sozinhos: composição morfológica."},
+   {p:"A palavra «guarda-chuva» formou-se por", o:["composição morfológica","sufixação","composição morfossintática","conversão"], a:2, e:"Junta duas palavras que existem sozinhas: composição morfossintática."},
+   {s:true, p:"Indica o processo de formação de «envelhecer».", a:"Derivação por parassíntese (en + velho + ecer, ao mesmo tempo)."}
+  ]},
+ {id:"leitura", c:"--c7", tag:"Missão 7", name:"Leitura (PRI 1)", pic:"Lê, sublinha, volta à linha que a pergunta indica", reading:true,
+  rows:[
+   ["1.º","Lê o texto todo uma vez, sem pressa."],
+   ["2.º","Em cada pergunta, volta à linha indicada."],
+   ["3.º","Elimina as opções erradas. Desconfia de «sempre», «nunca», «apenas» que o texto não diz."],
+   ["4.º","Na gramática sobre o texto, aplica os truques das missões 1 a 6."]],
+  tip:"<b>A opção certa é a que o texto diz</b>, não a que te parece verdadeira no mundo real.",
+  qs:[
+   {p:"A ideia principal do texto é que", o:["os jovens de hoje não leem nada","os jovens leem muitas palavras, mas perderam a atenção prolongada que os livros treinam","os ecrãs devem ser totalmente proibidos","a escola obriga os alunos a ler demasiado"], a:1, e:"Nas linhas 1 a 5 o autor reconhece que se leem muitas palavras, mas diz que o problema está na atenção."},
+   {p:"A expressão «um treino de paciência» (linha 6) significa que ler um livro", o:["é aborrecido","exige concentração durante muito tempo","se faz apenas na escola","é mais rápido do que ler mensagens"], a:1, e:"As linhas 6 e 7 explicam: obriga a seguir um raciocínio longo."},
+   {p:"O último parágrafo (linhas 10-11) tem a função de", o:["apresentar uma proposta de solução","dar um exemplo pessoal","contradizer a tese inicial","descrever um lugar"], a:0, e:"Começa por «Por isso» e propõe o que as escolas e as famílias deviam fazer."},
+   {p:"Em «para a compreender» (linha 5), o pronome «a» retoma", o:["a atenção","uma ideia","a quantidade","a leitura"], a:1, e:"Compreender uma ideia: o «a» retoma «uma ideia» (coesão referencial por anáfora)."},
+   {p:"A oração «Quem salta de ecrã em ecrã» (linha 4) é", o:["subordinada adjetiva relativa restritiva","subordinada substantiva relativa","subordinada adverbial condicional","coordenada copulativa"], a:1, e:"Começa por «quem» e não há nome antes: substantiva relativa (com função de sujeito)."},
+   {p:"A oração «embora seja cada vez mais necessário» (linha 9) é subordinada adverbial", o:["causal","concessiva","final","temporal"], a:1, e:"«embora» = apesar de: concessiva."},
+   {p:"A palavra «Infelizmente» (linha 8) formou-se por", o:["parassíntese","prefixação e sufixação","sufixação","composição"], a:1, e:"Existem «infeliz» e «felizmente»: prefixação e sufixação."},
+   {p:"A expressão «Por isso» (linha 10) contribui para a coesão", o:["lexical","frásica","interfrásica","temporal"], a:2, e:"É um conector com valor conclusivo que liga parágrafos: coesão interfrásica."},
+   {s:true, p:"Indica a função sintática de «um treino de paciência» em «Ler um livro é um treino de paciência» (linha 6).", a:"Predicativo do sujeito (vem depois do verbo copulativo «ser»)."}
+  ]},
+];
+const TEXT = ["Há quem diga que os jovens já não leem. Talvez seja verdade que","abrem menos livros, mas nunca leram tantas palavras: mensagens,","legendas, comentários. O problema não está na quantidade, mas na","atenção. Quem salta de ecrã em ecrã raramente fica tempo suficiente","numa ideia para a compreender a fundo.","Ler um livro é um treino de paciência. Obriga-nos a seguir um","raciocínio longo, a imaginar lugares que nunca vimos e a pôr-nos","no lugar de outras pessoas. Infelizmente, este treino tornou-se raro,","embora seja cada vez mais necessário.","Por isso, as escolas e as famílias deviam proteger momentos sem","ecrãs, em que a leitura volte a ser um prazer e não uma obrigação."];
+
+const WRITE = {id:"escrita", c:"--c8", tag:"Missão 8", name:"Texto de opinião (PRI 2)", pic:"Um hambúrguer: pão, carne, carne, pão"};
+const SIM = {id:"simulado", c:"--c1", tag:"Missão final", name:"Simulado PRI 1", pic:"12 perguntas ao calhas, como no teste"};
+
+/* estado */
+let S = {xp:0, ans:{}};
+try{ const raw = localStorage.getItem("mp11"); if(raw) S = Object.assign(S, JSON.parse(raw)); }catch(e){}
+function save(){ try{ localStorage.setItem("mp11", JSON.stringify(S)); }catch(e){} }
+const total = M.reduce((n,m)=>n+m.qs.length,0);
+const LV = ["Aprendiz","Explorador","Detetive da gramática","Mestre das orações","Lenda do PRI"];
+function updXP(){
+  const done = Object.keys(S.ans).filter(k=>!k.startsWith("sim")).length;
+  document.getElementById("xpTxt").textContent = S.xp+" XP";
+  document.getElementById("prog").textContent = done+" / "+total+" perguntas";
+  document.getElementById("xpBar").style.width = Math.min(100, done/total*100)+"%";
+  const l = Math.min(LV.length-1, Math.floor(S.xp/80));
+  document.getElementById("lvl").textContent = "Nível "+(l+1)+" · "+LV[l];
+}
+
+function home(){
+  const g = document.getElementById("grid"); g.innerHTML="";
+  [...M, WRITE].forEach(m=>{
+    const done = m.qs ? m.qs.filter((_,i)=>S.ans[m.id+i]).length : 0;
+    const b = document.createElement("button");
+    b.className = "mcard"+(m.qs && done===m.qs.length ? " done":"");
+    b.style.setProperty("--mc", `var(${m.c})`);
+    b.innerHTML = `<span class="tag">${m.tag}</span><span class="name">${m.name}</span><span class="pic">${m.pic}</span><span class="st">${m.qs ? (done===m.qs.length? "Concluída ✓ " : "")+done+" / "+m.qs.length+" perguntas" : "Escrever e contar palavras"}</span>`;
+    b.onclick = ()=> m.qs ? openM(m) : openWrite();
+    g.appendChild(b);
+  });
+  const s = document.createElement("button");
+  s.className="mcard wide"; s.style.setProperty("--mc","var(--pink)");
+  s.innerHTML = `<span><span class="tag">${SIM.tag}</span><br><span class="name">${SIM.name}</span></span><span class="pic">${SIM.pic} →</span>`;
+  s.onclick = openSim; g.appendChild(s);
+  document.getElementById("home").hidden=false;
+  document.getElementById("mission").hidden=true;
+  updXP();
+}
+
+function esc(t){return t}
+const L = ["A","B","C","D"];
+
+function qBlock(q, key, num, mc, onDone){
+  const d = document.createElement("div"); d.className="q";
+  d.innerHTML = `<span class="n">Pergunta ${num}${q.s?" · resposta breve":""}</span><p class="p">${q.p}</p>`;
+  const prev = S.ans[key];
+  if(!q.s){
+    const box = document.createElement("div"); box.className="opts";
+    const fb = document.createElement("div"); fb.className="fb"; fb.hidden=true;
+    const btns = q.o.map((t,i)=>{
+      const b = document.createElement("button"); b.className="opt";
+      b.innerHTML = `<span class="l">(${L[i]})</span><span>${t}</span>`;
+      b.onclick = ()=>{
+        if(S.ans[key]) return;
+        const ok = i===q.a;
+        S.ans[key] = {pick:i, ok}; if(ok) S.xp+=10; save(); updXP(); show(); onDone&&onDone();
+      };
+      box.appendChild(b); return b;
+    });
+    function show(){
+      const r = S.ans[key]; if(!r) return;
+      btns.forEach((b,i)=>{ b.disabled=true; if(i===q.a) b.classList.add("right"); else if(i===r.pick) b.classList.add("wrong"); });
+      fb.hidden=false; fb.className="fb "+(r.ok?"ok":"no");
+      fb.innerHTML = `<strong>${r.ok?"Certo! +10 XP":"Ainda não. A certa é a ("+L[q.a]+")."}</strong>${q.e}`;
+    }
+    d.append(box, fb); if(prev) show();
+  } else {
+    const wrap = document.createElement("div"); wrap.className="short";
+    const id = "t_"+key;
+    wrap.innerHTML = `<label for="${id}" class="n" style="display:block;margin-bottom:4px">A tua resposta</label><textarea id="${id}" placeholder="Escreve como escreverias no teste…"></textarea>`;
+    const ta = wrap.querySelector("textarea");
+    try{ ta.value = localStorage.getItem("mp11_"+key)||""; }catch(e){}
+    ta.oninput = ()=>{ try{ localStorage.setItem("mp11_"+key, ta.value);}catch(e){} };
+    const btns = document.createElement("div"); btns.className="btns";
+    const see = document.createElement("button"); see.className="btn"; see.textContent="Ver solução";
+    const fb = document.createElement("div"); fb.className="fb ok"; fb.hidden=true;
+    see.onclick = ()=>{
+      fb.hidden=false; see.hidden=true;
+      fb.innerHTML = `<strong>Solução:</strong>${q.a}<div class="btns" style="margin-top:8px"></div>`;
+      const bb = fb.querySelector(".btns");
+      if(S.ans[key]){ bb.innerHTML = `<span>${S.ans[key].ok?"Marcaste: acertei ✓":"Marcaste: errei, revê o truque"}</span>`; return; }
+      const y = document.createElement("button"); y.className="btn okb"; y.textContent="Acertei";
+      const n = document.createElement("button"); n.className="btn nob"; n.textContent="Errei";
+      y.onclick=()=>{S.ans[key]={ok:true}; S.xp+=10; save(); updXP(); bb.innerHTML="<span>Boa! +10 XP</span>"; onDone&&onDone();};
+      n.onclick=()=>{S.ans[key]={ok:false}; save(); updXP(); bb.innerHTML="<span>Sem problema: relê o truque lá em cima.</span>"; onDone&&onDone();};
+      bb.append(y,n);
+    };
+    btns.append(see); wrap.append(btns); d.append(wrap, fb);
+    if(prev) see.click();
+  }
+  return d;
+}
+
+function header(m, sec){
+  sec.innerHTML = "";
+  const back = document.createElement("button"); back.className="back"; back.textContent="← Voltar às missões";
+  back.onclick = ()=>{ home(); window.scrollTo(0,0); };
+  const h = document.createElement("div"); h.className="mhead";
+  h.innerHTML = `<span class="tag">${m.tag}</span><h2>${m.name}</h2>`;
+  sec.append(back,h);
+}
+
+function openM(m){
+  const sec = document.getElementById("mission");
+  sec.style.setProperty("--mc", `var(${m.c})`);
+  header(m, sec);
+  const idea = document.createElement("div"); idea.className="idea";
+  idea.innerHTML = `<p class="pic">${m.pic}</p><div class="rows">${m.rows.map(r=>`<div class="r"><b>${r[0]}</b><span>${r[1]}</span></div>`).join("")}</div><p class="tip">${m.tip}</p>`;
+  sec.append(idea);
+  if(m.reading){
+    const t = document.createElement("div"); t.className="text";
+    t.innerHTML = `<p class="h">Texto · lê com atenção</p><ol>${TEXT.map(l=>`<li>${l}</li>`).join("")}</ol>`;
+    sec.append(t);
+  }
+  const h3 = document.createElement("h3"); h3.textContent="Perguntas tipo teste"; h3.style.margin="0 0 10px";
+  const qs = document.createElement("div"); qs.className="qs";
+  const sc = document.createElement("div"); sc.className="score";
+  function score(){
+    const r = m.qs.map((_,i)=>S.ans[m.id+i]).filter(Boolean);
+    const ok = r.filter(x=>x.ok).length;
+    sc.hidden = r.length<m.qs.length;
+    sc.innerHTML = `<div><span class="big">${ok} / ${m.qs.length}</span><p>${ok===m.qs.length?"Missão perfeita!":ok>=m.qs.length*0.7?"Muito bem! Revê só as que falhaste.":"Relê a ideia lá em cima e tenta outra vez."}</p></div>`;
+    const again = document.createElement("button"); again.className="btn ghost"; again.textContent="Repetir missão";
+    again.onclick=()=>{ m.qs.forEach((_,i)=>delete S.ans[m.id+i]); save(); updXP(); openM(m); };
+    sc.append(again);
+  }
+  m.qs.forEach((q,i)=> qs.append(qBlock(q, m.id+i, i+1, m.c, score)));
+  const nav = document.createElement("div"); nav.className="btns"; nav.style.margin="16px 0 0";
+  const bk = document.createElement("button"); bk.className="btn ghost"; bk.textContent="← Todas as missões";
+  bk.onclick=()=>{ home(); window.scrollTo(0,0); };
+  const idx = M.indexOf(m);
+  const nx = document.createElement("button"); nx.className="btn";
+  if(idx < M.length-1){ nx.textContent="Próxima missão →"; nx.onclick=()=>openM(M[idx+1]); }
+  else { nx.textContent="Texto de opinião →"; nx.onclick=openWrite; }
+  nav.append(bk, nx);
+  sec.append(h3, qs, sc, nav); score();
+  document.getElementById("home").hidden=true; sec.hidden=false; window.scrollTo(0,0);
+}
+
+function openSim(){
+  const sec = document.getElementById("mission");
+  sec.style.setProperty("--mc","var(--pink)");
+  header(SIM, sec);
+  Object.keys(S.ans).filter(k=>k.startsWith("sim")).forEach(k=>delete S.ans[k]);
+  const pool = M.filter(m=>!m.reading).flatMap(m=>m.qs.filter(q=>!q.s));
+  const pick = pool.map(q=>[Math.random(),q]).sort((a,b)=>a[0]-b[0]).slice(0,12).map(x=>x[1]);
+  const intro = document.createElement("div"); intro.className="idea";
+  intro.innerHTML = `<p class="pic">Sem espreitar os resumos!</p><p>12 perguntas misturadas de todas as matérias, como no PRI 1. No fim vês a pontuação e podes gerar outro simulado.</p>`;
+  const qs = document.createElement("div"); qs.className="qs";
+  const sc = document.createElement("div"); sc.className="score"; sc.hidden=true;
+  function score(){
+    const r = pick.map((_,i)=>S.ans["sim"+i]).filter(Boolean);
+    if(r.length<pick.length) return;
+    const ok = r.filter(x=>x.ok).length;
+    sc.hidden=false;
+    sc.innerHTML = `<div><span class="big">${ok} / 12</span><p>${ok>=11?"Pronto para o teste!":ok>=8?"Bom resultado. Volta às missões onde erraste.":"Faz outra vez as missões 2 e 3 e repete o simulado."}</p></div>`;
+    const again = document.createElement("button"); again.className="btn"; again.textContent="Novo simulado";
+    again.onclick=openSim; sc.append(again);
+  }
+  pick.forEach((q,i)=> qs.append(qBlock(q,"sim"+i,i+1,"--pink",score)));
+  sec.append(intro, qs, sc);
+  document.getElementById("home").hidden=true; sec.hidden=false; window.scrollTo(0,0);
+}
+
+function openWrite(){
+  const sec = document.getElementById("mission");
+  sec.style.setProperty("--mc","var(--c8)");
+  header(WRITE, sec);
+  const temas = ["Os telemóveis deviam ser proibidos nas escolas?","Ainda faz sentido ler livros na era digital?","O mérito vale mais do que a sorte?","As redes sociais aproximam ou afastam as pessoas?"];
+  let tema = 0; try{ tema = +localStorage.getItem("mp11_tema")||0; }catch(e){}
+  const w = document.createElement("div");
+  w.innerHTML = `
+  <div class="idea">
+    <p class="pic">250 a 350 palavras · vale 200 pontos</p>
+    <div class="burger">
+      <div class="layer bun"><b>Pão de cima · Introdução</b><span class="w">± 50 palavras</span><span style="width:100%">Apresenta o tema e diz logo a tua opinião (a tese).</span></div>
+      <div class="layer meat"><b>Carne 1 · Argumento + exemplo</b><span class="w">± 80 palavras</span><span style="width:100%">«Em primeiro lugar, …. Por exemplo, …»</span></div>
+      <div class="layer meat"><b>Carne 2 · Argumento + exemplo</b><span class="w">± 80 palavras</span><span style="width:100%">«Além disso, …. É o caso de …»</span></div>
+      <div class="layer"><b>Extra · O outro lado</b><span class="w">± 40 palavras</span><span style="width:100%">«É certo que …; no entanto, …» (valoriza o texto)</span></div>
+      <div class="layer bun"><b>Pão de baixo · Conclusão</b><span class="w">± 50 palavras</span><span style="width:100%">«Em suma, …»: repete a opinião por outras palavras, sem ideias novas.</span></div>
+    </div>
+  </div>
+  <h3>1. Escolhe um tema</h3>
+  <div class="temas" id="temas"></div>
+  <h3>2. Escreve aqui</h3>
+  <p style="color:var(--muted);font-size:15px;margin:4px 0 8px">Toca num conector para o acrescentar ao texto. O rascunho fica guardado neste aparelho.</p>
+  <div class="conns" id="conns"></div>
+  <label for="draft" class="n" style="display:block;margin:10px 0 4px;font-weight:700">O teu texto</label>
+  <textarea id="draft" placeholder="Hoje em dia, …"></textarea>
+  <div class="count"><span id="wc" class="pill low">0 palavras</span><span id="wmsg" style="color:var(--muted)">Mínimo 250, máximo 350</span></div>
+  <h3>3. Antes de entregar</h3>
+  <ul class="check">
+    ${["A minha opinião está clara no 1.º parágrafo","Tenho 2 argumentos, cada um com um exemplo","Usei conectores diferentes (Em primeiro lugar, Além disso, Contudo, Em suma)","A conclusão repete a opinião, sem ideias novas","Linguagem formal: nada de «tipo», «bué», «tá»","Revi acentos, vírgulas e ortografia","Estou entre 250 e 350 palavras"].map((t,i)=>`<li><label><input type="checkbox" id="ck${i}"> <span>${t}</span></label></li>`).join("")}
+  </ul>`;
+  sec.append(w);
+  const tw = w.querySelector("#temas");
+  temas.forEach((t,i)=>{ const b=document.createElement("button"); b.className="chip"; b.textContent=t; b.setAttribute("aria-pressed", i===tema);
+    b.onclick=()=>{ tema=i; try{localStorage.setItem("mp11_tema",i);}catch(e){} tw.querySelectorAll(".chip").forEach((c,j)=>c.setAttribute("aria-pressed", j===i)); }; tw.append(b); });
+  const ta = w.querySelector("#draft");
+  try{ ta.value = localStorage.getItem("mp11_draft")||""; }catch(e){}
+  const cn = w.querySelector("#conns");
+  ["Na minha opinião,","Em primeiro lugar,","Por exemplo,","Além disso,","É certo que","No entanto,","Por isso,","Em suma,"].forEach(c=>{
+    const b=document.createElement("button"); b.textContent=c;
+    b.onclick=()=>{ const p=ta.selectionStart; const sp = p>0 && !/\s$/.test(ta.value.slice(0,p)) ? " " : ""; ta.value = ta.value.slice(0,p)+sp+c+" "+ta.value.slice(ta.selectionEnd); ta.focus(); ta.selectionStart=ta.selectionEnd=p+sp.length+c.length+1; count(); };
+    cn.append(b);
+  });
+  function count(){
+    try{ localStorage.setItem("mp11_draft", ta.value);}catch(e){}
+    const n = (ta.value.trim().match(/\S+/g)||[]).length;
+    const wc = w.querySelector("#wc"), msg = w.querySelector("#wmsg");
+    wc.textContent = n+" palavras";
+    const good = n>=250 && n<=350;
+    wc.className = "pill "+(good?"good":"low");
+    msg.textContent = n<250 ? `Faltam ${250-n} palavras` : n>350 ? `Tens ${n-350} a mais: corta` : "Dentro do limite ✓";
+  }
+  ta.oninput = count; count();
+  for(let i=0;i<7;i++){ const c=w.querySelector("#ck"+i); try{ c.checked = localStorage.getItem("mp11_ck"+i)==="1"; }catch(e){} c.onchange=()=>{ try{localStorage.setItem("mp11_ck"+i, c.checked?"1":"0");}catch(e){} }; }
+  document.getElementById("home").hidden=true; sec.hidden=false; window.scrollTo(0,0);
+}
+
+home();
+</script>
+</body>
+</html>
