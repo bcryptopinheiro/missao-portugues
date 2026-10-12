@@ -299,7 +299,10 @@ const M = {
    {lv:3,p:"A oração «embora seja cada vez mais necessário» (linha 9) é subordinada adverbial", o:["causal","concessiva","final","temporal"], a:1, e:"«embora» = apesar de: concessiva."},
    {lv:3,p:"A palavra «Infelizmente» (linha 8) formou-se por", o:["parassíntese","prefixação e sufixação","sufixação","composição"], a:1, e:"Existem «infeliz» e «felizmente»: prefixação e sufixação."},
    {lv:3,p:"A expressão «Por isso» (linha 10) contribui para a coesão", o:["lexical","frásica","interfrásica","temporal"], a:2, e:"É um conector com valor conclusivo que liga parágrafos: coesão interfrásica."},
-   {lv:3,s:true,p:"Indica a função sintática de «um treino de paciência» em «Ler um livro é um treino de paciência» (linha 6).", a:"Predicativo do sujeito (vem depois do verbo copulativo «ser»)."}
+   {lv:3,s:true,p:"Indica a função sintática de «um treino de paciência» em «Ler um livro é um treino de paciência» (linha 6).", a:"Predicativo do sujeito (vem depois do verbo copulativo «ser»)."},
+   {lv:3,p:"A única oração subordinada adjetiva relativa é", o:["«que nunca vimos» (linha 7)","«Quem salta de ecrã em ecrã» (linha 4)","«embora seja cada vez mais necessário» (linha 9)","«que os jovens já não leem» (linha 1)"], a:0, e:"«que» retoma o nome «lugares», que vem antes: relativa. As outras: substantiva relativa (sem nome antes), adverbial concessiva e substantiva completiva («diga isso»)."},
+   {lv:3,p:"Todas as expressões desempenham a função de complemento direto, exceto", o:["«um treino de paciência» (linha 6)","«tantas palavras» (linha 2)","«um raciocínio longo» (linha 7)","«momentos sem ecrãs» (linhas 10-11)"], a:0, e:"«um treino de paciência» vem depois de «é» (verbo copulativo): predicativo do sujeito. As outras passam a pronome: leram-nas, segui-lo, protegê-los."},
+   {lv:2,p:"A única palavra que retoma uma expressão anterior (anáfora) é", o:["«a» em «para a compreender» (linha 5)","«Talvez» (linha 1)","«Infelizmente» (linha 8)","«Por isso» (linha 10)"], a:0, e:"«a» retoma «uma ideia»: coesão referencial por anáfora."}
   ]},
 
  classes:{c:"--c1", name:"Classes e subclasses", pic:"Uma equipa: cada palavra tem um papel",
@@ -539,7 +542,7 @@ const M = {
 
  opiniao:{c:"--c8", name:"Texto de opinião: regras", pic:"Um hambúrguer: pão, carne, carne, pão",
   rows:[
-   ["Limite","<b>250 a 350 palavras</b>. Fora do limite perde pontos; muito curto pode valer 0."],
+   ["Limite","<b>250 a 350 palavras</b>. Nos exames nacionais (IAVE), sair dos limites tira <b>até 5 pontos</b> e um texto com <b>menos de 80 palavras vale 0</b>. Conta-se como palavra tudo o que está entre espaços (dir-se-ia = 1; 2025 = 1)."],
    ["Introdução","apresenta o tema e diz logo a tua <b>opinião</b> (tese)."],
    ["Desenvolvimento","<b>2 argumentos</b>, cada um com um <b>exemplo</b> concreto, em parágrafos diferentes."],
    ["Contra-argumento","«É certo que…; no entanto,…» (valoriza o texto)."],
@@ -555,10 +558,12 @@ const M = {
    {lv:2,p:"Qual destas frases tem um erro de pontuação?", o:["«Os alunos, estudaram muito.»","«Embora chovesse, saímos.»","«Estudei, mas não passei.»","«Professora, posso sair?»"], a:0, e:"Nunca se põe vírgula entre o sujeito («Os alunos») e o verbo."},
    {lv:2,t:"f",p:"Escolhe os conectores certos.", x:"«{0}, o telemóvel distrai. {1}, quem recebe uma mensagem perde o fio à aula.»", b:[[["Em primeiro lugar","Em suma","No entanto"],0],[["Por exemplo","Em suma","Contudo"],0]], e:"Primeiro apresentas o argumento, depois o exemplo."},
    {lv:2,p:"Qual destas frases é adequada a um texto de opinião?", o:["«Considero que a leitura é essencial.»","«Tipo, ler é bué fixe.»","«Eu acho que sim, tá?»","«Ler é top!!!»"], a:0, e:"Linguagem formal: «considero», «defendo», «na minha opinião»."},
-   {lv:3,p:"Se o limite é 250 a 350 palavras e escreves 360,", o:["o texto é desvalorizado: perdes alguns pontos","perdes a pergunta toda","não perdes nada","ganhas pontos por escreveres mais"], a:0, e:"Sair dos limites de extensão tira pontos ao texto. Quantos, depende dos critérios: pergunta à professora. O mais seguro é ficar sempre entre 250 e 350."},
+   {lv:3,p:"Se o limite é 250 a 350 palavras e escreves 360,", o:["o texto é desvalorizado: perdes alguns pontos","perdes a pergunta toda","não perdes nada","ganhas pontos por escreveres mais"], a:0, e:"Nos exames nacionais (IAVE), um desvio dos limites tira até 5 pontos. Na tua escola, confirma com a professora. O mais seguro é ficar sempre entre 250 e 350."},
    {lv:3,p:"Qual é o maior perigo no texto de opinião?", o:["fugir ao tema ou não dar opinião","ter 260 palavras","usar «Em suma»","fazer 5 parágrafos"], a:0, e:"Nos critérios, falhar o género ou o tema pode anular a estrutura e a correção linguística."},
    {lv:3,p:"A conclusão deve", o:["reafirmar a opinião, sem ideias novas","apresentar o argumento mais forte pela primeira vez","contar uma história nova","ter mais de 100 palavras"], a:0, e:"Na conclusão não se trazem argumentos novos."},
-   {lv:3,s:true,p:"Escreve uma introdução (cerca de 50 palavras) para o tema «As redes sociais aproximam ou afastam as pessoas?».", a:"Exemplo: «As redes sociais fazem hoje parte do dia a dia de quase todos os jovens. Há quem diga que nos aproximam de amigos distantes; outros acreditam que nos isolam. Na minha opinião, embora facilitem o contacto, as redes sociais afastam as pessoas, porque substituem a conversa real por uma presença virtual.» Verifica: tema + opinião clara."}
+   {lv:3,s:true,p:"Escreve uma introdução (cerca de 50 palavras) para o tema «As redes sociais aproximam ou afastam as pessoas?».", a:"Exemplo: «As redes sociais fazem hoje parte do dia a dia de quase todos os jovens. Há quem diga que nos aproximam de amigos distantes; outros acreditam que nos isolam. Na minha opinião, embora facilitem o contacto, as redes sociais afastam as pessoas, porque substituem a conversa real por uma presença virtual.» Verifica: tema + opinião clara."},
+   {lv:2,p:"Na contagem de palavras do teste, o número «2025» conta como", o:["1 palavra","4 palavras","2 palavras","não conta"], a:0, e:"Qualquer número conta como uma única palavra, seja qual for o número de algarismos (critérios do IAVE)."},
+   {lv:3,p:"Nos exames nacionais, um texto de opinião com menos de 80 palavras", o:["é classificado com zero pontos","perde só 1 ponto","perde 5 pontos","não é penalizado"], a:0, e:"Critérios do IAVE: um texto com extensão inferior a 80 palavras vale 0 pontos."}
   ]},
 
  /* ===== Exercícios tipo teste ===== */
@@ -636,6 +641,54 @@ const M = {
    {lv:3,p:"Em «Aquelas proeminências gloriosas», a palavra «Aquelas» é", o:["determinante demonstrativo","pronome demonstrativo","pronome pessoal","quantificador universal"], a:0, e:"Vem logo antes do nome «proeminências»: determinante demonstrativo."},
    {lv:3,p:"Em «os deleites desta ilha», a palavra «desta» resulta da junção de", o:["preposição «de» + determinante demonstrativo «esta»","preposição «de» + pronome pessoal «esta»","artigo definido + nome","dois determinantes"], a:0, e:"de + esta = desta: a preposição contrai-se com o determinante demonstrativo que vem antes de «ilha»."},
    {lv:3,s:true,p:"Explica o sentido alegórico da Ilha dos Amores, com base na estância 89.", a:"A ilha e as Ninfas não são reais: simbolizam as honras e a glória («as deleitosas / Honras que a vida fazem sublimada») que os portugueses merecem pelos seus feitos heroicos."}
+  ]},
+ testeF:{c:"--c6", name:"Teste F · D. Duarte e o Infante D. Fernando", pic:"Os Lusíadas, Canto IV, estâncias 51 a 53 (Exame Nacional 2025)", exam:true,
+  text:{h:"Os Lusíadas, Canto IV",lines:["51","«Não foi do Rei Duarte tão ditoso","O tempo que ficou na suma alteza,","Que assi vai alternando o tempo iroso","O bem co mal, o gosto co a tristeza.","Quem viu sempre um estado deleitoso?","Ou quem viu em Fortuna haver firmeza?","Pois inda neste Reino e neste Rei","Não usou ela tanto desta lei?","52","«Viu ser cativo o santo irmão Fernando","(Que a tão altas empresas aspirava),","Que, por salvar o povo miserando","Cercado, ao Sarraceno se entregava.","Só por amor da pátria está passando","A vida, de senhora feita escrava,","Por não se dar por ele a forte Ceita.","Mais o público bem que o seu respeita.","53","«Codro, por que o inimigo não vencesse,","Deixou antes vencer da morte a vida;","Régulo, por que a pátria não perdesse,","Quis mais a liberdade ver perdida.","Este, por que se Espanha não temesse,","A cativeiro eterno se convida!","Codro, nem Cúrcio, ouvido por espanto,","Nem os Décios leais, fizeram tanto."]},
+  rows:[["Vocabulário","ditoso = feliz · suma alteza = trono · iroso = irado · Fortuna = destino, sorte · firmeza = estabilidade · miserando = digno de pena · Sarraceno = mouro · Ceita = Ceuta · Codro, Régulo, Cúrcio, Décios = heróis da Antiguidade que se sacrificaram pela pátria"],["Contexto","D. Fernando, irmão do rei D. Duarte, foi capturado pelos mouros em Tânger (1437). Para o libertar, Portugal teria de entregar Ceuta; o rei recusou e o Infante morreu no cativeiro."]],
+  tip:"Este excerto saiu no <b>Exame Nacional de Português de 2025</b> (1.ª fase). Repara na Fortuna (est. 51), no sacrifício de D. Fernando (est. 52) e na comparação com os heróis antigos (est. 53).",
+  qs:[
+   {lv:2,p:"Na estância 51, o narrador diz que o reinado de D. Duarte", o:["não foi feliz, porque a sorte alterna o bem e o mal","foi o mais feliz da história de Portugal","foi longo e cheio de vitórias","não teve acontecimentos importantes"], a:0, e:"«Não foi do Rei Duarte tão ditoso / O tempo» e «vai alternando o tempo iroso / O bem co mal»."},
+   {lv:2,p:"As perguntas «Quem viu sempre um estado deleitoso? / Ou quem viu em Fortuna haver firmeza?» mostram que", o:["a sorte nunca é constante: ninguém é sempre feliz","o narrador não sabe a resposta","a Fortuna protege sempre os reis","D. Duarte foi sempre feliz"], a:0, e:"São interrogações retóricas: a resposta implícita é «ninguém». A Fortuna não tem firmeza."},
+   {lv:2,p:"Segundo a estância 52, o Infante D. Fernando ficou cativo dos mouros", o:["para salvar o povo cercado, e Ceuta não foi entregue em troca dele","porque fugiu da batalha","porque quis viver em Marrocos","por ordem do rei de Melinde"], a:0, e:"«por salvar o povo miserando / Cercado, ao Sarraceno se entregava» e «Por não se dar por ele a forte Ceita»."},
+   {lv:2,p:"O verso «Mais o público bem que o seu respeita» mostra que D. Fernando", o:["põe o bem da pátria acima do seu bem pessoal","só pensa em si próprio","respeita mais os mouros do que os portugueses","quer ser rei"], a:0, e:"«o público bem» (o bem de todos) vale mais do que «o seu»: espírito de sacrifício e amor à pátria."},
+   {lv:3,p:"Na estância 53, o narrador compara D. Fernando com Codro, Régulo, Cúrcio e os Décios para", o:["reforçar o carácter extraordinário das ações do Infante","mostrar que os heróis antigos foram maiores","criticar D. Fernando","provar que a vida humana é curta"], a:0, e:"«Nem os Décios leais, fizeram tanto»: o sacrifício de D. Fernando supera o dos heróis antigos. (Era esta a resposta no exame de 2025.)"},
+   {lv:3,p:"Na estância 53, a referência a Codro, Régulo, Cúrcio e aos Décios é sobretudo", o:["uma enumeração de heróis da Antiguidade","uma apóstrofe às Ninfas","uma sinestesia","um eufemismo"], a:0, e:"O narrador lista vários heróis antigos, uns a seguir aos outros: enumeração. (No exame, a resposta certa era «enumeração».)"},
+   {lv:3,p:"Em «A vida, de senhora feita escrava» (est. 52), há", o:["uma antítese (senhora / escrava)","uma hipérbole","uma interrogação retórica","uma personificação do mar"], a:0, e:"«senhora» e «escrava» são ideias opostas: antítese. Mostra a queda do Infante, de príncipe a prisioneiro."},
+   {lv:3,p:"A oração «(Que a tão altas empresas aspirava)» (est. 52) é", o:["subordinada adjetiva relativa explicativa","subordinada substantiva completiva","subordinada adverbial causal","coordenada copulativa"], a:0, e:"«Que» retoma «o santo irmão Fernando» e a oração está entre parênteses, só a acrescentar informação: relativa explicativa."},
+   {lv:3,p:"Em «Só por amor da pátria está passando / A vida», a palavra «Só» é", o:["advérbio de exclusão","adjetivo qualificativo","quantificador existencial","conjunção coordenativa"], a:0, e:"Dá para trocar por «apenas»: advérbio de exclusão."},
+   {lv:3,s:true,p:"Refere duas características de D. Fernando, com base nas estâncias 52 e 53.", a:"Por exemplo: amor à pátria e espírito de sacrifício («Só por amor da pátria está passando / A vida»); põe o bem comum acima do seu («Mais o público bem que o seu respeita»); heroísmo maior do que o dos heróis antigos («Nem os Décios leais, fizeram tanto»)."}
+  ]},
+ testeG:{c:"--c7", name:"Teste G · O poeta queixa-se", pic:"Os Lusíadas, Canto VII, estâncias 78 a 81 (Exame Nacional 2016)", exam:true,
+  text:{h:"Os Lusíadas, Canto VII",lines:["78","Um ramo na mão tinha... Mas, ó cego,","Eu, que cometo, insano e temerário,","Sem vós, Ninfas do Tejo e do Mondego,","Por caminho tão árduo, longo e vário!","Vosso favor invoco, que navego","Por alto mar, com vento tão contrário","Que, se não me ajudais, hei grande medo","Que o meu fraco batel se alague cedo.","79","Olhai que há tanto tempo que, cantando","O vosso Tejo e os vossos Lusitanos,","A Fortuna me traz peregrinando,","Novos trabalhos vendo e novos danos:","Agora o mar, agora experimentando","Os perigos Mavórcios inumanos,","Qual Cánace, que à morte se condena,","Nũa mão sempre a espada e noutra a pena;","80","Agora, com pobreza avorrecida,","Por hospícios alheios degradado;","Agora, da esperança já adquirida,","De novo mais que nunca derribado;","Agora às costas escapando a vida,","Que dum fio pendia tão delgado","Que não menos milagre foi salvar-se","Que pera o Rei Judaico acrecentar-se.","81","E ainda, Ninfas minhas, não bastava","Que tamanhas misérias me cercassem,","Senão que aqueles que eu cantando andava","Tal prémio de meus versos me tornassem:","A troco dos descansos que esperava,","Das capelas de louro que me honrassem,","Trabalhos nunca usados me inventaram,","Com que em tão duro estado me deitaram."]},
+  rows:[["Vocabulário","cometo = empreendo · insano = louco · temerário = ousado · batel = barco pequeno · Agora… agora = ora… ora · Mavórcios = de Marte, da guerra · Cánace = figura mitológica que escreveu uma carta com uma mão, segurando uma espada na outra · avorrecida = odiosa · hospícios = abrigos · degradado = exilado · Rei Judaico = Ezequias, a quem Deus deu mais 15 anos de vida · capelas de louro = coroas de louro"]],
+  tip:"Este excerto saiu no <b>Exame Nacional de Português de 2016</b> (época especial). É uma <b>reflexão do poeta</b>: Camões fala da sua própria vida e queixa-se de ingratidão.",
+  qs:[
+   {lv:2,p:"Na estância 78, o poeta pede ajuda às Ninfas do Tejo e do Mondego porque", o:["escrever o poema é como uma viagem longa e difícil, e tem medo de não a conseguir acabar","quer ir ao Tejo","as Ninfas o abandonaram para sempre","quer agradecer uma vitória"], a:0, e:"«Por caminho tão árduo, longo e vário» e «se não me ajudais, hei grande medo / Que o meu fraco batel se alague cedo»."},
+   {lv:2,p:"No verso «Que o meu fraco batel se alague cedo», o «fraco batel» representa", o:["a capacidade (o engenho) do poeta para acabar o poema","um navio da armada de Vasco da Gama","o rio Tejo","a vida de D. Sebastião"], a:0, e:"Metáfora: a escrita é uma navegação e o talento do poeta é um pequeno barco que se pode afundar."},
+   {lv:2,p:"«Nũa mão sempre a espada e noutra a pena» significa que Camões", o:["foi ao mesmo tempo soldado e poeta","escreveu com uma espada","nunca combateu","foi rei"], a:0, e:"A espada = a vida de soldado («perigos Mavórcios»); a pena = a escrita. É um aspeto autobiográfico."},
+   {lv:2,p:"Nas estâncias 79 e 80, o poeta enumera", o:["as desgraças da sua vida: perigos no mar, guerra, pobreza, exílio","as vitórias dos portugueses na Índia","os deuses do Olimpo","os prémios que recebeu do rei"], a:0, e:"«Agora o mar», «Os perigos Mavórcios», «pobreza avorrecida», «Por hospícios alheios degradado»."},
+   {lv:3,p:"Na estância 81, o poeta critica", o:["a ingratidão dos portugueses que cantou, que lhe deram trabalhos em vez de prémio","as Ninfas por não o ajudarem","os mouros","o rei de Melinde"], a:0, e:"«aqueles que eu cantando andava / Tal prémio de meus versos me tornassem»: em vez de descanso e de «capelas de louro», deram-lhe «Trabalhos nunca usados»."},
+   {lv:3,p:"A repetição de «Agora» no início de vários versos (est. 79-80) é", o:["uma anáfora","uma apóstrofe","um eufemismo","uma comparação"], a:0, e:"Repetir a mesma palavra no início de versos é anáfora (recurso expressivo). Reforça a sucessão de desgraças."},
+   {lv:3,p:"Em «Qual Cánace, que à morte se condena», o poeta faz", o:["uma comparação entre ele e Cánace","uma enumeração de batalhas","uma interrogação retórica","uma hipérbole"], a:0, e:"«Qual» = como: compara-se a Cánace, que escrevia com uma mão e segurava a espada com a outra."},
+   {lv:3,p:"Em «Mas, ó cego, / Eu, que cometo…», a expressão «ó cego» desempenha a função de", o:["vocativo","sujeito","complemento direto","predicativo do sujeito"], a:0, e:"O poeta chama-se a si próprio, com «ó» e entre vírgulas: vocativo."},
+   {lv:3,p:"Em «Vosso favor invoco», «Vosso favor» desempenha a função de", o:["complemento direto","sujeito","complemento indireto","vocativo"], a:0, e:"Invoco o quê? O vosso favor → invoco-o: complemento direto."},
+   {lv:3,s:true,p:"Explica o sentido do verso «Nũa mão sempre a espada e noutra a pena», tendo em conta a vida do poeta.", a:"Camões foi soldado e poeta ao mesmo tempo: enquanto combatia e corria perigos («perigos Mavórcios»), continuava a escrever o poema. A espada simboliza a guerra e a pena simboliza a escrita."}
+  ]},
+ testeH:{c:"--c8", name:"Teste H · Quem o poeta não canta", pic:"Os Lusíadas, Canto VII, estâncias 84 a 87 (Exame Nacional 2013)", exam:true,
+  text:{h:"Os Lusíadas, Canto VII",lines:["84","Nem creiais, Ninfas, não, que fama desse","A quem ao bem comum e do seu Rei","Antepuser seu próprio interesse,","Imigo da divina e humana Lei.","Nenhum ambicioso que quisesse","Subir a grandes cargos, cantarei,","Só por poder com torpes exercícios","Usar mais largamente de seus vícios;","85","Nenhum que use de seu poder bastante","Pera servir a seu desejo feio,","E que, por comprazer ao vulgo errante,","Se muda em mais figuras que Proteio.","Nem, Camenas, também cuideis que cante","Quem, com hábito honesto e grave, veio,","Por contentar o Rei, no ofício novo,","A despir e roubar o pobre povo!","86","Nem quem acha que é justo e que é direito","Guardar-se a lei do Rei severamente,","E não acha que é justo e bom respeito","Que se pague o suor da servil gente;","Nem quem sempre, com pouco experto peito,","Razões aprende, e cuida que é prudente,","Pera taxar, com mão rapace e escassa,","Os trabalhos alheios que não passa.","87","Aqueles sós direi que aventuraram","Por seu Deus, por seu Rei, a amada vida,","Onde, perdendo-a, em fama a dilataram,","Tão bem de suas obras merecida.","Apolo e as Musas, que me acompanharam,","Me dobrarão a fúria concedida,","Enquanto eu tomo alento, descansado,","Por tornar ao trabalho, mais folgado."]},
+  rows:[["Vocabulário","antepuser = puser à frente · imigo = inimigo · torpes = interesseiros, sórdidos · vulgo errante = povo inconstante · Proteio = Proteu, deus que mudava de forma · Camenas = musas · hábito = aparência · experto = experiente · rapace = ávida de lucro · taxar = cobrar imposto · dilataram = alargaram · fúria = inspiração"]],
+  tip:"Este excerto saiu no <b>Exame Nacional de Português de 2013</b> (2.ª fase). É uma <b>reflexão do poeta</b>: diz quem NÃO merece ser cantado e quem merece.",
+  qs:[
+   {lv:2,p:"Nas estâncias 84 a 86, o poeta recusa cantar", o:["os ambiciosos e os que põem o seu interesse acima do bem comum","os que morreram pela pátria","os navegadores portugueses","as Ninfas e as Musas"], a:0, e:"«A quem ao bem comum e do seu Rei / Antepuser seu próprio interesse» e «Nenhum ambicioso»."},
+   {lv:2,p:"Em «Por contentar o Rei, no ofício novo, / A despir e roubar o pobre povo!», o poeta critica", o:["quem explora e rouba o povo para agradar ao rei","o povo por ser pobre","o rei por ser generoso","os soldados"], a:0, e:"Critica os que, num cargo novo, exploram o «pobre povo» para contentar o rei."},
+   {lv:2,p:"Na estância 86, o poeta defende que é justo", o:["pagar o trabalho (o «suor») de quem serve","cobrar mais impostos ao povo","aplicar a lei sem pensar nas pessoas","não pagar a quem trabalha"], a:0, e:"«justo e bom respeito / Que se pague o suor da servil gente»."},
+   {lv:2,p:"Na estância 87, o poeta diz que só vai cantar", o:["os que arriscaram a vida por Deus e pelo Rei e ganharam fama","os ambiciosos","os ricos","os que cobram impostos"], a:0, e:"«Aqueles sós direi que aventuraram / Por seu Deus, por seu Rei, a amada vida»."},
+   {lv:3,p:"«Onde, perdendo-a, em fama a dilataram» quer dizer que esses heróis", o:["perderam a vida, mas ganharam fama que os torna imortais","perderam a fama","ficaram ricos","fugiram ao perigo"], a:0, e:"Perdendo a vida, «dilataram-na» (alargaram-na) em fama: a fama faz a vida continuar."},
+   {lv:3,p:"A comparação «Se muda em mais figuras que Proteio» critica", o:["quem muda de atitude para agradar ao povo","os deuses do mar","quem é sempre fiel","os navegadores"], a:0, e:"Proteu mudava de forma; quem quer agradar ao «vulgo errante» muda ainda mais do que ele: falta de carácter."},
+   {lv:3,p:"Em «Nem creiais, Ninfas, não, que fama desse», a palavra «Ninfas» desempenha a função de", o:["vocativo","sujeito","complemento indireto","complemento direto"], a:0, e:"O poeta dirige-se às Ninfas, entre vírgulas: vocativo."},
+   {lv:3,p:"Em «Nenhum ambicioso que quisesse / Subir a grandes cargos», a oração «que quisesse subir a grandes cargos» é", o:["subordinada adjetiva relativa restritiva","subordinada adjetiva relativa explicativa","subordinada substantiva completiva","subordinada adverbial final"], a:0, e:"«que» retoma «ambicioso» e não há vírgula: restritiva (filtra quais ambiciosos)."},
+   {lv:3,p:"A palavra «ambicioso» formou-se por", o:["sufixação","prefixação","parassíntese","composição morfológica"], a:0, e:"ambição + -oso: sufixação."},
+   {lv:3,s:true,p:"Caracteriza aqueles que o poeta recusa cantar (estâncias 84 a 86).", a:"São ambiciosos e interesseiros, que põem o seu interesse acima do bem comum; usam o poder para os seus vícios; mudam de atitude para agradar ao povo (como Proteu); exploram e roubam o povo e não pagam o trabalho alheio."}
   ]}
 };
 const TEXT = ["Há quem diga que os jovens já não leem. Talvez seja verdade que","abrem menos livros, mas nunca leram tantas palavras: mensagens,","legendas, comentários. O problema não está na quantidade, mas na","atenção. Quem salta de ecrã em ecrã raramente fica tempo suficiente","numa ideia para a compreender a fundo.","Ler um livro é um treino de paciência. Obriga-nos a seguir um","raciocínio longo, a imaginar lugares que nunca vimos e a pôr-nos","no lugar de outras pessoas. Infelizmente, este treino tornou-se raro,","embora seja cada vez mais necessário.","Por isso, as escolas e as famílias deviam proteger momentos sem","ecrãs, em que a leitura volte a ser um prazer e não uma obrigação."];
@@ -770,7 +823,7 @@ const LINES = [
  {id:"L6", c:"--c4", tag:"Gramática", name:"Coesão", st:[["m","coesao",1,"Lição"],["m","coesao",2,"Médio"],["m","coesao",3,"Nível teste"]]},
  {id:"L7", c:"--c5", tag:"Gramática", name:"Relações semânticas", st:[["m","relacoes",1,"Lição"],["m","relacoes",2,"Médio"],["m","relacoes",3,"Nível teste"]]},
  {id:"L8", c:"--c6", tag:"Gramática", name:"Formação de palavras", st:[["m","formacao",1,"Lição"],["m","formacao",2,"Médio"],["m","formacao",3,"Nível teste"]]},
- {id:"L9", c:"--c2", tag:"Como no teste", name:"Exercícios tipo teste", st:[["m","testeA",0,"Teste A"],["m","testeB",0,"Teste B"],["m","testeC",0,"Teste C"],["m","testeD",0,"Teste D"],["m","testeE",0,"Teste E"]]},
+ {id:"L9", c:"--c2", tag:"Como no teste", name:"Exercícios tipo teste", st:[["m","testeA",0,"Teste A"],["m","testeB",0,"Teste B"],["m","testeC",0,"Teste C"],["m","testeD",0,"Teste D"],["m","testeE",0,"Teste E"],["m","testeF",0,"Teste F"],["m","testeG",0,"Teste G"],["m","testeH",0,"Teste H"]]},
  {id:"L10", c:"--c3", tag:"Resposta restrita", name:"Justifica como no teste", st:JUST.map((j,i)=>["j",i,0,"J"+(i+1)])},
  {id:"L11", c:"--c8", tag:"PRI 2 · Escrita", name:"Texto de opinião", st:[["m","opiniao",1,"Regras"],["m","opiniao",2,"Médio"],["m","opiniao",3,"Nível teste"],["w",0,0,"Escrever"]]},
  {id:"L12", c:"--c7", tag:"Revisão", name:"Treino e cábula", st:[["inf",0,0,"Treino infinito"],["sim",0,0,"Simulado"],["cab",0,0,"Cábula"]]}
@@ -795,6 +848,16 @@ const shuffle = a => a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x
 const L4 = ["A","B","C","D"];
 const stars = n => `<span class="ss">${[1,2,3].map(i=>`<span class="${i<=n?"on":""}">★</span>`).join("")}</span>`;
 
+/* Confirmação com 2 toques (alguns browsers dentro de apps bloqueiam o confirm()) */
+function confirmTap(btn, msg, action){
+  const label = btn.textContent; let armed = false, t;
+  btn.onclick = ()=>{
+    if(armed){ clearTimeout(t); action(); return; }
+    armed = true; btn.textContent = msg; btn.style.fontWeight = "800";
+    t = setTimeout(()=>{ armed = false; btn.textContent = label; btn.style.fontWeight = ""; }, 4000);
+  };
+}
+
 /* ===== Mapa ===== */
 function home(){
   const box = document.getElementById("lines"); box.innerHTML="";
@@ -817,12 +880,12 @@ function home(){
   /* apagar tudo: respostas, estrelas, XP, vidas, rascunhos e checklist */
   const wipe = document.createElement("div"); wipe.className="btns"; wipe.style.justifyContent="center";
   const wb = document.createElement("button"); wb.className="btn nob"; wb.textContent="Apagar todo o progresso";
-  wb.onclick = ()=>{
-    if(!confirm("Apagar TODO o progresso? Perdes as respostas, as estrelas, o XP e os rascunhos. Não dá para desfazer.")) return;
+  confirmTap(wb, "Toca outra vez para apagar TUDO", ()=>{
     try{ Object.keys(localStorage).filter(x=>x.startsWith("mp11")).forEach(x=>localStorage.removeItem(x)); }catch(e){}
-    S = {xp:0, ans:{}, stars:{}, hp:{}, best:0};
-    home(); window.scrollTo(0,0);
-  };
+    try{ sessionStorage.clear(); }catch(e){}
+    S = {xp:0, ans:{}, stars:{}, hp:{}, best:0, rounds:{}};
+    location.reload();
+  });
   wipe.append(wb); box.append(wipe);
   document.getElementById("home").hidden=false;
   document.getElementById("mission").hidden=true;
@@ -1051,7 +1114,7 @@ function openM(L,i,m,lv){
   /* recomeçar a qualquer momento: apaga só as respostas desta estação (o XP e as estrelas ficam) */
   const rs = document.createElement("div"); rs.className="btns"; rs.style.margin="0 0 12px";
   const rsb = document.createElement("button"); rsb.className="btn ghost"; rsb.textContent="↺ Recomeçar estação";
-  rsb.onclick = ()=>{ if(confirm("Recomeçar esta estação? As respostas desta estação são apagadas (o XP e as estrelas ficam).")) reset(); };
+  confirmTap(rsb, "Toca outra vez para recomeçar", reset);
   rs.append(rsb);
   dead.innerHTML = `<b>Ficaste sem vidas 💔</b><p>Relê a lição (o truque resolve quase tudo) e recomeça a estação.</p>`;
   const rb = document.createElement("button"); rb.className="btn"; rb.textContent="Rever a lição e recomeçar"; rb.onclick=reset; dead.append(rb);
