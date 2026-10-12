@@ -672,11 +672,21 @@ const BANK = {
   ["[Infelizmente], a viagem foi longa.","modificador de frase"],["A Ana deu-[lhe] um livro.","complemento indireto"],["A Maria leu-[o] ontem.","complemento direto"],
   ["O professor ficou [contente] com os resultados.","predicativo do sujeito"],["A turma elegeu a Ana [delegada].","predicativo do complemento direto"],["Ela mora [em Lisboa].","complemento oblíquo"],
   ["O texto foi lido [pelos alunos].","complemento agente da passiva"],["Os alunos [que estudaram] passaram.","modificador restritivo do nome"],["O Pedro, [que é meu primo], chegou.","modificador apositivo do nome"],
-  ["Ele estava certo [da vitória].","complemento do adjetivo"],["[Rapazes], prestem atenção!","vocativo"],["[Felizmente], todos regressaram.","modificador de frase"],["Inês amava [D. Pedro].","complemento direto"],["[Vénus] protegia os portugueses.","sujeito"]]},
+  ["Ele estava certo [da vitória].","complemento do adjetivo"],["[Rapazes], prestem atenção!","vocativo"],["[Felizmente], todos regressaram.","modificador de frase"],["Inês amava [D. Pedro].","complemento direto"],["[Vénus] protegia os portugueses.","sujeito"],
+  ["[A armada] partiu de Belém.","sujeito"],["Vénus ajudou [os portugueses].","complemento direto"],["Camões dedicou o poema [a D. Sebastião].","complemento indireto"],
+  ["Os nautas precisavam [de descanso].","complemento oblíquo"],["O Adamastor era [enorme].","predicativo do sujeito"],["O rei nomeou Vasco da Gama [capitão da armada].","predicativo do complemento direto"],
+  ["O episódio foi narrado [por Vasco da Gama].","complemento agente da passiva"],["Li dois cantos [ontem].","modificador do grupo verbal"],["A chegada [dos navegadores] foi festejada.","complemento do nome"],
+  ["O Velho estava cheio [de razão].","complemento do adjetivo"],["[Sinceramente], não gostei do filme.","modificador de frase"],["Os versos [de Camões] são famosos.","modificador restritivo do nome"],
+  ["Lisboa, [capital de Portugal], é linda.","modificador apositivo do nome"],["[Inês], porque choras?","vocativo"],["Os nautas mostraram [ao rei] as especiarias.","complemento indireto"],
+  ["O Pedro gosta [de futebol].","complemento oblíquo"],["A professora corrigiu [os testes] à noite.","complemento direto"],["A professora corrigiu os testes [à noite].","modificador do grupo verbal"],
+  ["O Rui continua [doente].","predicativo do sujeito"],["Achei a aula [interessante].","predicativo do complemento direto"]]},
  suj:{q:"Que tipo de sujeito tem esta frase?", tip:"Não está escrito mas sabes quem é = subentendido; não se sabe quem = indeterminado; verbos do tempo e «haver» = expletivo.", items:[
   ["Chove muito em novembro.","nulo expletivo"],["Estudámos para o teste.","nulo subentendido"],["Bateram à porta.","nulo indeterminado"],["Diz-se que o teste é fácil.","nulo indeterminado"],
   ["Camões e Vasco da Gama são figuras célebres.","composto"],["A armada partiu.","simples"],["Há muitos alunos na sala.","nulo expletivo"],["Escrevi o texto ontem.","nulo subentendido"],
-  ["O Pedro e a Ana chegaram.","composto"],["Os deuses reuniram-se no Olimpo.","simples"],["Trovejou durante a noite.","nulo expletivo"],["Roubaram-me a bicicleta.","nulo indeterminado"],["Partiste cedo.","nulo subentendido"]],
+  ["O Pedro e a Ana chegaram.","composto"],["Os deuses reuniram-se no Olimpo.","simples"],["Trovejou durante a noite.","nulo expletivo"],["Roubaram-me a bicicleta.","nulo indeterminado"],["Partiste cedo.","nulo subentendido"],
+  ["Nevou na serra.","nulo expletivo"],["Contaram-me um segredo.","nulo indeterminado"],["Lemos Os Lusíadas na aula.","nulo subentendido"],
+  ["Vénus e as ninfas ajudaram os nautas.","composto"],["O Velho do Restelo criticou a viagem.","simples"],["Houve uma tempestade.","nulo expletivo"],
+  ["Vou ao cinema hoje.","nulo subentendido"],["Telefonaram para a escola.","nulo indeterminado"],["Os alunos e a professora visitaram o museu.","composto"],["A turma ganhou o prémio.","simples"]],
   labels:["simples","composto","nulo subentendido","nulo indeterminado","nulo expletivo"]},
  cls:{q:"Classe e subclasse da palavra destacada?", tip:"Antes do nome = determinante; no lugar do nome = pronome; quantas coisas = quantificador.", items:[
   ["O [meu] caderno é azul.","determinante possessivo"],["Este caderno é o [meu].","pronome possessivo"],["[Este] livro é ótimo.","determinante demonstrativo"],["Quero [este].","pronome demonstrativo"],
@@ -687,7 +697,22 @@ const BANK = {
   ["Disse [que] vinha.","conjunção subordinativa completiva"],["O livro [que] li é bom.","pronome relativo"],["O autor [cujo] livro li é português.","determinante relativo"],["A casa [onde] moro é antiga.","advérbio relativo"],
   ["[Onde] moras?","advérbio interrogativo"],["Vim [do] mercado.","preposição contraída"],["Gosto [de] ler.","preposição simples"],["O mar [estava] agitado.","verbo copulativo"],["Os nautas [tinham] partido.","verbo auxiliar"],
   ["A [armada] partiu.","nome comum coletivo"],["[Camões] escreveu Os Lusíadas.","nome próprio"],["[Ai]! Que dor!","interjeição"],["Estudei, [logo] passei.","conjunção coordenativa conclusiva"],
-  ["[Quem] chegou?","pronome interrogativo"],["Ela vê-[o] todos os dias.","pronome pessoal"],["[Ontem] choveu.","advérbio de tempo"],["[Quantos] livros leste?","quantificador interrogativo"],["[Qual] livro preferes?","determinante interrogativo"],["[Ninguém] respondeu.","pronome indefinido"]]},
+  ["[Quem] chegou?","pronome interrogativo"],["Ela vê-[o] todos os dias.","pronome pessoal"],["[Ontem] choveu.","advérbio de tempo"],["[Quantos] livros leste?","quantificador interrogativo"],["[Qual] livro preferes?","determinante interrogativo"],["[Ninguém] respondeu.","pronome indefinido"],
+  ["[Uns] marinheiros cantavam.","artigo indefinido"],["[A] armada partiu.","artigo definido"],["[Certamente] vais conseguir.","advérbio de afirmação"],
+  ["Ele mora [aqui].","advérbio de lugar"],["Ela fala [devagar].","advérbio de modo"],["Estou [muito] cansado.","advérbio de quantidade e grau"],
+  ["Os nautas eram [corajosos].","adjetivo qualificativo"],["O Pedro é o [segundo] da fila.","adjetivo numeral"],["[Ambos] os irmãos vieram.","quantificador universal"],
+  ["[Muitos] alunos leram o livro.","quantificador existencial"],["[Que] livro leste?","determinante interrogativo"],["[Aquele] navio é antigo.","determinante demonstrativo"],
+  ["[Isto] é difícil.","pronome demonstrativo"],["Deram-[lhe] um prémio.","pronome pessoal"],["Estudo [para que] os meus pais fiquem contentes.","conjunção subordinativa final"],
+  ["[Quando] cheguei, jantei.","conjunção subordinativa temporal"],["[Se] chover, fico em casa.","conjunção subordinativa condicional"],["Choveu tanto [que] a rua inundou.","conjunção subordinativa consecutiva"],
+  ["Ele canta [como] o pai cantava.","conjunção subordinativa comparativa"],["Lês [ou] escreves?","conjunção coordenativa disjuntiva"],["Vai dormir, [pois] é tarde.","conjunção coordenativa explicativa"],
+  ["Gosto de ler [e] de escrever.","conjunção coordenativa copulativa"],["O navio passou [pelo] cabo.","preposição contraída"],["Vou [para] casa.","preposição simples"],
+  ["[Oh]! Que bonito!","interjeição"],["Estudei; [portanto], passei.","advérbio conectivo"],["[Apenas] dois alunos faltaram.","advérbio de exclusão"],
+  ["[Até] o professor riu.","advérbio de inclusão"],["[Nunca] fui aos Açores.","advérbio de negação"],["[Como] te chamas?","advérbio interrogativo"],
+  ["A [turma] foi ao teatro.","nome comum coletivo"],["A [coragem] venceu o medo.","nome comum"],["[Lisboa] é a capital.","nome próprio"],
+  ["Os nautas [foram] recebidos pelo rei.","verbo auxiliar"],["Ela [parece] cansada.","verbo copulativo"],["O bebé [dorme].","verbo principal intransitivo"],
+  ["O Rui [leu] o livro.","verbo principal transitivo direto"],["Este livro [pertence] ao Rui.","verbo principal transitivo indireto"],
+  ["A professora [deu] os testes aos alunos.","verbo principal transitivo direto e indireto"],["Os alunos [acharam] o teste fácil.","verbo principal transitivo-predicativo"],
+  ["O [teu] é mais bonito.","pronome possessivo"],["A [tua] mochila é nova.","determinante possessivo"],["[Quem] te disse isso?","pronome interrogativo"]]},
  ora:{q:"Classifica a oração destacada.", tip:"Troca por «isso» = substantiva; depois de um nome = relativa (vírgulas = explicativa); circunstância = adverbial.", items:[
   ["Sei [que vais passar].","subordinada substantiva completiva"],["[Quem espera] sempre alcança.","subordinada substantiva relativa"],["Os alunos [que estudaram] passaram.","subordinada adjetiva relativa restritiva"],
   ["Camões, [que perdeu um olho], foi soldado.","subordinada adjetiva relativa explicativa"],["Saímos, [embora chovesse].","subordinada adverbial concessiva"],["Fiquei em casa [porque estava doente].","subordinada adverbial causal"],
@@ -695,22 +720,43 @@ const BANK = {
   ["Choveu tanto [que a rua inundou].","subordinada adverbial consecutiva"],["Ele leu mais [do que eu esperava].","subordinada adverbial comparativa"],["Estudei, [mas não passei].","coordenada adversativa"],
   ["Estudei [e passei].","coordenada copulativa"],["Estudas [ou vais passear]?","coordenada disjuntiva"],["Estudei muito, [por isso passei].","coordenada conclusiva"],["Leva o casaco, [pois está frio].","coordenada explicativa"],
   ["Perguntei [se ele vinha].","subordinada substantiva completiva"],["A ilha [onde descansaram] era bela.","subordinada adjetiva relativa restritiva"],["O Adamastor, [que guardava o cabo], ameaçou os nautas.","subordinada adjetiva relativa explicativa"],
-  ["[Como estava cansado], deitou-se cedo.","subordinada adverbial causal"],["[Ainda que seja difícil], vou tentar.","subordinada adverbial concessiva"],["É importante [que leias o texto].","subordinada substantiva completiva"]]},
+  ["[Como estava cansado], deitou-se cedo.","subordinada adverbial causal"],["[Ainda que seja difícil], vou tentar.","subordinada adverbial concessiva"],["É importante [que leias o texto].","subordinada substantiva completiva"],
+  ["[Embora estivesse cansado], continuou.","subordinada adverbial concessiva"],["Fala alto [para que todos ouçam].","subordinada adverbial final"],
+  ["[Caso chova], ficamos em casa.","subordinada adverbial condicional"],["[Enquanto lia], ouvia música.","subordinada adverbial temporal"],
+  ["Estava tão cansado [que adormeceu].","subordinada adverbial consecutiva"],["Faltou [porque estava doente].","subordinada adverbial causal"],
+  ["Ela canta [como a mãe cantava].","subordinada adverbial comparativa"],["Espero [que venhas].","subordinada substantiva completiva"],
+  ["[Quem estuda] passa.","subordinada substantiva relativa"],["O livro [que me deste] é ótimo.","subordinada adjetiva relativa restritiva"],
+  ["Lisboa, [que é a capital], é linda.","subordinada adjetiva relativa explicativa"],["Li o livro [e vi o filme].","coordenada copulativa"],
+  ["Quis ir, [mas não pude].","coordenada adversativa"],["Ficas [ou vens]?","coordenada disjuntiva"],["Penso, [logo existo].","coordenada conclusiva"],
+  ["Despacha-te, [que é tarde].","coordenada explicativa"]]},
  coe:{q:"Que mecanismo de coesão assegura a parte destacada?", tip:"Diz o tipo e o mecanismo: referencial (anáfora/catáfora/elipse), interfrásica, frásica, temporal, lexical (reiteração/sinonímia/hiperonímia…).", items:[
   ["A Maria chegou. [Ela] estava cansada.","referencial (anáfora)"],["Só quero [isto]: que sejas feliz.","referencial (catáfora)"],["Os alunos estudaram; [Ø] passaram.","referencial (elipse)"],
   ["Estudei; [no entanto], não passei.","interfrásica"],["[Primeiro] li o texto; depois respondi.","temporal"],["Comprei rosas. [As flores] eram lindas.","lexical (hiperonímia/hiponímia)"],
   ["Tinha a cara suja. Lavou [o rosto] à pressa.","lexical (sinonímia)"],["Entrei na casa. [O telhado] estava partido.","lexical (holonímia/meronímia)"],["Gosto de livros. Os [livros] fazem-me sonhar.","lexical (reiteração)"],
-  ["O Velho criticou a viagem e todos [o] ouviram.","referencial (anáfora)"],["Os nautas tinham medo. [Por isso], rezaram.","interfrásica"],["As meninas chegaram [cansadas].","frásica"],["Ouvi [isto]: a armada voltou.","referencial (catáfora)"]]},
+  ["O Velho criticou a viagem e todos [o] ouviram.","referencial (anáfora)"],["Os nautas tinham medo. [Por isso], rezaram.","interfrásica"],["As meninas chegaram [cansadas].","frásica"],["Ouvi [isto]: a armada voltou.","referencial (catáfora)"],
+  ["O Pedro chegou. [Ele] vinha cansado.","referencial (anáfora)"],["Disse-lhe [isto]: estuda mais.","referencial (catáfora)"],
+  ["A Ana comprou um livro e [Ø] leu-o logo.","referencial (elipse)"],["Estudei; [além disso], fiz exercícios.","interfrásica"],
+  ["[Depois] do jantar, fui estudar.","temporal"],["Vi um cão. [O animal] estava ferido.","lexical (hiperonímia/hiponímia)"],
+  ["O aluno estava contente. Estava [alegre] desde manhã.","lexical (sinonímia)"],["Abri o livro. [A capa] estava rasgada.","lexical (holonímia/meronímia)"],
+  ["Gosto do mar. O [mar] acalma-me.","lexical (reiteração)"],["O dia foi quente; a noite, [fria].","lexical (antonímia)"],["Os alunos [chegaram] cedo.","frásica"]]},
  rel:{q:"Qual é a relação semântica entre as duas palavras?", tip:"Tipo de = hiperonímia/hiponímia. Parte de = holonímia/meronímia.", items:[
   ["flor — rosa","hiperonímia/hiponímia"],["casa — telhado","holonímia/meronímia"],["navio — nau","hiperonímia/hiponímia"],["quente — frio","antonímia"],["instrumento — guitarra","hiperonímia/hiponímia"],
   ["corpo — braço","holonímia/meronímia"],["árvore — ramo","holonímia/meronímia"],["animal — cão","hiperonímia/hiponímia"],["alegre — triste","antonímia"],["começar — iniciar","sinonímia"],
-  ["veículo — carro","hiperonímia/hiponímia"],["livro — página","holonímia/meronímia"],["vida — morte","antonímia"],["rápido — veloz","sinonímia"],["mobília — cadeira","hiperonímia/hiponímia"],["rosto — olho","holonímia/meronímia"]],
+  ["veículo — carro","hiperonímia/hiponímia"],["livro — página","holonímia/meronímia"],["vida — morte","antonímia"],["rápido — veloz","sinonímia"],["mobília — cadeira","hiperonímia/hiponímia"],["rosto — olho","holonímia/meronímia"],
+  ["cara — rosto","sinonímia"],["ave — águia","hiperonímia/hiponímia"],["mão — dedo","holonímia/meronímia"],["claro — escuro","antonímia"],
+  ["bicicleta — pedal","holonímia/meronímia"],["morrer — falecer","sinonímia"],["subir — descer","antonímia"],["fruta — maçã","hiperonímia/hiponímia"],
+  ["navio — proa","holonímia/meronímia"],["amigo — inimigo","antonímia"],["peixe — sardinha","hiperonímia/hiponímia"]],
   labels:["sinonímia","antonímia","hiperonímia/hiponímia","holonímia/meronímia"]},
  for:{q:"Qual é o processo de formação da palavra?", tip:"Tira uma peça de cada vez: as duas palavras existem = prefixação e sufixação; nenhuma existe = parassíntese.", items:[
   ["infeliz","prefixação"],["felizmente","sufixação"],["infelizmente","prefixação e sufixação"],["entristecer","parassíntese"],["envelhecer","parassíntese"],["anoitecer","parassíntese"],
   ["enriquecer","parassíntese"],["desleal","prefixação"],["reler","prefixação"],["descontente","prefixação"],["navegador","sufixação"],["claramente","sufixação"],
   ["a luta (de lutar)","derivação não afixal"],["o ataque (de atacar)","derivação não afixal"],["o choro (de chorar)","derivação não afixal"],["o jantar (de jantar)","conversão"],["o olhar (de olhar)","conversão"],
-  ["geografia","composição morfológica"],["biologia","composição morfológica"],["luso-brasileiro","composição morfológica"],["guarda-chuva","composição morfossintática"],["couve-flor","composição morfossintática"],["girassol","composição morfossintática"],["pontapé","composição morfossintática"]]}
+  ["geografia","composição morfológica"],["biologia","composição morfológica"],["luso-brasileiro","composição morfológica"],["guarda-chuva","composição morfossintática"],["couve-flor","composição morfossintática"],["girassol","composição morfossintática"],["pontapé","composição morfossintática"],
+  ["desfazer","prefixação"],["refazer","prefixação"],["leitura","sufixação"],["corajoso","sufixação"],["ervinha","sufixação"],
+  ["desigualdade","prefixação e sufixação"],["infelicidade","prefixação e sufixação"],["amanhecer","parassíntese"],["entardecer","parassíntese"],
+  ["emagrecer","parassíntese"],["a pesca (de pescar)","derivação não afixal"],["o poder (de poder)","conversão"],["o saber (de saber)","conversão"],
+  ["sociologia","composição morfológica"],["agricultura","composição morfológica"],["passatempo","composição morfossintática"],
+  ["arco-íris","composição morfossintática"],["guarda-redes","composição morfossintática"]]}
 };
 const BANK_NAMES = {fun:"Funções sintáticas",suj:"Sujeito",cls:"Classes e subclasses",ora:"Orações",coe:"Coesão",rel:"Relações semânticas",for:"Formação de palavras"};
 
@@ -935,12 +981,47 @@ function qBlock(q, key, num, ctx){
 
 function heartsHTML(n,max){ return `<span class="hearts" aria-label="${n} vidas">${Array.from({length:max},(_,i)=>`<span class="${i<n?"":"off"}">❤️</span>`).join("")}</span>`; }
 
+/* ===== Perguntas sorteadas =====
+   Cada estação de gramática mistura perguntas fixas (sorteadas do nível) com perguntas
+   geradas a partir dos bancos do treino infinito. A ronda fica guardada até acabar
+   ou recomeçar; a seguinte é diferente. */
+const BANK_OF = {classes:["cls"], funcoes:["fun","suj"], oracoes:["ora"], coesao:["coe"], relacoes:["rel"], formacao:["for"]};
+function bankQ(b, avoid){
+  const B = BANK[b];
+  const labels = B.labels || [...new Set(B.items.map(x=>x[1]))];
+  let it, t=0; do{ it = B.items[Math.floor(Math.random()*B.items.length)]; t++; } while(avoid.has(it[0]) && t<50);
+  avoid.add(it[0]);
+  const correct = it[1], pool = labels.filter(x=>x!==correct);
+  const near = shuffle(pool.filter(x=>x.split(" ")[0]===correct.split(" ")[0])).slice(0,2);
+  const rest = shuffle(pool.filter(x=>!near.includes(x))).slice(0,3-near.length);
+  return {p:`${B.q}<br><span style="font-weight:400">«${it[0].replace(/\[(.+?)\]/g,"<mark>$1</mark>")}»</span>`, o:[correct,...near,...rest], a:0, e:"<b>Truque:</b> "+B.tip};
+}
+function getRound(k, m, lv){
+  S.rounds = S.rounds || {};
+  const old = S.rounds[k];
+  if(old && old.items.every(it=>it.g || m.qs[it.j])) return old;
+  const pool = m.qs.map((q,j)=>({q,j})).filter(x=>!lv || x.q.lv===lv);
+  let items;
+  if(!lv){ items = pool.map(x=>({j:x.j})); }            /* testes tipo: todas, pela ordem do texto */
+  else {
+    const banks = BANK_OF[Object.keys(M).find(x=>M[x]===m)] || [];
+    const shorts = shuffle(pool.filter(x=>x.q.s)), others = shuffle(pool.filter(x=>!x.q.s));
+    const fixed = (banks.length ? others.slice(0,4) : others).map(x=>({j:x.j}));
+    const gen = [], avoid = new Set();
+    if(banks.length) while(fixed.length+gen.length < 8) gen.push({g: bankQ(banks[Math.floor(Math.random()*banks.length)], avoid)});
+    items = [...shuffle([...fixed, ...gen]), ...(banks.length ? shorts.slice(0,1) : shorts).map(x=>({j:x.j}))];
+  }
+  S.rounds[k] = {id: Date.now().toString(36), items}; save();
+  return S.rounds[k];
+}
+
 /* ===== Estação de missão ===== */
 function openM(L,i,m,lv){
   const k = L.id+":"+i;
   const label = L.st[i][3];
   const sec = shell(L, lv? `Estação ${i+1} · ${lv===1?"Lição + Fácil":LVN[lv]}` : label, m.exam? m.pic : "", m.c);
-  const list = m.qs.map((q,j)=>({q,j})).filter(x=>!lv || x.q.lv===lv);
+  const R = getRound(k, m, lv);
+  const list = R.items.map((it,n)=>({q: it.g || m.qs[it.j], key: k+"#"+R.id+"#"+n}));
   if(S.hp[k]===undefined) S.hp[k]=5;
   const bar = document.createElement("div"); bar.className="stbar";
   sec.append(bar);
@@ -951,7 +1032,7 @@ function openM(L,i,m,lv){
   const qs = document.createElement("div"); qs.className="qs";
   const sc = document.createElement("div"); sc.className="score"; sc.hidden=true;
   const dead = document.createElement("div"); dead.className="dead"; dead.hidden=true;
-  const keys = list.map(x=>m.id+":"+x.j);
+  const keys = list.map(x=>x.key);
   function refresh(){
     const answered = keys.filter(x=>S.ans[x]).length, right = keys.filter(x=>S.ans[x]&&S.ans[x].ok).length;
     bar.innerHTML = `${heartsHTML(S.hp[k],5)}<span style="font-variant-numeric:tabular-nums;color:var(--muted)">${answered} / ${keys.length} · ${right} certas</span>${stars(S.stars[k]||0)}`;
@@ -966,7 +1047,7 @@ function openM(L,i,m,lv){
       bar.innerHTML = `${heartsHTML(S.hp[k],5)}<span style="color:var(--muted)">Concluída</span>${stars(S.stars[k]||0)}`;
     }
   }
-  function reset(){ keys.forEach(x=>{ delete S.ans[x]; try{ localStorage.removeItem("mp11b_"+x); }catch(e){} }); S.hp[k]=5; save(); openM(L,i,m,lv); }
+  function reset(){ keys.forEach(x=>{ delete S.ans[x]; try{ localStorage.removeItem("mp11b_"+x); }catch(e){} }); S.hp[k]=5; delete S.rounds[k]; save(); openM(L,i,m,lv); }
   /* recomeçar a qualquer momento: apaga só as respostas desta estação (o XP e as estrelas ficam) */
   const rs = document.createElement("div"); rs.className="btns"; rs.style.margin="0 0 12px";
   const rsb = document.createElement("button"); rsb.className="btn ghost"; rsb.textContent="↺ Recomeçar estação";
@@ -975,7 +1056,7 @@ function openM(L,i,m,lv){
   dead.innerHTML = `<b>Ficaste sem vidas 💔</b><p>Relê a lição (o truque resolve quase tudo) e recomeça a estação.</p>`;
   const rb = document.createElement("button"); rb.className="btn"; rb.textContent="Rever a lição e recomeçar"; rb.onclick=reset; dead.append(rb);
   const ctx = { dead:()=>S.hp[k]<=0, onAnswer:(ok)=>{ if(!ok){ S.hp[k]=Math.max(0,S.hp[k]-1); save(); } refresh(); } };
-  list.forEach((x,n)=> qs.append(qBlock(x.q, m.id+":"+x.j, n+1, ctx)));
+  list.forEach((x,n)=> qs.append(qBlock(x.q, x.key, n+1, ctx)));
   sec.append(h3, rs, qs, dead, sc, navBtns(L,i)); refresh();
 }
 
@@ -1067,7 +1148,8 @@ function openInf(L){
 /* ===== Simulado ===== */
 function openSim(L){
   const sec = shell(L, "Simulado PRI 1", "12 perguntas: 2 de cada conteúdo de gramática da matriz, misturadas. Sem espreitar.");
-  const pickQ = shuffle(["classes","funcoes","oracoes","coesao","relacoes","formacao"].flatMap(id=>shuffle(M[id].qs.filter(q=>!q.s&&!q.t)).slice(0,2)));
+  const avoid = new Set();
+  const pickQ = shuffle(["classes","funcoes","oracoes","coesao","relacoes","formacao"].flatMap(id=>[shuffle(M[id].qs.filter(q=>!q.s&&!q.t))[0], bankQ(BANK_OF[id][Math.floor(Math.random()*BANK_OF[id].length)], avoid)]));
   const qs = document.createElement("div"); qs.className="qs";
   const sc = document.createElement("div"); sc.className="score"; sc.hidden=true;
   let done=0, right=0;
