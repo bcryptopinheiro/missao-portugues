@@ -95,7 +95,31 @@ const BANK = {
   ["desigualdade","prefixação e sufixação"],["infelicidade","prefixação e sufixação"],["amanhecer","parassíntese"],["entardecer","parassíntese"],
   ["emagrecer","parassíntese"],["a pesca (de pescar)","derivação não afixal"],["o poder (de poder)","conversão"],["o saber (de saber)","conversão"],
   ["sociologia","composição morfológica"],["agricultura","composição morfológica"],["passatempo","composição morfossintática"],
-  ["arco-íris","composição morfossintática"],["guarda-redes","composição morfossintática"]]}
+  ["arco-íris","composição morfossintática"],["guarda-redes","composição morfossintática"]]},
+ lusEp:{q:"Em que canto de Os Lusíadas está este episódio?", tip:"Por ordem: Canto I início e Consílio dos Deuses · III Inês · IV Aljubarrota e Velho do Restelo · V Adamastor · VI Doze de Inglaterra · VII reflexões · IX Ilha dos Amores · X Máquina do Mundo.", items:[
+  ["Proposição: «As armas e os barões assinalados»","Canto I"],["Invocação às Tágides","Canto I"],["Dedicatória a D. Sebastião","Canto I"],["Consílio dos Deuses no Olimpo","Canto I"],
+  ["Reflexão «Contra um bicho da terra tão pequeno»","Canto I"],["Inês de Castro","Canto III"],["Batalha de Ourique","Canto III"],["Formosíssima Maria (Batalha do Salado)","Canto III"],
+  ["Batalha de Aljubarrota","Canto IV"],["Velho do Restelo","Canto IV"],["Sonho de D. Manuel","Canto IV"],["Despedida em Belém","Canto IV"],["D. Duarte e o Infante D. Fernando","Canto IV"],
+  ["Adamastor","Canto V"],["Fogo de Santelmo e tromba marítima","Canto V"],["Os Doze de Inglaterra","Canto VI"],["Consílio dos deuses marinhos","Canto VI"],
+  ["Queixa do poeta contra a ingratidão («Nũa mão sempre a espada e noutra a pena»)","Canto VII"],["O poeta recusa cantar os ambiciosos","Canto VII"],["Ilha dos Amores","Canto IX"],["Máquina do Mundo","Canto X"]]},
+ lusPlano:{q:"A que plano de Os Lusíadas pertence este momento?", tip:"4 planos: viagem (Vasco da Gama a caminho da Índia), história de Portugal (contada ao rei de Melinde), mitologia (deuses) e reflexões do poeta (Camões dá a sua opinião).", labels:["viagem","história de Portugal","mitologia","reflexões do poeta"], items:[
+  ["Consílio dos Deuses no Olimpo","mitologia"],["Vénus protege a armada portuguesa","mitologia"],["Baco disfarça-se para enganar os portugueses","mitologia"],["Vénus prepara a Ilha dos Amores","mitologia"],["Consílio dos deuses marinhos","mitologia"],
+  ["Partida das naus da praia de Belém","viagem"],["Chegada da armada a Melinde","viagem"],["Fogo de Santelmo e tromba marítima","viagem"],["Chegada da armada a Calecute","viagem"],
+  ["Batalha de Aljubarrota","história de Portugal"],["Inês de Castro","história de Portugal"],["Batalha de Ourique","história de Portugal"],["D. Afonso Henriques, primeiro rei","história de Portugal"],["Os Doze de Inglaterra","história de Portugal"],
+  ["«Contra um bicho da terra tão pequeno» (I, 106)","reflexões do poeta"],["Queixa contra a ingratidão (VII, 78-81)","reflexões do poeta"],["Crítica a quem explora o povo (VII, 84-87)","reflexões do poeta"],["Exortação a D. Sebastião no fim do poema","reflexões do poeta"]]},
+ lusEst:{q:"A que parte da estrutura interna de Os Lusíadas pertence?", tip:"Proposição = o que vai cantar · Invocação = pede inspiração · Dedicatória = oferece o poema · Narração = conta a viagem e a história.", labels:["Proposição","Invocação","Dedicatória","Narração"], items:[
+  ["«As armas e os barões assinalados» (I, 1)","Proposição"],["«Cantando espalharei por toda a parte» (I, 2)","Proposição"],["O poeta anuncia que vai cantar os feitos dos portugueses","Proposição"],
+  ["«E vós, Tágides minhas» (I, 4)","Invocação"],["O poeta pede inspiração às ninfas do Tejo","Invocação"],["O poeta pede às Tágides «um som alto e sublimado»","Invocação"],
+  ["«E vós, ó bem nascida segurança» (I, 6)","Dedicatória"],["O poeta oferece o poema ao rei D. Sebastião","Dedicatória"],["O poeta dirige-se ao jovem rei, esperança de Portugal","Dedicatória"],
+  ["«Já no largo Oceano navegavam» (I, 19)","Narração"],["A viagem começa a meio, já no Oceano Índico","Narração"],["Vasco da Gama conta a história de Portugal ao rei de Melinde","Narração"]]},
+ opi:{q:"Para que serve este conector num texto de opinião?", tip:"Opinião: Na minha opinião · Enumerar: Em primeiro lugar · Acrescentar: Além disso · Exemplificar: Por exemplo · Opor: No entanto · Concluir: Em suma · Causa: porque.", items:[
+  ["Na minha opinião,","dar a opinião"],["Considero que","dar a opinião"],["Defendo que","dar a opinião"],["Parece-me que","dar a opinião"],
+  ["Em primeiro lugar,","enumerar argumentos"],["Em segundo lugar,","enumerar argumentos"],["Por fim,","enumerar argumentos"],
+  ["Além disso,","acrescentar uma ideia"],["Para além disso,","acrescentar uma ideia"],["Acresce que","acrescentar uma ideia"],
+  ["Por exemplo,","dar um exemplo"],["É o caso de","dar um exemplo"],["Veja-se o caso de","dar um exemplo"],
+  ["No entanto,","opor ideias"],["Contudo,","opor ideias"],["Todavia,","opor ideias"],["Porém,","opor ideias"],
+  ["Em suma,","concluir"],["Em conclusão,","concluir"],["Concluindo,","concluir"],
+  ["porque","explicar a causa"],["visto que","explicar a causa"],["uma vez que","explicar a causa"],["dado que","explicar a causa"]]}
 };
 const BANK_NAMES = {fun:"Funções sintáticas",suj:"Sujeito",cls:"Classes e subclasses",ora:"Orações",coe:"Coesão",rel:"Relações semânticas",for:"Formação de palavras"};
 

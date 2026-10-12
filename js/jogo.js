@@ -219,7 +219,7 @@ function heartsHTML(n,max){ return `<span class="hearts" aria-label="${n} vidas"
    Cada estação de gramática mistura perguntas fixas (sorteadas do nível) com perguntas
    geradas a partir dos bancos do treino infinito. A ronda fica guardada até acabar
    ou recomeçar; a seguinte é diferente. */
-const BANK_OF = {classes:["cls"], funcoes:["fun","suj"], oracoes:["ora"], coesao:["coe"], relacoes:["rel"], formacao:["for"]};
+const BANK_OF = {classes:["cls"], funcoes:["fun","suj"], oracoes:["ora"], coesao:["coe"], relacoes:["rel"], formacao:["for"], lusiadas:["lusEp","lusPlano","lusEst"], opiniao:["opi"]};
 function bankQ(b, avoid){
   const B = BANK[b];
   const labels = B.labels || [...new Set(B.items.map(x=>x[1]))];
@@ -231,8 +231,8 @@ function bankQ(b, avoid){
   return {p:`${B.q}<br><span style="font-weight:400">«${it[0].replace(/\[(.+?)\]/g,"<mark>$1</mark>")}»</span>`, o:[correct,...near,...rest], a:0, e:"<b>Truque:</b> "+B.tip};
 }
 /* Formatos dos testes e exames: «…, respetivamente,» e «… exceto» */
-const RESP = {fun:"as partes destacadas desempenham a função sintática de", suj:"os sujeitos são", cls:"as palavras destacadas são", ora:"as orações destacadas são", coe:"as partes destacadas asseguram a coesão", rel:"as relações entre as palavras são de", for:"as palavras formaram-se por"};
-const EXC = {fun:L=>`A parte destacada desempenha a função de ${L} em todas as opções, exceto em`, suj:L=>`O sujeito é ${L} em todas as frases, exceto em`, cls:L=>`A palavra destacada é ${L} em todas as opções, exceto em`, ora:L=>`A oração destacada é ${L} em todas as opções, exceto em`, coe:L=>`A parte destacada assegura a coesão ${L} em todas as opções, exceto em`, rel:L=>`A relação entre as palavras é de ${L} em todos os pares, exceto em`, for:L=>`A palavra formou-se por ${L} em todos os casos, exceto em`};
+const RESP = {fun:"as partes destacadas desempenham a função sintática de", suj:"os sujeitos são", cls:"as palavras destacadas são", ora:"as orações destacadas são", coe:"as partes destacadas asseguram a coesão", rel:"as relações entre as palavras são de", for:"as palavras formaram-se por", lusEp:"os episódios estão, respetivamente, no", lusPlano:"os momentos pertencem ao plano", lusEst:"os versos pertencem à parte", opi:"os conectores servem para"};
+const EXC = {fun:L=>`A parte destacada desempenha a função de ${L} em todas as opções, exceto em`, suj:L=>`O sujeito é ${L} em todas as frases, exceto em`, cls:L=>`A palavra destacada é ${L} em todas as opções, exceto em`, ora:L=>`A oração destacada é ${L} em todas as opções, exceto em`, coe:L=>`A parte destacada assegura a coesão ${L} em todas as opções, exceto em`, rel:L=>`A relação entre as palavras é de ${L} em todos os pares, exceto em`, for:L=>`A palavra formou-se por ${L} em todos os casos, exceto em`, lusEp:L=>`Todos estes episódios estão no ${L}, exceto`, lusPlano:L=>`Todos estes momentos pertencem ao plano «${L}», exceto`, lusEst:L=>`Todos estes versos pertencem à ${L}, exceto`, opi:L=>`Todos estes conectores servem para ${L}, exceto`};
 const hlB = t => t.replace(/\[(.+?)\]/g,"<mark>$1</mark>");
 function bankPick(B, avoid, ok){ const pool = B.items.filter(x=>!avoid.has(x[0]) && (!ok || ok(x))); if(!pool.length) return null; const it = pool[Math.floor(Math.random()*pool.length)]; avoid.add(it[0]); return it; }
 function bankResp(b, avoid){
@@ -258,7 +258,12 @@ function genQ(b, avoid){ const r = Math.random(); return r<0.5 ? bankQ(b, avoid)
 function getRound(k, m, lv){
   S.rounds = S.rounds || {};
   const old = S.rounds[k];
-  if(old && old.items.every(it=>it.g || m.qs[it.j])) return old;
+  if(old && old.items.every(it=>it.g || m.qs[it.j])){
+    /* ronda a meio: continua (não se perdem respostas); acabada ou por começar: sorteia outra */
+    const feitas = old.items.filter((_,n)=>S.ans[k+"#"+old.id+"#"+n]).length;
+    if(!lv || (feitas>0 && feitas<old.items.length)) return old;
+    old.items.forEach((_,n)=>delete S.ans[k+"#"+old.id+"#"+n]);
+  }
   const pool = m.qs.map((q,j)=>({q,j})).filter(x=>!lv || x.q.lv===lv);
   let items;
   if(!lv){ items = pool.map(x=>({j:x.j})); }            /* testes tipo: todas, pela ordem do texto */
@@ -364,8 +369,8 @@ function openJ(L,i,J){
 function openInf(L){
   const sec = shell(L, "Treino infinito", "Perguntas novas de gramática a cada clique. 3 vidas: até onde chegas?");
   const pick = document.createElement("div"); pick.className="temas";
-  let on = new Set(Object.keys(BANK));
-  Object.keys(BANK).forEach(b=>{ const c=document.createElement("button"); c.className="chip"; c.textContent=BANK_NAMES[b]; c.setAttribute("aria-pressed","true");
+  let on = new Set(Object.keys(BANK_NAMES));
+  Object.keys(BANK_NAMES).forEach(b=>{ const c=document.createElement("button"); c.className="chip"; c.textContent=BANK_NAMES[b]; c.setAttribute("aria-pressed","true");
     c.onclick=()=>{ if(on.has(b)&&on.size>1){on.delete(b);c.setAttribute("aria-pressed","false");} else {on.add(b);c.setAttribute("aria-pressed","true");} }; pick.append(c); });
   const bar = document.createElement("div"); bar.className="stbar";
   const area = document.createElement("div"); area.className="qs";
