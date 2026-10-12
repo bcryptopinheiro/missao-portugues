@@ -1106,6 +1106,31 @@ function bankQ(b, avoid){
   const rest = shuffle(pool.filter(x=>!near.includes(x))).slice(0,3-near.length);
   return {p:`${B.q}<br><span style="font-weight:400">«${it[0].replace(/\[(.+?)\]/g,"<mark>$1</mark>")}»</span>`, o:[correct,...near,...rest], a:0, e:"<b>Truque:</b> "+B.tip};
 }
+/* Formatos dos testes e exames: «…, respetivamente,» e «… exceto» */
+const RESP = {fun:"as partes destacadas desempenham a função sintática de", suj:"os sujeitos são", cls:"as palavras destacadas são", ora:"as orações destacadas são", coe:"as partes destacadas asseguram a coesão", rel:"as relações entre as palavras são de", for:"as palavras formaram-se por"};
+const EXC = {fun:L=>`A parte destacada desempenha a função de ${L} em todas as opções, exceto em`, suj:L=>`O sujeito é ${L} em todas as frases, exceto em`, cls:L=>`A palavra destacada é ${L} em todas as opções, exceto em`, ora:L=>`A oração destacada é ${L} em todas as opções, exceto em`, coe:L=>`A parte destacada assegura a coesão ${L} em todas as opções, exceto em`, rel:L=>`A relação entre as palavras é de ${L} em todos os pares, exceto em`, for:L=>`A palavra formou-se por ${L} em todos os casos, exceto em`};
+const hlB = t => t.replace(/\[(.+?)\]/g,"<mark>$1</mark>");
+function bankPick(B, avoid, ok){ const pool = B.items.filter(x=>!avoid.has(x[0]) && (!ok || ok(x))); if(!pool.length) return null; const it = pool[Math.floor(Math.random()*pool.length)]; avoid.add(it[0]); return it; }
+function bankResp(b, avoid){
+  const B = BANK[b], labels = B.labels || [...new Set(B.items.map(x=>x[1]))];
+  const i1 = bankPick(B, avoid); const i2 = i1 && bankPick(B, avoid, x=>x[1]!==i1[1]);
+  if(!i1 || !i2) return bankQ(b, avoid);
+  const z = shuffle(labels.filter(x=>x!==i1[1] && x!==i2[1]));
+  const f = (x,y) => `${x}, no primeiro caso, e ${y}, no segundo caso.`;
+  const o = [f(i1[1],i2[1]), f(i2[1],i1[1]), f(i1[1],z[0]), f(z[1]||z[0],i2[1])];
+  if(new Set(o).size<4 || z.length<1) return bankQ(b, avoid);
+  return {p:`Nas frases 1) e 2), ${RESP[b]}, respetivamente,<br><span style="font-weight:400">1) «${hlB(i1[0])}»<br>2) «${hlB(i2[0])}»</span>`, o, a:0, e:`1) ${i1[1]}; 2) ${i2[1]}. <b>Truque:</b> ${B.tip}`};
+}
+function bankExc(b, avoid){
+  const B = BANK[b], count = {};
+  B.items.forEach(x=>{ if(!avoid.has(x[0])) count[x[1]]=(count[x[1]]||0)+1; });
+  const Ls = Object.keys(count).filter(L=>count[L]>=3); if(!Ls.length) return bankQ(b, avoid);
+  const L = Ls[Math.floor(Math.random()*Ls.length)];
+  const same = [0,1,2].map(()=>bankPick(B, avoid, x=>x[1]===L)), odd = bankPick(B, avoid, x=>x[1]!==L);
+  if(same.some(x=>!x) || !odd) return bankQ(b, avoid);
+  return {p:EXC[b](L), o:[odd,...same].map(x=>`«${hlB(x[0])}»`), a:0, e:`Na opção certa é ${odd[1]}; nas outras é ${L}. <b>Truque:</b> ${B.tip}`};
+}
+function genQ(b, avoid){ const r = Math.random(); return r<0.5 ? bankQ(b, avoid) : r<0.75 ? bankResp(b, avoid) : bankExc(b, avoid); }
 function getRound(k, m, lv){
   S.rounds = S.rounds || {};
   const old = S.rounds[k];
@@ -1118,7 +1143,7 @@ function getRound(k, m, lv){
     const shorts = shuffle(pool.filter(x=>x.q.s)), others = shuffle(pool.filter(x=>!x.q.s));
     const fixed = (banks.length ? others.slice(0,4) : others).map(x=>({j:x.j}));
     const gen = [], avoid = new Set();
-    if(banks.length) while(fixed.length+gen.length < 8) gen.push({g: bankQ(banks[Math.floor(Math.random()*banks.length)], avoid)});
+    if(banks.length) while(fixed.length+gen.length < 8) gen.push({g: genQ(banks[Math.floor(Math.random()*banks.length)], avoid)});
     items = [...shuffle([...fixed, ...gen]), ...(banks.length ? shorts.slice(0,1) : shorts).map(x=>({j:x.j}))];
   }
   S.rounds[k] = {id: Date.now().toString(36), items}; save();
@@ -1259,7 +1284,7 @@ function openInf(L){
 function openSim(L){
   const sec = shell(L, "Simulado PRI 1", "12 perguntas: 2 de cada conteúdo de gramática da matriz, misturadas. Sem espreitar.");
   const avoid = new Set();
-  const pickQ = shuffle(["classes","funcoes","oracoes","coesao","relacoes","formacao"].flatMap(id=>[shuffle(M[id].qs.filter(q=>!q.s&&!q.t))[0], bankQ(BANK_OF[id][Math.floor(Math.random()*BANK_OF[id].length)], avoid)]));
+  const pickQ = shuffle(["classes","funcoes","oracoes","coesao","relacoes","formacao"].flatMap(id=>[shuffle(M[id].qs.filter(q=>!q.s&&!q.t))[0], genQ(BANK_OF[id][Math.floor(Math.random()*BANK_OF[id].length)], avoid)]));
   const qs = document.createElement("div"); qs.className="qs";
   const sc = document.createElement("div"); sc.className="score"; sc.hidden=true;
   let done=0, right=0;
