@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#134e4a"><title>Estuda Descartes | Filosofia 11</title>
+<style>
+:root{--n:#172554;--b:#2563eb;--ink:#172033;--muted:#667085;--bg:#f4f6fb;--line:#e5e9f2}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,sans-serif}.hero{background:linear-gradient(135deg,#172554,#1d4ed8);color:white;padding:28px max(18px,calc((100vw - 1000px)/2))}.hero h1{margin:8px 0;font-size:clamp(30px,5vw,44px)}.wrap{max-width:1000px;margin:auto;padding:16px}.nav{position:sticky;top:0;background:#ffffffed;display:flex;gap:6px;overflow:auto;padding:10px;z-index:2;border-bottom:1px solid var(--line)}button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:10px 14px;background:var(--b);color:white;font-weight:650}.nav button{background:transparent;color:#475467;white-space:nowrap}.nav button.active{background:var(--n);color:white}.panel{display:none}.panel.active{display:block}.card,.chapter{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;margin:12px 0}.muted{color:var(--muted)}.tag{font-size:12px;font-weight:750;color:#1d4ed8;background:#eaf0ff;padding:4px 8px;border-radius:99px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.chapter h3{margin:0 0 6px}.secondary{background:#eef2ff;color:#1e40af}.option{display:block;width:100%;text-align:left;background:white;color:var(--ink);border:1px solid var(--line);margin:8px 0}.option.correct{background:#f0fdf4;border-color:#86efac}.option.wrong{background:#fef2f2;border-color:#fca5a5}.feedback{padding:12px;border-radius:10px;background:#f2f4f7;margin-top:10px}.good{background:#f0fdf4;color:#166534}.bad{background:#fef2f2;color:#991b1b}.flash{background:#eff6ff;border:1px solid #dbeafe;border-radius:15px;text-align:center;padding:28px;min-height:190px}.flash strong{font-size:24px;display:block;margin:14px 0}textarea{width:100%;min-height:130px;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit}table{border-collapse:collapse;width:100%;margin:12px 0}td,th{text-align:left;border-bottom:1px solid var(--line);padding:9px;vertical-align:top}th{background:#f8fafc}.hide{display:none!important}.progress{height:8px;background:#e5e7eb;border-radius:99px;overflow:hidden}.progress span{display:block;background:var(--b);height:100%;width:0}@media(max-width:650px){.grid{grid-template-columns:1fr}.wrap{padding:10px}.card{padding:14px}table{font-size:14px}}
+.note{background:#f8fafc;border-left:4px solid var(--b);padding:2px 14px;border-radius:8px;margin:12px 0}blockquote{margin:12px 0;padding:6px 14px;border-left:4px solid #cbd5e1;background:#f8fafc;border-radius:6px}.check{list-style:none;padding:0}.check li{margin:6px 0}#ordList li{margin:8px 0}#ordList button{padding:4px 10px}.review{margin-top:12px;padding-left:18px}
+select{font:inherit;padding:8px;border:1px solid #cbd5e1;border-radius:8px;margin:4px 6px 4px 0;max-width:100%}.drill{border-top:1px solid var(--line);padding:12px 0}.drill .res{margin-top:8px}
+details.sec>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px}details.sec>summary::-webkit-details-marker{display:none}details.sec>summary::before{content:"+";font-weight:800;color:var(--b);width:22px;height:22px;border-radius:50%;background:#eaf0ff;text-align:center;line-height:22px;flex:none}details.sec[open]>summary::before{content:"−"}details.sec>summary h2{margin:6px 0;font-size:20px}.subnav{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.subnav button{background:#eef2ff;color:#1e40af}.subnav button.active{background:var(--n);color:#fff}.sub{display:none}.sub.active{display:block}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.done{display:block;margin-top:10px;font-weight:650;color:#166534}@media print{.nav,.hero,button,.toolbar{display:none!important}.panel{display:none!important}.panel.active{display:block!important}body{background:#fff}.card{border:0;padding:0}}
+.hero{background:linear-gradient(135deg,#134e4a,#0f766e)}:root{--n:#134e4a;--b:#0f766e}.tag{color:#0f766e;background:#e6f4f1}.secondary,.subnav button{background:#e6f4f1;color:#115e59}.subnav button.active{background:var(--n);color:#fff}details.sec>summary::before{background:#e6f4f1}.flash{background:#f0fdfa;border-color:#ccfbf1}
+</style></head><body>
+<header class="hero"><span>FILOSOFIA · 11.º ANO</span><h1>Estuda Descartes</h1><p>Compreende, memoriza e treina <i>o racionalismo de Descartes</i> para a questão aula.</p><p id="stats">0 cartões dominados · Progresso guardado neste dispositivo</p></header>
+<nav class="nav" aria-label="Percurso de estudo"><button type="button" class="active" data-tab="inicio">Começar</button><button type="button" data-tab="manual">1. Aprender</button><button type="button" data-tab="percurso">2. Percurso</button><button type="button" data-tab="cartoes">3. Memorizar</button><button type="button" data-tab="quiz">4. Testar</button><button type="button" data-tab="treino">5. Questão aula</button><button type="button" data-tab="resumo">Resumo</button><button type="button" data-tab="fontes">Fontes</button></nav>
+<main class="wrap">
+
+<section class="panel active" id="inicio"><div class="card"><span class="tag">COMEÇA POR AQUI</span><h2>Vamos preparar a questão aula, passo a passo.</h2>
+<p>A matéria é a das páginas 21 a 41 do teu manual: <b>o racionalismo de Descartes</b>. Começa no desafio cético e acaba nos três tipos de ideias.</p>
+<p class="muted">Na véspera, usa o separador <b>Resumo</b>, que tem tudo numa só página.</p>
+<p>Segue a ordem do menu, de <b>1 a 5</b>. Cada etapa prepara a seguinte.</p>
+<ol><li><b>Aprender:</b> perceber cada conceito, com o que significa e para que serve.</li><li><b>Percurso:</b> ver a ordem do raciocínio de Descartes do princípio ao fim. É o que mais sai.</li><li><b>Memorizar:</b> flashcards com os conceitos e as definições.</li><li><b>Testar:</b> escolha múltipla e verdadeiro ou falso, como nos exames.</li><li><b>Questão aula:</b> as perguntas do manual com respostas-modelo, perguntas reais de exame e um simulado.</li></ol>
+<div class="progress"><span id="progress"></span></div><p id="progressText" class="muted">Ainda não começaste os flashcards.</p><button type="button" onclick="go('manual')">Começar pelo passo 1 →</button></div>
+<div class="card"><h3>O que costuma sair</h3><p>Nos exames nacionais de Filosofia, Descartes aparece quase todos os anos. As perguntas repetem-se muito.</p><ul><li>Para que serve a dúvida metódica e quais são as suas características.</li><li>Explicar um dos três argumentos para duvidar, sobretudo o do génio maligno.</li><li>Porque é que o cogito é indubitável e porque é o fundamento do conhecimento.</li><li>O papel de Deus (argumento da marca) e o critério da clareza e distinção.</li><li>As objeções, sobretudo o círculo cartesiano.</li><li>Distinguir ideias inatas, adventícias e factícias.</li></ul></div>
+</section>
+
+<section class="panel" id="manual"><div class="toolbar"><button type="button" class="secondary" id="openAll">Abrir todas as secções</button><button type="button" class="secondary" id="closeAll">Fechar todas</button></div>
+
+<details class="card sec" open><summary><h2>1. O problema e o desafio cético</h2></summary>
+<p class="note"><b>O essencial.</b> O cético radical diz que não conhecemos nada. Descartes leva isto a sério e tenta mostrar que o conhecimento é possível.</p>
+<p><b>O problema.</b> Será possível conhecer alguma coisa com certeza? É o <b>problema da possibilidade do conhecimento</b>.</p>
+<p><b>A resposta cética.</b> O ceticismo radical defende que o conhecimento não é possível. Usa sobretudo dois argumentos.</p>
+<ul><li><b>Argumento dos enganos sensoriais.</b> Os sentidos às vezes enganam-nos, por isso nunca podemos confiar totalmente neles.</li><li><b>Argumento da regressão infinita da justificação.</b> Cada crença precisa de outra que a justifique, e essa de outra, sem fim. Assim nenhuma crença fica justificada.</li></ul>
+<p><b>A atitude de Descartes.</b> Podíamos ignorar o ceticismo por ser estranho. Descartes não faz isso. Leva-o a sério e tenta refutá-lo com argumentos melhores.</p>
+<p><b>Porquê?</b> Ao fazer o balanço dos seus estudos, Descartes achou a filosofia e as ciências cheias de dúvidas e erros. Queria pôr o conhecimento sobre bases seguras.</p>
+<p><b>Racionalismo.</b> Descartes é racionalista. Para ele, a <b>razão</b> é a fonte principal do conhecimento, e não os sentidos.</p>
+</details>
+
+<details class="card sec"><summary><h2>2. A procura de um fundamento</h2></summary>
+<p class="note"><b>O essencial.</b> Descartes procura pelo menos uma crença <b>indubitável</b> e <b>básica</b>, que sirva de alicerce a todo o conhecimento.</p>
+<p><b>A imagem do edifício.</b> O conhecimento é como um edifício. Se os alicerces forem fracos, tudo cai. Descartes quer encontrar um <b>fundamento</b> sólido.</p>
+<table><tbody><tr><th>Conceito</th><th>O que é</th><th>Que argumento cético refuta</th></tr>
+<tr><td><b>Crença indubitável</b></td><td>Está acima de qualquer dúvida. É totalmente certa.</td><td>Enganos sensoriais. Nenhum engano a pode tornar falsa.</td></tr>
+<tr><td><b>Crença básica</b></td><td>Justifica-se a si própria, por ser evidente. Não precisa de outra crença que a justifique e pode justificar as outras.</td><td>Regressão infinita. A cadeia de justificações tem um ponto de partida.</td></tr></tbody></table>
+<p><b>Arquimedes.</b> Descartes compara-se a Arquimedes, que só precisava de um ponto fixo para mover a Terra. Basta-lhe uma coisa certa e indubitável para reconstruir o conhecimento.</p>
+<p class="muted">Esta posição chama-se <b>fundacionalismo</b>. O conhecimento assenta em crenças básicas.</p>
+</details>
+
+<details class="card sec"><summary><h2>3. A dúvida metódica</h2></summary>
+<p class="note"><b>O essencial.</b> Duvidar de tudo o que tenha a mínima dúvida, até encontrar uma crença que resista. A dúvida é um <b>meio</b>, não um fim.</p>
+<p><b>O que faz.</b> Descartes analisa as suas crenças e põe de lado, como se fossem falsas, todas as que tenham algum aspeto duvidoso, mesmo pequeno. Só pára quando encontrar uma crença que resista a qualquer dúvida.</p>
+<h3>As quatro características</h3>
+<table><tbody><tr><th>Característica</th><th>Quer dizer</th></tr>
+<tr><td><b>Voluntária</b></td><td>É escolhida e exercida, não sofrida. Não é uma dúvida psicológica, como quando estamos mesmo indecisos.</td></tr>
+<tr><td><b>Metódica</b></td><td>É um método, um caminho para chegar à certeza. Daí o nome.</td></tr>
+<tr><td><b>Teórica</b></td><td>Serve para procurar a verdade, não para a vida prática. Se o céu está nublado, levamos o guarda-chuva sem esperar certezas.</td></tr>
+<tr><td><b>Hiperbólica</b></td><td>É exagerada. Basta uma razão improvável ou inventada, como o génio maligno, para pôr uma crença de lado.</td></tr></tbody></table>
+<p class="muted">Alguns materiais da DGE juntam ainda <b>provisória</b> (dura só até encontrar a certeza) e <b>universal</b> (atinge todas as crenças).</p>
+<p><b>Ceticismo provisório.</b> Descartes usa as armas dos céticos contra os próprios céticos. Duvida como eles, mas para chegar a uma certeza que derrube o ceticismo.</p>
+<p class="muted"><b>Para que serve na resposta.</b> Se perguntarem «porque se chama metódica», responde que é um meio para chegar à certeza e não um fim em si, ao contrário da dúvida cética.</p>
+</details>
+
+<details class="card sec"><summary><h2>4. Os três argumentos para duvidar</h2></summary>
+<p class="note"><b>O essencial.</b> Enganos dos sentidos, sonho e génio maligno. Cada argumento vai mais longe do que o anterior.</p>
+<table><tbody><tr><th>Argumento</th><th>Ideia</th><th>Põe em dúvida</th></tr>
+<tr><td><b>Enganos sensoriais</b></td><td>Os sentidos às vezes enganam-nos (torres quadradas que parecem redondas ao longe). Não devemos confiar em quem já nos enganou.</td><td>Crenças <b>a posteriori</b> sobre coisas pequenas ou afastadas.</td></tr>
+<tr><td><b>Sonho</b></td><td>Os sonhos podem ser iguais às perceções de quando estamos acordados. Não há sinais seguros para distinguir a vigília do sono.</td><td><b>Todas</b> as crenças a posteriori, até a de ter corpo ou de que o mundo existe.</td></tr>
+<tr><td><b>Génio maligno</b> (Deus enganador)</td><td>Pode haver um ser todo-poderoso e malévolo que me engana até no que parece mais evidente.</td><td>Crenças a posteriori <b>e a priori</b>, como 2 + 3 = 5.</td></tr></tbody></table>
+<p><b>Porque é que o sonho não chega para a matemática?</b> Mesmo a sonhar, 2 + 3 = 5 e o quadrado tem quatro lados. Por isso Descartes precisa de uma hipótese ainda mais radical, o génio maligno.</p>
+<p><b>Ideia-chave.</b> A hipótese do génio maligno é muito improvável e inventada. Mas como a dúvida é hiperbólica, basta ser <b>possível</b> para pôr as crenças a priori em causa.</p>
+<p class="muted">A priori quer dizer conhecido pela razão, sem depender da experiência. A posteriori quer dizer conhecido pela experiência, pelos sentidos.</p>
+</details>
+
+<details class="card sec"><summary><h2>5. O cogito: penso, logo existo</h2></summary>
+<p class="note"><b>O essencial.</b> Mesmo que o génio maligno me engane, para ser enganado tenho de pensar, e para pensar tenho de existir. «Penso, logo existo» é a primeira certeza.</p>
+<p><b>Nome.</b> Em latim, <i>cogito, ergo sum</i>. Abrevia-se para <b>cogito</b>.</p>
+<h3>Porque é indubitável</h3>
+<p>Pensar implica existir. Os pensamentos precisam de alguém que pense. Dizer «penso, mas não existo» é contraditório. É uma <b>contradição pragmática</b>, como gritar «não estou a gritar». Nem um génio maligno todo-poderoso pode alterar isto.</p>
+<h3>Porque é básica</h3>
+<p>A verdade do cogito é <b>autoevidente</b>. Percebemo-la por <b>intuição</b>, de modo imediato, sem precisar de raciocínio nem de outra crença que a justifique.</p>
+<h3>Porque é clara e distinta</h3>
+<p><b>Clara</b>, porque se apresenta à mente sem a mínima possibilidade de erro. <b>Distinta</b>, porque não se confunde com nenhuma outra ideia.</p>
+<p><b>É a priori.</b> O cogito não vem dos sentidos. Vem da reflexão da razão sobre si mesma.</p>
+<p class="muted"><b>Atenção.</b> «Sinto frio, logo existo» ou «sou rico, logo existo» não exprimem o cogito. Sentir frio pode vir do corpo e dos sentidos, que o génio pode falsear. Só o pensar resiste à dúvida. Mas «penso que sinto frio» já serve, porque é um pensamento.</p>
+</details>
+
+<details class="card sec"><summary><h2>6. Uma coisa pensante</h2></summary>
+<p class="note"><b>O essencial.</b> O cogito prova que existo como <b>coisa pensante</b>. Não prova que tenho corpo.</p>
+<p>O génio maligno ainda me pode enganar sobre o corpo. Por isso Descartes só sabe que é uma coisa que pensa, isto é, uma coisa que duvida, compreende, afirma, nega, quer, não quer e imagina. Uma mente, uma alma, um intelecto.</p>
+<p class="muted">Isto prepara o <b>dualismo</b> de Descartes. A mente (coisa pensante) é diferente do corpo (coisa extensa).</p>
+</details>
+
+<details class="card sec"><summary><h2>7. O impasse: solipsismo e critério de verdade</h2></summary>
+<p class="note"><b>O essencial.</b> Depois do cogito, Descartes só tem uma certeza. Fica fechado em si próprio, numa posição <b>solipsista</b>.</p>
+<p><b>Critério da clareza e distinção.</b> O cogito é verdadeiro porque é claro e distinto. Descartes quer usar isto como <b>critério de verdade</b>, isto é, aceitar como verdadeiro tudo o que for claro e distinto.</p>
+<p><b>O problema.</b> O génio maligno ainda não foi afastado. Pode enganar-me sobre outras ideias, como 2 + 2 = 4, mesmo que pareçam claras e distintas. Só não me engana sobre a minha existência enquanto penso.</p>
+<p><b>Solipsismo</b> é a ideia de que só eu e os meus estados mentais são certos. É um eu solitário, sem mais nenhuma certeza. Para sair daqui, Descartes precisa de Deus.</p>
+</details>
+
+<details class="card sec"><summary><h2>8. Deus e o argumento da marca</h2></summary>
+<p class="note"><b>O essencial.</b> Tenho a ideia de um ser perfeito. Um ser imperfeito como eu não a podia criar. Logo, foi Deus que a pôs em mim, como uma marca. Logo, Deus existe.</p>
+<h3>O argumento passo a passo</h3>
+<ol><li>Tenho em mim a ideia de um ser perfeito (Deus).</li><li>A causa não pode ser inferior ao efeito. Deve haver pelo menos tanta realidade na causa como no efeito.</li><li>Eu sou imperfeito, porque duvido, e duvidar é menos perfeito do que conhecer.</li><li>Logo, a ideia de perfeito não pode ter sido causada por mim.</li><li>Só um ser perfeito a pode ter causado. Logo, Deus existe.</li></ol>
+<p><b>Porquê «marca»?</b> Deus, ao criar-nos, deixou em nós a ideia de si próprio, como um artista que assina a sua obra.</p>
+<p><b>Exemplo do manual.</b> Se vês no quadro uma reprodução perfeita da Vénus de Botticelli e o professor desenha muito mal, concluis que não foi ele. A causa não pode ser inferior ao efeito.</p>
+<p><b>É a priori.</b> O argumento parte de uma ideia que está na mente, não da experiência. A ideia de Deus é <b>inata</b>.</p>
+</details>
+
+<details class="card sec"><summary><h2>9. O fim do génio maligno e a recuperação das crenças</h2></summary>
+<p class="note"><b>O essencial.</b> Deus é perfeito, por isso não engana. Isto afasta o génio maligno e garante que as ideias claras e distintas são verdadeiras.</p>
+<p><b>Deus não engana.</b> Enganar é sinal de imperfeição, de malícia ou fraqueza. Um ser perfeito não engana. Logo, a hipótese do génio maligno cai.</p>
+<p><b>As nossas capacidades são fiáveis.</b> Um Deus bom não nos criou para nos enganarmos sempre. Os sentidos, a memória e a razão são fiáveis, desde que bem usados. O erro vem de julgarmos com precipitação o que não é claro e distinto.</p>
+<h3>A função de Deus</h3><ul><li>Afasta a hipótese do génio maligno.</li><li>Garante a verdade das ideias claras e distintas.</li></ul>
+<h3>O que é recuperado</h3><ul><li>As verdades matemáticas e as outras crenças a priori.</li><li>A existência do mundo exterior e do próprio corpo.</li><li>A confiança nos sentidos, quando a razão confirma o que eles dizem.</li></ul>
+<p>Para Descartes, o ceticismo fica vencido. Mas terá ficado mesmo? Vê as objeções.</p>
+</details>
+
+<details class="card sec"><summary><h2>10. Objeções a Descartes</h2></summary>
+<p class="note"><b>O essencial.</b> Duas objeções principais. A da incoerência (Hume) e a do círculo cartesiano (Arnauld).</p>
+<h3>A incoerência de Descartes</h3>
+<p>Depois do cogito, o génio maligno ainda está em vigor. Por isso Descartes não podia confiar em nenhuma ideia, nem nas que usa no argumento da marca, como «a causa não pode ser inferior ao efeito». Essa ideia não é mais evidente do que 2 + 2 = 4. Descartes duvidou demasiado e depois não se conseguiu libertar da dúvida.</p>
+<p><b>Hume</b> diz que, se a dúvida cartesiana fosse levada a sério, seria incurável. Nenhum raciocínio nos tiraria dela, porque teríamos de usar as mesmas capacidades de que já desconfiámos.</p>
+<p class="muted">Consequência. Se a objeção estiver certa, o cogito é indubitável mas Descartes não justificou mais nenhuma crença. Não refutou o ceticismo.</p>
+<h3>O círculo cartesiano</h3>
+<p><b>Antoine Arnauld</b> acusa Descartes de raciocinar em círculo.</p><ul><li>Descartes prova que Deus existe porque a ideia de Deus é clara e distinta.</li><li>Mas diz que as ideias claras e distintas são verdadeiras porque Deus existe e não engana.</li></ul>
+<p>Usa a clareza e distinção para provar Deus e usa Deus para garantir a clareza e distinção. Pressupõe o que quer provar.</p>
+<blockquote>Deus existe? Sim. Como sabes? Porque concebo isso clara e distintamente. E como sabes que isso é verdade? Porque Deus o garante.</blockquote>
+</details>
+
+<details class="card sec"><summary><h2>11. Os três tipos de ideias</h2></summary>
+<p class="note"><b>O essencial.</b> Inatas (nascem connosco), adventícias (vêm da experiência) e factícias (inventadas pela imaginação).</p>
+<table><tbody><tr><th>Tipo</th><th>Origem</th><th>Exemplos</th></tr>
+<tr><td><b>Inatas</b></td><td>Nascem connosco. A razão já vem equipada com elas. Não derivam da experiência.</td><td>Deus, as ideias matemáticas, coisa, verdade, pensamento.</td></tr>
+<tr><td><b>Adventícias</b></td><td>Vêm da experiência, das sensações.</td><td>Flor, automóvel, árvore, o Sol, o calor do fogo.</td></tr>
+<tr><td><b>Factícias</b></td><td>Criadas pela imaginação, juntando outras ideias. São ideias forjadas.</td><td>Unicórnio, lobisomem, sereia, hipogrifo.</td></tr></tbody></table>
+<p><b>Ligação ao racionalismo.</b> Para Descartes, as ideias inatas são as mais claras e distintas. A razão, fonte das ideias inatas, é a fonte principal do conhecimento.</p>
+<p class="muted">Truque para as factícias. Juntam partes que existem (cavalo + corno = unicórnio). As partes vêm da experiência, mas a junção é feita pela imaginação.</p>
+</details>
+
+<details class="card sec"><summary><h2>12. Como responder na questão aula</h2></summary>
+<p class="note"><b>O essencial.</b> Usa os conceitos certos, explica o porquê e liga sempre ao objetivo de Descartes, encontrar um fundamento seguro e refutar o ceticismo.</p>
+<h3>Perguntas «explica»</h3><ol><li><b>Diz o que é.</b> Define o conceito ou o argumento.</li><li><b>Explica como funciona.</b> Dá as razões, passo a passo.</li><li><b>Diz para que serve.</b> Liga ao percurso de Descartes.</li></ol>
+<p><b>Exemplo.</b> «Explica o argumento do génio maligno.» Diz que é uma hipótese de um ser poderoso que nos engana sempre. Explica que, sendo possível, faz duvidar até das crenças a priori, como as matemáticas. Diz que serve para levar a dúvida ao máximo, até que só reste o que resiste a tudo, o cogito.</p>
+<h3>Perguntas de posição («concordas?»)</h3><ol><li>Diz claramente a tua posição.</li><li>Dá pelo menos um argumento a favor.</li><li>Apresenta uma objeção e responde-lhe.</li></ol>
+<p class="muted">Nos critérios dos exames pede-se sempre para apresentar inequivocamente a posição e argumentar a favor dela.</p>
+</details>
+</section>
+
+<section class="panel" id="percurso"><div class="card"><span class="tag">O RACIOCÍNIO DE DESCARTES</span><h2>Do ceticismo ao mundo exterior, em nove passos</h2><p>Se perceberes esta ordem, consegues responder a quase todas as perguntas. Cada passo existe por causa do anterior.</p></div>
+<div id="steps"></div>
+<div class="card"><h2>Os argumentos na forma canónica</h2><p>O manual apresenta os argumentos assim. Os três primeiros são <b>modus ponens</b>: se P, então Q. P. Logo, Q.</p>
+<table><tbody><tr><th>Argumento</th><th>Forma</th></tr>
+<tr><td>Enganos sensoriais</td><td>Se os sentidos por vezes me enganam, então não devo confiar nas informações dadas por eles.<br>Os sentidos por vezes enganam-me.<br>Logo, não devo confiar nas informações dos sentidos.</td></tr>
+<tr><td>Sonho</td><td>Se tenho sonhos que não se distinguem das perceções que tenho acordado, então não posso garantir que neste momento não estou a sonhar.<br>Tenho sonhos assim.<br>Logo, não posso garantir que não estou a sonhar.</td></tr>
+<tr><td>Génio maligno</td><td>Se posso conceber um Deus enganador, então até as crenças a priori podem ser falsas.<br>Posso concebê-lo.<br>Logo, até as crenças a priori podem ser falsas.</td></tr>
+<tr><td>Marca</td><td>Tenho a ideia de um ser perfeito.<br>A causa de uma ideia tem pelo menos tanta perfeição como a ideia.<br>Só um ser perfeito pode causar a ideia de perfeito.<br>Logo, um ser perfeito (Deus) existe.</td></tr></tbody></table></div>
+<div class="card"><h2>Exercício: põe o percurso por ordem</h2><p>Usa as setas e clica em «Verificar ordem».</p><ol id="ordList"></ol><button type="button" id="ordCheck">Verificar ordem</button><p id="ordFb" class="muted" aria-live="polite"></p></div>
+</section>
+
+<section class="panel" id="cartoes"><div class="card"><span class="tag">ACTIVE RECALL</span><h2>Flashcards</h2><p>Tenta responder antes de revelar. Marca «Domino» só quando conseguires explicar a ideia por palavras tuas.</p><div class="flash"><span id="flashCat" class="tag"></span><strong id="flashQ"></strong><p id="flashA" class="hide"></p></div><p id="flashNum" class="muted"></p><div class="toolbar"><button type="button" class="secondary" id="prev">← Anterior</button><button type="button" id="reveal">Revelar resposta</button><button type="button" class="secondary" id="master">Domino ✓</button><button type="button" class="secondary" id="next">Seguinte →</button></div></div></section>
+
+<section class="panel" id="quiz"><div class="card"><span class="tag">QUIZ</span><h2>Testa os teus conhecimentos</h2><p id="qcount" class="muted"></p><div id="quizArea"></div><div class="toolbar"><button type="button" class="secondary" onclick="restartQuiz()">Recomeçar</button></div></div></section>
+
+<section class="panel" id="treino"><div class="subnav"><button type="button" class="active" data-sub="ma">1. Perguntas do manual</button><button type="button" data-sub="ex">2. Perguntas de exame</button><button type="button" data-sub="pr">3. Praticar</button><button type="button" data-sub="si">4. Questão aula simulada</button></div>
+
+<div class="sub active" id="sub-ma"><div class="card"><span class="tag">EXERCITA</span><h2>As perguntas do teu manual</h2><p>São as perguntas dos quadros «Exercita II» e «Exercita III». Os professores costumam basear as questões aula nelas. Responde por escrito e só depois abre a resposta-modelo.</p></div><div id="maList"></div></div>
+
+<div class="sub" id="sub-ex"><div class="card"><span class="tag">EXAMES NACIONAIS</span><h2>Perguntas reais sobre Descartes</h2><p>Estas perguntas saíram em exames nacionais de Filosofia (Prova 714, 11.º ano). As respostas-modelo foram feitas para este site e seguem os tópicos dos critérios de classificação, mas não são soluções oficiais.</p></div><div id="exList"></div></div>
+
+<div class="sub" id="sub-pr"><div class="card"><span class="tag">CLASSIFICAR</span><h2>Que tipo de ideia é?</h2><p>Escolhe se a ideia é inata, adventícia ou factícia.</p><div id="ideaList"></div></div>
+<div class="card"><span class="tag">APLICAR</span><h2>Que argumento põe esta crença em dúvida?</h2><p>Escolhe o <b>primeiro</b> argumento, pela ordem de Descartes, que consegue pôr a crença em dúvida.</p><div id="argList"></div></div>
+<div class="card"><span class="tag">É O COGITO?</span><h2>Esta frase exprime o cogito?</h2><p>Decide se a frase exprime corretamente o cogito cartesiano.</p><div id="cogList"></div></div></div>
+
+<div class="sub" id="sub-si"><div class="card"><span class="tag">SIMULADO</span><h2>Questão aula simulada</h2><p>Faz sem ajuda, em cerca de 30 minutos. Só depois abre as respostas-modelo.</p>
+<h3>Grupo I. Escolha múltipla</h3>
+<ol><li>A dúvida cartesiana diz-se hiperbólica porque<br>(A) é sofrida e não escolhida. (B) basta uma razão mínima, mesmo inventada, para duvidar. (C) só se aplica às crenças a posteriori. (D) é permanente.</li>
+<li>O argumento do sonho permite duvidar<br>(A) só das crenças matemáticas. (B) de todas as crenças a posteriori. (C) da existência do eu pensante. (D) da existência de Deus.</li>
+<li>O cogito é uma crença básica porque<br>(A) se justifica a si própria, por ser autoevidente. (B) é justificada pela existência de Deus. (C) vem da experiência. (D) é muito provável.</li>
+<li>Segundo Descartes, a ideia de unicórnio é<br>(A) inata. (B) adventícia. (C) factícia. (D) clara e distinta.</li>
+<li>A objeção do círculo cartesiano diz que Descartes<br>(A) duvidou pouco. (B) usa Deus para garantir a clareza e distinção e a clareza e distinção para provar Deus. (C) não provou o cogito. (D) confiou demasiado nos sentidos.</li></ol>
+<h3>Grupo II. Resposta restrita</h3>
+<blockquote>«Vou supor (...) não o Deus sumamente bom, fonte da verdade, mas um certo génio maligno, ao mesmo tempo extremamente poderoso e astuto, que pusesse toda a sua indústria em me enganar.»<br><span class="muted">Descartes, Meditações sobre a Filosofia Primeira, Almedina, p. 113</span></blockquote>
+<ol start="6"><li>Explica o papel desta hipótese na dúvida metódica.</li><li>Mostra porque é que, mesmo com esta hipótese, o cogito resiste à dúvida.</li><li>Explica como Descartes consegue afastar esta hipótese.</li></ol>
+<h3>Grupo III. Resposta extensa</h3><ol start="9"><li>Terá Descartes refutado o ceticismo? Apresenta a tua posição, um argumento a favor e uma objeção.</li></ol>
+<textarea id="essay3" aria-label="Resposta ao Grupo III" placeholder="A minha posição é..."></textarea><p id="words3" class="muted">0 palavras</p>
+<details><summary>Ver respostas-modelo</summary>
+<p><b>Grupo I.</b> 1 (B). 2 (B). 3 (A). 4 (C). 5 (B).</p>
+<p><b>6.</b> A hipótese do génio maligno é o passo mais radical da dúvida. Os enganos dos sentidos e o sonho só atingem as crenças a posteriori. Como mesmo a sonhar 2 + 3 = 5, Descartes precisa de uma razão para duvidar também das crenças a priori. Se for possível existir um ser poderoso que me engana sempre, até as verdades matemáticas podem ser falsas. Como a dúvida é hiperbólica, basta esta possibilidade, por improvável que seja.</p>
+<p><b>7.</b> Para o génio me enganar, eu tenho de pensar, e para pensar tenho de existir. Quanto mais ele me engana, mais certo fica que eu existo enquanto penso. Dizer «penso, mas não existo» é uma contradição pragmática. Por isso «penso, logo existo» é indubitável.</p>
+<p><b>8.</b> Descartes prova que Deus existe pelo argumento da marca. Tem a ideia de um ser perfeito, e um ser imperfeito como ele não a podia causar, porque a causa não pode ser inferior ao efeito. Logo, Deus existe e pôs essa ideia nele. Ora, um ser perfeito não engana, porque enganar é sinal de imperfeição. Assim a hipótese do génio maligno é afastada e as ideias claras e distintas ficam garantidas.</p>
+<p><b>9.</b> Exemplo de posição. Descartes não refutou totalmente o ceticismo. A favor, o cogito é indubitável e mostra que pelo menos uma coisa é certa. Mas para passar do cogito ao resto do conhecimento precisa de Deus, e para provar Deus usa ideias claras e distintas que, nesse momento, o génio maligno ainda podia falsear. É a objeção do círculo cartesiano de Arnauld e a da incoerência apontada por Hume. Um defensor de Descartes responderia que a existência de Deus é tão evidente como o cogito. Mesmo assim, essa resposta parece pressupor o que quer provar. Por isso, Descartes refutou o ceticismo radical quanto à sua existência, mas não conseguiu justificar as outras crenças.</p>
+<p class="muted">Também podes defender a posição contrária. O que conta é a posição clara, o argumento e a resposta a uma objeção.</p></details></div></div>
+</section>
+
+<section class="panel" id="resumo"><div class="card"><span class="tag">REVISÃO RÁPIDA</span><h2>Resumo para a questão aula</h2><p class="muted">Uma folha com o essencial. Lê-a no fim do estudo e na véspera.</p><button type="button" class="secondary" onclick="window.print()">Imprimir ou guardar em PDF</button>
+<h3>O problema</h3><ul><li>Será o conhecimento possível? O ceticismo radical diz que não (enganos sensoriais e regressão infinita).</li><li>Descartes é racionalista. A razão é a fonte principal do conhecimento.</li><li>Procura uma crença <b>indubitável</b> (resiste a toda a dúvida) e <b>básica</b> (justifica-se a si própria).</li></ul>
+<h3>A dúvida metódica</h3><ul><li>Pôr de lado como falso tudo o que tenha a mínima dúvida.</li><li>Características. Voluntária, metódica, teórica e hiperbólica. É um ceticismo provisório.</li></ul>
+<table><tbody><tr><th>Argumento</th><th>Atinge</th></tr><tr><td>Enganos sensoriais</td><td>Crenças a posteriori</td></tr><tr><td>Sonho</td><td>Todas as crenças a posteriori</td></tr><tr><td>Génio maligno</td><td>A posteriori e a priori (matemática)</td></tr></tbody></table>
+<h3>O cogito</h3><ul><li>«Penso, logo existo.» Para ser enganado tenho de pensar, e para pensar tenho de existir.</li><li>Indubitável (negar é contradição pragmática), básico (autoevidente, intuição), claro e distinto, a priori.</li><li>Prova que sou uma <b>coisa pensante</b>, não que tenho corpo.</li><li>Impasse. Fico numa posição <b>solipsista</b>.</li></ul>
+<h3>Deus</h3><ul><li><b>Argumento da marca.</b> Tenho a ideia de perfeito. Eu sou imperfeito. A causa não pode ser inferior ao efeito. Logo, Deus existe e pôs a ideia em mim.</li><li>Deus não engana. Afasta o génio maligno e garante as ideias claras e distintas.</li><li>Recupera-se a matemática, o mundo exterior e o corpo.</li></ul>
+<h3>Objeções</h3><ul><li><b>Incoerência (Hume).</b> Com o génio ainda ativo, Descartes não podia confiar nas ideias do argumento da marca. A dúvida seria incurável.</li><li><b>Círculo cartesiano (Arnauld).</b> Deus garante a clareza e distinção, e a clareza e distinção prova Deus.</li></ul>
+<h3>Ideias</h3><ul><li><b>Inatas.</b> Nascem connosco (Deus, matemática).</li><li><b>Adventícias.</b> Vêm da experiência (flor, automóvel).</li><li><b>Factícias.</b> Inventadas pela imaginação (unicórnio, sereia).</li></ul></div></section>
+
+<section class="panel" id="fontes"><div class="card"><span class="tag">FONTES</span><h2>Fontes e recursos de estudo</h2><p>Os conteúdos seguem as páginas 21 a 41 do teu manual e os materiais oficiais. As respostas-modelo são material de treino feito para este site.</p>
+<h3>Materiais oficiais da DGE</h3><ul>
+<li><a href="https://estudoautonomo.dge.mec.pt/sites/default/files/2025-03/gta-3_filosofia.o-ano_t4_st1_descricao-e-interpretacao-da-atividade-cognoscitiva.pdf" target="_blank" rel="noopener">GTA 3, Descartes, a resposta racionalista</a></li>
+<li><a href="https://estudoautonomo.dge.mec.pt/sites/default/files/2025-03/gta-4_filosofia.o-ano_t4_st1_descricao-e-interpretacao-da-atividade-cognoscitiva.pdf" target="_blank" rel="noopener">GTA 4, Dualismo cartesiano e tipos de ideias</a></li>
+<li><a href="https://estudoautonomo.dge.mec.pt/sites/default/files/2025-03/gta-5_filosofia.o-ano_t4_st1_descricao-e-interpretacao-da-atividade-cognoscitiva.pdf" target="_blank" rel="noopener">GTA 5, A ideia de Deus</a></li>
+<li><a href="https://estudoautonomo.dge.mec.pt/sites/default/files/2025-03/gta-6_filosofia.o-ano_t4_st1_descricao-e-interpretacao-da-atividade-cognoscitiva.pdf" target="_blank" rel="noopener">GTA 6, Objeções ao racionalismo cartesiano</a></li>
+<li><a href="https://www.dge.mec.pt/sites/default/files/es_11_filosofia.pdf" target="_blank" rel="noopener">Aprendizagens Essenciais de Filosofia, 11.º ano</a></li></ul>
+<h3>Exames nacionais (IAVE, Prova 714)</h3><ul>
+<li><a href="https://iave.pt/wp-content/uploads/2024/06/EX-Fil714-F1-2024_V1_net.pdf" target="_blank" rel="noopener">Exame 2024, 1.ª fase</a></li>
+<li><a href="https://iave.pt/wp-content/uploads/2024/07/EX-Fil714-F2-2024_V1_net.pdf" target="_blank" rel="noopener">Exame 2024, 2.ª fase</a></li>
+<li><a href="https://s3.observador.pt/wp-content/uploads/2022/06/28131547/ex-fil714-f1-2022-cc-vt-net.pdf" target="_blank" rel="noopener">Exame 2022, 1.ª fase, critérios</a></li>
+<li><a href="https://iave.pt/wp-content/uploads/2020/02/EX-Fil714-F1-2019-CC-VD_net.pdf" target="_blank" rel="noopener">Exame 2019, 1.ª fase, critérios</a></li></ul>
+<p class="muted">As citações de Descartes vêm das traduções indicadas no manual (Discurso do Método, Edições 70, e Meditações sobre a Filosofia Primeira, Almedina).</p></div></section>
+</main>
+<script>
+const steps=[
+["1. O desafio cético","O cético radical diz que não podemos conhecer nada (enganos dos sentidos, regressão infinita).","Descartes leva-o a sério e decide responder-lhe."],
+["2. Procurar um fundamento","Descartes procura pelo menos uma crença indubitável e básica.","Uma crença assim refuta os dois argumentos céticos e serve de alicerce ao conhecimento."],
+["3. A dúvida metódica","Põe de lado tudo o que tenha a mínima dúvida. Usa três argumentos, cada um mais forte. Enganos sensoriais, sonho e génio maligno.","No fim, todas as crenças a posteriori e a priori ficam em dúvida."],
+["4. O cogito","Mesmo que o génio me engane, para ser enganado tenho de pensar e para pensar tenho de existir. Penso, logo existo.","É a primeira certeza. Indubitável e básica."],
+["5. Uma coisa pensante","O cogito prova que existo como ser que pensa, mas não que tenho corpo.","Descartes fica numa posição solipsista. Só tem a certeza de si."],
+["6. O critério de verdade","O cogito é verdadeiro porque é claro e distinto. Descartes quer aceitar tudo o que for claro e distinto.","Mas o génio maligno ainda pode enganá-lo nas outras ideias. O critério ainda não está garantido."],
+["7. Deus existe (argumento da marca)","Tenho a ideia de um ser perfeito. Sou imperfeito e a causa não pode ser inferior ao efeito. Logo, Deus pôs essa ideia em mim e existe.","Encontra um ser que pode garantir a verdade."],
+["8. Deus não engana","Um ser perfeito não engana. A hipótese do génio maligno cai.","Deus garante a verdade das ideias claras e distintas."],
+["9. Recuperar o conhecimento","Voltam a ser aceites a matemática, o corpo e o mundo exterior, desde que pensados com clareza e distinção.","Para Descartes, o ceticismo está vencido. Para os críticos (Hume, Arnauld), não."]];
+document.getElementById('steps').innerHTML=steps.map(s=>'<details class="chapter"><summary><b>'+s[0]+'</b></summary><p><b>O que acontece:</b> '+s[1]+'</p><p><b>Porque importa:</b> '+s[2]+'</p></details>').join('');
+
+const cards=[
+["PROBLEMA","Qual é o problema a que Descartes responde?","O problema da possibilidade do conhecimento. Será possível conhecer alguma coisa com certeza? O cético radical diz que não."],
+["PROBLEMA","Que dois argumentos céticos Descartes quer refutar?","O argumento dos enganos sensoriais e o argumento da regressão infinita da justificação."],
+["CONCEITO","O que é o racionalismo?","A perspetiva que considera a razão a fonte principal do conhecimento. Descartes é racionalista."],
+["CONCEITO","O que é uma crença indubitável?","Uma crença que está acima de qualquer dúvida, totalmente certa. Responde ao argumento dos enganos sensoriais."],
+["CONCEITO","O que é uma crença básica?","Uma crença que se justifica a si própria por ser evidente. Não precisa de outra crença e pode justificar as outras. Responde à regressão infinita."],
+["DÚVIDA","O que é a dúvida metódica?","O método de pôr de lado, como falsa, qualquer crença com a mínima dúvida, até encontrar uma que resista a tudo."],
+["DÚVIDA","Porque se chama metódica?","Porque é um método, um meio para chegar à certeza. Não é um fim em si, como no ceticismo."],
+["DÚVIDA","Quais são as características da dúvida cartesiana?","Voluntária, metódica, teórica e hiperbólica. Alguns materiais juntam provisória e universal."],
+["DÚVIDA","O que quer dizer hiperbólica?","Exagerada. Basta uma razão improvável ou inventada para duvidar de uma crença."],
+["DÚVIDA","Porque é que a dúvida é teórica?","Só se usa na procura da verdade. Na vida prática não se pode esperar certezas para agir."],
+["DÚVIDA","Porque se diz que Descartes adota um ceticismo provisório?","Usa as armas dos céticos contra os próprios céticos, para chegar a uma certeza que derrube o ceticismo."],
+["ARGUMENTOS","O que põe em dúvida o argumento dos enganos sensoriais?","Crenças a posteriori, sobretudo sobre coisas pequenas ou afastadas. Não devo confiar em quem já me enganou."],
+["ARGUMENTOS","O que pretende o argumento do sonho?","Mostrar que não há sinais seguros para distinguir a vigília do sono. Assim põe em dúvida todas as crenças a posteriori, até a de ter corpo."],
+["ARGUMENTOS","Porque é que o sonho não basta para duvidar da matemática?","Porque mesmo a sonhar 2 + 3 = 5 e um quadrado tem quatro lados."],
+["ARGUMENTOS","O que pretende a hipótese do génio maligno?","Duvidar também das crenças a priori, como as matemáticas. Se um ser poderoso me pode enganar sempre, nada é certo."],
+["COGITO","O que é o cogito?","«Penso, logo existo» (cogito, ergo sum). É a primeira certeza de Descartes."],
+["COGITO","Porque é que o cogito é indubitável?","Para ser enganado tenho de pensar, e para pensar tenho de existir. Negá-lo é uma contradição pragmática. Nem o génio maligno o pode tornar falso."],
+["COGITO","Porque é que o cogito é uma crença básica?","É autoevidente. Percebe-se por intuição, sem precisar de outra crença que o justifique."],
+["COGITO","O que é uma ideia clara e distinta?","Clara quando se mostra à razão sem possibilidade de erro. Distinta quando não se confunde com nenhuma outra ideia."],
+["COGITO","O que prova o cogito sobre mim?","Que sou uma coisa pensante (mente). Não prova que tenho corpo."],
+["IMPASSE","O que é o solipsismo?","A ideia de que só eu e os meus estados mentais são certos. Descartes fica assim depois do cogito."],
+["DEUS","Que critério de verdade adota Descartes?","A clareza e a distinção. É verdadeiro tudo o que concebo clara e distintamente."],
+["DEUS","Resume o argumento da marca.","Tenho a ideia de um ser perfeito. Sou imperfeito e a causa não pode ser inferior ao efeito. Logo, só Deus a podia pôr em mim. Logo, Deus existe."],
+["DEUS","Porquê o nome «argumento da marca»?","Porque Deus deixou em nós a ideia de si próprio, como um artista deixa a sua assinatura na obra."],
+["DEUS","Qual é a função de Deus no sistema de Descartes?","Afastar a hipótese do génio maligno e garantir a verdade das ideias claras e distintas."],
+["DEUS","Porque é que Deus não engana?","Enganar é sinal de imperfeição, malícia ou fraqueza. Um ser perfeito não engana."],
+["DEUS","Que crenças são recuperadas depois de provar Deus?","As matemáticas e outras crenças a priori, a existência do corpo e do mundo exterior."],
+["OBJEÇÕES","Em que consiste a objeção da incoerência?","Com o génio maligno ainda ativo, Descartes não podia confiar nas ideias que usa para provar Deus. Hume diz que a dúvida cartesiana seria incurável."],
+["OBJEÇÕES","Em que consiste o círculo cartesiano?","Arnauld acusa Descartes de usar a clareza e distinção para provar Deus e usar Deus para garantir a clareza e distinção."],
+["IDEIAS","O que são ideias inatas?","Ideias que nascem connosco, não vêm da experiência. Exemplos, Deus e as ideias matemáticas."],
+["IDEIAS","O que são ideias adventícias?","Ideias que vêm da experiência, das sensações. Exemplos, flor e automóvel."],
+["IDEIAS","O que são ideias factícias?","Ideias criadas pela imaginação a partir de outras. Exemplos, unicórnio e sereia."]];
+let ci=0;
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const keys=cards.map(c=>c[1]);
+let mastered=store.get('descartesMastered',[]);if(!Array.isArray(mastered))mastered=[];mastered=mastered.filter(k=>typeof k==='string'&&keys.includes(k));
+function isM(){return mastered.includes(cards[ci][1])}
+function stats(){const n=mastered.length;document.getElementById('stats').textContent=n+' de '+cards.length+' cartões dominados · Progresso guardado neste dispositivo';document.getElementById('progress').style.width=(n/cards.length*100)+'%';document.getElementById('progressText').textContent=n+' de '+cards.length+' cartões dominados.'}
+function renderCard(){const c=cards[ci];flashCat.textContent=c[0];flashQ.textContent=c[1];flashA.textContent=c[2];flashA.classList.add('hide');flashNum.textContent='Cartão '+(ci+1)+' de '+cards.length;master.textContent=isM()?'Desmarcar ✓':'Domino ✓';reveal.classList.remove('hide')}
+reveal.onclick=()=>{flashA.classList.remove('hide');reveal.classList.add('hide')};
+master.onclick=()=>{const k=cards[ci][1];if(isM()){mastered=mastered.filter(x=>x!==k);store.set('descartesMastered',mastered);stats();renderCard()}else{mastered.push(k);store.set('descartesMastered',mastered);stats();ci=(ci+1)%cards.length;renderCard()}};
+next.onclick=()=>{ci=(ci+1)%cards.length;renderCard()};prev.onclick=()=>{ci=(ci-1+cards.length)%cards.length;renderCard()};renderCard();stats();
+
+const qs=[
+{k:'vf',q:'Descartes ignora o ceticismo por o achar demasiado estranho.',a:false,exp:'Descartes leva o ceticismo a sério e tenta refutá-lo com argumentos melhores.'},
+{k:'vf',q:'Para Descartes, a razão é a fonte principal do conhecimento.',a:true,exp:'É isso que faz dele um racionalista.'},
+{k:'vf',q:'A dúvida cartesiana é uma dúvida psicológica, sofrida.',a:false,exp:'É voluntária. É exercida como método, não sofrida.'},
+{k:'vf',q:'A dúvida cartesiana deve ser aplicada também na vida prática.',a:false,exp:'É teórica. Só faz sentido na procura da verdade.'},
+{k:'vf',q:'O argumento do sonho permite duvidar das verdades matemáticas.',a:false,exp:'Mesmo a sonhar, 2 + 3 = 5. Para a matemática é preciso o génio maligno.'},
+{k:'vf',q:'A hipótese do génio maligno permite duvidar das crenças a priori.',a:true,exp:'É a hipótese mais radical. Atinge as crenças a posteriori e a priori.'},
+{k:'vf',q:'O cogito prova que Descartes tem um corpo.',a:false,exp:'Prova só que é uma coisa pensante. O génio ainda o podia enganar sobre o corpo.'},
+{k:'vf',q:'O cogito é uma crença a priori.',a:true,exp:'Não vem dos sentidos. Vem da reflexão da razão sobre si mesma.'},
+{k:'vf',q:'Depois do cogito, Descartes fica numa posição solipsista.',a:true,exp:'Só tem a certeza de que existe como ser pensante.'},
+{k:'vf',q:'O argumento da marca é um argumento a posteriori.',a:false,exp:'É a priori. Parte de uma ideia que está na mente, a ideia de perfeito.'},
+{k:'vf',q:'A ideia de Deus é, para Descartes, uma ideia adventícia.',a:false,exp:'É inata. Não vem da experiência.'},
+{k:'vf',q:'Depois de provar que Deus existe, Descartes continua a admitir o génio maligno.',a:false,exp:'Um Deus perfeito não engana, por isso a hipótese do génio cai.'},
+{k:'mc',q:'Ao aplicar o método da dúvida, Descartes pretende',o:['descobrir alguma crença que seja indubitável.','provar que existe um ser perfeito e não enganador.','mostrar que não há realmente um génio maligno.','concluir que as ideias claras e distintas são infalíveis.'],exp:'Exame 2024, 1.ª fase. A dúvida é o meio para encontrar uma crença indubitável.'},
+{k:'mc',q:'Ao imaginar o génio maligno, Descartes acaba por concluir que',o:['esse génio não o poderia enganar acerca da sua existência enquanto pensasse.','a hipótese é improvável e por isso não tem força.','só Deus o poderia enganar.','o génio garante a verdade das ideias claras e distintas.'],exp:'Exame 2022, 2.ª fase. É o caminho para o cogito.'},
+{k:'mc',q:'Qual das crenças seguintes é a MENOS resistente à dúvida?',o:['Sou um mamífero.','Um octógono tem oito lados.','Sou um ser pensante.','Existo.'],exp:'«Sou um mamífero» depende do corpo e dos sentidos. Cai logo com o argumento do sonho.'},
+{k:'mc',q:'Uma crença básica é uma crença que',o:['se justifica a si própria.','é justificada por muitas outras crenças.','vem dos sentidos.','é provavelmente verdadeira.'],exp:'Por ser evidente, não precisa de outra crença. Trava a regressão infinita.'},
+{k:'mc',q:'Que característica da dúvida permite usar uma hipótese tão improvável como o génio maligno?',o:['Hiperbólica','Teórica','Voluntária','Prática'],exp:'Por ser exagerada, basta a mera possibilidade.'},
+{k:'mc',q:'Dizer «penso, mas não existo» é',o:['uma contradição pragmática.','uma verdade a posteriori.','um argumento cético válido.','uma ideia factícia.'],exp:'O próprio ato de o dizer mostra que é falso, como gritar «não estou a gritar».'},
+{k:'mc',q:'Qual é o princípio central do argumento da marca?',o:['A causa não pode ser inferior ao efeito.','Os sentidos por vezes enganam-nos.','Penso, logo existo.','Toda a ideia vem da experiência.'],exp:'Um ser imperfeito não pode causar a ideia de um ser perfeito.'},
+{k:'mc',q:'A ideia de sereia é',o:['factícia','inata','adventícia','clara e distinta'],exp:'É inventada pela imaginação, juntando ideias de mulher e de peixe.'},
+{k:'mc',q:'A ideia de automóvel é',o:['adventícia','inata','factícia','a priori'],exp:'Vem da experiência, dos sentidos.'},
+{k:'mc',q:'Quem acusou Descartes de raciocinar em círculo?',o:['Antoine Arnauld','David Hume','Arquimedes','Botticelli'],exp:'É a objeção do círculo cartesiano.'},
+{k:'vfj',q:'A dúvida cartesiana é destrutiva e não construtiva.',a:false,o:['É um meio para chegar a uma certeza que sirva de fundamento ao conhecimento.','Descartes quer mostrar que nada pode ser conhecido.','A dúvida só serve para criticar os céticos.'],exp:'Exercita III do manual. A dúvida é metódica, um caminho para a certeza.'},
+{k:'vfj',q:'O cogito é indubitável.',a:true,o:['Para duvidar ou ser enganado é preciso pensar, e para pensar é preciso existir.','Foi confirmado pela experiência dos sentidos.','Deus garante que é verdadeiro.'],exp:'O cogito é certo antes de provar Deus.'},
+{k:'vfj',q:'Do ponto de vista cartesiano, Deus garante a verdade das ideias claras e distintas.',a:true,o:['Deus é perfeito e não engana, por isso o que concebemos clara e distintamente é verdadeiro.','Deus cria as ideias claras e distintas pela imaginação.','Deus é uma ideia adventícia.'],exp:'Exercita III do manual. É uma das duas funções de Deus.'}];
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+const KIND={vf:'Verdadeiro ou falso',mc:'Escolha múltipla',vfj:'Verdadeiro ou falso com justificação'};
+let order=[],qi=0,score=0,wrong=[],done=false,stage=0;
+function draw(q,opts,title){quizArea.innerHTML='';const h=document.createElement('h3');h.textContent=title;quizArea.appendChild(h);const box=document.createElement('div');opts.forEach(o=>{const b=document.createElement('button');b.type='button';b.className='option';b.textContent=o.t;b.onclick=()=>pick(q,o,box);box.appendChild(b)});quizArea.appendChild(box);const fb=document.createElement('div');fb.id='fb';fb.setAttribute('aria-live','polite');quizArea.appendChild(fb)}
+function renderQuiz(){done=false;stage=0;const q=order[qi];qcount.textContent='Pergunta '+(qi+1)+' de '+order.length+' · '+KIND[q.k];const opts=q.k==='mc'?shuffle(q.o.map((t,i)=>({t,ok:i===0}))):[{t:'Verdadeiro',ok:q.a===true},{t:'Falso',ok:q.a===false}];draw(q,opts,q.q)}
+function mark(box,o){box.querySelectorAll('.option').forEach(b=>{b.disabled=true;if(b.textContent===o.t)b.classList.add(o.ok?'correct':'wrong')})}
+function finish(q,ok,extra){done=true;const fb=document.getElementById('fb');if(ok)score++;else wrong.push(q);fb.innerHTML='<div class="feedback '+(ok?'good':'bad')+'"><b>'+(ok?'Correto!':'Ainda não.')+'</b> '+esc(extra||'')+' '+esc(q.exp)+'</div>';const n=document.createElement('button');n.type='button';n.id='qnext';n.textContent=qi===order.length-1?'Ver resultado':'Seguinte';n.onclick=nextQ;quizArea.appendChild(n)}
+function pick(q,o,box){if(done)return;const btns=[...box.querySelectorAll('.option')];mark(box,o);if(!o.ok){const right=q.k==='mc'?q.o[0]:(stage===1?q.o[0]:(q.a?'Verdadeiro':'Falso'));btns.forEach(b=>{if(b.textContent===right)b.classList.add('correct')})}
+ if(q.k==='vfj'&&stage===0){if(!o.ok){finish(q,false,'Resposta correta: '+(q.a?'Verdadeiro.':'Falso.'));return}stage=1;draw(q,shuffle(q.o.map((t,i)=>({t,ok:i===0}))),'Justifica a tua resposta: «'+q.q+'»');return}
+ if(q.k==='vfj'){finish(q,o.ok,o.ok?'':'Justificação correta: '+q.o[0]);return}
+ if(q.k==='vf'){finish(q,o.ok,'Resposta: '+(q.a?'Verdadeiro.':'Falso.'));return}
+ finish(q,o.ok,o.ok?'':'Resposta: '+q.o[0])}
+function nextQ(){qi++;if(qi===order.length){const p=Math.round(score/order.length*100);let h='<h3>Resultado: '+score+'/'+order.length+' ('+p+'%)</h3><p>'+(p>=80?'Muito bem! Avança para a questão aula.':p>=60?'Bom começo. Revê os erros e repete.':'Revê a secção Aprender e tenta outra vez.')+'</p>';if(wrong.length)h+='<p><b>Para rever:</b></p><ul class="review">'+wrong.map(q=>'<li><b>'+esc(q.q)+'</b> '+esc(q.exp)+'</li>').join('')+'</ul>';const best=Math.max(store.get('descartesBest',0)||0,p);store.set('descartesBest',best);h+='<p class="muted">Melhor resultado neste dispositivo: '+best+'%.</p><button type="button" onclick="restartQuiz()">Repetir quiz</button>';quizArea.innerHTML=h;qcount.textContent='Quiz concluído'}else renderQuiz()}
+window.nextQ=nextQ;window.restartQuiz=()=>{order=shuffle(qs);qi=0;score=0;wrong=[];renderQuiz()};window.restartQuiz();
+
+const MA=[
+["Exercita II","1. Porque é que Descartes tentou identificar uma crença básica e indubitável?","Para responder ao ceticismo e dar um fundamento seguro ao conhecimento. Uma crença indubitável resiste ao argumento dos enganos sensoriais, porque nenhum engano a torna falsa. Uma crença básica trava a regressão infinita da justificação, porque se justifica a si própria e pode justificar as outras."],
+["Exercita II","2. Por que razão a dúvida cartesiana se denomina metódica?","Porque é um método, um meio para chegar à certeza. Descartes não duvida por duvidar, como o cético. Duvida de tudo o que tem a mínima dúvida para encontrar uma crença que resista a qualquer dúvida."],
+["Exercita II","3. O que pretende Descartes com o chamado argumento do sonho?","Mostrar que não há sinais seguros para distinguir a vigília do sono. Se os sonhos podem ser iguais às perceções de quando estou acordado, não posso garantir que não estou a sonhar agora. Assim põe em dúvida todas as crenças a posteriori, mesmo a de ter corpo e a de o mundo existir."],
+["Exercita II","4. O que pretende Descartes com a hipótese do génio maligno?","Levar a dúvida ao máximo e duvidar também das crenças a priori, como as matemáticas, que resistiam ao sonho. Se for possível existir um ser poderoso e malévolo que me engana sempre, até 2 + 3 = 5 pode ser falso. Como a dúvida é hiperbólica, basta essa possibilidade."],
+["Exercita II","5. Mostra por que razão Descartes considera que o cogito é uma crença A. indubitável e B. básica.","A. É indubitável porque, para duvidar ou ser enganado, tenho de pensar, e para pensar tenho de existir. Negá-lo seria uma contradição pragmática. Nem o génio maligno o pode tornar falso. B. É básica porque é autoevidente. Percebe-se por intuição, de forma imediata, sem precisar de outra crença que a justifique."],
+["Exercita II","6. Qual das ideias seria menos resistente à dúvida? A. Um octógono tem oito lados. B. Sou um ser pensante. C. Sou um mamífero. D. Existo.","C. «Sou um mamífero» depende do corpo e dos sentidos, por isso cai logo com o argumento do sonho. A é a priori e só cai com o génio maligno. B e D resistem a tudo, porque correspondem ao cogito."],
+["Exercita II","7. «Sinto frio, logo existo.» Esta formulação exprime adequadamente o cogito cartesiano?","Não. Sentir frio é uma sensação ligada ao corpo e aos sentidos, que o sonho e o génio maligno podem pôr em dúvida. Só o pensamento é indubitável. Seria adequado dizer «penso que sinto frio, logo existo», porque aí o ponto de partida é um pensamento."],
+["Exercita III","1. O que é uma ideia clara e distinta?","Uma ideia é clara quando se mostra à razão de forma evidente, sem a mínima possibilidade de erro. É distinta quando está bem separada das outras e não se confunde com nenhuma. O cogito é o modelo de ideia clara e distinta."],
+["Exercita III","2. Seria coerente Descartes, logo após o cogito, garantir a verdade das afirmações matemáticas? Porquê?","Não. Nesse momento o génio maligno ainda não foi afastado. Ele não me pode enganar quanto à minha existência enquanto penso, mas pode enganar-me sobre 2 + 2 = 4, mesmo que pareça claro e distinto. Só depois de provar que Deus existe e não engana é que Descartes pode recuperar a matemática."],
+["Exercita III","3. Como é que Descartes, partindo da ideia de Deus, conseguiu concluir que este existe?","Pelo argumento da marca. Tenho em mim a ideia de um ser perfeito. Eu sou imperfeito, porque duvido. A causa não pode ser inferior ao efeito, por isso um ser imperfeito não pode criar a ideia de perfeito. Logo, essa ideia foi posta em mim por um ser perfeito, que é Deus. Logo, Deus existe."],
+["Exercita III","4. Porquê o nome «argumento da marca»?","Porque Deus, ao criar-nos, deixou em nós a ideia de si próprio, como um artista deixa a sua assinatura nas obras. A ideia de Deus é a marca do criador na criatura."],
+["Exercita III","5. O que significa «solipsismo»?","É a ideia de que só eu e os meus estados mentais são certos. Depois do cogito, Descartes fica nessa situação, um eu solitário sem mais nenhuma certeza, porque ainda pode ser enganado sobre tudo o resto."],
+["Exercita III","6. Dá dois exemplos de ideias suspensas pela dúvida metódica cuja crença pode ser recuperada.","As verdades matemáticas, como 2 + 4 = 6, e a existência do mundo exterior, como haver um planeta que gira à volta do Sol."],
+["Exercita III","7. Dá mais dois exemplos de ideias que podem ser recuperadas.","A existência do meu próprio corpo e a existência de outras pessoas. Também a confiança nos sentidos, quando a razão confirma o que eles dizem."],
+["Exercita III","8. Mostra o que Descartes quer dizer com «Se ignorarmos Deus, não teremos um conhecimento certo de nenhuma coisa.»","Sem Deus, o génio maligno continua possível e nenhuma ideia além do cogito fica garantida. Só Deus, que é perfeito e não engana, garante que as ideias claras e distintas são verdadeiras. Por isso, todo o conhecimento certo depende do conhecimento de Deus."],
+["Exercita III","9. Esclarece o sentido da objeção de Hume a Descartes.","Hume diz que não há nenhum princípio, como o cogito, com privilégio sobre os outros. E mesmo que houvesse, não poderíamos avançar a partir dele sem usar as faculdades de que já desconfiámos. Se a dúvida cartesiana fosse possível, seria incurável. Descartes duvidou tanto que não podia sair da dúvida de forma coerente."],
+["Exercita III","10. Esclarece o sentido da objeção de Arnauld, que acusa Descartes de «raciocinar em círculo».","Descartes prova que Deus existe porque a ideia de Deus é clara e distinta. Mas diz que as ideias claras e distintas são verdadeiras porque Deus existe e não engana. Assim usa cada uma para justificar a outra. Pressupõe aquilo que quer provar, o que é um raciocínio circular."],
+["Exercita III","11. Verdadeiro ou falso. A. A dúvida cartesiana é destrutiva. B. Ao descobrir o cogito, Descartes ficou numa posição solipsista. C. O argumento da marca é a posteriori. D. Deus garante a verdade das ideias claras e distintas. E. Depois de afirmar Deus, Descartes continuou a admitir o génio maligno.","A. Falso, é construtiva, um meio para a certeza. B. Verdadeiro. C. Falso, é a priori, parte de uma ideia da mente. D. Verdadeiro. E. Falso, um Deus perfeito não engana e a hipótese cai."]];
+document.getElementById('maList').innerHTML=MA.map(x=>'<details class="card"><summary><span class="tag">'+x[0]+'</span> <b>'+esc(x[1])+'</b></summary><p>'+esc(x[2])+'</p></details>').join('');
+
+const EX=[
+["Exame 2024, 1.ª fase (escolha múltipla)","Ao aplicar o método da dúvida, Descartes pretende (A) concluir que as ideias claras e distintas são infalíveis. (B) descobrir alguma crença que seja indubitável. (C) mostrar que não há realmente um génio maligno. (D) provar que existe um ser perfeito e não enganador.","(B). A dúvida é o meio. O objetivo é encontrar pelo menos uma crença indubitável que sirva de fundamento. Provar Deus e afastar o génio vêm depois."],
+["Exame 2022, 2.ª fase (escolha múltipla)","Ao aplicar a dúvida metódica, Descartes chega a imaginar um génio maligno que o engana, mas conclui que (A) a hipótese é improvável e não tem poder persuasivo. (B) só Deus o poderia enganar. (C) esse génio não o poderia enganar acerca da sua própria existência enquanto pensasse que era alguma coisa. (D) esse génio não poderia garantir a veracidade das ideias claras e distintas.","(C). É o caminho para o cogito. Para ser enganado tem de pensar, e para pensar tem de existir."],
+["Exame 2022, 1.ª fase (resposta restrita)","De acordo com o texto, deu muito trabalho a Descartes chegar ao cogito. Explique como Descartes lá chegou.","Descartes submeteu todas as suas crenças à dúvida metódica, pondo de lado como falsa qualquer crença com a mínima dúvida. Primeiro, com os enganos dos sentidos, duvidou das crenças a posteriori. Depois, com o argumento do sonho, de todas as crenças sobre o mundo e o corpo. Por fim, com a hipótese do génio maligno, duvidou até das crenças a priori. Percebeu então que, mesmo enganado em tudo, para ser enganado tinha de pensar, e para pensar tinha de existir. Assim chegou a «penso, logo existo»."],
+["Exame 2022, 1.ª fase (resposta extensa)","Concorda que o cogito é o passo fundamental para responder ao problema do conhecimento? Apresente a sua posição e argumente a favor dela.","Exemplo a favor. Sim. O cogito é indubitável e, sendo a primeira certeza, é um fundamento seguro. A partir dele Descartes encontra o critério da clareza e distinção e chega a outras verdades. Objeção possível, o cogito só prova que existe um ser pensante e sozinho não justifica mais nada. Resposta, sem uma primeira certeza nenhuma outra seria possível, por isso continua a ser o passo fundamental, mesmo que não seja o único."],
+["Exame 2014, 2.ª fase (resposta restrita)","Explique o argumento de Descartes para duvidar dos seus raciocínios matemáticos mais evidentes.","É o argumento do génio maligno. As verdades matemáticas resistem aos enganos dos sentidos e ao sonho, porque mesmo a sonhar 2 + 3 = 5. Descartes imagina então que pode existir um ser todo-poderoso e malévolo que o engana sempre, até naquilo que parece mais evidente. Se isso for possível, as crenças matemáticas podem ser falsas. Como a dúvida é hiperbólica, basta a mera possibilidade para as pôr de lado."],
+["Exame 2024, 2.ª fase (adaptada para resposta aberta)","Segundo Descartes, o que faz do cogito uma crença que pode ser tomada como fundamento de todo o conhecimento?","O cogito é indubitável, resiste até ao génio maligno, e é básico, justifica-se a si próprio por ser autoevidente. É apreendido de forma clara e distinta pela razão, a priori. Por isso pode servir de alicerce às outras crenças."],
+["Exame 2019, 1.ª fase (adaptada)","Imagine que submetia as suas opiniões ao teste da dúvida de Descartes. Que tipo de opinião seria a mais resistente à suspeita de falsidade?","A opinião de que existo enquanto penso. As opiniões a posteriori caem com os sentidos e o sonho. As matemáticas caem com o génio maligno. Só a minha existência como ser pensante resiste a tudo."]];
+document.getElementById('exList').innerHTML=EX.map(x=>'<details class="card"><summary><span class="tag">'+x[0]+'</span> <b>'+esc(x[1])+'</b></summary><p>'+esc(x[2])+'</p></details>').join('');
+
+const ordCorrect=['Dúvida sobre os sentidos','Argumento do sonho','Hipótese do génio maligno','Cogito','Argumento da marca','Fim do génio maligno','Recuperação do mundo exterior'];
+let ord=['Cogito','Argumento do sonho','Recuperação do mundo exterior','Dúvida sobre os sentidos','Fim do génio maligno','Hipótese do génio maligno','Argumento da marca'];
+function drawOrd(){const L=document.getElementById('ordList');L.innerHTML='';ord.forEach((t,i)=>{const li=document.createElement('li');li.append(t+' ');[['↑',-1,'Subir'],['↓',1,'Descer']].forEach(([sy,d,lb])=>{const b=document.createElement('button');b.type='button';b.className='secondary';b.textContent=sy;b.setAttribute('aria-label',lb+': '+t);b.disabled=i+d<0||i+d>=ord.length;b.onclick=()=>{[ord[i],ord[i+d]]=[ord[i+d],ord[i]];document.getElementById('ordFb').textContent='';drawOrd()};li.append(b,' ')});L.append(li)})}
+document.getElementById('ordCheck').onclick=()=>{const n=ord.filter((t,i)=>t===ordCorrect[i]).length;document.getElementById('ordFb').textContent=n===ordCorrect.length?'Certo! É esta a ordem do raciocínio de Descartes.':n+' de '+ordCorrect.length+' no sítio certo. Tenta outra vez.'};drawOrd();
+
+function mkSel(list,lab){const sel=document.createElement('select');sel.setAttribute('aria-label',lab);const o0=document.createElement('option');o0.value='';o0.textContent=lab+'…';sel.append(o0);list.forEach((t,i)=>{const o=document.createElement('option');o.value=i;o.textContent=t;sel.append(o)});return sel}
+function drill(target,list,lab,items){const box=document.getElementById(target);items.forEach(x=>{const d=document.createElement('div');d.className='drill';const p=document.createElement('blockquote');p.textContent=x[0];const sel=mkSel(list,lab);const r=document.createElement('div');r.className='res';r.setAttribute('aria-live','polite');sel.onchange=()=>{if(sel.value===''){r.className='res';r.textContent='';return}const ok=list[sel.value]===x[1];r.className='res feedback '+(ok?'good':'bad');r.textContent=(ok?'Correto! ':'Não. Resposta: '+x[1]+'. ')+x[2]};d.append(p,sel,r);box.append(d)})}
+drill('ideaList',['Inata','Adventícia','Factícia'],'Tipo de ideia',[
+["A ideia de Deus","Inata","Não vem da experiência. Descartes diz que nasceu com ele, como a ideia de si próprio."],
+["A ideia de triângulo","Inata","As ideias matemáticas são inatas. A razão já as tem."],
+["A ideia de verdade","Inata","Descartes diz que compreende o que é verdade pela sua própria natureza."],
+["A ideia de flor","Adventícia","Vem dos sentidos, da experiência."],
+["O calor do fogo que sinto","Adventícia","É uma sensação que vem de fora de mim."],
+["A ideia de automóvel","Adventícia","Vem da experiência."],
+["A ideia de unicórnio","Factícia","A imaginação junta cavalo e corno."],
+["A ideia de sereia","Factícia","A imaginação junta mulher e peixe."],
+["A ideia de lobisomem","Factícia","É forjada pela imaginação a partir de outras ideias."]]);
+drill('argList',['Enganos sensoriais','Sonho','Génio maligno','Nenhum, resiste a todos'],'Argumento',[
+["«Aquela torre ao longe é redonda.»","Enganos sensoriais","É uma perceção de uma coisa afastada. Os sentidos enganam-se nestes casos."],
+["«Estou sentado junto à lareira com este papel nas mãos.»","Sonho","É uma perceção próxima e clara, mas podia estar a sonhá-la."],
+["«O mundo exterior existe.»","Sonho","Se toda a vida fosse um sonho, não podia garantir que o mundo existe."],
+["«2 + 3 = 5»","Génio maligno","Resiste ao sonho. Só um enganador todo-poderoso a põe em dúvida."],
+["«Um quadrado tem quatro lados.»","Génio maligno","É a priori, só o génio maligno a atinge."],
+["«Existo enquanto penso.»","Nenhum, resiste a todos","É o cogito. Para ser enganado tenho de pensar e existir."]]);
+drill('cogList',['Exprime o cogito','Não exprime o cogito'],'Resposta',[
+["«Penso, logo existo.»","Exprime o cogito","É a formulação de Descartes."],
+["«Duvido, logo existo.»","Exprime o cogito","Duvidar é uma forma de pensar."],
+["«Penso que ando, logo existo.»","Exprime o cogito","O ponto de partida é um pensamento, mesmo que eu não esteja a andar."],
+["«Sinto frio, logo existo.»","Não exprime o cogito","Sentir frio depende do corpo e dos sentidos, que podem ser postos em dúvida."],
+["«Sou rico, logo existo.»","Não exprime o cogito","Ser rico não é indubitável e não é um pensamento."],
+["«Ando, logo existo.»","Não exprime o cogito","Andar envolve o corpo. Posso estar a sonhar que ando."]]);
+
+function wc(t){t=t.trim();return t?t.split(/\s+/).length:0}
+essay3.oninput=()=>{words3.textContent=wc(essay3.value)+' palavras'};
+document.getElementById('openAll').onclick=()=>document.querySelectorAll('#manual details.sec').forEach(d=>d.open=true);
+document.getElementById('closeAll').onclick=()=>document.querySelectorAll('#manual details.sec').forEach(d=>d.open=false);
+document.querySelectorAll('.subnav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.subnav button').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('#treino .sub').forEach(x=>x.classList.toggle('active',x.id==='sub-'+b.dataset.sub))});
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>go(b.dataset.tab));
+window.go=(id,push=true)=>{document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.nav button').forEach(b=>{const on=b.dataset.tab===id;b.classList.toggle('active',on);if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});if(push&&location.hash!=='#'+id){try{history.pushState(null,'','#'+id)}catch(e){}}window.scrollTo({top:0,behavior:'smooth'})};
+function fromHash(){const id=location.hash.slice(1),el=id&&document.getElementById(id);return el&&el.classList.contains('panel')?id:'inicio'}
+window.addEventListener('popstate',()=>go(fromHash(),false));
+if(location.hash)go(fromHash(),false);
+</script>
+</body></html>
